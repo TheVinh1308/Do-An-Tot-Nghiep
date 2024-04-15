@@ -31,7 +31,7 @@ const Header = () => {
                         </li>{/* End Search Icon*/}
                         <li className="nav-item dropdown">
                             <a className="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                                <FontAwesomeIcon icon={faBell} />
+                                <i class="bi bi-bell"></i>
                                 <span className="badge bg-primary badge-number">4</span>
                             </a>{/* End Notification Icon */}
                             <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">

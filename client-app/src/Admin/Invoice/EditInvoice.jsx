@@ -80,8 +80,8 @@ const EditInvoice = () => {
 
 
                 <div className="text-center">
-                    <button type="submit" className="btn btn-success mx-2">Thêm</button>
-                    <button type="reset" className="btn btn-secondary mx-2">Reset</button>
+                    <button type="submit" className="btn btn-success mx-2">Cập nhật</button>
+                    <button type="reset" className="btn btn-secondary mx-2">Làm mới</button>
                 </div>
             </form>
 

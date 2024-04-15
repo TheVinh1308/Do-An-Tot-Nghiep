@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif !important;
   background: #f6f9ff;
   color: #444444;
 }
@@ -87,12 +87,12 @@ body {
 
 a {
   color: #4154f1;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:hover {
   color: #717ff5;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 /* MODPHONE */
@@ -1106,6 +1106,115 @@ h6 {
   white-space: nowrap;
   color: #666;
 }
+
+
+/*  REVIEW */
+
+.list-review,
+.preview {
+  box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+}
+
+.preview {
+  padding-top: 20px;
+}
+
+.list-review li {
+  list-style: none;
+
+  padding: 12px 0;
+}
+
+.thumbnail-review img {
+  display: block;
+  margin: 0 auto;
+  height: 150px;
+  width: auto;
+}
+
+.rate-item {
+  height: 30px;
+}
+
+.img-review {
+  display: flex;
+}
+
+.img-review img {
+  height: 80px;
+  width: auto;
+}
+
+.user-review {
+  font-weight: bold;
+  margin: 0;
+}
+
+.date-review {
+  font-weight: lighter;
+  font-size: small;
+  font-style: italic;
+  margin: 0;
+}
+
+.review-item {
+  margin-top: 10px !important;
+}
+
+/* END REVIEW */
+
+
+/* COMMENT */
+.feature-item {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.feature-item i {
+  padding: 0 20px;
+}
+
+
+
+@keyframes slideDown {
+  0% {
+    top: -20px;
+    /* Start position above the container */
+  }
+
+  100% {
+    top: 0px;
+    /* End position at the top of the container */
+  }
+}
+
+
+.reply-comment {
+  margin-top: 10px;
+  position: relative;
+  /* Ensure the animation is relative to its parent */
+  animation-name: slideDown;
+  animation-duration: 1s;
+
+}
+
+/* Áp dụng animation vào phần tử */
+
+
+
+.input-comment {
+  width: 80%;
+  border-radius: 10px;
+}
+
+.btn-comment {
+  margin-left: 10px;
+  font-size: small;
+  padding: 2px 10px;
+  border-radius: 5px;
+}
+
+/* END COMMENT */
 
 /*--------------------------------------------------------------
 # Profie Page

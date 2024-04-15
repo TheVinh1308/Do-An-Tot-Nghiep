@@ -8,7 +8,7 @@ const Sidebar = () => {
             <aside id="sidebar" className="sidebar">
                 <ul className="sidebar-nav" id="sidebar-nav">
                     <li className="nav-item">
-                        <Link className="nav-link " to="/">
+                        <Link className="nav-link " to="/admin">
                             <i class="bi bi-columns-gap"></i>
                             <span>Trang chủ</span>
                         </Link>
@@ -56,11 +56,7 @@ const Sidebar = () => {
                             <Link to="/admin/Promotion" >
                                 <i className="bi bi-circle" /><span>Quản lí khuyến mãi</span>
                             </Link>
-                            <li>
-                                <a href="tables-data.html">
-                                    <i className="bi bi-circle" /><span>Áp dụng khuyến mãi</span>
-                                </a>
-                            </li>
+
                         </ul>
                     </li>{/* End Tables Nav */}
                     <li className="nav-item">
@@ -69,14 +65,14 @@ const Sidebar = () => {
                         </a>
                         <ul id="charts-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
                             <li>
-                                <a href="charts-chartjs.html">
+                                <Link to="/admin/Review" >
                                     <i className="bi bi-circle" /><span>Đánh giá</span>
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="charts-apexcharts.html">
+                                <Link to="/admin/Comment" >
                                     <i className="bi bi-circle" /><span>Bình luận</span>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </li>{/* End Charts Nav */}
@@ -104,20 +100,20 @@ const Sidebar = () => {
                     </li>{/* End Icons Nav */}
                     <li className="nav-heading">Về chúng tôi</li>
                     <li className="nav-item">
-                        <Link className="nav-link collapsed" to="/Profile" >
+                        <Link className="nav-link collapsed" to="/admin/Profile" >
                             <i className="bi bi-question-circle" />
                             <span>Profile</span>
                         </Link>
                     </li>{/* End Profile Page Nav */}
                     <li className="nav-item">
-                        <Link className="nav-link collapsed" to="/Faq" >
+                        <Link className="nav-link collapsed" to="/admin/Faq" >
                             <i className="bi bi-question-circle" />
                             <span>F.A.Q</span>
                         </Link>
 
                     </li>{/* End F.A.Q Page Nav */}
                     <li className="nav-item">
-                        <Link className="nav-link collapsed" to="/Contact" >
+                        <Link className="nav-link collapsed" to="/admin/Contact" >
                             <i className="bi bi-envelope" />
                             <span>Contact</span>
                         </Link>

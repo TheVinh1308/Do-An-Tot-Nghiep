@@ -180,7 +180,7 @@ const Invoice = () => {
             {/* ADD MODPHONE */}
             <Modal size="lg" show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title className="add-title">Thêm điện thoại</Modal.Title>
+                    <Modal.Title className="add-title">Cập nhật hoá đơn</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <EditInvoice />

@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import AddModProduct from "./AddModProduct";
 import "datatables.net-bs5";
 import $ from "jquery"
+import EditModPhone from "./EditModProduct";
 const ModProduct = () => {
     // SHOW THÊM DÒNG ĐIỆN THOẠI
     const [show, setShow] = useState(false);
@@ -172,7 +173,7 @@ const ModProduct = () => {
                     <Modal.Title className="add-title">Cập nhật dòng điện thoại</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <AddModProduct />
+                    <EditModPhone />
                 </Modal.Body>
 
             </Modal>

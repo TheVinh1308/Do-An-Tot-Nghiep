@@ -35,17 +35,27 @@ const FAQ = () => {
                             {/* F.A.Q Group 1 */}
                             <div className="card">
                                 <div className="card-body">
-                                    <h5 className="card-title">Laborum dolorem quam porro</h5>
+                                    <h5 className="card-title">Những điều nên biết khi mua trả góp</h5>
                                     <div className="accordion accordion-flush" id="faq-group-1">
                                         <div className="accordion-item">
                                             <h2 className="accordion-header">
                                                 <button className="accordion-button collapsed" data-bs-target="#faqsOne-1" type="button" data-bs-toggle="collapse">
-                                                    Debitis adipisci eius?
+                                                    1. Điều kiện và giấy tờ gốc cần có
                                                 </button>
                                             </h2>
                                             <div id="faqsOne-1" className="accordion-collapse collapse" data-bs-parent="#faq-group-1">
                                                 <div className="accordion-body">
-                                                    Ut quasi odit odio totam accusamus vero eius. Nostrum asperiores voluptatem eos nulla ab dolores est asperiores iure. Quo est quis praesentium aut maiores. Corrupti sed aut expedita fugit vero dolorem. Nemo rerum sapiente. A quaerat dignissimos.
+                                                    <ul>
+                                                        <li>
+                                                            Tuổi từ 18 – 60. Riêng khách hàng thành viên ACS thì đến 65 tuổi (tính theo ngày tháng năm sinh trên chứng minh nhân dân/Căn cước công dân)
+                                                        </li>
+                                                        <li>
+                                                            Chứng từ đơn giản chỉ cần có chứng minh nhân dân (15 năm tính từ ngày cấp)/ căn cước công dân còn thời hạn sử dụng.
+                                                        </li>
+                                                        <li>
+                                                            Công ty tài chính chỉ kiểm tra xong và gửi lại không giữ bất cứ giấy tờ gì của khách hàng.
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>

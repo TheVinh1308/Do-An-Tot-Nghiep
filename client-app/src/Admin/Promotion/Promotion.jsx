@@ -107,7 +107,7 @@ const Promotion = () => {
             {/* THÊM KHUYẾN MÃI */}
             <Modal size="lg" show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title className="add-title">Thêm điện thoại</Modal.Title>
+                    <Modal.Title className="add-title">Thêm Khuyến mãi</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <AddPromotion />
