@@ -28,7 +28,7 @@ namespace API_Server.Models
         public List<IFormFile> Files { get; set; }
         public string Fullname { get; set; }
 
-        public DateTime Voteday { get; set; }
+        public DateTime VoteDay { get; set; }
         public bool Status {  get; set; }
 
         public Vote()

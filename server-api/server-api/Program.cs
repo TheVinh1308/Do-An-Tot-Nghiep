@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using server_api.Data;
+using server_api.Interface;
 using server_api.Models;
+using server_api.Repository;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -53,6 +55,12 @@ builder.Services.AddCors(option =>
                .AllowAnyMethod();
     });
 });
+
+builder.Services.AddSingleton<IWebHostEnvironment>(builder.Environment);
+
+//config Repository
+builder.Services.AddScoped<IPhoneRepository, PhoneRepository>();
+builder.Services.AddScoped<IBrandRepository, BrandRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

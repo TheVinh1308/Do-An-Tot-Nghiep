@@ -20,9 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Repository\" />
     <Folder Include="wwwroot\Images\Baner\" />
+    <Folder Include="wwwroot\images\brands\" />
   </ItemGroup>
 
 </Project>
