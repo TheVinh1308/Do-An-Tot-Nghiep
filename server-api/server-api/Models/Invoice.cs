@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using server_api.Models;
 
 namespace API_Server.Models
 {
@@ -25,8 +26,8 @@ namespace API_Server.Models
         [DefaultValue(0)]
         public int Total { get; set; }
 
-        public int PaymentMethodId { get; set; }
-        public PaymentMethod PaymentMethod { get; set; }
+        //public int PaymentMethodId { get; set; }
+        //public PaymentMethod PaymentMethod { get; set; }
 
         [DefaultValue(true)]
         public bool Status { get; set; }

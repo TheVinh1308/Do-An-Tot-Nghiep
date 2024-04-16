@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-
+using System.ComponentModel;
+using server_api.Models;
 namespace API_Server.Models
 {
     public class Vote
@@ -8,7 +9,7 @@ namespace API_Server.Models
 
         public string UserId {  get; set; }
         [ForeignKey("UserId")]
-        public User User { get; set; }
+        public  User User{ get; set; }
 
         public int InvoiceId { get; set; }
 
