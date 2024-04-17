@@ -37,18 +37,24 @@ namespace server_api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddNewBrand([FromForm]Brand brand)
+        public async Task<IActionResult> AddNewBrand([FromForm] Brand brand)
         {
+            if (brand == null)
+            {
+                return BadRequest("Brand object is null");
+            }
+
             try
             {
-                var newBrand = await _brandRepository.InsertBrandAsync(brand);
+                await _brandRepository.InsertBrandAsync(brand);
+              
                 return CreatedAtAction(nameof(GetBrand), new { id = brand.Id }, brand);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
-          
         }
+
     }
 }

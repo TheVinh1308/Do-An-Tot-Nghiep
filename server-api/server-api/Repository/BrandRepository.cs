@@ -53,8 +53,8 @@ namespace server_api.Repository
                     await brand.LogoFile.CopyToAsync(fileStream);
                 }
                 brand.Logo = brand.LogoFile.FileName;
+              
             }
-
             _context.Brands.Add(brand);
             await _context.SaveChangesAsync();
             return brand;
