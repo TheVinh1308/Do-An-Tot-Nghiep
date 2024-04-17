@@ -44,16 +44,13 @@ namespace server_api.Controllers
                 return BadRequest("Brand object is null");
             }
 
-            try
-            {
-                await _brandRepository.InsertBrandAsync(brand);
+            
+            
+                var insertedBrand =   await _brandRepository.InsertBrandAsync(brand);
               
-                return CreatedAtAction(nameof(GetBrand), new { id = brand.Id }, brand);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+                return CreatedAtAction(nameof(GetBrand), new { id = insertedBrand.Id }, insertedBrand);
+            
+          
         }
 
     }
