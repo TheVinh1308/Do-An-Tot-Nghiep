@@ -10,6 +10,7 @@ import FAQ from "../Admin/FAQ";
 import Contact from "../Admin/Contact";
 import Review from "../Admin/Review";
 import Comment from "../Admin/Comment";
+import Brand from "../Admin/Brand/Brand";
 const PrivateRouter = () => {
     return (
         <>
@@ -49,6 +50,9 @@ const PrivateRouter = () => {
                         </Route>
                         <Route path="Comment">
                             <Route index element={<Comment />} />
+                        </Route>
+                        <Route path="Brand">
+                            <Route index element={<Brand />} />
                         </Route>
 
                     </Route>

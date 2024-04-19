@@ -33,6 +33,11 @@ const Sidebar = () => {
                                     <i className="bi bi-circle" /><span>Hình ảnh</span>
                                 </Link>
                             </li>
+                            <li>
+                                <Link to="/admin/Brand" >
+                                    <i className="bi bi-circle" /><span>Hãng điện thoại</span>
+                                </Link>
+                            </li>
                         </ul>
                     </li>{/* End Components Nav */}
                     <li className="nav-item">

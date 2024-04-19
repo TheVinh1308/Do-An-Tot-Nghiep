@@ -56,7 +56,8 @@ body {
 #DataTables_Table_Phone_0,
 #DataTables_Table_Image_0,
 #DataTables_Table_Invoice_0,
-#DataTables_Table_DetailInvoice_0 {
+#DataTables_Table_DetailInvoice_0,
+#DataTables_Brand_0 {
   width: auto !important;
 }
 
@@ -97,8 +98,11 @@ a:hover {
 
 /* MODPHONE */
 .img-modphone img {
-  display: flex;
-  height: 100px;
+  display: block;
+  height: 70px;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  margin: 0 auto;
 }
 
 .form-modphone .row {
@@ -137,6 +141,16 @@ h5,
 h6 {
   font-family: "Nunito", sans-serif;
 }
+
+/* Brand */
+.btn-brand {
+  align-items: center;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+}
+
+/* EndBrand */
 
 /*--------------------------------------------------------------
 # Main
