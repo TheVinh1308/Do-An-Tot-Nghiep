@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using server_api.Data;
 using server_api.Interface;
+using server_api.Repository;
 
 namespace server_api.Controllers
 {
@@ -46,6 +47,20 @@ namespace server_api.Controllers
             catch 
             {
                 return BadRequest();
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletePhone(int id)
+        {
+            try
+            {
+                await _phoneRepository.DeletePhoneAsync(id);
+                return Ok();
+            }
+            catch
+            {
+                return NotFound();
             }
         }
     }

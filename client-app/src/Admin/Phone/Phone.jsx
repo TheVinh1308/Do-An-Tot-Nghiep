@@ -36,6 +36,8 @@ const Phone = () => {
             table.destroy();
         };
     }, []);
+
+
     return (
 
         <>

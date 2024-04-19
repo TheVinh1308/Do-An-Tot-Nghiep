@@ -2,13 +2,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server_api.Data;
-
+using server_api.Interface;
 namespace server_api.Repository
 {
-    public class ModPhoneRepository
+    public class ModPhoneRepository: IModPhoneRepository
     {
         private readonly EPhoneShopIdentityContext _context;
         private readonly IWebHostEnvironment _environment;
+
+        public ModPhoneRepository()
+        {
+        }
 
         public ModPhoneRepository(EPhoneShopIdentityContext context, IWebHostEnvironment environment)
         {
@@ -77,6 +81,11 @@ namespace server_api.Repository
                 _context.ModPhones.Update(modPhone);
                 await _context.SaveChangesAsync();
             }
+        }
+
+        Task<List<Phone>> IModPhoneRepository.GetAllModPhoneAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }

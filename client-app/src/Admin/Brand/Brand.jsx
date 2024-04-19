@@ -13,31 +13,19 @@ import { Link } from "react-router-dom";
 const Brand = () => {
     // SHOW THÊM DÒNG ĐIỆN THOẠI
     const [show, setShow] = useState(false);
+    const [brandSelect, setBrandSelect] = useState(null);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     // SHOW SỪA DÒNG ĐIỆN THOẠI
     const [showEdit, setShowEdit] = useState(false);
     const handleCloseEdit = () => setShowEdit(false);
-    const handleShowEdit = () => setShowEdit(true);
+    const handleShowEdit = (brandId) => {
+        setShowEdit(true);
+        setBrandSelect(brandId);
+    }
 
 
-    // useEffect(() => {
-    //     if (loadData) {
-    //         const table = $('#DataTables_Brand_0').DataTable({
-    //             responsive: true,
-    //             autoWidth: true,
-    //             paging: [{
-    //                 className: 'p-0',
-    //             }]
-    //         });
-    //         return () => {
-    //             // Destroy the DataTable instance when component unmounts
-    //             table.destroy();
-    //         };
-    //     }
-
-    // }, [loadData]);
 
     // LIÊN KẾT API
     const [brands, setBrands] = useState([]);
@@ -81,13 +69,31 @@ const Brand = () => {
 
     // LẤY NGÀY HIỆN TẠI
     var day = new Date();
+    const [dataTableData, setDataTableData] = useState([]);
     useEffect(() => {
         axios.get(`https://localhost:7258/api/Brands`)
             .then(res => {
                 setBrands(res.data);
+                setDataTableData(res.data); // Cập nhật dữ liệu DataTable
                 setLoadData(true);
             });
     }, [brands]);
+
+    // XOÁ BRAND
+    const handleDelete = (brandId) => {
+        const shouldDelete = window.confirm("Bạn có chắc chắn muốn xoá brand này?");
+        if (shouldDelete) {
+            axios.delete(`https://localhost:7258/api/Brands/${brandId}`)
+                .then(() => {
+                    // Xoá thành công, cập nhật dữ liệu DataTable
+                    const updatedData = dataTableData.filter(brand => brand.id !== brandId);
+                    setDataTableData(updatedData);
+                })
+                .catch(error => {
+                    console.error("Xoá brand không thành công: ", error);
+                });
+        }
+    }
     return (
         <>
             <Header />
@@ -102,7 +108,6 @@ const Brand = () => {
                                     <h5 className="card-title">Hãng điện thoại</h5>
                                     <div className="btn btn-success btn-addmodphone" onClick={handleShow}>Thêm</div>
                                     <table id="DataTables_Brand_0" className="table table-striped responsive modphone-table">
-
                                         <thead>
                                             <tr>
                                                 <th className="col-1 tb-item">#</th>
@@ -110,32 +115,29 @@ const Brand = () => {
                                                 <th className="col-2 tb-item">Name</th>
                                                 <th className="col-2 tb-item">PostDay</th>
                                                 <th className="col-1 tb-item">Feature</th>
-
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {
                                                 brands.map((item, index) => (
-                                                    <tr key={index}>
-                                                        <td className="tb-item">{item.id}</td>
-                                                        <td className="img-modphone">
-                                                            <Image src={'https://localhost:7258/images/brands/' + item.logo} />
-                                                        </td>
-                                                        <td className="tb-item">{item.name}</td>
-                                                        <td className="tb-item">{day.getDate()} / {day.getMonth() + 1} / {day.getFullYear()}</td>
-                                                        <td className="tb-item">
-                                                            <Row>
-                                                                <Col className="col-6"> <i class="bi bi-trash btn btn-danger"></i></Col>
-
-                                                                <Col className="col-6" onClick={handleShowEdit}>
-                                                                    <Link to={`/${item.id}`}>
+                                                    <>
+                                                        <tr key={index}>
+                                                            <td className="tb-item">{item.id}</td>
+                                                            <td className="img-modphone">
+                                                                <Image src={'https://localhost:7258/images/brands/' + item.logo} />
+                                                            </td>
+                                                            <td className="tb-item">{item.name}</td>
+                                                            <td className="tb-item">{day.getDate()} / {day.getMonth() + 1} / {day.getFullYear()}</td>
+                                                            <td className="tb-item">
+                                                                <Row>
+                                                                    <Col className="col-6" onClick={() => handleDelete(item.id)}> <i class="bi bi-trash btn btn-danger"></i></Col>
+                                                                    <Col className="col-6" onClick={() => handleShowEdit(item.id)}>
                                                                         <i class="bi bi-pencil-square btn btn-warning"></i>
-                                                                    </Link>
-                                                                </Col>
-
-                                                            </Row>
-                                                        </td>
-                                                    </tr>
+                                                                    </Col>
+                                                                </Row>
+                                                            </td>
+                                                        </tr>
+                                                    </>
                                                 ))
                                             }
                                         </tbody>
@@ -164,7 +166,7 @@ const Brand = () => {
                     <Modal.Title className="add-title">Cập nhật hãng điện thoại</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <EditBrand />
+                    <EditBrand brandId={brandSelect} />
                 </Modal.Body>
 
             </Modal>

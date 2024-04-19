@@ -9,6 +9,7 @@ import AddModProduct from "./AddModProduct";
 import "datatables.net-bs5";
 import $ from "jquery"
 import EditModPhone from "./EditModProduct";
+import axios from "axios";
 const ModProduct = () => {
     // SHOW THÊM DÒNG ĐIỆN THOẠI
     const [show, setShow] = useState(false);
@@ -20,21 +21,52 @@ const ModProduct = () => {
     const handleCloseEdit = () => setShowEdit(false);
     const handleShowEdit = () => setShowEdit(true);
 
+    const [modPhone, setModPhone] = useState([]);
+    const [loadData, setLoadData] = useState(false);
 
     useEffect(() => {
-        const table = $('#DataTables_Table_0').DataTable({
-            responsive: true,
-            autoWidth: true,
-            paging: [{
-                className: 'p-0',
-            }]
-        });
+        if (loadData) {
+            const table = $('#DataTables_Table_0').DataTable({
+                responsive: true,
+                autoWidth: true,
+                paging: [{
+                    className: 'p-0',
+                }]
+            });
 
-        return () => {
-            // Destroy the DataTable instance when component unmounts
-            table.destroy();
-        };
+            return () => {
+                // Destroy the DataTable instance when component unmounts
+                table.destroy();
+            };
+        }
+
     }, []);
+
+    const [dataTableData, setDataTableData] = useState([]);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/ModPhones`)
+            .then(res => {
+                setModPhone(res.data);
+                setDataTableData(res.data); // Cập nhật dữ liệu DataTable
+                setLoadData(true);
+            });
+    }, [modPhone]);
+
+    // XOÁ BRAND
+    const handleDelete = (modPhoneId) => {
+        const shouldDelete = window.confirm("Bạn có chắc chắn muốn xoá dòng sản phẩm này?");
+        if (shouldDelete) {
+            axios.delete(`https://localhost:7258/api/ModPhones/${modPhoneId}`)
+                .then(() => {
+                    // Xoá thành công, cập nhật dữ liệu DataTable
+                    const updatedData = dataTableData.filter(modPhone => modPhone.id !== modPhoneId);
+                    setDataTableData(updatedData);
+                })
+                .catch(error => {
+                    console.error("Xoá brand không thành công: ", error);
+                });
+        }
+    }
     return (
         <>
 
@@ -66,6 +98,32 @@ const ModProduct = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {
+                                                modPhone.map((item, index) => (
+                                                    <>
+                                                        <tr key={index}>
+                                                            <td className="tb-item">{item.id}</td>
+                                                            <td className="img-modphone">
+                                                                <Image src={process.env.PUBLIC_URL + '/assets/img/ModPhone/ip15promax.png'} />
+                                                            </td>
+                                                            <td className="tb-item">Iphone 15 Promax</td>
+                                                            <td className="tb-item">6.7 in</td>
+                                                            <td className="tb-item">8GB</td>
+                                                            <td className="tb-item">iOS 17</td>
+                                                            <td className="tb-item">Apple A17 Pro 6 nhân</td>
+                                                            <td className="tb-item">4422 mAh</td>
+                                                            <td className="tb-item">
+                                                                <Row>
+                                                                    <Col className="col-6"> <i class="bi bi-trash btn btn-danger"></i></Col>
+                                                                    <Col className="col-6" onClick={handleShowEdit}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
+                                                                </Row>
+
+                                                            </td>
+
+                                                        </tr>
+                                                    </>
+                                                ))
+                                            }
                                             <tr>
                                                 <td className="tb-item">1</td>
                                                 <td className="img-modphone">

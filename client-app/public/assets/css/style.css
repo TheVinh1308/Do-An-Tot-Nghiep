@@ -57,7 +57,8 @@ body {
 #DataTables_Table_Image_0,
 #DataTables_Table_Invoice_0,
 #DataTables_Table_DetailInvoice_0,
-#DataTables_Brand_0 {
+#DataTables_Brand_0,
+#DataTables_Brand_1 {
   width: auto !important;
 }
 

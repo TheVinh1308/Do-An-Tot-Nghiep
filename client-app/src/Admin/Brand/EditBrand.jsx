@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Col, Image, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
-const EditBrand = () => {
+const EditBrand = ({ brandId }) => {
     const [imageSrc, setImageSrc] = useState();
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -29,7 +29,7 @@ const EditBrand = () => {
         Object.entries(brand).forEach(([key, value]) => {
             formData.append(key, value);
         });
-        axios.put(`https://localhost:7258/api/Brands/${id}`, formData) // Pass formData here
+        axios.put(`https://localhost:7258/api/Brands/${brandId}`, formData) // Pass formData here
             .then(res => {
                 setBrand(res.data);
                 navigate("/admin/Brand");
@@ -41,7 +41,7 @@ const EditBrand = () => {
 
 
     useEffect(() => {
-        axios.get(`https://localhost:7258/api/Brands/${id}`)
+        axios.get(`https://localhost:7258/api/Brands/${brandId}`)
             .then(res => {
                 setBrand(res.data);
             });
