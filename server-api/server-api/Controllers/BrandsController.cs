@@ -1,8 +1,10 @@
 ﻿using API_Server.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using server_api.Interface;
 using server_api.Repository;
+using System.Drawing.Drawing2D;
 
 namespace server_api.Controllers
 {
@@ -30,7 +32,7 @@ namespace server_api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetBrand(int id)
+        public async Task<IActionResult> GetBrandById(int id)
         {
             var brand =await _brandRepository.GetBrandAsync(id);
             return brand == null ? NotFound() : Ok(brand);
@@ -44,14 +46,48 @@ namespace server_api.Controllers
                 return BadRequest("Brand object is null");
             }
 
-            
-            
-                var insertedBrand =   await _brandRepository.InsertBrandAsync(brand);
+            try
+            {
+                await _brandRepository.InsertBrandAsync(brand);
               
-                return CreatedAtAction(nameof(GetBrand), new { id = insertedBrand.Id }, insertedBrand);
-            
-          
+                return CreatedAtAction(nameof(GetBrandById), new { id = brand.Id }, brand);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateBrand([FromForm] int id, [FromForm] Brand brand)
+        {
+            if (id != brand.Id)
+            {
+                return BadRequest("Brand không tồn tại");
+            }
+            try
+            {
+                await _brandRepository.UpdateBrandAsync(id, brand);
+                return Ok();
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteBrand(int brandId)
+        {
+            try
+            {
+                await _brandRepository.DeleteBrandAsync(brandId);
+                return Ok();
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

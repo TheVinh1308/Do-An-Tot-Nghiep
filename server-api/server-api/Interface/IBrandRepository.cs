@@ -8,7 +8,7 @@ namespace server_api.Interface
         Task<List<Brand>> GetAllBrandAsync();
         Task<Brand> GetBrandAsync(int id);
         Task<Brand> InsertBrandAsync([FromForm] Brand brand);
-        Task UpdateBrandAsync(int brandId, Brand brand);
+        Task UpdateBrandAsync([FromForm] int brandId, [FromForm] Brand brand);
         Task DeleteBrandAsync(int brandId);
     }
 }
