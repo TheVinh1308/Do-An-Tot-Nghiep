@@ -77,11 +77,11 @@ namespace server_api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBrand(int id)
+        public async Task<IActionResult> DeleteBrand(int brandId)
         {
             try
             {
-                await _brandRepository.DeleteBrandAsync(id);
+                await _brandRepository.DeleteBrandAsync(brandId);
                 return Ok();
             }
             catch

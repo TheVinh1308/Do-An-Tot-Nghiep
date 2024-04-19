@@ -1,10 +1,11 @@
 ﻿using API_Server.Models;
 using Microsoft.EntityFrameworkCore;
 using server_api.Data;
+using server_api.Interface;
 
 namespace server_api.Repository
 {
-    public class InvoiceRepository
+    public class InvoiceRepository: IInvoiceRepository
     {
         private readonly EPhoneShopIdentityContext _context;
         private readonly IWebHostEnvironment _environment;
@@ -35,6 +36,11 @@ namespace server_api.Repository
         {
             var invoice = await _context.Invoices.SingleOrDefaultAsync(x => x.Id == id);
             return invoice;
+        }
+
+        public Task<Invoice> InsertInvoiceAsync(Invoice invoice)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<Invoice> InsertnvoiceAsync(Invoice invoice)

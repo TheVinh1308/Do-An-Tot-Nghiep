@@ -1,10 +1,11 @@
 ﻿using API_Server.Models;
 using Microsoft.EntityFrameworkCore;
 using server_api.Data;
+using server_api.Interface;
 
 namespace server_api.Repository
 {
-    public class VoteRepository
+    public class VoteRepository : IVoteRepository
     {
         private readonly EPhoneShopIdentityContext _context;
         private readonly IWebHostEnvironment _environment;

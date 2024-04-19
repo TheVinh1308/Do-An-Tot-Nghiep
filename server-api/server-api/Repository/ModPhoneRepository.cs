@@ -3,16 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server_api.Data;
 using server_api.Interface;
+
 namespace server_api.Repository
 {
-    public class ModPhoneRepository: IModPhoneRepository
+    public class ModPhoneRepository:IModPhoneRepository
     {
         private readonly EPhoneShopIdentityContext _context;
         private readonly IWebHostEnvironment _environment;
-
-        public ModPhoneRepository()
-        {
-        }
 
         public ModPhoneRepository(EPhoneShopIdentityContext context, IWebHostEnvironment environment)
         {
