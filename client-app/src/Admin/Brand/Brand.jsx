@@ -9,6 +9,7 @@ import $ from "jquery"
 import AddBrand from "./AddBrand";
 import EditBrand from "./EditBrand";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const Brand = () => {
     // SHOW THÊM DÒNG ĐIỆN THOẠI
     const [show, setShow] = useState(false);
@@ -125,7 +126,13 @@ const Brand = () => {
                                                         <td className="tb-item">
                                                             <Row>
                                                                 <Col className="col-6"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                                <Col className="col-6" onClick={handleShowEdit}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
+
+                                                                <Col className="col-6" onClick={handleShowEdit}>
+                                                                    <Link to={`/${item.id}`}>
+                                                                        <i class="bi bi-pencil-square btn btn-warning"></i>
+                                                                    </Link>
+                                                                </Col>
+
                                                             </Row>
                                                         </td>
                                                     </tr>
