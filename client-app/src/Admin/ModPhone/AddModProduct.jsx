@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const AddModProduct = () => {
     const [imageSrc, setImageSrc] = useState();
-    const [modPhone, setModPhone] = useState({ status: true, ImageFile: null, PromotionId: 0 });
+    const [modPhone, setModPhone] = useState({ status: true, ImageFile: null, PromotionId: 1 });
     const [brand, setBrand] = useState([]);
     const [isInsert, setIsInsert] = useState(false);
     const handleImageChange = (e) => {
@@ -24,6 +24,12 @@ const AddModProduct = () => {
         let value = e.target.value;
         setModPhone(prev => ({ ...prev, [name]: value }));
     }
+
+    const handleSelect = (e) => {
+        let name = e.target.name;
+        let value = e.target.value
+        setModPhone(prev => ({ ...prev, [name]: value }));
+      }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -110,7 +116,7 @@ const AddModProduct = () => {
                             <Col className="form-item" xs={12} md={6}>
                                 <i class="bi bi-battery-half"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Dung lượng pin</label>
-                                <Form.Select name="brandId" >
+                                <Form.Select name="brandId" onChange={handleSelect}>
 
                                     <option>Lựa chọn hãng</option>
                                     {

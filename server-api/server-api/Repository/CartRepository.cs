@@ -2,10 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server_api.Data;
+using server_api.Interface;
 
 namespace server_api.Repository
 {
-    public class CartRepository
+    public class CartRepository : ICartRepository
     {
         private readonly EPhoneShopIdentityContext _context;
         private readonly IWebHostEnvironment _environment;

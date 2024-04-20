@@ -1,10 +1,11 @@
 ﻿using API_Server.Models;
 using Microsoft.EntityFrameworkCore;
 using server_api.Data;
+using server_api.Interface;
 
 namespace server_api.Repository
 {
-    public class InvoiceDetailRepository
+    public class InvoiceDetailRepository : IInvoiceDetailRepository
     {
         private readonly EPhoneShopIdentityContext _context;
         private readonly IWebHostEnvironment _environment;

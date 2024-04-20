@@ -39,7 +39,7 @@ namespace server_api.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> AddNewModPhone(ModPhone modPhone)
+        public async Task<IActionResult> AddNewModPhone([FromForm]ModPhone modPhone)
         {
             if(modPhone == null)
             {
