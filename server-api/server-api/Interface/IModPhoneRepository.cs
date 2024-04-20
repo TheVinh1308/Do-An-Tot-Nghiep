@@ -5,7 +5,7 @@ namespace server_api.Interface
 {
     public interface IModPhoneRepository
     {
-        Task<List<Phone>> GetAllModPhoneAsync();
+        Task<List<ModPhone>> GetAllModPhoneAsync();
         Task DeleteModPhoneAsync(int modPhoneId);
         Task<ModPhone> GetModPhoneAsync(int id);
         Task<ModPhone> InsertModPhoneAsync([FromForm] ModPhone modPhone);

@@ -104,14 +104,14 @@ const ModProduct = () => {
                                                         <tr key={index}>
                                                             <td className="tb-item">{item.id}</td>
                                                             <td className="img-modphone">
-                                                                <Image src={process.env.PUBLIC_URL + '/assets/img/ModPhone/ip15promax.png'} />
+                                                                <Image src={'https://localhost:7258/images/brands/' + item.image} />
                                                             </td>
-                                                            <td className="tb-item">Iphone 15 Promax</td>
-                                                            <td className="tb-item">6.7 in</td>
-                                                            <td className="tb-item">8GB</td>
-                                                            <td className="tb-item">iOS 17</td>
-                                                            <td className="tb-item">Apple A17 Pro 6 nhân</td>
-                                                            <td className="tb-item">4422 mAh</td>
+                                                            <td className="tb-item">{item.name}</td>
+                                                            <td className="tb-item">{item.screenSize}</td>
+                                                            <td className="tb-item">{item.ram}</td>
+                                                            <td className="tb-item">{item.os}</td>
+                                                            <td className="tb-item">{item.CPU}</td>
+                                                            <td className="tb-item">{item.battery}</td>
                                                             <td className="tb-item">
                                                                 <Row>
                                                                     <Col className="col-6"> <i class="bi bi-trash btn btn-danger"></i></Col>
@@ -124,86 +124,7 @@ const ModProduct = () => {
                                                     </>
                                                 ))
                                             }
-                                            <tr>
-                                                <td className="tb-item">1</td>
-                                                <td className="img-modphone">
-                                                    <Image src={process.env.PUBLIC_URL + '/assets/img/ModPhone/ip15promax.png'} />
-                                                </td>
-                                                <td className="tb-item">Iphone 15 Promax</td>
-                                                <td className="tb-item">6.7 in</td>
-                                                <td className="tb-item">8GB</td>
-                                                <td className="tb-item">iOS 17</td>
-                                                <td className="tb-item">Apple A17 Pro 6 nhân</td>
-                                                <td className="tb-item">4422 mAh</td>
-                                                <td className="tb-item">
-                                                    <Row>
-                                                        <Col className="col-6"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                        <Col className="col-6" onClick={handleShowEdit}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                    </Row>
 
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td className="tb-item">1</td>
-                                                <td className="img-modphone">
-                                                    <Image src={process.env.PUBLIC_URL + '/assets/img/ModPhone/ip14promax.png'} />
-                                                </td>
-                                                <td className="tb-item">Iphone 15 Promax</td>
-                                                <td className="tb-item">6.7 in</td>
-                                                <td className="tb-item">8GB</td>
-                                                <td className="tb-item">iOS 17</td>
-                                                <td className="tb-item">Apple A17 Pro 6 nhân</td>
-                                                <td className="tb-item">4422 mAh</td>
-                                                <td className="tb-item">
-                                                    <Row>
-                                                        <Col className="col-6"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                        <Col className="col-6" onClick={handleShowEdit}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                    </Row>
-
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td className="tb-item">1</td>
-                                                <td className="img-modphone">
-                                                    <Image src={process.env.PUBLIC_URL + '/assets/img/ModPhone/ip13promax.png'} />
-                                                </td>
-                                                <td className="tb-item">Iphone 15 Promax</td>
-                                                <td className="tb-item">6.7 in</td>
-                                                <td className="tb-item">8GB</td>
-                                                <td className="tb-item">iOS 17</td>
-                                                <td className="tb-item">Apple A17 Pro 6 nhân</td>
-                                                <td className="tb-item">4422 mAh</td>
-                                                <td className="tb-item">
-                                                    <Row>
-                                                        <Col className="col-6"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                        <Col className="col-6" onClick={handleShowEdit}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                    </Row>
-
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td className="tb-item">1</td>
-                                                <td className="img-modphone">
-                                                    <Image src={process.env.PUBLIC_URL + '/assets/img/ModPhone/ip15promax.png'} />
-                                                </td>
-                                                <td className="tb-item">Iphone 15 Promax</td>
-                                                <td className="tb-item">6.7 in</td>
-                                                <td className="tb-item">8GB</td>
-                                                <td className="tb-item">iOS 17</td>
-                                                <td className="tb-item">Apple A17 Pro 6 nhân</td>
-                                                <td className="tb-item">4422 mAh</td>
-                                                <td className="tb-item">
-                                                    <Row>
-                                                        <Col className="col-6"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                        <Col className="col-6" onClick={handleShowEdit}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                    </Row>
-
-                                                </td>
-
-                                            </tr>
 
                                         </tbody>
                                     </table>

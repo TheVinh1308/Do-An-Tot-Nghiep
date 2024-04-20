@@ -127,7 +127,8 @@ const Brand = () => {
                                                                 <Image src={'https://localhost:7258/images/brands/' + item.logo} />
                                                             </td>
                                                             <td className="tb-item">{item.name}</td>
-                                                            <td className="tb-item">{day.getDate()} / {day.getMonth() + 1} / {day.getFullYear()}</td>
+                                                            <td className="tb-item">{new Date(item.postDay).toLocaleDateString()}</td>
+
                                                             <td className="tb-item">
                                                                 <Row>
                                                                     <Col className="col-6" onClick={() => handleDelete(item.id)}> <i class="bi bi-trash btn btn-danger"></i></Col>

@@ -61,6 +61,8 @@ builder.Services.AddSingleton<IWebHostEnvironment>(builder.Environment);
 //config Repository
 builder.Services.AddScoped<IPhoneRepository, PhoneRepository>();
 builder.Services.AddScoped<IBrandRepository, BrandRepository>();
+builder.Services.AddScoped<IModPhoneRepository, ModPhoneRepository>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

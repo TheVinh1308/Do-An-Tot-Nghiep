@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using server_api.Data;
 
@@ -11,9 +12,10 @@ using server_api.Data;
 namespace server_api.Migrations
 {
     [DbContext(typeof(EPhoneShopIdentityContext))]
-    partial class EPhoneShopIdentityContextModelSnapshot : ModelSnapshot
+    [Migration("20240420025159_int")]
+    partial class @int
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -233,8 +235,8 @@ namespace server_api.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Battery")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Battery")
+                        .HasColumnType("int");
 
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
@@ -257,8 +259,8 @@ namespace server_api.Migrations
                     b.Property<int>("PromotionId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Ram")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Ram")
+                        .HasColumnType("int");
 
                     b.Property<double>("ScreenSize")
                         .HasColumnType("float");

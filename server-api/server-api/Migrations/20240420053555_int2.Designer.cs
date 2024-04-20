@@ -12,8 +12,8 @@ using server_api.Data;
 namespace server_api.Migrations
 {
     [DbContext(typeof(EPhoneShopIdentityContext))]
-    [Migration("20240416034323_init")]
-    partial class init
+    [Migration("20240420053555_int2")]
+    partial class int2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,6 +37,9 @@ namespace server_api.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("PostDay")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -232,8 +235,8 @@ namespace server_api.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("Battery")
-                        .HasColumnType("int");
+                    b.Property<string>("Battery")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
@@ -256,8 +259,8 @@ namespace server_api.Migrations
                     b.Property<int>("PromotionId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Ram")
-                        .HasColumnType("int");
+                    b.Property<string>("Ram")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("ScreenSize")
                         .HasColumnType("float");

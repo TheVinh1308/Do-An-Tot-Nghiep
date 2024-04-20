@@ -23,6 +23,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\Images\Baner\" />
     <Folder Include="wwwroot\images\brands\" />
+    <Folder Include="wwwroot\images\modPhones\" />
   </ItemGroup>
 
 </Project>

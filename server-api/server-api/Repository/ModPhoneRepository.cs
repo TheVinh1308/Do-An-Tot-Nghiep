@@ -80,9 +80,6 @@ namespace server_api.Repository
             }
         }
 
-        Task<List<Phone>> IModPhoneRepository.GetAllModPhoneAsync()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

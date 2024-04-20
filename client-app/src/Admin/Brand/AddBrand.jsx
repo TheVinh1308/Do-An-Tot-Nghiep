@@ -65,7 +65,7 @@ const AddBrand = () => {
                             <Col className="form-item" xs={12} >
                                 <i class="bi bi-memory"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Ngày tạo</label>
-                                <input type="date" className="form-control" id="inputNanme4" />
+                                <input type="date" className="form-control" name="PostDay" />
                             </Col>
                         </Row>
                         <Row>
