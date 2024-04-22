@@ -58,5 +58,39 @@ namespace server_api.Controllers
         }
 
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateModPhone([FromForm] int id, [FromForm] ModPhone modPhone)
+        {
+            if (id != modPhone.Id)
+            {
+                return BadRequest("Hãng điện thoại không tồn tại");
+            }
+            try
+            {
+                await _modPhoneRepository.UpdateModPhoneAsync(id, modPhone );
+                return Ok();
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteBrand(int id)
+        {
+            try
+            {
+                await _modPhoneRepository.DeleteModPhoneAsync(id);
+                return Ok();
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+
     }
 }

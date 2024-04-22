@@ -35,7 +35,9 @@ namespace server_api.Repository
 
         public async Task<ModPhone> GetModPhoneAsync(int id)
         {
-            var modPhone = await _context.ModPhones.SingleOrDefaultAsync(x => x.Id == id);
+            var modPhone = await _context.ModPhones
+                .Include(x=>x.Brand)
+                .SingleOrDefaultAsync(x => x.Id == id);
             return modPhone;
         }
 

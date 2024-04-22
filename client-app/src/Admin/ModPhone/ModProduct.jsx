@@ -17,9 +17,14 @@ const ModProduct = () => {
     const handleShow = () => setShow(true);
 
     // SHOW SỪA DÒNG ĐIỆN THOẠI
+    const [modPhoneSelect, setModPhoneSelect] = useState(null);
     const [showEdit, setShowEdit] = useState(false);
     const handleCloseEdit = () => setShowEdit(false);
-    const handleShowEdit = () => setShowEdit(true);
+    const handleShowEdit = (modPhoneId) => {
+        setShowEdit(true);
+        setModPhoneSelect(modPhoneId);
+    }
+
 
     const [modPhone, setModPhone] = useState([]);
     const [loadData, setLoadData] = useState(false);
@@ -40,7 +45,7 @@ const ModProduct = () => {
             };
         }
 
-    }, []);
+    }, [loadData]);
 
     const [dataTableData, setDataTableData] = useState([]);
     useEffect(() => {
@@ -51,6 +56,7 @@ const ModProduct = () => {
                 setLoadData(true);
             });
     }, [modPhone]);
+
 
     // XOÁ BRAND
     const handleDelete = (modPhoneId) => {
@@ -63,7 +69,7 @@ const ModProduct = () => {
                     setDataTableData(updatedData);
                 })
                 .catch(error => {
-                    console.error("Xoá brand không thành công: ", error);
+                    console.error("Xoá dòng sản phẩm không thành công: ", error);
                 });
         }
     }
@@ -104,18 +110,18 @@ const ModProduct = () => {
                                                         <tr key={index}>
                                                             <td className="tb-item">{item.id}</td>
                                                             <td className="img-modphone">
-                                                                <Image src={'https://localhost:7258/images/brands/' + item.image} />
+                                                                <Image src={'https://localhost:7258/images/modPhones/' + item.image} />
                                                             </td>
                                                             <td className="tb-item">{item.name}</td>
                                                             <td className="tb-item">{item.screenSize}</td>
                                                             <td className="tb-item">{item.ram}</td>
                                                             <td className="tb-item">{item.os}</td>
-                                                            <td className="tb-item">{item.CPU}</td>
+                                                            <td className="tb-item">{item.cpu}</td>
                                                             <td className="tb-item">{item.battery}</td>
                                                             <td className="tb-item">
                                                                 <Row>
-                                                                    <Col className="col-6"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                                    <Col className="col-6" onClick={handleShowEdit}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
+                                                                    <Col className="col-6" onClick={() => handleDelete(item.id)}> <i class="bi bi-trash btn btn-danger"></i></Col>
+                                                                    <Col className="col-6" onClick={() => handleShowEdit(item.id)}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
                                                                 </Row>
 
                                                             </td>
@@ -152,7 +158,7 @@ const ModProduct = () => {
                     <Modal.Title className="add-title">Cập nhật dòng điện thoại</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <EditModPhone />
+                    <EditModPhone modPhoneId={modPhoneSelect} />
                 </Modal.Body>
 
             </Modal>

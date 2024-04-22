@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 
 const AddModProduct = () => {
     const [imageSrc, setImageSrc] = useState();
@@ -17,7 +16,6 @@ const AddModProduct = () => {
         setModPhone(prev => ({ ...prev, ImageFile: e.target.files[0] }));
     }
 
-    const navigate = useNavigate();
 
     const handleChange = (e) => {
         let name = e.target.name;
@@ -29,7 +27,7 @@ const AddModProduct = () => {
         let name = e.target.name;
         let value = e.target.value
         setModPhone(prev => ({ ...prev, [name]: value }));
-      }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -44,7 +42,6 @@ const AddModProduct = () => {
         }) // Pass formData here
             .then(res => {
                 setBrand(res.data);
-                navigate("/admin/Brand");
                 setIsInsert(true);
             })
             .catch(error => {
@@ -127,8 +124,8 @@ const AddModProduct = () => {
                                 </Form.Select>
                             </Col>
                             <Col className="form-item" xs={12} md={6}>
-                                <i class="bi bi-cpu"></i>
-                                <label htmlFor="inputNanme4" className="form-label">CPU</label>
+                                <i class="bi bi-card-text"></i>
+                                <label htmlFor="inputNanme4" className="form-label">Mô tả</label>
                                 <input type="text" className="form-control" name="description" onChange={handleChange} />
                             </Col>
                         </Row>
