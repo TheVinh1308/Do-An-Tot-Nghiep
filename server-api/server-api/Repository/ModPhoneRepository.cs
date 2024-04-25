@@ -29,7 +29,7 @@ namespace server_api.Repository
 
         public async Task<List<ModPhone>> GetAllModPhoneAsync()
         {
-            var modPhones = await _context.ModPhones.ToListAsync();
+            var modPhones = await _context.ModPhones.Include(p => p.Brand).ToListAsync();
             return modPhones;
         }
 
@@ -46,8 +46,8 @@ namespace server_api.Repository
             if (modPhone.ImageFile != null && modPhone.ImageFile.Length > 0)
             {
                 var fileName = modPhone.ImageFile.FileName;
-                // thư mục wwwroot/images/brands
-                var imagePath = Path.Combine(_environment.WebRootPath, "images", "modPhones");
+                // thư mục wwwroot/images/products
+                var imagePath = Path.Combine(_environment.WebRootPath, "images", "products");
                 var uploadPath = Path.Combine(imagePath, fileName);
                 using (var fileStream = new FileStream(uploadPath, FileMode.Create))
                 {
@@ -68,8 +68,8 @@ namespace server_api.Repository
                 if (modPhone.ImageFile != null && modPhone.ImageFile.Length > 0)
                 {
                     var fileName = modPhone.ImageFile.FileName;
-                    // thư mục wwwroot/images/brands
-                    var imagePath = Path.Combine(_environment.WebRootPath, "images", "modPhones");
+                    // thư mục wwwroot/images/products
+                    var imagePath = Path.Combine(_environment.WebRootPath, "images", "products");
                     var uploadPath = Path.Combine(imagePath, fileName);
                     using (var fileStream = new FileStream(uploadPath, FileMode.Create))
                     {

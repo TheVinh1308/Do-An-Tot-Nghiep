@@ -1,18 +1,31 @@
 ﻿-- ============== SELECT DATABASE ===================================
-use PhoneShopIdentity
+use DB_DoAnTotNghiep
 
--- ========== XOÁ CÁC BẢNG TRƯỚC KHI LOAD DỮ LIỆU ===================
+-- ========== XOÁ CÁC BẢNG TRƯỚC KHI INSSERT DỮ LIỆU ===================
 delete from Brands
-DBCC CHECKIDENT ('PhoneShopIdentity.dbo.Brands', RESEED, 0);
+DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.Brands', RESEED, 0);
+go
 
 delete from ModPhones
-DBCC CHECKIDENT ('PhoneShopIdentity.dbo.ModPhones', RESEED, 0);
+DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.ModPhones', RESEED, 0);
+go
 
 delete from Promotions
-DBCC CHECKIDENT ('PhoneShopIdentity.dbo.Promotions', RESEED, 0);
+DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.Promotions', RESEED, 0);
+go
+
+delete from Phones
+DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.Phoness', RESEED, 0);
+go
+
+delete from Images
+DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.Images', RESEED, 0);
+go
+
+
 -- ============================ BRAND ==============================
 -- BRAND APPLE
-insert into Brands values ( 'Apple', 'Apple.png', 1, GETDATE())
+insert into Brands values ( 'iPhone', 'iPhone.png', 1, GETDATE())
 -- BRAND SAMSUNG
 insert into Brands values ( 'Samsung', 'Samsung.png', 1, GETDATE())
 -- BRAND VIVO
@@ -25,53 +38,53 @@ insert into Brands values ( 'Xiaomi', 'Xiaomi.png', 1, GETDATE())
 insert into Brands values ( 'Huawei', 'Huawei.png', 1, GETDATE())
 
 -- =========================== PROMOTION =============================
-insert into Promotions values (N'Không khuyến mãi', 0, 1)
+insert into Promotions values (N'Không khuyến mãi', 0, GETDATE(),1)
 
 -- =========================== MODPHONE =============================
 -- MOD PHONE IPHONE
 insert into ModPhones values(  'IPhone 15 Promax', 6.1, N'iPhone 15 Pro Max là một chiếc điện thoại thông minh cao cấp được mong đợi nhất năm 2023. 
 								Với nhiều tính năng mới và cải tiến, iPhone 15 Pro Max chắc chắn sẽ là một lựa chọn tuyệt vời cho những người dùng đang
-								tìm kiếm một chiếc điện thoại có hiệu năng mạnh mẽ, camera chất lượng và thiết kế sang trọng.', 8,1, 'iOS 17', N'Apple A17 Pro 6 nhân', '4422 mAh, 20 W','ip15promax.png',1,1 );
+								tìm kiếm một chiếc điện thoại có hiệu năng mạnh mẽ, camera chất lượng và thiết kế sang trọng.', 8,1, 'iOS 17', N'Apple A17 Pro 6 nhân', '4422 mAh, 20 W','iphone-15-pro-max-titan-white.jpg',1,1 );
 insert into ModPhones values(  'IPhone 15 Pro', 6.1, N'iPhone 15 Pro là một trong những chiếc điện thoại thông minh được mong đợi nhất năm 2023. Với nhiều 
 								tính năng mới và cải tiến, iPhone 15 Pro chắc chắn sẽ là một lựa chọn tuyệt vời cho những người dùng đang tìm kiếm một chiếc 
-								điện thoại cao cấp.', 8,1, 'iOS 17', N'Apple A17 Pro 6 nhân', '3274 mAh, 20 W','ip15promax.png',1,1 );
+								điện thoại cao cấp.', 8,1, 'iOS 17', N'Apple A17 Pro 6 nhân', '3274 mAh, 20 W','iphone-15-pro-titan-white.jpg',1,1 );
 insert into ModPhones values(  'IPhone 15 Plus', 6.7, N'iPhone 15 Plus thu hút mọi ánh nhìn ngay khi ra mắt nhờ có vẻ ngoài cao cấp, 
 								trang bị bộ xử lý mạnh mẽ, cụm camera kép đặc trưng cho khả năng chụp ảnh cực nét cùng màn hình chất lượng cao, 
-								để bạn tận hưởng trải nghiệm sử dụng tuyệt vời. ', 8,1, 'iOS 17', N'Apple A16 Bionic', '4383 mAh, 20 W','ip15plus.png',1,1 );
+								để bạn tận hưởng trải nghiệm sử dụng tuyệt vời. ', 8,1, 'iOS 17', N'Apple A16 Bionic', '4383 mAh, 20 W','iphone-15-plus-green.jpg',1,1 );
 insert into ModPhones values(  'IPhone 15 ', 6.1, N'iPhone 15 128GB là mẫu điện thoại cao cấp được Apple cho ra mắt vào tháng 09/2023, 
 								máy nhận được nhiều sự chú ý đến từ người dùng khi mang trong mình bộ cấu hình cực khủng, vẻ ngoài thu hút
-								cùng khả năng quay video - chụp ảnh đỉnh cao.', 8,1, 'iOS 17', N'Apple A16 Bionic', '3349 mAh, 20 W','ip15.png',1,1 );
+								cùng khả năng quay video - chụp ảnh đỉnh cao.', 8,1, 'iOS 17', N'Apple A16 Bionic', '3349 mAh, 20 W','iphone-15-pink.jpg',1,1 );
 insert into ModPhones values(  'IPhone 14 Promax ', 6.7, N'iPhone 14 Pro Max một siêu phẩm trong giới smartphone được nhà Táo tung ra thị trường vào tháng 09/2022. 
 								Máy trang bị con chip Apple A16 Bionic vô cùng mạnh mẽ, đi kèm theo đó là thiết kế màn hình mới, hứa hẹn mang lại những trải 
-								nghiệm đầy mới mẻ cho người dùng iPhone.', 8,1, 'iOS 16', N'Apple A16 Bionic', '4323 mAh, 20 W','ip14promax.png',1,1 );
+								nghiệm đầy mới mẻ cho người dùng iPhone.', 8,1, 'iOS 16', N'Apple A16 Bionic', '4323 mAh, 20 W','iphone-14-pro-max-sliver.jpg',1,1 );
 insert into ModPhones values(  'IPhone 14 Pro ', 6.7, N'iPhone 14 Pro Max một siêu phẩm trong giới smartphone được nhà Táo tung ra thị trường vào tháng 09/2022. 
 								Máy trang bị con chip Apple A16 Bionic vô cùng mạnh mẽ, đi kèm theo đó là thiết kế màn hình mới, hứa hẹn mang lại những trải 
-								nghiệm đầy mới mẻ cho người dùng iPhone.', 8,1, 'iOS 16', N'Apple A16 Bionic', '4323 mAh, 20 W','ip14promax.png',1,1 );
+								nghiệm đầy mới mẻ cho người dùng iPhone.', 8,1, 'iOS 16', N'Apple A16 Bionic', '4323 mAh, 20 W','iphone-14-pro-gold.jpg',1,1 );
 insert into ModPhones values(  'IPhone 14 Plus ', 6.7, N'Sau nhiều thế hệ điện thoại của Apple thì cái tên “Plus” cũng đã chính thức trở lại vào năm 2022 
 								và xuất hiện trên chiếc iPhone 14 Plus 128GB, nổi trội với ngoại hình bắt trend cùng màn hình kích thước lớn để đem đến không gian 
-								hiển thị tốt hơn cùng cấu hình mạnh mẽ không đổi so với bản tiêu chuẩn.', 6,1, 'iOS 16', N'Apple A15 Bionic', '4325 mAh, 20 W','ip14plus.png',1,1 );
+								hiển thị tốt hơn cùng cấu hình mạnh mẽ không đổi so với bản tiêu chuẩn.', 6,1, 'iOS 16', N'Apple A15 Bionic', '4325 mAh, 20 W','iphone-14-plus-yellow.jpeg',1,1 );
 insert into ModPhones values(  'IPhone 14', 6.1, N'iPhone 14 128GB được xem là mẫu smartphone bùng nổ của nhà táo trong năm 2022, ấn tượng với ngoại hình trẻ trung, màn hình chất 
 								lượng đi kèm với những cải tiến về hệ điều hành và thuật toán xử lý hình ảnh, giúp máy trở thành cái tên thu hút được đông đảo người dùng quan tâm 
-								tại thời điểm ra mắt.', 6,1, 'iOS 16', N'Apple A15 Bionic', '4379 mAh, 20 W','ip14.png',1,1 );
+								tại thời điểm ra mắt.', 6,1, 'iOS 16', N'Apple A15 Bionic', '4379 mAh, 20 W','iphone-14-tim.jpg',1,1 );
 insert into ModPhones values(  'IPhone 13 Promax', 6.7, N'Điện thoại iPhone 13 Pro Max 128 GB - siêu phẩm được mong chờ nhất ở nửa cuối năm 2021 đến từ Apple. Máy có thiết kế
 								không mấy đột phá khi so với người tiền nhiệm, bên trong đây vẫn là một sản phẩm có màn hình siêu đẹp, tần số quét được nâng cấp lên 120 Hz mượt mà, 
-								cảm biến camera có kích thước lớn hơn, cùng hiệu năng mạnh mẽ với sức mạnh đến từ Apple A15 Bionic, sẵn sàng cùng bạn chinh phục mọi thử thách.', 6,1, 'iOS 15', N'Apple A15 Bionic', '4352 mAh, 20 W','ip13promax.png',1,1 );
+								cảm biến camera có kích thước lớn hơn, cùng hiệu năng mạnh mẽ với sức mạnh đến từ Apple A15 Bionic, sẵn sàng cùng bạn chinh phục mọi thử thách.', 6,1, 'iOS 15', N'Apple A15 Bionic', '4352 mAh, 20 W','iphone-13-pro-max-xanh-la.jpg',1,1 );
 insert into ModPhones values(  'IPhone 13 Pro', 6.1, N'Mỗi lần ra mắt phiên bản mới là mỗi lần iPhone chiếm sóng trên khắp các mặt trận và lần này cái tên khiến vô số người "sục sôi" là iPhone 13 Pro,
-								chiếc điện thoại thông minh vẫn giữ nguyên thiết kế cao cấp, cụm 3 camera được nâng cấp, cấu hình mạnh mẽ cùng thời lượng pin lớn ấn tượng. ', 6,1, 'iOS 15', N'Apple A15 Bionic', '3095 mAh, 20 W','ip13promax.png',1,1 );
+								chiếc điện thoại thông minh vẫn giữ nguyên thiết kế cao cấp, cụm 3 camera được nâng cấp, cấu hình mạnh mẽ cùng thời lượng pin lớn ấn tượng. ', 6,1, 'iOS 15', N'Apple A15 Bionic', '3095 mAh, 20 W','iphone-13-pro-bac.jpg',1,1 );
 insert into ModPhones values(  'IPhone 13 ', 6.1, N'Apple thỏa mãn sự chờ đón của iFan và người dùng với sự ra mắt của iPhone 13. Dù ngoại hình không có nhiều thay đổi so với iPhone 12 nhưng với cấu hình mạnh mẽ hơn, 
-								đặc biệt pin “trâu” hơn và khả năng quay phim chụp ảnh cũng ấn tượng hơn, hứa hẹn mang đến những trải nghiệm thú vị trên phiên bản mới này.', 4,1, 'iOS 15', N'Apple A15 Bionic', '3240 mAh, 20 W','ip13.png',1,1 );
+								đặc biệt pin “trâu” hơn và khả năng quay phim chụp ảnh cũng ấn tượng hơn, hứa hẹn mang đến những trải nghiệm thú vị trên phiên bản mới này.', 4,1, 'iOS 15', N'Apple A15 Bionic', '3240 mAh, 20 W','iphone-13-hong.jpg',1,1 );
 insert into ModPhones values(  'IPhone 12 Promax ', 6.7, N'iPhone 12 Pro Max 128 GB một siêu phẩm smartphone đến từ Apple. Máy có một hiệu năng hoàn toàn mạnh mẽ đáp ứng tốt
-								nhiều nhu cầu đến từ người dùng và mang trong mình một thiết kế đầy vuông vức, sang trọng.', 6,1, 'iOS 15', N'Apple A14 Bionic', '3687 mAh, 20 W','ip12pro.png',1,1 );
+								nhiều nhu cầu đến từ người dùng và mang trong mình một thiết kế đầy vuông vức, sang trọng.', 6,1, 'iOS 15', N'Apple A14 Bionic', '3687 mAh, 20 W','iphone-12-pro-max-gold.jpg',1,1 );
 insert into ModPhones values(  'IPhone 12 Pro ', 6.1, N'iPhone 12 Pro - "Siêu phẩm công nghệ" với nhiều nâng cấp mạnh
-								mẽ về thiết kế, cấu hình và hiệu năng, khẳng định đẳng cấp thời thượng trên thị trường smartphone cao cấp.', 6,1, 'iOS 15', N'Apple A14 Bionic', '2815 mAh, 20 W','ip12pro.png',1,1 );
+								mẽ về thiết kế, cấu hình và hiệu năng, khẳng định đẳng cấp thời thượng trên thị trường smartphone cao cấp.', 6,1, 'iOS 15', N'Apple A14 Bionic', '2815 mAh, 20 W','iphone-12-pro-bac.jpg',1,1 );
 insert into ModPhones values(  'IPhone 12 ', 6.1, N'Trong những tháng cuối năm 2020, Apple đã chính thức giới thiệu đến người dùng cũng như iFan thế hệ iPhone 12 series mới với hàng loạt tính năng bứt phá, 
-								thiết kế được lột xác hoàn toàn, hiệu năng đầy mạnh mẽ và một trong số đó chính là iPhone 12 64GB.', 4,1, 'iOS 15', N'Apple A14 Bionic', '2815 mAh, 20 W','ip12.png',1,1 );
+								thiết kế được lột xác hoàn toàn, hiệu năng đầy mạnh mẽ và một trong số đó chính là iPhone 12 64GB.', 4,1, 'iOS 15', N'Apple A14 Bionic', '2815 mAh, 20 W','iphone-12-tim.jpg',1,1 );
 insert into ModPhones values(  'IPhone 11 Promax ', 6.5, N'Trong năm 2019 thì chiếc smartphone được nhiều người mong muốn sở hữu trên tay và sử dụng nhất không ai khác chính là iPhone 11 Pro Max 64GB 
-								tới từ nhà Apple.', 4,1, 'iOS 14', N'Apple A13 Bionic', '3969 mAh, 20 W','ip11promax.png',1,1 );
+								tới từ nhà Apple.', 4,1, 'iOS 14', N'Apple A13 Bionic', '3969 mAh, 20 W','iphone-11-pro-max-xanh-1.jpg',1,1 );
 insert into ModPhones values(  'IPhone 11 Pro ', 5.8, N'Nếu như bây giờ để lựa chọn một thiết bị có thể sử dụng ổn định và được cập nhật trong khoảng 3 năm nữa
-								thì không có sự lựa chọn nào xuất sắc hơn chiếc iPhone 11 Pro 64GB, siêu phẩm mới được giới thiệu cách đây không lâu tới từ Apple.', 4,1, 'iOS 14', N'Apple A13 Bionic', '3046 mAh, 20 W','ip11promax.png',1,1 );
+								thì không có sự lựa chọn nào xuất sắc hơn chiếc iPhone 11 Pro 64GB, siêu phẩm mới được giới thiệu cách đây không lâu tới từ Apple.', 4,1, 'iOS 14', N'Apple A13 Bionic', '3046 mAh, 20 W','iphone-11-pro-gold.png',1,1 );
 insert into ModPhones values(  'IPhone 11', 6.1, N'Apple đã chính thức trình làng bộ 3 siêu phẩm iPhone 11, trong đó phiên bản iPhone 11 64GB có mức giá rẻ nhất nhưng vẫn
-								được nâng cấp mạnh mẽ như iPhone Xr ra mắt trước đó.', 4,1, 'iOS 15', N'Apple A13 Bionic', '3110 mAh, 20 W','ip11.png',1,1 );
+								được nâng cấp mạnh mẽ như iPhone Xr ra mắt trước đó.', 4,1, 'iOS 15', N'Apple A13 Bionic', '3110 mAh, 20 W','iphone-11-vang.png',1,1 );
 
 -- MOD PHONE SAMSUNG
 insert into ModPhones values(  'Galaxy S24 Ultra', 6.8, N'Samsung Galaxy S24 Ultra mẫu điện thoại cao cấp được ra mắt vào đầu năm 2024, sản phẩm tiếp tục kế thừa và cải tiến từ thế hệ trước. 
@@ -222,3 +235,152 @@ insert into ModPhones values(  'Huawei Nova 5T', 6.25, N'Huawei Nova 5T là mẫ
 								nhưng lại có giá bán rất cạnh tranh.', 8,6, 'Android 9 (Pie)', N'Kirin 980', '3750 mAh','hwn5t.png',1,1 );
 insert into ModPhones values(  'Huawei Nova 3i', 6.3, N'Với những smartphone như Nova 2i hay Nova 3e thì Huawei đã và đang tạo nên những cơn sốt rất lớn trong phân khúc tầm trung và cái tên mới
 								Huawei Nova 3i được cải tiến và nâng cấp nhiều điểm mới, hứa hẹn sẽ mang lại làn gió mới cho thị trường.', 4,6, 'EMUI 9', N'Kirin 710', '3340 mAh','hwn3i.png',1,1 );
+													
+-- IPHONE 15 ID: 1 -> 15
+insert into Phones values('iPhone 15 128GB','1512814000001',4,21299000,10,'black',128)
+insert into Phones values('iPhone 15 128GB','1512814000002',4,21299000,10,'green',128)
+insert into Phones values('iPhone 15 128GB','1512814000003',4,21299000,10,'pink',128)
+insert into Phones values('iPhone 15 128GB','1512814000004',4,21299000,10,'blue',128)
+insert into Phones values('iPhone 15 128GB','1512814000005',4,21299000,10,'yellow',128)
+
+insert into Phones values('iPhone 15 256GB','1525614000001',4,24299000,10,'black',256)
+insert into Phones values('iPhone 15 256GB','1525614000002',4,24299000,10,'green',256)
+insert into Phones values('iPhone 15 256GB','1525614000003',4,24299000,10,'pink',256)
+insert into Phones values('iPhone 15 256GB','1525614000004',4,24299000,10,'blue',256)
+insert into Phones values('iPhone 15 256GB','1525614000005',4,24299000,10,'yellow',256)
+
+insert into Phones values('iPhone 15 512GB','1551214000001',4,29399000,10,'black',512)
+insert into Phones values('iPhone 15 512GB','1551214000002',4,29399000,10,'green',512)
+insert into Phones values('iPhone 15 512GB','1551214000003',4,29399000,10,'pink',512)
+insert into Phones values('iPhone 15 512GB','1551214000004',4,29399000,10,'blue',512)
+insert into Phones values('iPhone 15 512GB','1551214000005',4,29399000,10,'yellow',512)
+
+-- IPHONE 15 PLUS: 16 -> 30
+insert into Phones values('iPhone 15 Plus 128GB','1512815000001',3,24299000,10,'pink',128)
+insert into Phones values('iPhone 15 Plus 128GB','1512815000002',3,24299000,10,'green',128)
+insert into Phones values('iPhone 15 Plus 128GB','1512815000003',3,24299000,10,'blue',128)
+insert into Phones values('iPhone 15 Plus 128GB','1512815000004',3,24299000,10,'black',128)
+insert into Phones values('iPhone 15 Plus 128GB','1512815000005',3,24299000,10,'yellow',128)
+
+insert into Phones values('iPhone 15 Plus 256GB','1525615000001',3,25899000,10,'pink',256)
+insert into Phones values('iPhone 15 Plus 256GB','1525615000002',3,25899000,10,'green',256)
+insert into Phones values('iPhone 15 Plus 256GB','1525615000003',3,25899000,10,'blue',256)
+insert into Phones values('iPhone 15 Plus 256GB','1525615000004',3,25899000,10,'black',256)
+insert into Phones values('iPhone 15 Plus 256GB','1512815000005',3,24299000,10,'yellow',256)
+
+insert into Phones values('iPhone 15 Plus 512GB','1551215000001',3,27899000,10,'pink',512)
+insert into Phones values('iPhone 15 Plus 512GB','1551215000002',3,27899000,10,'green',512)
+insert into Phones values('iPhone 15 Plus 512GB','1551215000003',3,27899000,10,'blue',512)
+insert into Phones values('iPhone 15 Plus 512GB','1551215000004',3,27899000,10,'black',512)
+insert into Phones values('iPhone 15 Plus 512GB','1512815000005',3,27899000,10,'yellow',512)
+--IPHONE 15 PRO: 31 -> 46
+insert into Phones values('iPhone 15 Pro 128GB','1512816000001',2,26799000,10,'black',128)
+insert into Phones values('iPhone 15 Pro 128GB','1512816000002',2,26799000,10,'white',128)
+insert into Phones values('iPhone 15 Pro 128GB','1512816000003',2,26799000,10,'blue',128)
+insert into Phones values('iPhone 15 Pro 128GB','1512816000004',2,26799000,10,'natural',128)
+
+insert into Phones values('iPhone 15 Pro 256GB','1525616000001',2,29499000,10,'black',256)
+insert into Phones values('iPhone 15 Pro 256GB','1525616000002',2,29499000,10,'green',256)
+insert into Phones values('iPhone 15 Pro 256GB','1525616000003',2,29499000,10,'blue',256)
+insert into Phones values('iPhone 15 Pro 256GB','1525616000004',2,29499000,10,'natural',256)
+
+insert into Phones values('iPhone 15 Pro 512B','1551216000001',2,35899000,10,'black',512)
+insert into Phones values('iPhone 15 Pro 512B','1551216000002',2,35899000,10,'white',512)
+insert into Phones values('iPhone 15 Pro 512B','1551216000003',2,35899000,10,'blue',512)
+insert into Phones values('iPhone 15 Pro 512B','1551216000004',2,35899000,10,'natural',512)
+
+insert into Phones values('iPhone 15 Pro 1TB','1500116000001',2,39499000,10,'black',1024)
+insert into Phones values('iPhone 15 Pro 1TB','1500116000002',2,39499000,10,'white',1024)
+insert into Phones values('iPhone 15 Pro 1TB','1500116000003',2,39499000,10,'blue',1024)
+insert into Phones values('iPhone 15 Pro 1TB','1500116000004',2,39499000,10,'natural',1024)
+--IPHONE 15 PRO MAX: 47 ->  58
+insert into Phones values('iPhone 15 Pro Max 256GB','1525617000001',1,31999000,10,'black',256)
+insert into Phones values('iPhone 15 Pro Max 256GB','1525617000002',1,31999000,10,'white',256)
+insert into Phones values('iPhone 15 Pro Max 256GB','1525617000003',1,31999000,10,'blue',256)
+insert into Phones values('iPhone 15 Pro Max 256GB','1525617000004',1,31999000,10,'natural',256)
+
+insert into Phones values('iPhone 15 Pro Max 512B','1551217000001',1,37699000,10,'black',512)
+insert into Phones values('iPhone 15 Pro Max 512B','1551217000002',1,37699000,10,'white',512)
+insert into Phones values('iPhone 15 Pro Max 512B','1551217000003',1,37699000,10,'blue',512)
+insert into Phones values('iPhone 15 Pro Max 512B','1551217000004',1,37699000,10,'natural',512)
+
+insert into Phones values('iPhone 15 Pro Max 1TB','1500117000001',1,43499000,10,'black',1024)
+insert into Phones values('iPhone 15 Pro Max 1TB','1500117000002',1,43499000,10,'white',1024)
+insert into Phones values('iPhone 15 Pro Max 1TB','1500117000003',1,43499000,10,'blue',1024)
+insert into Phones values('iPhone 15 Pro Max 1TB','1500117000004',1,43499000,10,'natural',1024)
+
+
+--Image IPHONE 15
+--128GB
+insert into Images values(1, '["iphone-15-black.jpg", "iphone-15-black-1.jpg", "iphone-15-black-2.jpg", "iphone-15-black-3.jpg"]', 1)
+insert into Images values(2, '["iphone-15-green.jpg", "iphone-15-green-1.jpg", "iphone-15-green-2.jpg", "iphone-15-green-3.jpg"]', 1)
+insert into Images values(3, '["iphone-15-pink.jpg", "iphone-15-pink-1.jpg", "iphone-15-pink-2.jpg", "iphone-15-pink-3.jpg"]', 1)
+insert into Images values(4, '["iphone-15-blue.jpg", "iphone-15-blue-1.jpg", "iphone-15-blue-2.jpg", "iphone-15-blue-3.jpg"]', 1)
+insert into Images values(5, '["iphone-15-yellow.jpg", "iphone-15-yellow-1.jpg", "iphone-15-yellow-2.jpg", "iphone-15-yellow-3.jpg"]', 1)
+--256GB
+insert into Images values(6, '["iphone-15-black.jpg", "iphone-15-black-1.jpg", "iphone-15-black-2.jpg", "iphone-15-black-3.jpg"]', 1)
+insert into Images values(7, '["iphone-15-green.jpg", "iphone-15-green-1.jpg", "iphone-15-green-2.jpg", "iphone-15-green-3.jpg"]', 1)
+insert into Images values(8, '["iphone-15-pink.jpg", "iphone-15-pink-1.jpg", "iphone-15-pink-2.jpg", "iphone-15-pink-3.jpg"]', 1)
+insert into Images values(9, '["iphone-15-blue.jpg", "iphone-15-blue-1.jpg", "iphone-15-blue-2.jpg", "iphone-15-blue-3.jpg"]', 1)
+insert into Images values(10,'["iphone-15-yellow.jpg", "iphone-15-yellow-1.jpg", "iphone-15-yellow-2.jpg", "iphone-15-yellow-3.jpg"]', 1)
+--512GB
+insert into Images values(11, '["iphone-15-black.jpg", "iphone-15-black-1.jpg", "iphone-15-black-2.jpg", "iphone-15-black-3.jpg"]', 1)
+insert into Images values(12, '["iphone-15-green.jpg", "iphone-15-green-1.jpg", "iphone-15-green-2.jpg", "iphone-15-green-3.jpg"]', 1)
+insert into Images values(13, '["iphone-15-pink.jpg", "iphone-15-pink-1.jpg", "iphone-15-pink-2.jpg", "iphone-15-pink-3.jpg"]', 1)
+insert into Images values(14, '["iphone-15-blue.jpg", "iphone-15-blue-1.jpg", "iphone-15-blue-2.jpg", "iphone-15-blue-3.jpg"]', 1)
+insert into Images values(15, '["iphone-15-yellow.jpg","iphone-15-yellow-1.jpg", "iphone-15-yellow-2.jpg", "iphone-15-yellow-3.jpg"]', 1)
+-- Image IPHONE 15 PLUS
+--128GB
+insert into Images values(16, '["iphone-15-plus-black.jpg", "iphone-15-plus-black-1.jpg", "iphone-15-plus-black-2.jpg", "iphone-15-plus-black-3.jpg"]', 1)
+insert into Images values(17, '["iphone-15-plus-green.jpg", "iphone-15-plus-green-1.jpg", "iphone-15-plus-green-2.jpg", "iphone-15-plus-green-3.jpg"]', 1)
+insert into Images values(18, '["iphone-15-plus-pink.jpg", "iphone-15-plus-pink-1.jpg", "iphone-15-plus-pink-2.jpg", "iphone-15-plus-pink-3.jpg"]', 1)
+insert into Images values(19, '["iphone-15-plus-blue.jpg", "iphone-15-plus-blue-1.jpg", "iphone-15-plus-blue-2.jpg", "iphone-15-plus-blue-3.jpg"]', 1)
+insert into Images values(20, '["iphone-15-plus-yellow.jpg", "iphone-15-yellow-1.jpg", "iphone-15-plus-yellow-2.jpg", "iphone-15-plus-yellow-3.jpg"]', 1)
+--256GB
+insert into Images values(21, '["iphone-15-plus-black.jpg", "iphone-15-plus-black-1.jpg", "iphone-15-plus-black-2.jpg", "iphone-15-plus-black-3.jpg"]', 1)
+insert into Images values(22, '["iphone-15-plus-green.jpg", "iphone-15-plus-green-1.jpg", "iphone-15-plus-green-2.jpg", "iphone-15-plus-green-3.jpg"]', 1)
+insert into Images values(23, '["iphone-15-plus-pink.jpg", "iphone-15-plus-pink-1.jpg", "iphone-15-plus-pink-2.jpg", "iphone-15-plus-pink-3.jpg"]', 1)
+insert into Images values(24, '["iphone-15-plus-blue.jpg", "iphone-15-plus-blue-1.jpg", "iphone-15-plus-blue-2.jpg", "iphone-15-plus-blue-3.jpg"]', 1)
+insert into Images values(25,'["iphone-15-plus-yellow.jpg", "iphone-15-plus-yellow-1.jpg", "iphone-15-plus-yellow-2.jpg", "iphone-15-plus-yellow-3.jpg"]', 1)
+--512GB
+insert into Images values(26,'["iphone-15-plus-black.jpg", "iphone-15-plus-black-1.jpg", "iphone-15-plus-black-2.jpg", "iphone-15-plus-black-3.jpg"]', 1)
+insert into Images values(27,'["iphone-15-plus-green.jpg", "iphone-15-plus-green-1.jpg", "iphone-15-plus-green-2.jpg", "iphone-15-plus-green-3.jpg"]', 1)
+insert into Images values(28,'["iphone-15-plus-pink.jpg", "iphone-15-plus-pink-1.jpg", "iphone-15-plus-pink-2.jpg", "iphone-15-plus-pink-3.jpg"]', 1)
+insert into Images values(29,'["iphone-15-plus-blue.jpg", "iphone-15-plus-blue-1.jpg", "iphone-15-plus-blue-2.jpg", "iphone-15-plus-blue-3.jpg"]', 1)
+insert into Images values(30,'["iphone-15-plus-yellow.jpg", "iphone-15-plus-yellow-1.jpg", "iphone-15-plus-yellow-2.jpg", "iphone-15-plus-yellow-3.jpg"]', 1)
+--Image IPHONE 15 PRO
+--128GB
+insert into Images values(31, '["iphone-15-pro-titan-black.jpg", "iphone-15-pro-titan-black-1.jpg", "iphone-15-pro-titan-black-2.jpg", "iphone-15-pro-titan-black-3.jpg"]', 1)
+insert into Images values(32, '["iphone-15-pro-titan-white.jpg", "iphone-15-pro-titan-white-1.jpg", "iphone-15-pro-titan-white-2.jpg", "iphone-15-pro-titan-white-3.jpg"]', 1)
+insert into Images values(33, '["iphone-15-pro-titan-blue.jpg", "iphone-15-pro-titan-blue-1.jpg", "iphone-15-pro-titan-blue-2.jpg", "iphone-15-pro-titan-blue-3.jpg"]', 1)
+insert into Images values(34, '["iphone-15-pro-titan-natural.jpg", "iphone-15-pro-titan-natural-1.jpg", "iphone-15-pro-titan-natural-2.jpg", "iphone-15-pro-titan-natural-3.jpg"]', 1)
+--256GB
+insert into Images values(35, '["iphone-15-pro-titan-black.jpg", "iphone-15-pro-titan-black-1.jpg", "iphone-15-pro-titan-black-2.jpg", "iphone-15-pro-titan-black-3.jpg"]', 1)
+insert into Images values(36, '["iphone-15-pro-titan-white.jpg", "iphone-15-pro-titan-white-1.jpg", "iphone-15-pro-titan-white-2.jpg", "iphone-15-pro-titan-white-3.jpg"]', 1)
+insert into Images values(37, '["iphone-15-pro-titan-blue.jpg", "iphone-15-pro-titan-blue-1.jpg", "iphone-15-pro-titan-blue-2.jpg", "iphone-15-pro-titan-blue-3.jpg"]', 1)
+insert into Images values(38, '["iphone-15-pro-titan-natural.jpg", "iphone-15-pro-titan-natural-1.jpg", "iphone-15-pro-titan-natural-2.jpg", "iphone-15-pro-titan-natural-3.jpg"]', 1)
+--512GB
+insert into Images values(39, '["iphone-15-pro-titan-black.jpg", "iphone-15-pro-titan-black-1.jpg", "iphone-15-pro-titan-black-2.jpg", "iphone-15-pro-titan-black-3.jpg"]', 1)
+insert into Images values(40, '["iphone-15-pro-titan-white.jpg", "iphone-15-pro-titan-white-1.jpg", "iphone-15-pro-titan-white-2.jpg", "iphone-15-pro-titan-white-3.jpg"]', 1)
+insert into Images values(41, '["iphone-15-pro-titan-blue.jpg", "iphone-15-pro-titan-blue-1.jpg", "iphone-15-pro-titan-blue-2.jpg", "iphone-15-pro-titan-blue-3.jpg"]', 1)
+insert into Images values(42, '["iphone-15-pro-titan-natural.jpg", "iphone-15-pro-titan-natural-1.jpg", "iphone-15-pro-titan-natural-2.jpg", "iphone-15-pro-titan-natural-3.jpg"]', 1)
+--1TB
+insert into Images values(43, '["iphone-15-pro-titan-black.jpg", "iphone-15-pro-titan-black-1.jpg", "iphone-15-pro-titan-black-2.jpg", "iphone-15-pro-titan-black-3.jpg"]', 1)
+insert into Images values(44, '["iphone-15-pro-titan-white.jpg", "iphone-15-pro-titan-white-1.jpg", "iphone-15-pro-titan-white-2.jpg", "iphone-15-pro-titan-white-3.jpg"]', 1)
+insert into Images values(45, '["iphone-15-pro-titan-blue.jpg", "iphone-15-pro-titan-blue-1.jpg", "iphone-15-pro-titan-blue-2.jpg", "iphone-15-pro-titan-blue-3.jpg"]', 1)
+insert into Images values(46, '["iphone-15-pro-titan-natural.jpg", "iphone-15-pro-titan-natural-1.jpg", "iphone-15-pro-titan-natural-2.jpg", "iphone-15-pro-titan-natural-3.jpg"]', 1)
+--Image IPHONE 15 PRO MAX
+insert into Images values(47, '["iphone-15-pro-max-titan-black.jpg", "iphone-15-pro-max-titan-black-1.jpg", "iphone-15-pro-max-titan-black-2.jpg", "iphone-15-pro-max-titan-black-3.jpg"]', 1)
+insert into Images values(48, '["iphone-15-pro-max-titan-white.jpg", "iphone-15-pro-max-titan-white-1.jpg", "iphone-15-pro-max-titan-white-2.jpg", "iphone-15-pro-max-titan-white-3.jpg"]', 1)
+insert into Images values(49, '["iphone-15-pro-max-titan-blue.jpg", "iphone-15-pro-max-titan-blue-1.jpg", "iphone-15-pro-max-titan-blue-2.jpg", "iphone-15-pro-max-titan-blue-3.jpg"]', 1)
+insert into Images values(50, '["iphone-15-pro-max-titan-natural.jpg", "iphone-15-pro-max-titan-natural-1.jpg", "iphone-15-pro-max-titan-natural-2.jpg", "iphone-15-pro-max-titan-natural-3.jpg"]', 1)
+
+insert into Images values(51, '["iphone-15-pro-max-titan-black.jpg", "iphone-15-pro-max-titan-black-1.jpg", "iphone-15-pro-max-titan-black-2.jpg", "iphone-15-pro-max-titan-black-3.jpg"]', 1)
+insert into Images values(52, '["iphone-15-pro-max-titan-white.jpg", "iphone-15-pro-max-titan-white-1.jpg", "iphone-15-pro-max-titan-white-2.jpg", "iphone-15-pro-max-titan-white-3.jpg"]', 1)
+insert into Images values(53, '["iphone-15-pro-max-titan-blue.jpg", "iphone-15-pro-max-titan-blue-1.jpg", "iphone-15-pro-max-titan-blue-2.jpg", "iphone-15-pro-max-titan-blue-3.jpg"]', 1)
+insert into Images values(54, '["iphone-15-pro-max-titan-natural.jpg", "iphone-15-pro-max-titan-natural-1.jpg", "iphone-15-pro-max-titan-natural-2.jpg", "iphone-15-pro-max-titan-natural-3.jpg"]', 1)
+
+insert into Images values(55, '["iphone-15-pro-max-titan-black.jpg", "iphone-15-pro-max-titan-black-1.jpg", "iphone-15-pro-max-titan-black-2.jpg", "iphone-15-pro-max-titan-black-3.jpg"]', 1)
+insert into Images values(56, '["iphone-15-pro-max-titan-white.jpg", "iphone-15-pro-max-titan-white-1.jpg", "iphone-15-pro-max-titan-white-2.jpg", "iphone-15-pro-max-titan-white-3.jpg"]', 1)
+insert into Images values(57, '["iphone-15-pro-max-titan-blue.jpg", "iphone-15-pro-max-titan-blue-1.jpg", "iphone-15-pro-max-titan-blue-2.jpg", "iphone-15-pro-max-titan-blue-3.jpg"]', 1)
+insert into Images values(58, '["iphone-15-pro-max-titan-natural.jpg", "iphone-15-pro-max-titan-natural-1.jpg", "iphone-15-pro-max-titan-natural-2.jpg", "iphone-15-pro-max-titan-natural-3.jpg"]', 1)

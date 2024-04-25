@@ -6,7 +6,6 @@ import Cart from "../User/Pages/Cart";
 import men_banner from "../User/Components/Assets/banner_mens.png"
 import women_banner from "../User/Components/Assets/banner_women.png"
 import kid_banner from "../User/Components/Assets/banner_kids.png"
-
 import Shop from "../User/Pages/Shop";
 
 const PublicRouter = () => {
@@ -18,9 +17,9 @@ const PublicRouter = () => {
                     <Route path="/">
                         <Route index element={<Shop />} />
 
-                        <Route path='mens' element={<ShopCategory category="men" banner={men_banner} />} />
-                        <Route path='womens' element={<ShopCategory category="women" banner={women_banner}/>} />
-                        <Route path='kids' element={<ShopCategory category="kid" banner={kid_banner}/>} />
+                        <Route path='iphone' element={<ShopCategory brand="iPhone" banner={men_banner} />} />
+                        <Route path='samsung' element={<ShopCategory brand="Samsung" banner={women_banner}/>} />
+                        <Route path='nokia' element={<ShopCategory brand="Nokia" banner={kid_banner}/>} />
                         <Route path='products' element={<Product />}>
                             <Route path=':id' element={<Product />}/>
                         </Route>

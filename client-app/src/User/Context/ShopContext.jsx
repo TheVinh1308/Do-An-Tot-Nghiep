@@ -1,50 +1,27 @@
-import { createContext, useState } from "react";
-import all_product from "../Components/Assets/all_product"
+import { createContext, useEffect, useState } from "react";
+import axios from "axios";
 export const ShopContext = createContext(null)
-const getDefaultCart = () => {
-    let cart = {}
-    for (let i = 0; i < all_product.length+1; i++) {
-        cart[i] = 0
-    }
-    return cart
-}
 
 const ShopContextProvider = (props) =>{
-    const [cartItems, setCartItems] = useState(getDefaultCart())
+
+
+    const [modPhones, setModPhones] = useState([]);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/ModPhones`)
+            .then((res) => {
+                setModPhones(res.data)
+            })
+            .catch((err) => {
+                console.log("Lỗi lấy dữ liệu: ", err);
+            })
+               
+    },[])
+
+
+    // const [cartItems, setCartItems] = useState()
     
 
-    const addToCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]:prev[itemId]+1}))
-    }
-
-    const removeFromCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]:prev[itemId]-1}))
-    }
-
-    const getTotalCartAmount = () => {
-        let totalAmount 
-        for (const item in cartItems) {
-            if(cartItems[item] > 0) 
-            {
-                let itemInfo = all_product.find((product) => product.id === Number(item))
-                totalAmount += itemInfo.new_price * cartItems[item]
-            }
-            return totalAmount;
-
-        }
-    }
-
-    const getTotalCartItems = () => {
-        let totalItem = 0;
-        for(const item in cartItems) {
-            if(cartItems[item] > 0) {
-                totalItem+= cartItems[item]
-            }
-        }
-        return totalItem
-    }
-
-    const contextValue = {getTotalCartItems,getTotalCartAmount,all_product,cartItems,addToCart, removeFromCart}
+    const contextValue = {modPhones}
 
     return (
         <ShopContext.Provider value={contextValue}>

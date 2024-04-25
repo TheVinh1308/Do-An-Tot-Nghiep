@@ -6,9 +6,8 @@ import { ShopContext } from "../Context/ShopContext";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 const ShopCategory = (props) => {
-    const {all_product} = useContext(ShopContext)
-    // console.log(all_product);
-    // console.log(props.cate);
+    const {modPhones} = useContext(ShopContext)
+
     return ( 
         <div className="shop-category">
             <Navbar/>
@@ -20,10 +19,17 @@ const ShopCategory = (props) => {
                 </div>
             </div>
             <div className="shopcategory-products">
-                {all_product.map((item,index) => (
-                   props.category === item.category
+                {modPhones.map((item,index) => (
+                   props.brand === item.brand.name
                     ? 
-                   <Item key={index} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price}/>
+                   <Item 
+                        key={index} 
+                        id={item.id} 
+                        name={item.name} 
+                        image={`https://localhost:7258/images/products/${item.image}`} 
+                        // new_price={item.new_price} 
+                        // ld_price={item.old_price}
+                    />
                     : null
                 ))}
             </div>

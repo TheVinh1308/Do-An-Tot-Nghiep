@@ -6,15 +6,18 @@
 }
 .item p {
     margin: 6px 0px;
+    text-align: center;
 }
 .item-prices{
     display: flex;
     gap: 20px;
+    justify-content: center;
 }
 .item-price-new{
     color: #374151;
     font-size: 18px;
     font-weight: 600;
+    color: red;
 }
 .item-price-old{
     color: #8c8c8c;

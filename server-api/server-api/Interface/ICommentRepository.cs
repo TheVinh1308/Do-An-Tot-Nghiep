@@ -7,7 +7,7 @@ namespace server_api.Interface
          Task DeleteCommentAsync(int commentId);
         Task<List<Comment>> GetAllCommentAsync();
         Task<Comment> GetCommentAsync(int id);
-        Task<Comment> InsertComentAsync(Comment comment);
+        Task<Comment> InsertCommentAsync(Comment comment);
         Task UpdateCommentAsync(int commentId, Comment comment);
 
     }

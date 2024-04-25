@@ -37,7 +37,7 @@ namespace server_api.Repository
             return comment;
         }
 
-        public async Task<Comment> InsertComentAsync(Comment comment)
+        public async Task<Comment> InsertCommentAsync(Comment comment)
         {
             _context.Comments.Add(comment);
             await _context.SaveChangesAsync();

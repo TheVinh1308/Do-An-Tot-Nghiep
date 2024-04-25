@@ -38,7 +38,7 @@ namespace server_api.Controllers
         {
             try
             {
-                var newComment = await _commentRepository.InsertComentAsync(comment);
+                var newComment = await _commentRepository.InsertCommentAsync(comment);
                 return CreatedAtAction(nameof(GetCommentById), new { comment }, comment);
             }
             catch
