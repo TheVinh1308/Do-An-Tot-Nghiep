@@ -9,5 +9,6 @@ namespace server_api.Interface
         Task<Phone> InsertPhoneAsync(Phone phone);
         Task UpdatePhoneAsync(int phoneId, Phone phone);
         Task DeletePhoneAsync(int phoneId);
+        Task<List<Phone>> GetFirstPhoneEachModPhoneAsync();
     }
 }

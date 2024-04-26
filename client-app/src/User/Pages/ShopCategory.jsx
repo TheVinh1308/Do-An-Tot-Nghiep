@@ -6,7 +6,7 @@ import { ShopContext } from "../Context/ShopContext";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 const ShopCategory = (props) => {
-    const {modPhones} = useContext(ShopContext)
+    const {phones} = useContext(ShopContext)
 
     return ( 
         <div className="shop-category">
@@ -19,17 +19,19 @@ const ShopCategory = (props) => {
                 </div>
             </div>
             <div className="shopcategory-products">
-                {modPhones.map((item,index) => (
-                   props.brand === item.brand.name
+                {phones.map((item,index) => (
+                   item !== null ?
+                   props.brand === item.modPhone.brand.name
                     ? 
                    <Item 
                         key={index} 
                         id={item.id} 
                         name={item.name} 
-                        image={`https://localhost:7258/images/products/${item.image}`} 
+                        image={`https://localhost:7258/images/products/${item.modPhone.image}`} 
                         // new_price={item.new_price} 
                         // ld_price={item.old_price}
                     />
+                    : null
                     : null
                 ))}
             </div>

@@ -30,6 +30,20 @@ namespace server_api.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("FirstByModel")]
+        public async Task<IActionResult> GetFirstPhoneEachModPhone()
+        {
+            try
+            {
+                return Ok(await _phoneRepository.GetFirstPhoneEachModPhoneAsync());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPhoneById(int id)
         {

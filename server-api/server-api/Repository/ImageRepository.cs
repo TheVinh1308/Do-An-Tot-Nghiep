@@ -2,10 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server_api.Data;
+using server_api.Interface;
 
 namespace server_api.Repository
 {
-    public class ImageRepository
+    public class ImageRepository : IImageRepository
     {
         private readonly EPhoneShopIdentityContext _context;
         private readonly IWebHostEnvironment _environment;
@@ -34,62 +35,28 @@ namespace server_api.Repository
 
         public async Task<Image> GetImageAsync(int id)
         {
-            var image = await _context.Images.SingleOrDefaultAsync(x => x.Id == id);
+            var image = await _context.Images.FirstOrDefaultAsync(x => x.Id == id);
             return image;
         }
 
-        public async Task<Image[]> InsertImageAsync([FromForm] Image images)
+        public async Task<Image> GetImageForPhone(int phoneId)
         {
-            List<Image> insertedImages = new List<Image>();
+            var image = await _context.Images.FirstOrDefaultAsync(i => i.PhoneId == phoneId);
 
-            foreach (var image in insertedImages)
-            {
-                if (image.Files != null && image.Files.Count > 0)
-                {
-                    try
-                    {
-                        var fileName = Guid.NewGuid().ToString() + Path.GetExtension(images.Files[0].FileName);
-                        var imagePath = Path.Combine(_environment.WebRootPath, "images", "Images");
-                        var uploadPath = Path.Combine(imagePath, fileName);
-                        Directory.CreateDirectory(imagePath);
-                        using (var fileStream = new FileStream(uploadPath, FileMode.Create))
-                        {
-                            await image.Files[0].CopyToAsync(fileStream);
-                        }
-                        image.Path = Path.Combine("images", "Images", fileName);
-                        insertedImages.Add(image); // Add image to the list of inserted images
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"An error occurred while uploading the file: {ex.Message}");
-                    }
-                }
-            }
-            _context.Images.AddRange(insertedImages);
-            await _context.SaveChangesAsync();
-            return insertedImages.ToArray();
+            return image;
         }
 
 
-        public async Task UpdateModPhoneAsync([FromForm] int modPhoneId, [FromForm] ModPhone modPhone)
+        public Task UpdateImageAsync(int imageId, Image image)
         {
-            if (modPhoneId == modPhone.Id)
-            {
-                if (modPhone.ImageFile != null && modPhone.ImageFile.Length > 0)
-                {
-                    var fileName = modPhone.ImageFile.FileName;
-                    // thư mục wwwroot/images/brands
-                    var imagePath = Path.Combine(_environment.WebRootPath, "images", "modPhones");
-                    var uploadPath = Path.Combine(imagePath, fileName);
-                    using (var fileStream = new FileStream(uploadPath, FileMode.Create))
-                    {
-                        await modPhone.ImageFile.CopyToAsync(fileStream);
-                    }
-                    modPhone.Image = modPhone.ImageFile.FileName;
-                }
-                _context.ModPhones.Update(modPhone);
-                await _context.SaveChangesAsync();
-            }
+            throw new NotImplementedException();
+        }
+
+      
+
+        public Task<Image> InsertImageAsync(Image image)
+        {
+            throw new NotImplementedException();
         }
     }
 }

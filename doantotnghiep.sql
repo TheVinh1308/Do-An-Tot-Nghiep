@@ -15,7 +15,7 @@ DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.Promotions', RESEED, 0);
 go
 
 delete from Phones
-DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.Phoness', RESEED, 0);
+DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.Phones', RESEED, 0);
 go
 
 delete from Images

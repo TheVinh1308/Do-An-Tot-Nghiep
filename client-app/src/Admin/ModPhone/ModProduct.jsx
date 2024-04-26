@@ -55,7 +55,7 @@ const ModProduct = () => {
                 setDataTableData(res.data); // Cập nhật dữ liệu DataTable
                 setLoadData(true);
             });
-    }, [modPhone]);
+    }, []);
 
 
     // XOÁ BRAND

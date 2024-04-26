@@ -12,7 +12,6 @@ const PublicRouter = () => {
     return ( 
         <div>
             <BrowserRouter>
-              
                 <Routes>
                     <Route path="/">
                         <Route index element={<Shop />} />
@@ -20,9 +19,7 @@ const PublicRouter = () => {
                         <Route path='iphone' element={<ShopCategory brand="iPhone" banner={men_banner} />} />
                         <Route path='samsung' element={<ShopCategory brand="Samsung" banner={women_banner}/>} />
                         <Route path='nokia' element={<ShopCategory brand="Nokia" banner={kid_banner}/>} />
-                        <Route path='products' element={<Product />}>
-                            <Route path=':id' element={<Product />}/>
-                        </Route>
+                        <Route path='iphone/:id' element={<Product/>}></Route>
                         <Route path='cart' element={<Cart />} />
                         <Route path='login' element={<Login />} />
                     </Route>

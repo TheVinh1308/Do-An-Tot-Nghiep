@@ -12,11 +12,21 @@
     gap: 16px;
 }
 .productdisplay-img-list img{
-    height: 163px;
+    height: 70px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 .productdisplay-main-img{
-    width: 586px;
-    height: 700px;
+    height: 300px;
+    width: 350px;
+}
+
+.productdisplay-main-img img{
+    /* width: 586px;
+    height: 700px; */
+    object-fit: cover;
+    image-rendering: -webkit-optimize-contrast;
 }
 .productdisplay-right{
     margin: 0px 70px;

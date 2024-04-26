@@ -10,5 +10,6 @@ namespace server_api.Interface
         Task<ModPhone> GetModPhoneAsync(int id);
         Task<ModPhone> InsertModPhoneAsync([FromForm] ModPhone modPhone);
         Task UpdateModPhoneAsync([FromForm] int modPhoneId, [FromForm] ModPhone modPhone);
+
     }
 }

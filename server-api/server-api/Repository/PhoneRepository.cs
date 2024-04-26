@@ -16,13 +16,17 @@ namespace server_api.Repository
 
         public async Task<List<Phone>> GetAllPhoneAsync()
         {
-            var phones = await _context.Phones.ToListAsync();
+            var phones = await _context.Phones.Include(p => p.ModPhone)
+                                              .Include(p => p.ModPhone.Brand)
+                                              .ToListAsync();
             return phones;
         }
 
         public async Task<Phone> GetPhoneAsync(int id)
         {
-            var phone = await _context.Phones.SingleOrDefaultAsync(x => x.Id == id);
+            var phone = await _context.Phones.Include(p => p.ModPhone)
+                                             .Include(p => p.ModPhone.Brand)
+                                             .SingleOrDefaultAsync(x => x.Id == id);
             return phone;
         }
 
@@ -50,6 +54,21 @@ namespace server_api.Repository
                 _context.Phones.Update(phone);
                 await _context.SaveChangesAsync();
            }
+        }
+
+        public async Task<List<Phone>> GetFirstPhoneEachModPhoneAsync()
+        {
+            var models = await _context.ModPhones.Select(m => m.Id)
+                                                 .ToListAsync();
+            List<Phone> result = new List<Phone>();
+            foreach (var item in models)
+            {
+                result.Add(_context.Phones.Include(a => a.ModPhone)
+                                          .Include(a => a.ModPhone.Brand)
+                    .FirstOrDefault(p => p.ModPhoneId == item));
+            }
+
+            return result;
         }
     }
 }

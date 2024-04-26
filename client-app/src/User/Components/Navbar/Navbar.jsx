@@ -2,14 +2,14 @@ import "./Navbar.css"
 import logo from "../Assets/logo.png"
 import cart_icon from "../Assets/cart_icon.png"
 import { useContext, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
 import nav_droppdown from "../Assets/dropdown_icon.png"
 import iphone_icon from "../Assets/iphone.png"
 import samsung_icon from "../Assets/samsung.png"
 const Navbar = () => {
     const [menu, setMenu] = useState();
-    const shopContext = useContext(ShopContext);
+    // const shopContext = useContext(ShopContext);
     const menuRef = useRef();
 
     const dropdown_toggle = (e) => {
@@ -49,6 +49,7 @@ const Navbar = () => {
                     <div className="nav-cart-count">{0}</div>
                 </div>
             </div>
+            <Outlet/>
         </>
      );
 }
