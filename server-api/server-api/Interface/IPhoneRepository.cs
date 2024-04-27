@@ -7,7 +7,7 @@ namespace server_api.Interface
     {
         Task<List<Phone>> GetAllPhoneAsync();
         Task<Phone> GetPhoneAsync(int id);
-        Task<Phone> InsertPhoneAsync(  Phone phone);
+        Task<Phone> InsertPhoneAsync( [FromForm] Phone phone);
         Task UpdatePhoneAsync(int phoneId, Phone phone);
         Task DeletePhoneAsync(int phoneId);
         Task<List<Phone>> GetFirstPhoneEachModPhoneAsync();

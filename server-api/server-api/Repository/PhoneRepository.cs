@@ -30,7 +30,7 @@ namespace server_api.Repository
             return phone;
         }
 
-        public async Task<Phone> InsertPhoneAsync( Phone phone)
+        public async Task<Phone> InsertPhoneAsync([FromForm]Phone phone)
         {
              _context.Phones.Add(phone);
             await _context.SaveChangesAsync();     

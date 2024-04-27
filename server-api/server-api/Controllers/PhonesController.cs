@@ -51,12 +51,12 @@ namespace server_api.Controllers
             return phone == null ? NotFound() : Ok(phone);
         }
         [HttpPost]
-        public async Task<IActionResult> AddNewPhone(Phone phone)
+        public async Task<IActionResult> AddNewPhone([FromForm]Phone phone)
         {
             try
             {
                 var newPhone = await _phoneRepository.InsertPhoneAsync(phone);
-                return CreatedAtAction(nameof(GetPhoneById), new { phone }, phone);
+                return CreatedAtAction(nameof(GetPhoneById), new { id = phone.Id }, phone);
             }
             catch 
             {
