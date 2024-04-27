@@ -1,4 +1,5 @@
 ﻿using API_Server.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace server_api.Interface
 {
@@ -6,7 +7,7 @@ namespace server_api.Interface
     {
         Task<List<Phone>> GetAllPhoneAsync();
         Task<Phone> GetPhoneAsync(int id);
-        Task<Phone> InsertPhoneAsync(Phone phone);
+        Task<Phone> InsertPhoneAsync(  Phone phone);
         Task UpdatePhoneAsync(int phoneId, Phone phone);
         Task DeletePhoneAsync(int phoneId);
         Task<List<Phone>> GetFirstPhoneEachModPhoneAsync();

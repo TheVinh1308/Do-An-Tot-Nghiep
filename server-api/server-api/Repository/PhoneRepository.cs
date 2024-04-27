@@ -1,4 +1,5 @@
 ﻿using API_Server.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server_api.Data;
 using server_api.Interface;
@@ -17,7 +18,6 @@ namespace server_api.Repository
         public async Task<List<Phone>> GetAllPhoneAsync()
         {
             var phones = await _context.Phones.Include(p => p.ModPhone)
-                                              .Include(p => p.ModPhone.Brand)
                                               .ToListAsync();
             return phones;
         }
@@ -30,7 +30,7 @@ namespace server_api.Repository
             return phone;
         }
 
-        public async Task<Phone> InsertPhoneAsync(Phone phone)
+        public async Task<Phone> InsertPhoneAsync( Phone phone)
         {
              _context.Phones.Add(phone);
             await _context.SaveChangesAsync();     

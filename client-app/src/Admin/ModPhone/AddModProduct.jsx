@@ -117,9 +117,9 @@ const AddModProduct = () => {
 
                                     <option>Lựa chọn hãng</option>
                                     {
-                                        brand.map((item, index) => (
+                                        Array.isArray(brand) ? brand.map((item, index) => (
                                             <option key={index} value={item.id}>{item.name}</option>
-                                        ))
+                                        )) : <option>KHong co</option>
                                     }
                                 </Form.Select>
                             </Col>

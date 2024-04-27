@@ -31,21 +31,41 @@ const ModProduct = () => {
 
     useEffect(() => {
         if (loadData) {
-            const table = $('#DataTables_Table_0').DataTable({
+            $('#DataTables_Table_0').DataTable({
+                dom: 'Bfrtip',
                 responsive: true,
                 autoWidth: true,
                 paging: [{
                     className: 'p-0',
-                }]
+                }],
+                buttons: [
+                    {
+                        extend: 'copy',
+                        className: 'btn bg-primary text-white',
+                    },
+                    {
+                        extend: 'csv',
+                        className: 'btn bg-secondary text-white',
+                    },
+                    {
+                        extend: 'excel',
+                        className: 'btn bg-success text-white',
+                        filename: function () {
+                            return 'data_' + Date.now();
+                        },
+                    },
+                    {
+                        extend: 'pdf',
+                        className: 'btn bg-danger text-white',
+                        filename: function () {
+                            return 'data_' + Date.now();
+                        },
+                    },
+                ],
             });
-
-            return () => {
-                // Destroy the DataTable instance when component unmounts
-                table.destroy();
-            };
         }
-
     }, [loadData]);
+
 
     const [dataTableData, setDataTableData] = useState([]);
     useEffect(() => {
@@ -55,7 +75,7 @@ const ModProduct = () => {
                 setDataTableData(res.data); // Cập nhật dữ liệu DataTable
                 setLoadData(true);
             });
-    }, []);
+    }, [modPhone]);
 
 
     // XOÁ BRAND

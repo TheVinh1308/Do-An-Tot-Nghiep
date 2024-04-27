@@ -26,5 +26,7 @@ namespace API_Server.Models
             Stock = 0;
         }
 
+       
+
     }
 }

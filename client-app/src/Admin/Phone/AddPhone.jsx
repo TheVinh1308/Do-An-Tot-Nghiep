@@ -1,25 +1,100 @@
-
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Button, Col, Form, Image, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 const AddPhone = () => {
+
+    const [phone, setPhone] = useState({});
+    const [isInsert, setIsInsert] = useState(false);
+    const [clickSku, seClickSku] = useState(false);
+    const [modPhones, setModPhones] = useState([]);
+
+
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        let name = e.target.name;
+        let value = e.target.value;
+        setPhone(prev => ({ ...prev, [name]: value }));
+    }
+
+    // const handleCheck = (e) => {
+    //     let name = e.target.name;
+    //     let value = e.target.checked
+    //     setBrand(prev => ({ ...prev, [name]: value }));
+    // }
+
+    const handleSKU = () => {
+        const generatedSKU = generateRandomString(10);
+        setPhone(prev => ({ ...prev, sku: generatedSKU }));
+        seClickSku(true);
+    };
+
+    const handleSelect = (e) => {
+        let name = e.target.name;
+        let value = e.target.value
+        setPhone(prev => ({ ...prev, [name]: value }));
+    }
+
+
+    // lấy danh sách modphone
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/ModPhones`)
+            .then(res => {
+                setModPhones(res.data);
+            });
+    }, []);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        Object.entries(phone).forEach(([key, value]) => {
+            formData.append(key, value);
+        });
+        axios.post(`https://localhost:7258/api/Phones`, formData) // Pass formData here
+            .then(res => {
+                setPhone(res.data);
+                navigate("/admin/Phone");
+                setIsInsert(true);
+                console.log(res.data);
+            })
+            .catch(error => {
+                console.error('Error adding phone:', error);
+            });
+    }
+    function generateRandomString(length) {
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var randomString = '';
+        for (var i = 0; i < length; i++) {
+            var randomIndex = Math.floor(Math.random() * characters.length);
+            randomString += characters.charAt(randomIndex);
+        }
+        return randomString;
+    }
+
+    var randomString = generateRandomString(10);
+    console.log(phone);
+
+
     return (
         <>
-            <form className="form-modphone g-3" datatype="">
+            <form className="form-modphone g-3" datatype="" onSubmit={handleSubmit}>
                 <Row>
 
                     <Col className="col-12">
                         <Row>
                             <Col className="form-item" xs={12} md={6}>
-                                <i class="bi bi-info-circle-fill"></i>
+                                <i className="bi bi-info-circle-fill"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Tên điện thoại</label>
-                                <input type="text" className="form-control" id="inputNanme4" />
+                                <input type="text" className="form-control" id="inputNanme4" name="name" onChange={handleChange} />
                             </Col>
                             <Col className="form-item" xs={8} md={6}>
                                 <div xs={8} md={8} className="form-item">
-                                    <i class="bi bi-upc-scan"></i>
+                                    <i classNames="bi bi-upc-scan"></i>
                                     <label htmlFor="inputNanme4" className="form-label">SKU</label>
                                     <div className="d-flex form-sku">
-                                        <input type="text" className="form-control" id="inputNanme4" />
-                                        <button>Tạo SKU</button>
+                                        <input type="text" className="form-control" id="inputNanme4" name="sku" />
+                                        <div className="btn btn-success" onClick={handleSKU}>Tạo SKU</div>
                                     </div>
 
                                 </div>
@@ -30,33 +105,39 @@ const AddPhone = () => {
                         </Row>
                         <Row>
                             <Col className="form-item" xs={12} md={4}>
-                                <i class="bi bi-tags"></i>
+                                <i className="bi bi-tags"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Giá tiền</label>
-                                <input type="text" className="form-control" id="inputNanme4" />
+                                <input type="text" className="form-control" id="inputNanme4" name="price" onChange={handleChange} />
                             </Col>
                             <Col className="form-item" xs={12} md={4}>
-                                <i class="bi bi-layout-wtf"></i>
+                                <i className="bi bi-layout-wtf"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Dòng điện thoại</label>
-                                <Form.Select >
-                                    <option>Large select</option>
+                                <Form.Select name="modPhoneId" onChange={handleSelect}>
+
+                                    <option>Lựa chọn dòng điện thoại</option>
+                                    {
+                                        Array.isArray(modPhones) ? modPhones.map((item, index) => (
+                                            <option key={index} value={item.id}>{item.name}</option>
+                                        )) : <option>KHong co</option>
+                                    }
                                 </Form.Select>
                             </Col>
                             <Col className="form-item" xs={12} md={4}>
-                                <i class="bi bi-phone"></i>
+                                <i className="bi bi-phone"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Dung lượng</label>
-                                <input type="text" className="form-control" id="inputNanme4" />
+                                <input type="text" className="form-control" id="inputNanme4" name="rom" onChange={handleChange} />
                             </Col>
                         </Row>
                         <Row>
                             <Col className="form-item" xs={12} md={6}>
-                                <i class="bi bi-palette"></i>
+                                <i className="bi bi-palette"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Màu sách</label>
-                                <input type="text" className="form-control" id="inputNanme4" />
+                                <input type="text" className="form-control" id="inputNanme4" name="color" onChange={handleChange} />
                             </Col>
                             <Col className="form-item" xs={12} md={6}>
-                                <i class="bi bi-bar-chart-line"></i>
+                                <i className="bi bi-bar-chart-line"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Số lượng tồn kho</label>
-                                <input type="text" className="form-control" id="inputNanme4" />
+                                <input type="text" className="form-control" id="inputNanme4" name="stock" onChange={handleChange} />
                             </Col>
                         </Row>
                     </Col>
