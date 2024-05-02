@@ -28,7 +28,10 @@ const AddPhone = () => {
         const generatedSKU = generateRandomString(10);
         setPhone(prev => ({ ...prev, sku: generatedSKU }));
         seClickSku(true);
+        // Set the generated SKU directly in the input field
+        document.getElementById("inputSku").value = generatedSKU;
     };
+
 
     const handleSelect = (e) => {
         let name = e.target.name;
@@ -93,7 +96,8 @@ const AddPhone = () => {
                                     <i classNames="bi bi-upc-scan"></i>
                                     <label htmlFor="inputNanme4" className="form-label">SKU</label>
                                     <div className="d-flex form-sku">
-                                        <input type="text" className="form-control" id="inputNanme4" name="sku" />
+                                        <input type="text" className="form-control" id="inputSku" name="sku" />
+
                                         <div className="btn btn-success" onClick={handleSKU}>Tạo SKU</div>
                                     </div>
 

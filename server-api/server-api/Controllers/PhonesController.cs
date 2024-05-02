@@ -62,6 +62,25 @@ namespace server_api.Controllers
             {
                 return BadRequest();
             }
+        
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePhone([FromForm] int id, [FromForm] Phone phone)
+        {
+            if (id != phone.Id)
+            {
+                return BadRequest("Điện thoại không tồn tại");
+            }
+            try
+            {
+                await _phoneRepository.UpdatePhoneAsync(id, phone);
+                return Ok();
+            }
+            catch
+            {
+                return NotFound();
+            }
         }
 
         [HttpDelete("{id}")]

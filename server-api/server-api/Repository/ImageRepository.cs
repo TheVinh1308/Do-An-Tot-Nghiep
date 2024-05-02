@@ -1,4 +1,5 @@
 ﻿using API_Server.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server_api.Data;
@@ -52,11 +53,43 @@ namespace server_api.Repository
             throw new NotImplementedException();
         }
 
-      
 
-        public Task<Image> InsertImageAsync(Image image)
+
+      
+        public async Task<Image> InsertImageAsync([FromForm] Image image)
         {
-            throw new NotImplementedException();
+            // Khởi tạo mảng để lưu danh sách tên file
+            List<string> fileNames = new List<string>();
+
+            foreach (var file in image.Files)
+            {
+                if (file.Length > 0)
+                {
+                    var fileName = file.FileName;
+                    var imagePath = Path.Combine(_environment.WebRootPath, "images", "image");
+
+                    var uploadPath = Path.Combine(imagePath, fileName);
+                    using (var fileStream = new FileStream(uploadPath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(fileStream);
+                    }
+
+                    // Thêm tên file vào mảng
+                    fileNames.Add(fileName);
+                }
+            }
+
+            // Chuyển đổi danh sách tên file thành chuỗi JSON
+            string jsonFileNames = Newtonsoft.Json.JsonConvert.SerializeObject(fileNames);
+
+            // Lưu chuỗi JSON vào trường Path
+            image.Path = jsonFileNames;
+
+            _context.Images.Add(image);
+            await _context.SaveChangesAsync();
+
+            return image;
         }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using API_Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using server_api.Interface;
+using server_api.Repository;
 
 namespace server_api.Controllers
 {
@@ -34,6 +35,25 @@ namespace server_api.Controllers
             return image == null ? NotFound() : Ok(image);
         }
 
-       
+
+        [HttpPost]
+        public async Task<IActionResult> AddNewImage([FromForm] Image image)
+        {
+            if (image == null)
+            {
+                return BadRequest("ModPhone object is null");
+            }
+
+            try
+            {
+                await _imageRepository.InsertImageAsync(image);
+                return CreatedAtAction(nameof(GetImageById), new { id = image.Id }, image);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }
