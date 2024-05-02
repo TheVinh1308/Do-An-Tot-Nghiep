@@ -5,12 +5,17 @@ import { Col, Form, Row } from "react-bootstrap";
 const AddImage = () => {
     const [imageSrcs, setImageSrcs] = useState([]);
     const [isInsert, setIsInsert] = useState(false);
-    const [image, setImage] = useState({});
+    const [image, setImage] = useState({status: true, Files: []});
+
     const handleImageChange = (e) => {
-        const files = e.target.files;
+        let files = e.target.files;
+        let name = e.target.name;
         const previews = Array.from(files).map(file => URL.createObjectURL(file));
+
+        const filesArray = Array.from(files);
+  
+        setImage(prev => ({ ...prev, [name]: filesArray }));
         setImageSrcs(previews);
-        setImage(prev => ({ ...prev, ImageFile: e.target.files[0] }));
     };
 
 
@@ -18,28 +23,39 @@ const AddImage = () => {
         let name = e.target.name;
         let value = e.target.value
         setImage(prev => ({ ...prev, [name]: value }));
+        console.log(value);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+      
         const formData = new FormData();
-        Object.entries(image).forEach(([key, value]) => {
-            formData.append(key, value);
+      
+        // Append each file to form data
+        image.Files.forEach(file => {
+          formData.append('Files', file);
         });
+      
+        // Append other form data fields
+        formData.append('status', image.status);
+        formData.append('phoneId', image.phoneId);
+        console.log(formData);
         axios.post(`https://localhost:7258/api/Images`, formData, {
             headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        }) // Pass formData here
-            .then(res => {
-                setImage(res.data);
-                setIsInsert(true);
-            })
-            .catch(error => {
-                console.error('Error adding brand:', error);
-                console.log(`image`, image);
-            });
-    }
+                'Content-Type': 'multipart/form-data',
+            },
+        })
+        .then((res) => {
+            setIsInsert(true);
+            setImage(res.data);
+            alert("success")
+        })
+        .catch((err) => {
+          alert("Thêm thất bại!!!")
+          console.log(`error`,err);
+          console.log(formData);
+        })
+      }
 
     const [phones, setPhones] = useState([]);
     useEffect(() => {
@@ -55,7 +71,7 @@ const AddImage = () => {
                     <Col className="col-8 form-item" md={8} xs={12}>
                         <i class="bi bi-image"></i>
                         <label htmlFor="inputName4" className="form-label">Hình ảnh</label>
-                        <input type="file" className="form-control" id="inputName4" name="path" onChange={handleImageChange} multiple />
+                        <input type="file" className="form-control" id="inputName4" name="Files" onChange={handleImageChange} multiple />
 
 
                         <Row>
@@ -82,11 +98,11 @@ const AddImage = () => {
                             ) : (
                                 <img src={process.env.PUBLIC_URL + '/assets/img/ModPhone/noimg.jpg'} width="100%" />
                             )}</Col>
-                            <Col> {imageSrcs[4] ? (
+                            {/* <Col> {imageSrcs[4] ? (
                                 <img className="imgs" src={imageSrcs[4]} width="100%" />
                             ) : (
                                 <img src={process.env.PUBLIC_URL + '/assets/img/ModPhone/noimg.jpg'} width="100%" />
-                            )}</Col>
+                            )}</Col> */}
                         </Row>
 
                     </Col>
