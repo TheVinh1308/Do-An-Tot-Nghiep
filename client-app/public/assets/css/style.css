@@ -401,6 +401,7 @@ h6 {
   background-color: #f6f9ff;
 }
 
+
 .accordion-flush .accordion-button {
   padding: 15px 0;
   background: none;
@@ -410,6 +411,8 @@ h6 {
 .accordion-flush .accordion-button:not(.collapsed) {
   box-shadow: none;
   color: #4154f1;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .accordion-flush .accordion-body {
