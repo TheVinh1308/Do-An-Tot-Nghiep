@@ -9,6 +9,7 @@ import "datatables.net-bs5";
 import $ from "jquery"
 import AddImage from "./AddImage";
 import EditImage from "./EditImage";
+import axios from "axios";
 
 const Images = () => {
     // SHOW THÊM ẢNH ĐIỆN THOẠI
@@ -21,19 +22,52 @@ const Images = () => {
     const handleCloseEdit = () => setShowEdit(false);
     const handleShowEdit = () => setShowEdit(true);
 
+    const [loadData, setLoadData] = useState(false);
     useEffect(() => {
-        const table = $('#DataTables_Table_Image_0').DataTable({
-            responsive: true,
-            autoWidth: true,
-            paging: [{
-                className: 'p-0',
-            }]
-        });
+        if (loadData) {
+            $('#DataTables_Table_Image_0').DataTable({
+                dom: 'Bfrtip',
+                responsive: true,
+                autoWidth: true,
+                paging: [{
+                    className: 'p-0',
+                }],
+                buttons: [
+                    {
+                        extend: 'copy',
+                        className: 'btn bg-primary text-white',
+                    },
+                    {
+                        extend: 'csv',
+                        className: 'btn bg-secondary text-white',
+                    },
+                    {
+                        extend: 'excel',
+                        className: 'btn bg-success text-white',
+                        filename: function () {
+                            return 'data_' + Date.now();
+                        },
+                    },
+                    {
+                        extend: 'pdf',
+                        className: 'btn bg-danger text-white',
+                        filename: function () {
+                            return 'data_' + Date.now();
+                        },
+                    },
+                ],
+            });
+        }
+    }, [loadData]);
 
-        return () => {
-            // Destroy the DataTable instance when component unmounts
-            table.destroy();
-        };
+    const [images, setImages] = useState([]);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Images`)
+            .then(res => {
+                setImages(res.data);
+                // setDataTableData(res.data); // Cập nhật dữ liệu DataTable
+                setLoadData(true);
+            });
     }, []);
     return (
 
@@ -62,6 +96,29 @@ const Images = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {
+                                                images.map((item, index) => (
+                                                    <tr key={index}>
+                                                        <td className=" tb-item">{item.id}</td>
+                                                        <td className="img-phone">
+                                                            <Row>
+                                                                {JSON.parse(item.path).map((imagePath, imgIndex) => (
+                                                                    <Col key={imgIndex} className="col-2">
+                                                                        <Image src={'https://localhost:7258/images/image/' + imagePath} />
+                                                                    </Col>
+                                                                ))}
+                                                            </Row>
+                                                        </td>
+                                                        <td className=" tb-item">IPhone 15 Pro max</td>
+                                                        <td className="tb-item">
+                                                            <Row>
+                                                                <Col className="col-6"> <i class="bi bi-trash btn btn-danger"></i></Col>
+                                                                <Col className="col-6" onClick={handleShowEdit}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
+                                                            </Row>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            }
                                             <tr>
                                                 <td className=" tb-item">1</td>
                                                 <td className="img-phone">
