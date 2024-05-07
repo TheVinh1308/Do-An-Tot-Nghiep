@@ -44,7 +44,7 @@ insert into Promotions values (N'Không khuyến mãi', 0, GETDATE(),1)
 -- MOD PHONE IPHONE
 insert into ModPhones values(  'IPhone 15 Promax', 6.1, N'iPhone 15 Pro Max là một chiếc điện thoại thông minh cao cấp được mong đợi nhất năm 2023. 
 								Với nhiều tính năng mới và cải tiến, iPhone 15 Pro Max chắc chắn sẽ là một lựa chọn tuyệt vời cho những người dùng đang
-								tìm kiếm một chiếc điện thoại có hiệu năng mạnh mẽ, camera chất lượng và thiết kế sang trọng.', 8,1, 'iOS 17', N'Apple A17 Pro 6 nhân', '4422 mAh, 20 W','iphone-15-pro-max-titan-white.jpg',1,1 );
+								tìm kiếm một chiếc điện thoại có hiệu năng mạnh mẽ, camera chất lượng và thiết kế sang trọng.', 8,1, 'iOS 17', N'Apple A17 Pro 6 nhân', '4422 mAh, 20 W','iphone-15-pro-max-titan-black.jpg',1,1 );
 insert into ModPhones values(  'IPhone 15 Pro', 6.1, N'iPhone 15 Pro là một trong những chiếc điện thoại thông minh được mong đợi nhất năm 2023. Với nhiều 
 								tính năng mới và cải tiến, iPhone 15 Pro chắc chắn sẽ là một lựa chọn tuyệt vời cho những người dùng đang tìm kiếm một chiếc 
 								điện thoại cao cấp.', 8,1, 'iOS 17', N'Apple A17 Pro 6 nhân', '3274 mAh, 20 W','iphone-15-pro-titan-white.jpg',1,1 );
@@ -53,7 +53,7 @@ insert into ModPhones values(  'IPhone 15 Plus', 6.7, N'iPhone 15 Plus thu hút 
 								để bạn tận hưởng trải nghiệm sử dụng tuyệt vời. ', 8,1, 'iOS 17', N'Apple A16 Bionic', '4383 mAh, 20 W','iphone-15-plus-green.jpg',1,1 );
 insert into ModPhones values(  'IPhone 15 ', 6.1, N'iPhone 15 128GB là mẫu điện thoại cao cấp được Apple cho ra mắt vào tháng 09/2023, 
 								máy nhận được nhiều sự chú ý đến từ người dùng khi mang trong mình bộ cấu hình cực khủng, vẻ ngoài thu hút
-								cùng khả năng quay video - chụp ảnh đỉnh cao.', 8,1, 'iOS 17', N'Apple A16 Bionic', '3349 mAh, 20 W','iphone-15-pink.jpg',1,1 );
+								cùng khả năng quay video - chụp ảnh đỉnh cao.', 8,1, 'iOS 17', N'Apple A16 Bionic', '3349 mAh, 20 W','iphone-15-yellow.jpg',1,1 );
 insert into ModPhones values(  'IPhone 14 Promax ', 6.7, N'iPhone 14 Pro Max một siêu phẩm trong giới smartphone được nhà Táo tung ra thị trường vào tháng 09/2022. 
 								Máy trang bị con chip Apple A16 Bionic vô cùng mạnh mẽ, đi kèm theo đó là thiết kế màn hình mới, hứa hẹn mang lại những trải 
 								nghiệm đầy mới mẻ cho người dùng iPhone.', 8,1, 'iOS 16', N'Apple A16 Bionic', '4323 mAh, 20 W','iphone-14-pro-max-sliver.jpg',1,1 );
@@ -62,10 +62,10 @@ insert into ModPhones values(  'IPhone 14 Pro ', 6.7, N'iPhone 14 Pro Max một 
 								nghiệm đầy mới mẻ cho người dùng iPhone.', 8,1, 'iOS 16', N'Apple A16 Bionic', '4323 mAh, 20 W','iphone-14-pro-gold.jpg',1,1 );
 insert into ModPhones values(  'IPhone 14 Plus ', 6.7, N'Sau nhiều thế hệ điện thoại của Apple thì cái tên “Plus” cũng đã chính thức trở lại vào năm 2022 
 								và xuất hiện trên chiếc iPhone 14 Plus 128GB, nổi trội với ngoại hình bắt trend cùng màn hình kích thước lớn để đem đến không gian 
-								hiển thị tốt hơn cùng cấu hình mạnh mẽ không đổi so với bản tiêu chuẩn.', 6,1, 'iOS 16', N'Apple A15 Bionic', '4325 mAh, 20 W','iphone-14-plus-yellow.jpeg',1,1 );
+								hiển thị tốt hơn cùng cấu hình mạnh mẽ không đổi so với bản tiêu chuẩn.', 6,1, 'iOS 16', N'Apple A15 Bionic', '4325 mAh, 20 W','iphone-14-plus-yellow.jpg',1,1 );
 insert into ModPhones values(  'IPhone 14', 6.1, N'iPhone 14 128GB được xem là mẫu smartphone bùng nổ của nhà táo trong năm 2022, ấn tượng với ngoại hình trẻ trung, màn hình chất 
 								lượng đi kèm với những cải tiến về hệ điều hành và thuật toán xử lý hình ảnh, giúp máy trở thành cái tên thu hút được đông đảo người dùng quan tâm 
-								tại thời điểm ra mắt.', 6,1, 'iOS 16', N'Apple A15 Bionic', '4379 mAh, 20 W','iphone-14-tim.jpg',1,1 );
+								tại thời điểm ra mắt.', 6,1, 'iOS 16', N'Apple A15 Bionic', '4379 mAh, 20 W','iphone-14-purple.jpg',1,1 );
 insert into ModPhones values(  'IPhone 13 Promax', 6.7, N'Điện thoại iPhone 13 Pro Max 128 GB - siêu phẩm được mong chờ nhất ở nửa cuối năm 2021 đến từ Apple. Máy có thiết kế
 								không mấy đột phá khi so với người tiền nhiệm, bên trong đây vẫn là một sản phẩm có màn hình siêu đẹp, tần số quét được nâng cấp lên 120 Hz mượt mà, 
 								cảm biến camera có kích thước lớn hơn, cùng hiệu năng mạnh mẽ với sức mạnh đến từ Apple A15 Bionic, sẵn sàng cùng bạn chinh phục mọi thử thách.', 6,1, 'iOS 15', N'Apple A15 Bionic', '4352 mAh, 20 W','iphone-13-pro-max-xanh-la.jpg',1,1 );
@@ -80,11 +80,11 @@ insert into ModPhones values(  'IPhone 12 Pro ', 6.1, N'iPhone 12 Pro - "Siêu p
 insert into ModPhones values(  'IPhone 12 ', 6.1, N'Trong những tháng cuối năm 2020, Apple đã chính thức giới thiệu đến người dùng cũng như iFan thế hệ iPhone 12 series mới với hàng loạt tính năng bứt phá, 
 								thiết kế được lột xác hoàn toàn, hiệu năng đầy mạnh mẽ và một trong số đó chính là iPhone 12 64GB.', 4,1, 'iOS 15', N'Apple A14 Bionic', '2815 mAh, 20 W','iphone-12-tim.jpg',1,1 );
 insert into ModPhones values(  'IPhone 11 Promax ', 6.5, N'Trong năm 2019 thì chiếc smartphone được nhiều người mong muốn sở hữu trên tay và sử dụng nhất không ai khác chính là iPhone 11 Pro Max 64GB 
-								tới từ nhà Apple.', 4,1, 'iOS 14', N'Apple A13 Bionic', '3969 mAh, 20 W','iphone-11-pro-max-xanh-1.jpg',1,1 );
+								tới từ nhà Apple.', 4,1, 'iOS 14', N'Apple A13 Bionic', '3969 mAh, 20 W','iphone-11-pro-max-gold.jpg',1,1 );
 insert into ModPhones values(  'IPhone 11 Pro ', 5.8, N'Nếu như bây giờ để lựa chọn một thiết bị có thể sử dụng ổn định và được cập nhật trong khoảng 3 năm nữa
-								thì không có sự lựa chọn nào xuất sắc hơn chiếc iPhone 11 Pro 64GB, siêu phẩm mới được giới thiệu cách đây không lâu tới từ Apple.', 4,1, 'iOS 14', N'Apple A13 Bionic', '3046 mAh, 20 W','iphone-11-pro-gold.png',1,1 );
+								thì không có sự lựa chọn nào xuất sắc hơn chiếc iPhone 11 Pro 64GB, siêu phẩm mới được giới thiệu cách đây không lâu tới từ Apple.', 4,1, 'iOS 14', N'Apple A13 Bionic', '3046 mAh, 20 W','iphone-11-pro-gold.jpg',1,1 );
 insert into ModPhones values(  'IPhone 11', 6.1, N'Apple đã chính thức trình làng bộ 3 siêu phẩm iPhone 11, trong đó phiên bản iPhone 11 64GB có mức giá rẻ nhất nhưng vẫn
-								được nâng cấp mạnh mẽ như iPhone Xr ra mắt trước đó.', 4,1, 'iOS 15', N'Apple A13 Bionic', '3110 mAh, 20 W','iphone-11-vang.png',1,1 );
+								được nâng cấp mạnh mẽ như iPhone Xr ra mắt trước đó.', 4,1, 'iOS 15', N'Apple A13 Bionic', '3110 mAh, 20 W','iphone-11-red.jpg',1,1 );
 
 -- MOD PHONE SAMSUNG
 insert into ModPhones values(  'Galaxy S24 Ultra', 6.8, N'Samsung Galaxy S24 Ultra mẫu điện thoại cao cấp được ra mắt vào đầu năm 2024, sản phẩm tiếp tục kế thừa và cải tiến từ thế hệ trước. 
@@ -237,78 +237,365 @@ insert into ModPhones values(  'Huawei Nova 3i', 6.3, N'Với những smartphone
 								Huawei Nova 3i được cải tiến và nâng cấp nhiều điểm mới, hứa hẹn sẽ mang lại làn gió mới cho thị trường.', 4,6, 'EMUI 9', N'Kirin 710', '3340 mAh','hwn3i.png',1,1 );
 													
 -- IPHONE 15 ID: 1 -> 15
-insert into Phones values('iPhone 15 128GB','1512814000001',4,21299000,10,'black',128)
-insert into Phones values('iPhone 15 128GB','1512814000002',4,21299000,10,'green',128)
-insert into Phones values('iPhone 15 128GB','1512814000003',4,21299000,10,'pink',128)
-insert into Phones values('iPhone 15 128GB','1512814000004',4,21299000,10,'blue',128)
-insert into Phones values('iPhone 15 128GB','1512814000005',4,21299000,10,'yellow',128)
+insert into Phones values('iPhone 15 128GB','1512804000001',4,21299000,10,'black',128)
+insert into Phones values('iPhone 15 128GB','1512804000002',4,21299000,10,'green',128)
+insert into Phones values('iPhone 15 128GB','1512804000003',4,21299000,10,'pink',128)
+insert into Phones values('iPhone 15 128GB','1512804000004',4,21299000,10,'blue',128)
+insert into Phones values('iPhone 15 128GB','1512804000005',4,21299000,10,'yellow',128)
 
-insert into Phones values('iPhone 15 256GB','1525614000001',4,24299000,10,'black',256)
-insert into Phones values('iPhone 15 256GB','1525614000002',4,24299000,10,'green',256)
-insert into Phones values('iPhone 15 256GB','1525614000003',4,24299000,10,'pink',256)
-insert into Phones values('iPhone 15 256GB','1525614000004',4,24299000,10,'blue',256)
-insert into Phones values('iPhone 15 256GB','1525614000005',4,24299000,10,'yellow',256)
+insert into Phones values('iPhone 15 256GB','1525604000001',4,24299000,10,'black',256)
+insert into Phones values('iPhone 15 256GB','1525604000002',4,24299000,10,'green',256)
+insert into Phones values('iPhone 15 256GB','1525604000003',4,24299000,10,'pink',256)
+insert into Phones values('iPhone 15 256GB','1525604000004',4,24299000,10,'blue',256)
+insert into Phones values('iPhone 15 256GB','1525604000005',4,24299000,10,'yellow',256)
 
-insert into Phones values('iPhone 15 512GB','1551214000001',4,29399000,10,'black',512)
-insert into Phones values('iPhone 15 512GB','1551214000002',4,29399000,10,'green',512)
-insert into Phones values('iPhone 15 512GB','1551214000003',4,29399000,10,'pink',512)
-insert into Phones values('iPhone 15 512GB','1551214000004',4,29399000,10,'blue',512)
-insert into Phones values('iPhone 15 512GB','1551214000005',4,29399000,10,'yellow',512)
+insert into Phones values('iPhone 15 512GB','1551204000001',4,29399000,10,'black',512)
+insert into Phones values('iPhone 15 512GB','1551204000002',4,29399000,10,'green',512)
+insert into Phones values('iPhone 15 512GB','1551204000003',4,29399000,10,'pink',512)
+insert into Phones values('iPhone 15 512GB','1551204000004',4,29399000,10,'blue',512)
+insert into Phones values('iPhone 15 512GB','1551204000005',4,29399000,10,'yellow',512)
 
 -- IPHONE 15 PLUS: 16 -> 30
-insert into Phones values('iPhone 15 Plus 128GB','1512815000001',3,24299000,10,'pink',128)
-insert into Phones values('iPhone 15 Plus 128GB','1512815000002',3,24299000,10,'green',128)
-insert into Phones values('iPhone 15 Plus 128GB','1512815000003',3,24299000,10,'blue',128)
-insert into Phones values('iPhone 15 Plus 128GB','1512815000004',3,24299000,10,'black',128)
-insert into Phones values('iPhone 15 Plus 128GB','1512815000005',3,24299000,10,'yellow',128)
+insert into Phones values('iPhone 15 Plus 128GB','1512803000001',3,24299000,10,'pink',128)
+insert into Phones values('iPhone 15 Plus 128GB','1512803000002',3,24299000,10,'green',128)
+insert into Phones values('iPhone 15 Plus 128GB','1512803000003',3,24299000,10,'blue',128)
+insert into Phones values('iPhone 15 Plus 128GB','1512803000004',3,24299000,10,'black',128)
+insert into Phones values('iPhone 15 Plus 128GB','1512803000005',3,24299000,10,'yellow',128)
 
-insert into Phones values('iPhone 15 Plus 256GB','1525615000001',3,25899000,10,'pink',256)
-insert into Phones values('iPhone 15 Plus 256GB','1525615000002',3,25899000,10,'green',256)
-insert into Phones values('iPhone 15 Plus 256GB','1525615000003',3,25899000,10,'blue',256)
-insert into Phones values('iPhone 15 Plus 256GB','1525615000004',3,25899000,10,'black',256)
-insert into Phones values('iPhone 15 Plus 256GB','1512815000005',3,24299000,10,'yellow',256)
+insert into Phones values('iPhone 15 Plus 256GB','1525603000001',3,25899000,10,'pink',256)
+insert into Phones values('iPhone 15 Plus 256GB','1525603000002',3,25899000,10,'green',256)
+insert into Phones values('iPhone 15 Plus 256GB','1525603000003',3,25899000,10,'blue',256)
+insert into Phones values('iPhone 15 Plus 256GB','1525603000004',3,25899000,10,'black',256)
+insert into Phones values('iPhone 15 Plus 256GB','1525603000005',3,24299000,10,'yellow',256)
 
-insert into Phones values('iPhone 15 Plus 512GB','1551215000001',3,27899000,10,'pink',512)
-insert into Phones values('iPhone 15 Plus 512GB','1551215000002',3,27899000,10,'green',512)
-insert into Phones values('iPhone 15 Plus 512GB','1551215000003',3,27899000,10,'blue',512)
-insert into Phones values('iPhone 15 Plus 512GB','1551215000004',3,27899000,10,'black',512)
-insert into Phones values('iPhone 15 Plus 512GB','1512815000005',3,27899000,10,'yellow',512)
+insert into Phones values('iPhone 15 Plus 512GB','1551203000001',3,27899000,10,'pink',512)
+insert into Phones values('iPhone 15 Plus 512GB','1551203000002',3,27899000,10,'green',512)
+insert into Phones values('iPhone 15 Plus 512GB','1551203000003',3,27899000,10,'blue',512)
+insert into Phones values('iPhone 15 Plus 512GB','1551203000004',3,27899000,10,'black',512)
+insert into Phones values('iPhone 15 Plus 512GB','1551203000005',3,27899000,10,'yellow',512)
 --IPHONE 15 PRO: 31 -> 46
-insert into Phones values('iPhone 15 Pro 128GB','1512816000001',2,26799000,10,'black',128)
-insert into Phones values('iPhone 15 Pro 128GB','1512816000002',2,26799000,10,'white',128)
-insert into Phones values('iPhone 15 Pro 128GB','1512816000003',2,26799000,10,'blue',128)
-insert into Phones values('iPhone 15 Pro 128GB','1512816000004',2,26799000,10,'natural',128)
+insert into Phones values('iPhone 15 Pro 128GB','1512802000001',2,26799000,10,'black',128)
+insert into Phones values('iPhone 15 Pro 128GB','1512802000002',2,26799000,10,'white',128)
+insert into Phones values('iPhone 15 Pro 128GB','1512802000003',2,26799000,10,'blue',128)
+insert into Phones values('iPhone 15 Pro 128GB','1512802000004',2,26799000,10,'natural',128)
 
-insert into Phones values('iPhone 15 Pro 256GB','1525616000001',2,29499000,10,'black',256)
-insert into Phones values('iPhone 15 Pro 256GB','1525616000002',2,29499000,10,'green',256)
-insert into Phones values('iPhone 15 Pro 256GB','1525616000003',2,29499000,10,'blue',256)
-insert into Phones values('iPhone 15 Pro 256GB','1525616000004',2,29499000,10,'natural',256)
+insert into Phones values('iPhone 15 Pro 256GB','1525602000001',2,29499000,10,'black',256)
+insert into Phones values('iPhone 15 Pro 256GB','1525602000002',2,29499000,10,'green',256)
+insert into Phones values('iPhone 15 Pro 256GB','1525602000003',2,29499000,10,'blue',256)
+insert into Phones values('iPhone 15 Pro 256GB','1525602000004',2,29499000,10,'natural',256)
 
-insert into Phones values('iPhone 15 Pro 512B','1551216000001',2,35899000,10,'black',512)
-insert into Phones values('iPhone 15 Pro 512B','1551216000002',2,35899000,10,'white',512)
-insert into Phones values('iPhone 15 Pro 512B','1551216000003',2,35899000,10,'blue',512)
-insert into Phones values('iPhone 15 Pro 512B','1551216000004',2,35899000,10,'natural',512)
+insert into Phones values('iPhone 15 Pro 512B','1551202000001',2,35899000,10,'black',512)
+insert into Phones values('iPhone 15 Pro 512B','1551202000002',2,35899000,10,'white',512)
+insert into Phones values('iPhone 15 Pro 512B','1551202000003',2,35899000,10,'blue',512)
+insert into Phones values('iPhone 15 Pro 512B','1551202000004',2,35899000,10,'natural',512)
 
-insert into Phones values('iPhone 15 Pro 1TB','1500116000001',2,39499000,10,'black',1024)
-insert into Phones values('iPhone 15 Pro 1TB','1500116000002',2,39499000,10,'white',1024)
-insert into Phones values('iPhone 15 Pro 1TB','1500116000003',2,39499000,10,'blue',1024)
-insert into Phones values('iPhone 15 Pro 1TB','1500116000004',2,39499000,10,'natural',1024)
+insert into Phones values('iPhone 15 Pro 1TB','1500102000001',2,39499000,10,'black',1024)
+insert into Phones values('iPhone 15 Pro 1TB','1500102000002',2,39499000,10,'white',1024)
+insert into Phones values('iPhone 15 Pro 1TB','1500102000003',2,39499000,10,'blue',1024)
+insert into Phones values('iPhone 15 Pro 1TB','1500102000004',2,39499000,10,'natural',1024)
 --IPHONE 15 PRO MAX: 47 ->  58
-insert into Phones values('iPhone 15 Pro Max 256GB','1525617000001',1,31999000,10,'black',256)
-insert into Phones values('iPhone 15 Pro Max 256GB','1525617000002',1,31999000,10,'white',256)
-insert into Phones values('iPhone 15 Pro Max 256GB','1525617000003',1,31999000,10,'blue',256)
-insert into Phones values('iPhone 15 Pro Max 256GB','1525617000004',1,31999000,10,'natural',256)
+insert into Phones values('iPhone 15 Pro Max 256GB','1525601000001',1,31999000,10,'black',256)
+insert into Phones values('iPhone 15 Pro Max 256GB','1525601000002',1,31999000,10,'white',256)
+insert into Phones values('iPhone 15 Pro Max 256GB','1525601000003',1,31999000,10,'blue',256)
+insert into Phones values('iPhone 15 Pro Max 256GB','1525601000004',1,31999000,10,'natural',256)
 
-insert into Phones values('iPhone 15 Pro Max 512B','1551217000001',1,37699000,10,'black',512)
-insert into Phones values('iPhone 15 Pro Max 512B','1551217000002',1,37699000,10,'white',512)
-insert into Phones values('iPhone 15 Pro Max 512B','1551217000003',1,37699000,10,'blue',512)
-insert into Phones values('iPhone 15 Pro Max 512B','1551217000004',1,37699000,10,'natural',512)
+insert into Phones values('iPhone 15 Pro Max 512B','1551201000001',1,37699000,10,'black',512)
+insert into Phones values('iPhone 15 Pro Max 512B','1551201000002',1,37699000,10,'white',512)
+insert into Phones values('iPhone 15 Pro Max 512B','1551201000003',1,37699000,10,'blue',512)
+insert into Phones values('iPhone 15 Pro Max 512B','1551201000004',1,37699000,10,'natural',512)
 
-insert into Phones values('iPhone 15 Pro Max 1TB','1500117000001',1,43499000,10,'black',1024)
-insert into Phones values('iPhone 15 Pro Max 1TB','1500117000002',1,43499000,10,'white',1024)
-insert into Phones values('iPhone 15 Pro Max 1TB','1500117000003',1,43499000,10,'blue',1024)
-insert into Phones values('iPhone 15 Pro Max 1TB','1500117000004',1,43499000,10,'natural',1024)
+insert into Phones values('iPhone 15 Pro Max 1TB','1500101000001',1,43499000,10,'black',1024)
+insert into Phones values('iPhone 15 Pro Max 1TB','1500101000002',1,43499000,10,'white',1024)
+insert into Phones values('iPhone 15 Pro Max 1TB','1500101000003',1,43499000,10,'blue',1024)
+insert into Phones values('iPhone 15 Pro Max 1TB','1500101000004',1,43499000,10,'natural',1024)
+--IPHONE 14: 59 -> 73
+insert into Phones values('iPhone 14 128GB','1412808000001',8,17999000,10,'black',128)
+insert into Phones values('iPhone 14 128GB','1412808000002',8,17999000,10,'purple',128)
+insert into Phones values('iPhone 14 128GB','1412808000003',8,17999000,10,'yellow',128)
+insert into Phones values('iPhone 14 128GB','1412808000004',8,17999000,10,'blue',128)
+insert into Phones values('iPhone 14 128GB','1412808000005',8,17999000,10,'white',128)
 
+insert into Phones values('iPhone 14 256GB','1425608000001',8,21799000,10,'black',256)
+insert into Phones values('iPhone 14 256GB','1425608000002',8,21799000,10,'purple',256)
+insert into Phones values('iPhone 14 256GB','1425608000003',8,21799000,10,'yellow',256)
+insert into Phones values('iPhone 14 256GB','1425608000004',8,21799000,10,'blue',256)
+insert into Phones values('iPhone 14 256GB','1425608000005',8,21799000,10,'white',256)
+
+insert into Phones values('iPhone 14 512GB','1451208000001',8,21999000,10,'black',512)
+insert into Phones values('iPhone 14 512GB','1451208000002',8,21999000,10,'purple',512)
+insert into Phones values('iPhone 14 512GB','1451208000003',8,21999000,10,'yellow',512)
+insert into Phones values('iPhone 14 512GB','1451208000004',8,21999000,10,'blue',512)
+insert into Phones values('iPhone 14 512GB','1451208000005',8,21999000,10,'white',512)
+
+--IPHONE 14 Plus: 74 -> 88
+insert into Phones values('iPhone 14 Plus 128GB','1412807000001',7,19399000,10,'black',128)
+insert into Phones values('iPhone 14 Plus 128GB','1412807000002',7,19399000,10,'purple',128)
+insert into Phones values('iPhone 14 Plus 128GB','1412807000003',7,19399000,10,'blue',128)
+insert into Phones values('iPhone 14 Plus 128GB','1412807000004',7,19399000,10,'white',128)
+insert into Phones values('iPhone 14 Plus 128GB','1412811000005',7,19399000,10,'yellow',128)
+
+insert into Phones values('iPhone 14 Plus 256GB','1425607000001',7,23399000,10,'black',256)
+insert into Phones values('iPhone 14 Plus 256GB','1425607000002',7,23399000,10,'purple',256)
+insert into Phones values('iPhone 14 Plus 256GB','1425607000003',7,23399000,10,'blue',256)
+insert into Phones values('iPhone 14 Plus 256GB','1425607000004',7,23399000,10,'white',256)
+insert into Phones values('iPhone 14 Plus 256GB','1425607000005',7,23399000,10,'yellow',256)
+
+insert into Phones values('iPhone 14 Plus 512GB','1451207000001',7,25399000,10,'black',512)
+insert into Phones values('iPhone 14 Plus 512GB','1451207000002',7,25399000,10,'purple',512)
+insert into Phones values('iPhone 14 Plus 512GB','1451207000003',7,25399000,10,'blue',512)
+insert into Phones values('iPhone 14 Plus 512GB','1451207000004',7,25399000,10,'white',512)
+insert into Phones values('iPhone 14 Plus 512GB','1451207000005',7,25399000,10,'yellow',512)
+-- IPHONE 14 PRO: 89 -> 104
+insert into Phones values('iPhone 14 Pro 128GB','1412806000001',6,23199000,10,'black',128)
+insert into Phones values('iPhone 14 Pro 128GB','1412806000002',6,23199000,10,'purple',128)
+insert into Phones values('iPhone 14 Pro 128GB','1412806000003',6,23199000,10,'sliver',128)
+insert into Phones values('iPhone 14 Pro 128GB','1412806000004',6,23199000,10,'gold',128)
+
+insert into Phones values('iPhone 14 Pro 256GB','1425606000001',6,26399000,10,'black',256)
+insert into Phones values('iPhone 14 Pro 256GB','1425606000002',6,26399000,10,'purple',256)
+insert into Phones values('iPhone 14 Pro 256GB','1425606000003',6,26399000,10,'sliver',256)
+insert into Phones values('iPhone 14 Pro 256GB','1425606000004',6,26399000,10,'gold',256)
+
+insert into Phones values('iPhone 14 Pro 512GB','1451206000001',6,27799000,10,'black',512)
+insert into Phones values('iPhone 14 Pro 512GB','1451206000002',6,27799000,10,'purple',512)
+insert into Phones values('iPhone 14 Pro 512GB','1451206000003',6,27799000,10,'sliver',512)
+insert into Phones values('iPhone 14 Pro 512GB','1451206000004',6,27799000,10,'gold',512)
+
+insert into Phones values('iPhone 14 Pro 1TB','1400106000001',6,28299000,10,'black',1024)
+insert into Phones values('iPhone 14 Pro 1TB','1400106000002',6,28299000,10,'purple',1024)
+insert into Phones values('iPhone 14 Pro 1TB','1400106000003',6,28299000,10,'sliver',1024)
+insert into Phones values('iPhone 14 Pro 1TB','1400106000004',6,28299000,10,'gold',1024)
+
+-- IPHONE 14 PRO MAX: 105 -> 116
+insert into Phones values('iPhone 14 Pro Max 128GB','1412805000001',5,26199000,10,'black',128)
+insert into Phones values('iPhone 14 Pro Max 128GB','1412805000002',5,26199000,10,'purple',128)
+insert into Phones values('iPhone 14 Pro Max 128GB','1412805000003',5,26199000,10,'sliver',128)
+insert into Phones values('iPhone 14 Pro Max 128GB','1412805000004',5,26199000,10,'gold',128)
+
+insert into Phones values('iPhone 14 Pro Max 256GB','1425605000001',5,26699000,10,'black',256)
+insert into Phones values('iPhone 14 Pro Max 256GB','1425605000002',5,26699000,10,'purple',256)
+insert into Phones values('iPhone 14 Pro Max 256GB','1425605000003',5,26699000,10,'sliver',256)
+insert into Phones values('iPhone 14 Pro Max 256GB','1425605000004',5,26699000,10,'gold',256)
+
+insert into Phones values('iPhone 14 Pro Max 512GB','1451205000001',5,31899000,10,'black',512)
+insert into Phones values('iPhone 14 Pro Max 512GB','1451205000002',5,31899000,10,'purple',512)
+insert into Phones values('iPhone 14 Pro Max 512GB','1451205000003',5,31899000,10,'sliver',512)
+insert into Phones values('iPhone 14 Pro Max 512GB','1451205000004',5,31899000,10,'gold',512)
+
+insert into Phones values('iPhone 14 Pro Max 1TB','1400105000001',5,35999000,10,'black',1024)
+insert into Phones values('iPhone 14 Pro Max 1TB','1400105000002',5,35999000,10,'purple',1024)
+insert into Phones values('iPhone 14 Pro Max 1TB','1400105000003',5,35999000,10,'sliver',1024)
+insert into Phones values('iPhone 14 Pro Max 1TB','1400105000004',5,35999000,10,'gold',1024)
+-- IPHONE 13: 
+insert into Phones values('iPhone 13 128GB','1312811000001',11,11999000,10,'pink',128)
+insert into Phones values('iPhone 13 128GB','1312811000002',11,11999000,10,'white',128)
+insert into Phones values('iPhone 13 128GB','1312811000003',11,11999000,10,'green',128)
+insert into Phones values('iPhone 13 128GB','1312811000004',11,11999000,10,'blue',128)
+insert into Phones values('iPhone 13 128GB','1312811000005',11,11999000,10,'back',128)
+
+insert into Phones values('iPhone 13 256GB','1325611000001',11,12999000,10,'pink',256)
+insert into Phones values('iPhone 13 256GB','1325611000002',11,12999000,10,'white',256)
+insert into Phones values('iPhone 13 256GB','1325611000003',11,12999000,10,'green',256)
+insert into Phones values('iPhone 13 256GB','1325611000004',11,12999000,10,'blue',256)
+insert into Phones values('iPhone 13 256GB','1325611000005',11,12999000,10,'back',256)
+
+insert into Phones values('iPhone 13 512GB','1306411000001',11,13999000,10,'pink',512)
+insert into Phones values('iPhone 13 512GB','1306411000002',11,13999000,10,'white',512)
+insert into Phones values('iPhone 13 512GB','1306411000003',11,13999000,10,'green',512)
+insert into Phones values('iPhone 13 512GB','1306411000004',11,13999000,10,'blue',512)
+insert into Phones values('iPhone 13 512GB','1306411000005',11,13999000,10,'back',512)
+
+-- IPHONE 13 PRO
+insert into Phones values('iPhone 13 Pro 128GB','1312810000001',10,14999000,10,'sliver',128)
+insert into Phones values('iPhone 13 Pro 128GB','1312810000002',10,14999000,10,'green',128)
+insert into Phones values('iPhone 13 Pro 128GB','1312810000003',10,14999000,10,'gray',128)
+insert into Phones values('iPhone 13 Pro 128GB','1312810000004',10,14999000,10,'gold',128)
+insert into Phones values('iPhone 13 Pro 128GB','1312810000005',10,14999000,10,'blue',128)
+
+insert into Phones values('iPhone 13 Pro 256GB','1325610000001',10,15999000,10,'sliver',256)
+insert into Phones values('iPhone 13 Pro 256GB','1325610000002',10,15999000,10,'green',256)
+insert into Phones values('iPhone 13 Pro 256GB','1325610000003',10,15999000,10,'gray',256)
+insert into Phones values('iPhone 13 Pro 256GB','1325610000004',10,15999000,10,'gold',256)
+insert into Phones values('iPhone 13 Pro 256GB','1325610000005',10,15999000,10,'blue',256)
+
+insert into Phones values('iPhone 13 Pro 512GB','1351210000001',10,16999000,10,'sliver',512)
+insert into Phones values('iPhone 13 Pro 512GB','1351210000002',10,16999000,10,'green',512)
+insert into Phones values('iPhone 13 Pro 512GB','1351210000003',10,16999000,10,'gray',512)
+insert into Phones values('iPhone 13 Pro 512GB','1351210000004',10,16999000,10,'gold',512)
+insert into Phones values('iPhone 13 Pro 512GB','1351210000005',10,16999000,10,'blue',512)
+
+insert into Phones values('iPhone 13 Pro 1TB','1300110000001',10,17999000,10,'sliver',1024)
+insert into Phones values('iPhone 13 Pro 1TB','1300110000002',10,17999000,10,'green',1024)
+insert into Phones values('iPhone 13 Pro 1TB','1300110000003',10,17999000,10,'gray',1024)
+insert into Phones values('iPhone 13 Pro 1TB','1300110000004',10,17999000,10,'gold',1024)
+insert into Phones values('iPhone 13 Pro 1TB','1300110000005',10,17999000,10,'blue',1024)
+
+-- IPHONE 13 PRO MAX
+insert into Phones values('iPhone 13 Pro Max 128GB','1312809000001',9,16499000,10,'sliver',128)
+insert into Phones values('iPhone 13 Pro Max 128GB','1312809000002',9,16499000,10,'green',128)
+insert into Phones values('iPhone 13 Pro Max 128GB','1312809000003',9,16499000,10,'gray',128)
+insert into Phones values('iPhone 13 Pro Max 128GB','1312809000004',9,16499000,10,'gold',128)
+insert into Phones values('iPhone 13 Pro Max 128GB','1312809000005',9,16499000,10,'blue',128)
+
+insert into Phones values('iPhone 13 Pro Max 256GB','1325609000001',9,17499000,10,'sliver',256)
+insert into Phones values('iPhone 13 Pro Max 256GB','1325609000002',9,17499000,10,'green',256)
+insert into Phones values('iPhone 13 Pro Max 256GB','1325609000003',9,17499000,10,'gray',256)
+insert into Phones values('iPhone 13 Pro Max 256GB','1325609000004',9,17499000,10,'gold',256)
+insert into Phones values('iPhone 13 Pro Max 256GB','1325609000005',9,17499000,10,'blue',256)
+
+insert into Phones values('iPhone 13 Pro Max 512GB','1351209000001',9,18499000,10,'sliver',512)
+insert into Phones values('iPhone 13 Pro Max 512GB','1351209000002',9,18499000,10,'green',512)
+insert into Phones values('iPhone 13 Pro Max 512GB','1351209000003',9,18499000,10,'gray',512)
+insert into Phones values('iPhone 13 Pro Max 512GB','1351209000004',9,18499000,10,'gold',512)
+insert into Phones values('iPhone 13 Pro Max 512GB','1351209000005',9,18499000,10,'blue',512)
+
+insert into Phones values('iPhone 13 Pro Max 1TB','1300109000001',9,19499000,10,'sliver',1024)
+insert into Phones values('iPhone 13 Pro Max 1TB','1300109000002',9,19499000,10,'green',1024)
+insert into Phones values('iPhone 13 Pro Max 1TB','1300109000003',9,19499000,10,'gray',1024)
+insert into Phones values('iPhone 13 Pro Max 1TB','1300109000004',9,19499000,10,'gold',1024)
+insert into Phones values('iPhone 13 Pro Max 1TB','1300109000005',9,19499000,10,'blue',1024)
+-- IPHONE 12
+insert into Phones values('iPhone 12 64GB','1206414000001',14,7999000,10,'black',64)
+insert into Phones values('iPhone 12 64GB','1206414000002',14,7999000,10,'white',64)
+insert into Phones values('iPhone 12 64GB','1206414000003',14,7999000,10,'green',64)
+insert into Phones values('iPhone 12 64GB','1206414000004',14,7999000,10,'purple',64)
+insert into Phones values('iPhone 12 64GB','1206414000005',14,7999000,10,'blue',64)
+insert into Phones values('iPhone 12 64GB','1206414000006',14,7999000,10,'red',64)
+
+insert into Phones values('iPhone 12 128GB','1212814000001',14,8999000,10,'black',128)
+insert into Phones values('iPhone 12 128GB','1212814000002',14,8999000,10,'white',128)
+insert into Phones values('iPhone 12 128GB','1212814000003',14,8999000,10,'green',128)
+insert into Phones values('iPhone 12 128GB','1212814000004',14,8999000,10,'purple',128)
+insert into Phones values('iPhone 12 128GB','1212814000005',14,8999000,10,'blue',128)
+insert into Phones values('iPhone 12 128GB','1212814000006',14,8999000,10,'red',128)
+
+insert into Phones values('iPhone 12 256GB','1225614000001',14,9999000,10,'black',256)
+insert into Phones values('iPhone 12 256GB','1225614000002',14,9999000,10,'white',256)
+insert into Phones values('iPhone 12 256GB','1225614000003',14,9999000,10,'green',256)
+insert into Phones values('iPhone 12 256GB','1225614000004',14,9999000,10,'purple',256)
+insert into Phones values('iPhone 12 256GB','1225614000005',14,9999000,10,'blue',256)
+insert into Phones values('iPhone 12 256GB','1225614000006',14,9999000,10,'red',256)
+
+-- IPHONE 12 PRO 
+insert into Phones values('iPhone 12 Pro 128GB','1206413000001',13,10099000,10,'gold',128)
+insert into Phones values('iPhone 12 Pro 128GB','1206413000002',13,10099000,10,'sliver',128)
+insert into Phones values('iPhone 12 Pro 128GB','1206413000003',13,10099000,10,'gray',128)
+insert into Phones values('iPhone 12 Pro 128GB','1206413000004',13,10099000,10,'blue',128)
+
+insert into Phones values('iPhone 12 Pro 256GB','1212813000001',13,10899000,10,'gold',256)
+insert into Phones values('iPhone 12 Pro 256GB','1212813000002',13,10899000,10,'sliver',256)
+insert into Phones values('iPhone 12 Pro 256GB','1212813000003',13,10899000,10,'gray',256)
+insert into Phones values('iPhone 12 Pro 256GB','1212813000004',13,10899000,10,'blue',256)
+
+insert into Phones values('iPhone 12 Pro 512GB','1225613000001',13,11890000,10,'gold',512)
+insert into Phones values('iPhone 12 Pro 512GB','1225613000002',13,11890000,10,'sliver',512)
+insert into Phones values('iPhone 12 Pro 512GB','1225613000003',13,11890000,10,'gray',512)
+insert into Phones values('iPhone 12 Pro 512GB','1225613000004',13,11890000,10,'blue',512)
+
+-- IPHONE 12 PRO MAX
+insert into Phones values('iPhone 12 Pro Max 128GB','1206412000001',12,12199000,10,'gold',128)
+insert into Phones values('iPhone 12 Pro Max 128GB','1206412000002',12,12199000,10,'sliver',128)
+insert into Phones values('iPhone 12 Pro Max 128GB','1206412000003',12,12199000,10,'gray',128)
+insert into Phones values('iPhone 12 Pro Max 128GB','1206412000004',12,12199000,10,'blue',128)
+
+insert into Phones values('iPhone 12 Pro Max 256GB','1212812000001',12,12999000,10,'gold',256)
+insert into Phones values('iPhone 12 Pro Max 256GB','1212812000002',12,12999000,10,'sliver',256)
+insert into Phones values('iPhone 12 Pro Max 256GB','1212812000003',12,12999000,10,'gray',256)
+insert into Phones values('iPhone 12 Pro Max 256GB','1212812000004',12,12999000,10,'blue',256)
+
+insert into Phones values('iPhone 12 Pro Max 512GB','1225612000001',12,13999000,10,'gold',512)
+insert into Phones values('iPhone 12 Pro Max 512GB','1225612000002',12,13999000,10,'sliver',512)
+insert into Phones values('iPhone 12 Pro Max 512GB','1225612000003',12,13999000,10,'gray',512)
+insert into Phones values('iPhone 12 Pro Max 512GB','1225612000004',12,13999000,10,'blue',512)
+-- IPHONE 11 
+insert into Phones values('iPhone 11 64GB','1106417000001',17,6199000,17,'black',64)
+insert into Phones values('iPhone 11 64GB','1106417000002',17,6199000,17,'white',64)
+insert into Phones values('iPhone 11 64GB','1106417000003',17,6199000,17,'green',64)
+insert into Phones values('iPhone 11 64GB','1106417000004',17,6199000,17,'purple',64)
+insert into Phones values('iPhone 11 64GB','1106417000005',17,6199000,17,'yellow',64)
+insert into Phones values('iPhone 11 64GB','1106417000006',17,6199000,17,'red',64)
+
+insert into Phones values('iPhone 11 128GB','1112817000001',17,7199000,17,'black',128)
+insert into Phones values('iPhone 11 128GB','1112817000002',17,7199000,17,'white',128)
+insert into Phones values('iPhone 11 128GB','1112817000003',17,7199000,17,'green',128)
+insert into Phones values('iPhone 11 128GB','1112817000004',17,7199000,17,'purple',128)
+insert into Phones values('iPhone 11 128GB','1112817000005',17,7199000,17,'yellow',128)
+insert into Phones values('iPhone 11 128GB','1112817000006',17,7199000,17,'red',128)
+
+insert into Phones values('iPhone 11 256GB','1125617000001',17,7999000,17,'black',256)
+insert into Phones values('iPhone 11 256GB','1125617000002',17,7999000,17,'white',256)
+insert into Phones values('iPhone 11 256GB','1125617000003',17,7999000,17,'green',256)
+insert into Phones values('iPhone 11 256GB','1125617000004',17,7999000,17,'purple',256)
+insert into Phones values('iPhone 11 256GB','1125617000005',17,7999000,17,'yellow',256)
+insert into Phones values('iPhone 11 256GB','1125617000006',17,7999000,17,'red',256)
+
+-- IPHONE 11 PRO
+insert into Phones values('iPhone 11 Pro 64GB','1106416000001',16,7799000,16,'gold',64)
+insert into Phones values('iPhone 11 Pro 64GB','1106416000002',16,7799000,16,'gray',64)
+insert into Phones values('iPhone 11 Pro 64GB','1106416000003',16,7799000,16,'green',64)
+
+insert into Phones values('iPhone 11 Pro 128GB','1112816000001',16,8199000,16,'gold',128)
+insert into Phones values('iPhone 11 Pro 128GB','1112816000002',16,8199000,16,'gray',128)
+insert into Phones values('iPhone 11 Pro 128GB','1112816000003',16,8199000,16,'green',128)
+
+insert into Phones values('iPhone 11 Pro 256GB','1125616000001',16,8899000,16,'gold',256)
+insert into Phones values('iPhone 11 Pro 256GB','1125616000002',16,8899000,16,'gray',256)
+insert into Phones values('iPhone 11 Pro 256GB','1125616000003',16,8899000,16,'green',256)
+
+-- IPHONE 11 PRO MAX
+insert into Phones values('iPhone 11 Pro Max 64GB','1106415000001',15,9699000,15,'gold',64)
+insert into Phones values('iPhone 11 Pro Max 64GB','1106415000002',15,9699000,15,'gray',64)
+insert into Phones values('iPhone 11 Pro Max 64GB','1106415000003',15,9699000,15,'green',64)
+
+insert into Phones values('iPhone 11 Pro Max 128GB','1112815000001',15,10899000,15,'gold',128)
+insert into Phones values('iPhone 11 Pro Max 128GB','1112815000002',15,10899000,15,'gray',128)
+insert into Phones values('iPhone 11 Pro Max 128GB','1112815000003',15,10899000,15,'green',128)
+
+insert into Phones values('iPhone 11 Pro Max 256GB','1125615000001',15,11799000,15,'gold',256)
+insert into Phones values('iPhone 11 Pro Max 256GB','1125615000002',15,11799000,15,'gray',256)
+insert into Phones values('iPhone 11 Pro Max 256GB','1112815000003',15,11799000,15,'green',256)
+
+
+
+
+-- SAMSUNG S24 ULTRA
+insert into Phones values('Samsung Galaxy S24 Ultra 256GB','S242561800001',18,31999000,10,'gray',256)
+insert into Phones values('Samsung Galaxy S24 Ultra 256GB','S242561800002',18,31999000,10,'black',256)
+insert into Phones values('Samsung Galaxy S24 Ultra 256GB','S242561800003',18,31999000,10,'purple',256)
+insert into Phones values('Samsung Galaxy S24 Ultra 256GB','S242561800004',18,31999000,10,'gold',256)
+
+insert into Phones values('Samsung Galaxy S24 Ultra 512GB','S245121900001',18,31999000,10,'gray',512)
+insert into Phones values('Samsung Galaxy S24 Ultra 512GB','S245121900002',18,31999000,10,'black',512)
+insert into Phones values('Samsung Galaxy S24 Ultra 512GB','S245121900003',18,31999000,10,'purple',512)
+insert into Phones values('Samsung Galaxy S24 Ultra 512GB','S245121900004',18,31999000,10,'gold',512)
+
+insert into Phones values('Samsung Galaxy S24 Ultra 1TB','S240011900001',18,31999000,10,'gray',1024)
+insert into Phones values('Samsung Galaxy S24 Ultra 1TB','S240011900002',18,31999000,10,'black',1024)
+insert into Phones values('Samsung Galaxy S24 Ultra 1TB','S240011900003',18,31999000,10,'purple',1024)
+insert into Phones values('Samsung Galaxy S24 Ultra 1TB','S240011900004',18,31999000,10,'gold',1024)
+-- SAMSUNG S23 ULTRA 12GB
+insert into Phones values('Samsung Galaxy S23 Ultra 512GB','S235122900001',21,36990000,10,'green',512)
+insert into Phones values('Samsung Galaxy S23 Ultra 512GB','S235122900002',21,36990000,10,'purple',512)
+insert into Phones values('Samsung Galaxy S23 Ultra 512GB','S235122900003',21,36990000,10,'cream',512)
+insert into Phones values('Samsung Galaxy S23 Ultra 512GB','S235122900003',21,36990000,10,'black',512)
+--OPPO Find N3
+insert into Phones values('OPPO Find N3 5G 512GB','FN35125800001',52,44990000,10,'yellow',512)
+insert into Phones values('OPPO Find N3 5G 512GB','FN35125800002',52,44990000,10,'black',512)
+-- OPPO Find N3 Flip
+insert into Phones values('OPPO Find N3 Flip 5G 256GB','FN3F256570001',53,22990000,10,'pink',256)
+insert into Phones values('OPPO Find N3 Flip 5G 256GB','FN3F256570002',53,22990000,10,'black',256)
+insert into Phones values('OPPO Find N3 Flip 5G 256GB','FN3F256570003',53,22990000,10,'yellow',256)
+
+-- XIAOMI 13T PRO 5G
+insert into Phones values('Xiaomi 13T Pro 5G 256GB','13T2563100001',67,15990000,10,'blue',256)
+insert into Phones values('Xiaomi 13T Pro 5G 256GB','13T2563100002',67,15990000,10,'black',256)
+insert into Phones values('Xiaomi 13T Pro 5G 256GB','13T2563100003',67,15990000,10,'green',256)
+-- VIVO V27E
+insert into Phones values('Vivo V27e 256GB','VV27E25644001',45,8990000,10,'black',256)
+insert into Phones values('Vivo V27e 256GB','VV27E25644002',45,8990000,10,'purple',256)
+-- VIVO V29E 12GB
+insert into Phones values('Vivo V29e 12GB 256GB','VV29E25644121',41,9990000,10,'black',256)
+insert into Phones values('Vivo V29e 12GB 256GB','VV29E25644122',41,9990000,10,'blue',256)
 
 --Image IPHONE 15
 --128GB
@@ -384,3 +671,217 @@ insert into Images values(55, '["iphone-15-pro-max-titan-black.jpg", "iphone-15-
 insert into Images values(56, '["iphone-15-pro-max-titan-white.jpg", "iphone-15-pro-max-titan-white-1.jpg", "iphone-15-pro-max-titan-white-2.jpg", "iphone-15-pro-max-titan-white-3.jpg"]', 1)
 insert into Images values(57, '["iphone-15-pro-max-titan-blue.jpg", "iphone-15-pro-max-titan-blue-1.jpg", "iphone-15-pro-max-titan-blue-2.jpg", "iphone-15-pro-max-titan-blue-3.jpg"]', 1)
 insert into Images values(58, '["iphone-15-pro-max-titan-natural.jpg", "iphone-15-pro-max-titan-natural-1.jpg", "iphone-15-pro-max-titan-natural-2.jpg", "iphone-15-pro-max-titan-natural-3.jpg"]', 1)
+--Image IPHONE 14
+insert into Images values(59, '["iphone-14-black.jpg", "iphone-14-black-1.jpg", "iphone-14-black-2.jpg", "iphone-14-black-3.jpg"]', 1)
+insert into Images values(60, '["iphone-14-purple.jpg", "iphone-14-purple-1.jpg", "iphone-14-purple-2.jpg", "iphone-14-purple-3.jpg"]', 1)
+insert into Images values(61, '["iphone-14-yellow.jpg", "iphone-14-yellow-1.jpg", "iphone-14-yellow-2.jpg", "iphone-14-yellow-3.jpg"]', 1)
+insert into Images values(62, '["iphone-14-blue.jpg", "iphone-14-blue-1.jpg", "iphone-14-blue-2.jpg", "iphone-14-blue-3.jpg"]', 1)
+insert into Images values(63, '["iphone-14-white.jpg", "iphone-14-white-1.jpg", "iphone-14-white-2.jpg", "iphone-14-white-3.jpg"]', 1)
+insert into Images values(64, '["iphone-14-black.jpg", "iphone-14-black-1.jpg", "iphone-14-black-2.jpg", "iphone-14-black-3.jpg"]', 1)
+insert into Images values(65, '["iphone-14-purple.jpg", "iphone-14-purple-1.jpg", "iphone-14-purple-2.jpg", "iphone-14-purple-3.jpg"]', 1)
+insert into Images values(66, '["iphone-14-yellow.jpg", "iphone-14-yellow-1.jpg", "iphone-14-yellow-2.jpg", "iphone-14-yellow-3.jpg"]', 1)
+insert into Images values(67, '["iphone-14-blue.jpg", "iphone-14-blue-1.jpg", "iphone-14-blue-2.jpg", "iphone-14-blue-3.jpg"]', 1)
+insert into Images values(68, '["iphone-14-white.jpg", "iphone-14-white-1.jpg", "iphone-14-white-2.jpg", "iphone-14-white-3.jpg"]', 1)
+insert into Images values(69, '["iphone-14-black.jpg", "iphone-14-black-1.jpg", "iphone-14-black-2.jpg", "iphone-14-black-3.jpg"]', 1)
+insert into Images values(70, '["iphone-14-purple.jpg", "iphone-14-purple-1.jpg", "iphone-14-purple-2.jpg", "iphone-14-purple-3.jpg"]', 1)
+insert into Images values(71, '["iphone-14-yellow.jpg", "iphone-14-yellow-1.jpg", "iphone-14-yellow-2.jpg", "iphone-14-yellow-3.jpg"]', 1)
+insert into Images values(72, '["iphone-14-blue.jpg", "iphone-14-blue-1.jpg", "iphone-14-blue-2.jpg", "iphone-14-blue-3.jpg"]', 1)
+insert into Images values(73, '["iphone-14-white.jpg", "iphone-14-white-1.jpg", "iphone-14-white-2.jpg", "iphone-14-white-3.jpg"]', 1)
+--Image IPHONE 14 Plus
+insert into Images values(74, '["iphone-14-plus-black.jpg", "iphone-14-plus-black-1.jpg", "iphone-14-plus-black-2.jpg", "iphone-14-plus-black-3.jpg"]', 1)
+insert into Images values(75, '["iphone-14-plus-purple.jpg", "iphone-14-plus-purple-1.jpg", "iphone-14-plus-purple-2.jpg", "iphone-14-plus-purple-3.jpg"]', 1)
+insert into Images values(76, '["iphone-14-plus-blue.jpg", "iphone-14-plus-blue-1.jpg", "iphone-14-plus-blue-2.jpg", "iphone-14-plus-blue-3.jpg"]', 1)
+insert into Images values(77, '["iphone-14-plus-white.jpg", "iphone-14-plus-white-1.jpg", "iphone-14-plus-white-2.jpg", "iphone-14-plus-white-3.jpg"]', 1)
+insert into Images values(78, '["iphone-14-plus-yellow.jpg", "iphone-14-plus-yellow-1.jpg", "iphone-14-plus-yellow-2.jpg", "iphone-14-plus-yellow-3.jpg"]', 1)
+insert into Images values(79, '["iphone-14-plus-black.jpg", "iphone-14-plus-black-1.jpg", "iphone-14-plus-black-2.jpg", "iphone-14-plus-black-3.jpg"]', 1)
+insert into Images values(80, '["iphone-14-plus-purple.jpg", "iphone-14-plus-purple-1.jpg", "iphone-14-plus-purple-2.jpg", "iphone-14-plus-purple-3.jpg"]', 1)
+insert into Images values(81, '["iphone-14-plus-blue.jpg", "iphone-14-plus-blue-1.jpg", "iphone-14-plus-blue-2.jpg", "iphone-14-plus-blue-3.jpg"]', 1)
+insert into Images values(82, '["iphone-14-plus-white.jpg", "iphone-14-plus-white-1.jpg", "iphone-14-plus-white-2.jpg", "iphone-14-plus-white-3.jpg"]', 1)
+insert into Images values(83, '["iphone-14-plus-yellow.jpg", "iphone-14-plus-yellow-1.jpg", "iphone-14-plus-yellow-2.jpg", "iphone-14-plus-yellow-3.jpg"]', 1)
+insert into Images values(84, '["iphone-14-plus-black.jpg", "iphone-14-plus-black-1.jpg", "iphone-14-plus-black-2.jpg", "iphone-14-plus-black-3.jpg"]', 1)
+insert into Images values(85, '["iphone-14-plus-purple.jpg", "iphone-14-plus-purple-1.jpg", "iphone-14-plus-purple-2.jpg", "iphone-14-plus-purple-3.jpg"]', 1)
+insert into Images values(86, '["iphone-14-plus-blue.jpg", "iphone-14-plus-blue-1.jpg", "iphone-14-plus-blue-2.jpg", "iphone-14-plus-blue-3.jpg"]', 1)
+insert into Images values(87, '["iphone-14-plus-white.jpg", "iphone-14-plus-white-1.jpg", "iphone-14-plus-white-2.jpg", "iphone-14-plus-white-3.jpg"]', 1)
+insert into Images values(88, '["iphone-14-plus-yellow.jpg", "iphone-14-plus-yellow-1.jpg", "iphone-14-plus-yellow-2.jpg", "iphone-14-plus-yellow-3.jpg"]', 1)
+
+--Image IPHONE 14 Pro
+insert into Images values(89, '["iphone-14-pro-black.jpg", "iphone-14-pro-black-1.jpg", "iphone-14-pro-black-2.jpg", "iphone-14-pro-black-3.jpg"]', 1)
+insert into Images values(90, '["iphone-14-pro-purple.jpg", "iphone-14-pro-purple-1.jpg", "iphone-14-pro-purple-2.jpg", "iphone-14-pro-purple-3.jpg"]', 1)
+insert into Images values(91, '["iphone-14-pro-sliver.jpg","iphone-14-pro-sliver-1.jpg", "iphone-14-pro-sliver-2.jpg", "iphone-14-pro-sliver-3.jpg"]', 1)
+insert into Images values(92, '["iphone-14-pro-gold.jpg","iphone-14-pro-gold-1.jpg", "iphone-14-pro-gold-2.jpg", "iphone-14-pro-gold-3.jpg"]', 1)
+insert into Images values(93, '["iphone-14-pro-black.jpg", "iphone-14-pro-black-1.jpg", "iphone-14-pro-black-2.jpg", "iphone-14-pro-black-3.jpg"]', 1)
+insert into Images values(94, '["iphone-14-pro-purple.jpg", "iphone-14-pro-purple-1.jpg", "iphone-14-pro-purple-2.jpg", "iphone-14-pro-purple-3.jpg"]', 1)
+insert into Images values(95, '["iphone-14-pro-sliver.jpg","iphone-14-pro-sliver-1.jpg", "iphone-14-pro-sliver-2.jpg", "iphone-14-pro-sliver-3.jpg"]', 1)
+insert into Images values(96, '["iphone-14-pro-gold.jpg","iphone-14-pro-gold-1.jpg", "iphone-14-pro-gold-2.jpg", "iphone-14-pro-gold-3.jpg"]', 1)
+insert into Images values(97, '["iphone-14-pro-black.jpg", "iphone-14-pro-black-1.jpg", "iphone-14-pro-black-2.jpg", "iphone-14-pro-black-3.jpg"]', 1)
+insert into Images values(98, '["iphone-14-pro-purple.jpg", "iphone-14-pro-purple-1.jpg", "iphone-14-pro-purple-2.jpg", "iphone-14-pro-purple-3.jpg"]', 1)
+insert into Images values(99, '["iphone-14-pro-sliver.jpg","iphone-14-pro-sliver-1.jpg", "iphone-14-pro-sliver-2.jpg", "iphone-14-pro-sliver-3.jpg"]', 1)
+insert into Images values(100, '["iphone-14-pro-gold.jpg","iphone-14-pro-gold-1.jpg", "iphone-14-pro-gold-2.jpg", "iphone-14-pro-gold-3.jpg"]', 1)
+insert into Images values(101, '["iphone-14-pro-black.jpg", "iphone-14-pro-black-1.jpg", "iphone-14-pro-black-2.jpg", "iphone-14-pro-black-3.jpg"]', 1)
+insert into Images values(102, '["iphone-14-pro-purple.jpg", "iphone-14-pro-purple-1.jpg", "iphone-14-pro-purple-2.jpg", "iphone-14-pro-purple-3.jpg"]', 1)
+insert into Images values(103, '["iphone-14-pro-sliver.jpg","iphone-14-pro-sliver-1.jpg", "iphone-14-pro-sliver-2.jpg", "iphone-14-pro-sliver-3.jpg"]', 1)
+insert into Images values(104, '["iphone-14-pro-gold.jpg","iphone-14-pro-gold-1.jpg", "iphone-14-pro-gold-2.jpg", "iphone-14-pro-gold-3.jpg"]', 1)
+--Image IPHONE 14 Pro max
+insert into Images values(105, '["iphone-14-pro-max-black.jpg", "iphone-14-pro-max-black-1.jpg", "iphone-14-pro-max-black-2.jpg", "iphone-14-pro-max-black-3.jpg"]', 1)
+insert into Images values(106, '["iphone-14-pro-max-purple.jpg", "iphone-14-pro-max-purple-1.jpg", "iphone-14-pro-max-purple-2.jpg", "iphone-14-pro-max-purple-3.jpg"]', 1)
+insert into Images values(107, '["iphone-14-pro-max-sliver.jpg","iphone-14-pro-max-sliver-1.jpg", "iphone-14-pro-max-sliver-2.jpg", "iphone-14-pro-max-sliver-3.jpg"]', 1)
+insert into Images values(108, '["iphone-14-pro-max-gold.jpg","iphone-14-pro-max-gold-1.jpg", "iphone-14-pro-max-gold-2.jpg", "iphone-14-pro-max-gold-3.jpg"]', 1)
+insert into Images values(109, '["iphone-14-pro-max-black.jpg", "iphone-14-pro-max-black-1.jpg", "iphone-14-pro-max-black-2.jpg", "iphone-14-pro-max-black-3.jpg"]', 1)
+insert into Images values(110, '["iphone-14-pro-max-purple.jpg", "iphone-14-pro-max-purple-1.jpg", "iphone-14-pro-max-purple-2.jpg", "iphone-14-pro-max-purple-3.jpg"]', 1)
+insert into Images values(111, '["iphone-14-pro-max-sliver.jpg","iphone-14-pro-max-sliver-1.jpg", "iphone-14-pro-max-sliver-2.jpg", "iphone-14-pro-max-sliver-3.jpg"]', 1)
+insert into Images values(112, '["iphone-14-pro-max-gold.jpg","iphone-14-pro-max-gold-1.jpg", "iphone-14-pro-max-gold-2.jpg", "iphone-14-pro-max-gold-3.jpg"]', 1)
+insert into Images values(113, '["iphone-14-pro-max-black.jpg", "iphone-14-pro-max-black-1.jpg", "iphone-14-pro-max-black-2.jpg", "iphone-14-pro-max-black-3.jpg"]', 1)
+insert into Images values(114, '["iphone-14-pro-max-purple.jpg", "iphone-14-pro-max-purple-1.jpg", "iphone-14-pro-max-purple-2.jpg", "iphone-14-pro-max-purple-3.jpg"]', 1)
+insert into Images values(115, '["iphone-14-pro-max-sliver.jpg","iphone-14-pro-max-sliver-1.jpg", "iphone-14-pro-max-sliver-2.jpg", "iphone-14-pro-max-sliver-3.jpg"]', 1)
+insert into Images values(116, '["iphone-14-pro-max-gold.jpg","iphone-14-pro-max-gold-1.jpg", "iphone-14-pro-max-gold-2.jpg", "iphone-14-pro-max-gold-3.jpg"]', 1)
+insert into Images values(117, '["iphone-14-pro-max-black.jpg", "iphone-14-pro-max-black-1.jpg", "iphone-14-pro-max-black-2.jpg", "iphone-14-pro-max-black-3.jpg"]', 1)
+insert into Images values(118, '["iphone-14-pro-max-purple.jpg", "iphone-14-pro-max-purple-1.jpg", "iphone-14-pro-max-purple-2.jpg", "iphone-14-pro-max-purple-3.jpg"]', 1)
+insert into Images values(119, '["iphone-14-pro-max-sliver.jpg","iphone-14-pro-max-sliver-1.jpg", "iphone-14-pro-max-sliver-2.jpg", "iphone-14-pro-max-sliver-3.jpg"]', 1)
+insert into Images values(120, '["iphone-14-pro-max-gold.jpg","iphone-14-pro-max-gold-1.jpg", "iphone-14-pro-max-gold-2.jpg", "iphone-14-pro-max-gold-3.jpg"]', 1)
+
+--image iphone 13
+insert into Images values(121, '["iphone-13-hong.jpg","iphone-13-hong-1.jpg", "iphone-13-hong-2.jpg", "iphone-13-hong-3.jpg"]', 1)
+insert into Images values(122, '["iphone-13-trang.jpg","iphone-13-trang-1.jpg", "iphone-13-trang-2.jpg", "iphone-13-trang-3.jpg"]', 1)
+insert into Images values(123, '["iphone-13-xanh-la.jpg","iphone-13-xanh-la-1.jpg", "iphone-13-xanh-la-2.jpg", "iphone-13-xanh-la-3.jpg"]', 1)
+insert into Images values(124, '["iphone-13-blue.jpg","iphone-13-blue-1.jpg", "iphone-13-blue-2.jpg", "iphone-13-blue-3.jpg"]', 1)
+insert into Images values(125, '["iphone-13-black.jpg","iphone-13-black-1.jpg", "iphone-13-black-2.jpg", "iphone-13-black-3.jpg"]', 1 )
+insert into Images values(126, '["iphone-13-hong.jpg","iphone-13-hong-1.jpg", "iphone-13-hong-2.jpg", "iphone-13-hong-3.jpg"]', 1)
+insert into Images values(127, '["iphone-13-trang.jpg","iphone-13-trang-1.jpg", "iphone-13-trang-2.jpg", "iphone-13-trang-3.jpg"]', 1)
+insert into Images values(128, '["iphone-13-xanh-la.jpg","iphone-13-xanh-la-1.jpg", "iphone-13-xanh-la-2.jpg", "iphone-13-xanh-la-3.jpg"]', 1)
+insert into Images values(129, '["iphone-13-blue.jpg","iphone-13-blue-1.jpg", "iphone-13-blue-2.jpg", "iphone-13-blue-3.jpg"]', 1)
+insert into Images values(130, '["iphone-13-black.jpg","iphone-13-black-1.jpg", "iphone-13-black-2.jpg", "iphone-13-black-3.jpg"]', 1 )
+insert into Images values(131, '["iphone-13-hong.jpg","iphone-13-hong-1.jpg", "iphone-13-hong-2.jpg", "iphone-13-hong-3.jpg"]', 1)
+insert into Images values(132, '["iphone-13-trang.jpg","iphone-13-trang-1.jpg", "iphone-13-trang-2.jpg", "iphone-13-trang-3.jpg"]', 1)
+insert into Images values(133, '["iphone-13-xanh-la.jpg","iphone-13-xanh-la-1.jpg", "iphone-13-xanh-la-2.jpg", "iphone-13-xanh-la-3.jpg"]', 1)
+insert into Images values(134, '["iphone-13-blue.jpg","iphone-13-blue-1.jpg", "iphone-13-blue-2.jpg", "iphone-13-blue-3.jpg"]', 1)
+insert into Images values(135, '["iphone-13-black.jpg","iphone-13-black-1.jpg", "iphone-13-black-2.jpg", "iphone-13-black-3.jpg"]', 1 )
+--image iphone 13 pro
+insert into Images values(136, '["iphone-13-pro-bac.jpg","iphone-13-pro-bac-1.jpg", "iphone-13-pro-bac-2.jpg", "iphone-13-pro-bac-3.jpg"]', 1)
+insert into Images values(137, '["iphone-13-pro-xanh-la.jpg","iphone-13-pro-xanh-la-1.jpg", "iphone-13-pro-xanh-la-2.jpg", "iphone-13-pro-xanh-la-3.jpg"]', 1)
+insert into Images values(138, '["iphone-13-pro-xam.jpg","iphone-13-pro-xam-1.jpg", "iphone-13-pro-xam-2.jpg", "iphone-13-pro-xam-3.jpg"]', 1)
+insert into Images values(139,'["iphone-13-pro-gold.jpg","iphone-13-pro-gold-1.jpg", "iphone-13-pro-gold-2.jpg", "iphone-13-pro-gold-3.jpg"]', 1)
+insert into Images values(141,'["iphone-13-pro-blue.jpg","iphone-13-pro-blue-1.jpg", "iphone-13-pro-blue-2.jpg", "iphone-13-pro-blue-3.jpg"]', 1)
+insert into Images values(142, '["iphone-13-pro-bac.jpg","iphone-13-pro-bac-1.jpg", "iphone-13-pro-bac-2.jpg", "iphone-13-pro-bac-3.jpg"]', 1)
+insert into Images values(143, '["iphone-13-pro-xanh-la.jpg","iphone-13-pro-xanh-la-1.jpg", "iphone-13-pro-xanh-la-2.jpg", "iphone-13-pro-xanh-la-3.jpg"]', 1)
+insert into Images values(144, '["iphone-13-pro-xam.jpg","iphone-13-pro-xam-1.jpg", "iphone-13-pro-xam-2.jpg", "iphone-13-pro-xam-3.jpg"]', 1)
+insert into Images values(145,'["iphone-13-pro-gold.jpg","iphone-13-pro-gold-1.jpg", "iphone-13-pro-gold-2.jpg", "iphone-13-pro-gold-3.jpg"]', 1)
+insert into Images values(146,'["iphone-13-pro-blue.jpg","iphone-13-pro-blue-1.jpg", "iphone-13-pro-blue-2.jpg", "iphone-13-pro-blue-3.jpg"]', 1)
+insert into Images values(147, '["iphone-13-pro-bac.jpg","iphone-13-pro-bac-1.jpg", "iphone-13-pro-bac-2.jpg", "iphone-13-pro-bac-3.jpg"]', 1)
+insert into Images values(148, '["iphone-13-pro-xanh-la.jpg","iphone-13-pro-xanh-la-1.jpg", "iphone-13-pro-xanh-la-2.jpg", "iphone-13-pro-xanh-la-3.jpg"]', 1)
+insert into Images values(149, '["iphone-13-pro-xam.jpg","iphone-13-pro-xam-1.jpg", "iphone-13-pro-xam-2.jpg", "iphone-13-pro-xam-3.jpg"]', 1)
+insert into Images values(150,'["iphone-13-pro-gold.jpg","iphone-13-pro-gold-1.jpg", "iphone-13-pro-gold-2.jpg", "iphone-13-pro-gold-3.jpg"]', 1)
+insert into Images values(151,'["iphone-13-pro-blue.jpg","iphone-13-pro-blue-1.jpg", "iphone-13-pro-blue-2.jpg", "iphone-13-pro-blue-3.jpg"]', 1)
+insert into Images values(152, '["iphone-13-pro-bac.jpg","iphone-13-pro-bac-1.jpg", "iphone-13-pro-bac-2.jpg", "iphone-13-pro-bac-3.jpg"]', 1)
+insert into Images values(153, '["iphone-13-pro-xanh-la.jpg","iphone-13-pro-xanh-la-1.jpg", "iphone-13-pro-xanh-la-2.jpg", "iphone-13-pro-xanh-la-3.jpg"]', 1)
+insert into Images values(154, '["iphone-13-pro-xam.jpg","iphone-13-pro-xam-1.jpg", "iphone-13-pro-xam-2.jpg", "iphone-13-pro-xam-3.jpg"]', 1)
+insert into Images values(155,'["iphone-13-pro-gold.jpg","iphone-13-pro-gold-1.jpg", "iphone-13-pro-gold-2.jpg", "iphone-13-pro-gold-3.jpg"]', 1)
+insert into Images values(156,'["iphone-13-pro-blue.jpg","iphone-13-pro-blue-1.jpg", "iphone-13-pro-blue-2.jpg", "iphone-13-pro-blue-3.jpg"]', 1)
+--image iphone 13 pro max
+insert into Images values(157, '["iphone-13-pro-max-bac.jpg","iphone-13-pro-max-bac-1.jpg", "iphone-13-pro-max-bac-2.jpg", "iphone-13-pro-max-bac-3.jpg"]', 1)
+insert into Images values(158, '["iphone-13-pro-max-xanh-la.jpg","iphone-13-pro-max-xanh-la-1.jpg", "iphone-13-pro-max-xanh-la-2.jpg", "iphone-13-pro-max-xanh-la-3.jpg"]', 1)
+insert into Images values(159, '["iphone-13-pro-max-xam.jpg","iphone-13-pro-max-xam-1.jpg", "iphone-13-pro-max-xam-2.jpg", "iphone-13-pro-max-xam-3.jpg"]', 1)
+insert into Images values(160,'["iphone-13-pro-max-gold.jpg","iphone-13-pro-max-gold-1.jpg", "iphone-13-pro-max-gold-2.jpg", "iphone-13-pro-max-gold-3.jpg"]', 1)
+insert into Images values(161,'["iphone-13-pro-max-blue.jpg","iphone-13-pro-max-blue-1.jpg", "iphone-13-pro-max-blue-2.jpg", "iphone-13-pro-max-blue-3.jpg"]', 1)
+insert into Images values(162, '["iphone-13-pro-max-bac.jpg","iphone-13-pro-max-bac-1.jpg", "iphone-13-pro-max-bac-2.jpg", "iphone-13-pro-max-bac-3.jpg"]', 1)
+insert into Images values(163, '["iphone-13-pro-max-xanh-la.jpg","iphone-13-pro-max-xanh-la-1.jpg", "iphone-13-pro-max-xanh-la-2.jpg", "iphone-13-pro-max-xanh-la-3.jpg"]', 1)
+insert into Images values(164, '["iphone-13-pro-max-xam.jpg","iphone-13-pro-max-xam-1.jpg", "iphone-13-pro-max-xam-2.jpg", "iphone-13-pro-max-xam-3.jpg"]', 1)
+insert into Images values(165,'["iphone-13-pro-max-gold.jpg","iphone-13-pro-max-gold-1.jpg", "iphone-13-pro-max-gold-2.jpg", "iphone-13-pro-max-gold-3.jpg"]', 1)
+insert into Images values(166,'["iphone-13-pro-max-blue.jpg","iphone-13-pro-max-blue-1.jpg", "iphone-13-pro-max-blue-2.jpg", "iphone-13-pro-max-blue-3.jpg"]', 1)
+insert into Images values(167, '["iphone-13-pro-max-bac.jpg","iphone-13-pro-max-bac-1.jpg", "iphone-13-pro-max-bac-2.jpg", "iphone-13-pro-max-bac-3.jpg"]', 1)
+insert into Images values(168, '["iphone-13-pro-max-xanh-la.jpg","iphone-13-pro-max-xanh-la-1.jpg", "iphone-13-pro-max-xanh-la-2.jpg", "iphone-13-pro-max-xanh-la-3.jpg"]', 1)
+insert into Images values(169, '["iphone-13-pro-max-xam.jpg","iphone-13-pro-max-xam-1.jpg", "iphone-13-pro-max-xam-2.jpg", "iphone-13-pro-max-xam-3.jpg"]', 1)
+insert into Images values(170,'["iphone-13-pro-max-gold.jpg","iphone-13-pro-max-gold-1.jpg", "iphone-13-pro-max-gold-2.jpg", "iphone-13-pro-max-gold-3.jpg"]', 1)
+insert into Images values(171,'["iphone-13-pro-max-blue.jpg","iphone-13-pro-max-blue-1.jpg", "iphone-13-pro-max-blue-2.jpg", "iphone-13-pro-max-blue-3.jpg"]', 1)
+insert into Images values(172, '["iphone-13-pro-max-bac.jpg","iphone-13-pro-max-bac-1.jpg", "iphone-13-pro-max-bac-2.jpg", "iphone-13-pro-max-bac-3.jpg"]', 1)
+insert into Images values(173, '["iphone-13-pro-max-xanh-la.jpg","iphone-13-pro-max-xanh-la-1.jpg", "iphone-13-pro-max-xanh-la-2.jpg", "iphone-13-pro-max-xanh-la-3.jpg"]', 1)
+insert into Images values(174, '["iphone-13-pro-max-xam.jpg","iphone-13-pro-max-xam-1.jpg", "iphone-13-pro-max-xam-2.jpg", "iphone-13-pro-max-xam-3.jpg"]', 1)
+insert into Images values(175,'["iphone-13-pro-max-gold.jpg","iphone-13-pro-max-gold-1.jpg", "iphone-13-pro-max-gold-2.jpg", "iphone-13-pro-max-gold-3.jpg"]', 1)
+insert into Images values(176,'["iphone-13-pro-max-blue.jpg","iphone-13-pro-max-blue-1.jpg", "iphone-13-pro-max-blue-2.jpg", "iphone-13-pro-max-blue-3.jpg"]', 1)
+-- IMAGE IPHONE 12
+insert into Images values(177, '["iphone-12-den.jpg","iphone-12-den-1.jpg", "iphone-12-den-2.jpg", "iphone-12-den-3.jpg"]', 1)
+insert into Images values(178, '["iphone-12-trang.jpg","iphone-12-trang-1.jpg", "iphone-12-trang-2.jpg", "iphone-12-trang-3.jpg"]', 1)
+insert into Images values(179, '["iphone-12-xanh.jpg","iphone-12-xanh-1.jpg", "iphone-12-xanh-2.jpg", "iphone-12-xanh-3.jpg"]', 1)
+insert into Images values(180, '["iphone-12-tim.jpg","iphone-12-tim-1.jpg", "iphone-12-tim-2.jpg", "iphone-12-tim-3.jpg"]', 1)
+insert into Images values(181, '["iphone-12-xanh-duong.jpg","iphone-12-xanh-duong-1.jpg", "iphone-12-xanh-duong-2.jpg", "iphone-12-xanh-duong-3.jpg"]', 1)
+insert into Images values(182, '["iphone-12-do.jpg","iphone-12-do-1.jpg", "iphone-12-do-2.jpg", "iphone-12-do-3.jpg"]', 1 )
+insert into Images values(183, '["iphone-12-den.jpg","iphone-12-den-1.jpg", "iphone-12-den-2.jpg", "iphone-12-den-3.jpg"]', 1)
+insert into Images values(184, '["iphone-12-trang.jpg","iphone-12-trang-1.jpg", "iphone-12-trang-2.jpg", "iphone-12-trang-3.jpg"]', 1)
+insert into Images values(185, '["iphone-12-xanh.jpg","iphone-12-xanh-1.jpg", "iphone-12-xanh-2.jpg", "iphone-12-xanh-3.jpg"]', 1)
+insert into Images values(186, '["iphone-12-tim.jpg","iphone-12-tim-1.jpg", "iphone-12-tim-2.jpg", "iphone-12-tim-3.jpg"]', 1)
+insert into Images values(187, '["iphone-12-xanh-duong.jpg","iphone-12-xanh-duong-1.jpg", "iphone-12-xanh-duong-2.jpg", "iphone-12-xanh-duong-3.jpg"]', 1)
+insert into Images values(188, '["iphone-12-do.jpg","iphone-12-do-1.jpg", "iphone-12-do-2.jpg", "iphone-12-do-3.jpg"]', 1 )
+insert into Images values(189, '["iphone-12-den.jpg","iphone-12-den-1.jpg", "iphone-12-den-2.jpg", "iphone-12-den-3.jpg"]', 1)
+insert into Images values(190, '["iphone-12-trang.jpg","iphone-12-trang-1.jpg", "iphone-12-trang-2.jpg", "iphone-12-trang-3.jpg"]', 1)
+insert into Images values(191, '["iphone-12-xanh.jpg","iphone-12-xanh-1.jpg", "iphone-12-xanh-2.jpg", "iphone-12-xanh-3.jpg"]', 1)
+insert into Images values(192, '["iphone-12-tim.jpg","iphone-12-tim-1.jpg", "iphone-12-tim-2.jpg", "iphone-12-tim-3.jpg"]', 1)
+insert into Images values(193, '["iphone-12-xanh-duong.jpg","iphone-12-xanh-duong-1.jpg", "iphone-12-xanh-duong-2.jpg", "iphone-12-xanh-duong-3.jpg"]', 1)
+insert into Images values(194, '["iphone-12-do.jpg","iphone-12-do-1.jpg", "iphone-12-do-2.jpg", "iphone-12-do-3.jpg"]', 1 )
+
+--IMAGE IPHONE 12 PRO
+insert into Images values(195, '["iphone-12-pro-gold.jpg","iphone-12-pro-gold-1.jpg", "iphone-12-pro-gold-2.jpg", "iphone-12-pro-gold-3.jpg"]', 1)
+insert into Images values(196, '["iphone-12-pro-bac.jpg","iphone-12-pro-bac-1.jpg", "iphone-12-pro-bac-2.jpg", "iphone-12-pro-bac-3.jpg"]', 1)
+insert into Images values(196, '["iphone-12-pro-xam.jpg","iphone-12-pro-xam-1.jpg", "iphone-12-pro-xam-2.jpg", "iphone-12-pro-xam-3.jpg"]', 1)
+insert into Images values(197, '["iphone-12-pro-xanh-duong.jpg","iphone-12-pro-xanh-duong-1.jpg", "iphone-12-pro-xanh-duong-2.jpg", "iphone-12-pro-xanh-duong-3.jpg"]', 1)
+insert into Images values(198, '["iphone-12-pro-gold.jpg","iphone-12-pro-gold-1.jpg", "iphone-12-pro-gold-2.jpg", "iphone-12-pro-gold-3.jpg"]', 1)
+insert into Images values(199, '["iphone-12-pro-bac.jpg","iphone-12-pro-bac-1.jpg", "iphone-12-pro-bac-2.jpg", "iphone-12-pro-bac-3.jpg"]', 1)
+insert into Images values(200, '["iphone-12-pro-xam.jpg","iphone-12-pro-xam-1.jpg", "iphone-12-pro-xam-2.jpg", "iphone-12-pro-xam-3.jpg"]', 1)
+insert into Images values(201, '["iphone-12-pro-xanh-duong.jpg","iphone-12-pro-xanh-duong-1.jpg", "iphone-12-pro-xanh-duong-2.jpg", "iphone-12-pro-xanh-duong-3.jpg"]', 1)
+insert into Images values(202, '["iphone-12-pro-gold.jpg","iphone-12-pro-gold-1.jpg", "iphone-12-pro-gold-2.jpg", "iphone-12-pro-gold-3.jpg"]', 1)
+insert into Images values(203, '["iphone-12-pro-bac.jpg","iphone-12-pro-bac-1.jpg", "iphone-12-pro-bac-2.jpg", "iphone-12-pro-bac-3.jpg"]', 1)
+insert into Images values(204, '["iphone-12-pro-xam.jpg","iphone-12-pro-xam-1.jpg", "iphone-12-pro-xam-2.jpg", "iphone-12-pro-xam-3.jpg"]', 1)
+insert into Images values(205, '["iphone-12-pro-xanh-duong.jpg","iphone-12-pro-xanh-duong-1.jpg", "iphone-12-pro-xanh-duong-2.jpg", "iphone-12-pro-xanh-duong-3.jpg"]', 1)
+
+-- IMAGE IPHONE 12 PRO MAX
+insert into Images values(206, '["iphone-12-pro-max-gold.jpg","iphone-12-pro-max-gold-1.jpg", "iphone-12-pro-max-gold-2.jpg", "iphone-12-pro-max-gold-3.jpg"]', 1)
+insert into Images values(207, '["iphone-12-pro-max-bac.jpg","iphone-12-pro-max-bac-1.jpg", "iphone-12-pro-max-bac-2.jpg", "iphone-12-pro-max-bac-3.jpg"]', 1)
+insert into Images values(208, '["iphone-12-pro-max-xam.jpg","iphone-12-pro-max-xam-1.jpg", "iphone-12-pro-max-xam-2.jpg", "iphone-12-pro-max-xam-3.jpg"]', 1)
+insert into Images values(209, '["iphone-12-pro-max-xanh-duong.jpg","iphone-12-pro-max-xanh-duong-1.jpg", "iphone-12-pro-max-xanh-duong-2.jpg", "iphone-12-pro-max-xanh-duong-3.jpg"]', 1)
+insert into Images values(210, '["iphone-12-pro-max-gold.jpg","iphone-12-pro-max-gold-1.jpg", "iphone-12-pro-max-gold-2.jpg", "iphone-12-pro-max-gold-3.jpg"]', 1)
+insert into Images values(211, '["iphone-12-pro-max-bac.jpg","iphone-12-pro-max-bac-1.jpg", "iphone-12-pro-max-bac-2.jpg", "iphone-12-pro-max-bac-3.jpg"]', 1)
+insert into Images values(212, '["iphone-12-pro-max-xam.jpg","iphone-12-pro-max-xam-1.jpg", "iphone-12-pro-max-xam-2.jpg", "iphone-12-pro-max-xam-3.jpg"]', 1)
+insert into Images values(213, '["iphone-12-pro-max-xanh-duong.jpg","iphone-12-pro-max-xanh-duong-1.jpg", "iphone-12-pro-max-xanh-duong-2.jpg", "iphone-12-pro-max-xanh-duong-3.jpg"]', 1)
+insert into Images values(214, '["iphone-12-pro-max-gold.jpg","iphone-12-pro-max-gold-1.jpg", "iphone-12-pro-max-gold-2.jpg", "iphone-12-pro-max-gold-3.jpg"]', 1)
+insert into Images values(215, '["iphone-12-pro-max-bac.jpg","iphone-12-pro-max-bac-1.jpg", "iphone-12-pro-max-bac-2.jpg", "iphone-12-pro-max-bac-3.jpg"]', 1)
+insert into Images values(216, '["iphone-12-pro-max-xam.jpg","iphone-12-pro-max-xam-1.jpg", "iphone-12-pro-max-xam-2.jpg", "iphone-12-pro-max-xam-3.jpg"]', 1)
+insert into Images values(217, '["iphone-12-pro-max-xanh-duong.jpg","iphone-12-pro-max-xanh-duong-1.jpg", "iphone-12-pro-max-xanh-duong-2.jpg", "iphone-12-pro-max-xanh-duong-3.jpg"]', 1)
+-- IMAGE IPHONE 11
+insert into Images values(218,'["iphone-11-black.jpg","iphone-11-black-1.jpg", "iphone-11-black-2.jpg", "iphone-11-black-3.jpg"]', 1)
+insert into Images values(219, '["iphone-11-white.jpg","iphone-11-white-1.jpg", "iphone-11-white-2.jpg", "iphone-11-white-3.jpg"]', 1)
+insert into Images values(220, '["iphone-11-green.jpg","iphone-11-green-1.jpg", "iphone-11-green-2.jpg", "iphone-11-green-3.jpg"]', 1)
+insert into Images values(221, '["iphone-11-purple.jpg","iphone-11-purple-1.jpg", "iphone-11-purple-2.jpg", "iphone-11-purple-3.jpg"]', 1)
+insert into Images values(222, '["iphone-11-yellow.jpg","iphone-11-yellow-1.jpg", "iphone-11-yellow-2.jpg", "iphone-11-yellow-3.jpg"]', 1)
+insert into Images values(223, '["iphone-11-red.jpg","iphone-11-red-1.jpg", "iphone-11-red-2.jpg", "iphone-11-red-3.jpg"]', 1 )
+insert into Images values(224,'["iphone-11-black.jpg","iphone-11-black-1.jpg", "iphone-11-black-2.jpg", "iphone-11-black-3.jpg"]', 1)
+insert into Images values(225, '["iphone-11-white.jpg","iphone-11-white-1.jpg", "iphone-11-white-2.jpg", "iphone-11-white-3.jpg"]', 1)
+insert into Images values(226, '["iphone-11-green.jpg","iphone-11-green-1.jpg", "iphone-11-green-2.jpg", "iphone-11-green-3.jpg"]', 1)
+insert into Images values(227, '["iphone-11-purple.jpg","iphone-11-purple-1.jpg", "iphone-11-purple-2.jpg", "iphone-11-purple-3.jpg"]', 1)
+insert into Images values(228, '["iphone-11-yellow.jpg","iphone-11-yellow-1.jpg", "iphone-11-yellow-2.jpg", "iphone-11-yellow-3.jpg"]', 1)
+insert into Images values(229, '["iphone-11-red.jpg","iphone-11-red-1.jpg", "iphone-11-red-2.jpg", "iphone-11-red-3.jpg"]', 1 )
+insert into Images values(230,'["iphone-11-black.jpg","iphone-11-black-1.jpg", "iphone-11-black-2.jpg", "iphone-11-black-3.jpg"]', 1)
+insert into Images values(231, '["iphone-11-white.jpg","iphone-11-white-1.jpg", "iphone-11-white-2.jpg", "iphone-11-white-3.jpg"]', 1)
+insert into Images values(232, '["iphone-11-green.jpg","iphone-11-green-1.jpg", "iphone-11-green-2.jpg", "iphone-11-green-3.jpg"]', 1)
+insert into Images values(233, '["iphone-11-purple.jpg","iphone-11-purple-1.jpg", "iphone-11-purple-2.jpg", "iphone-11-purple-3.jpg"]', 1)
+insert into Images values(234, '["iphone-11-yellow.jpg","iphone-11-yellow-1.jpg", "iphone-11-yellow-2.jpg", "iphone-11-yellow-3.jpg"]', 1)
+insert into Images values(235, '["iphone-11-red.jpg","iphone-11-red-1.jpg", "iphone-11-red-2.jpg", "iphone-11-red-3.jpg"]', 1 )
+
+-- IMAGE IPHONE 11 PRO
+insert into Images values(236,'["iphone-11-pro-gold.jpg","iphone-11-pro-gold-1.jpg", "iphone-11-pro-gold-2.jpg", "iphone-11-pro-gold-3.jpg"]', 1)
+insert into Images values(237,'["iphone-11-pro-gray.jpg","iphone-11-pro-gray-1.jpg", "iphone-11-pro-gray-2.jpg", "iphone-11-pro-gray-3.jpg"]', 1)
+insert into Images values(238,'["iphone-11-pro-green.jpg","iphone-11-pro-green-1.jpg", "iphone-11-pro-green-2.jpg", "iphone-11-pro-green-3.jpg"]', 1)
+insert into Images values(239,'["iphone-11-pro-gold.jpg","iphone-11-pro-gold-1.jpg", "iphone-11-pro-gold-2.jpg", "iphone-11-pro-gold-3.jpg"]', 1)
+insert into Images values(240,'["iphone-11-pro-gray.jpg","iphone-11-pro-gray-1.jpg", "iphone-11-pro-gray-2.jpg", "iphone-11-pro-gray-3.jpg"]', 1)
+insert into Images values(241,'["iphone-11-pro-green.jpg","iphone-11-pro-green-1.jpg", "iphone-11-pro-green-2.jpg", "iphone-11-pro-green-3.jpg"]', 1)
+insert into Images values(242,'["iphone-11-pro-gold.jpg","iphone-11-pro-gold-1.jpg", "iphone-11-pro-gold-2.jpg", "iphone-11-pro-gold-3.jpg"]', 1)
+insert into Images values(243,'["iphone-11-pro-gray.jpg","iphone-11-pro-gray-1.jpg", "iphone-11-pro-gray-2.jpg", "iphone-11-pro-gray-3.jpg"]', 1)
+insert into Images values(244,'["iphone-11-pro-green.jpg","iphone-11-pro-green-1.jpg", "iphone-11-pro-green-2.jpg", "iphone-11-pro-green-3.jpg"]', 1)
+
+-- IMAGE IPHONE 11 PRO MAX
+insert into Images values(245,'["iphone-11-pro-max-gold.jpg","iphone-11-pro-max-gold-1.jpg", "iphone-11-pro-max-gold-2.jpg", "iphone-11-pro-max-gold-3.jpg"]', 1)
+insert into Images values(246,'["iphone-11-pro-max-gray.jpg","iphone-11-pro-max-gray-1.jpg", "iphone-11-pro-max-gray-2.jpg", "iphone-11-pro-max-gray-3.jpg"]', 1)
+insert into Images values(247,'["iphone-11-pro-max-green.jpg","iphone-11-pro-max-green-1.jpg", "iphone-11-pro-max-green-2.jpg", "iphone-11-pro-max-green-3.jpg"]', 1)
+insert into Images values(148,'["iphone-11-pro-max-gold.jpg","iphone-11-pro-max-gold-1.jpg", "iphone-11-pro-max-gold-2.jpg", "iphone-11-pro-max-gold-3.jpg"]', 1)
+insert into Images values(249,'["iphone-11-pro-max-gray.jpg","iphone-11-pro-max-gray-1.jpg", "iphone-11-pro-max-gray-2.jpg", "iphone-11-pro-max-gray-3.jpg"]', 1)
+insert into Images values(250,'["iphone-11-pro-max-green.jpg","iphone-11-pro-max-green-1.jpg", "iphone-11-pro-max-green-2.jpg", "iphone-11-pro-max-green-3.jpg"]', 1)
+insert into Images values(251,'["iphone-11-pro-max-gold.jpg","iphone-11-pro-max-gold-1.jpg", "iphone-11-pro-max-gold-2.jpg", "iphone-11-pro-max-gold-3.jpg"]', 1)
+insert into Images values(252,'["iphone-11-pro-max-gray.jpg","iphone-11-pro-max-gray-1.jpg", "iphone-11-pro-max-gray-2.jpg", "iphone-11-pro-max-gray-3.jpg"]', 1)
+insert into Images values(253,'["iphone-11-pro-max-green.jpg","iphone-11-pro-max-green-1.jpg", "iphone-11-pro-max-green-2.jpg", "iphone-11-pro-max-green-3.jpg"]', 1)

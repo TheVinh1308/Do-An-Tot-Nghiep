@@ -30,6 +30,7 @@ const ProductDisplay = (props) => {
                         {
                             images.path &&
                             JSON.parse(images.path).map((path, pathIndex) => (
+                                pathIndex !== 0 ?
                                 <>
                                     <button key={pathIndex} onClick={() => (setSelectedImage(path.id),setIndexImage(pathIndex))}>
                                         <img
@@ -38,6 +39,7 @@ const ProductDisplay = (props) => {
                                         />
                                     </button>
                                 </>
+                                : null
                         ))}
                     </div>
                     <div className="productdisplay-img">
