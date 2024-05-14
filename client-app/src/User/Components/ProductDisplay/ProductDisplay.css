@@ -69,7 +69,25 @@
     margin: 30px 0px;
     gap: 20px;
 }
+.productdisplay-right-rom h1{
+    margin-top: 55px;
+    color: #656565;
+    font-size: 20px;
+    font-weight: 600;
+}
+.productdisplay-right-roms{
+    display: flex;
+    margin: 30px 0px;
+    gap: 20px;
+}
 .productdisplay-right-sizes div{
+    padding: 18px 24px; 
+    background: #fbfbfb;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.productdisplay-right-roms div{
     padding: 18px 24px; 
     background: #fbfbfb;
     border: 1px solid #ebebeb;
@@ -135,6 +153,13 @@
     .productdisplay-right-sizes div{
         padding: 14px 20px;
     }
+    .productdisplay-right-rom h1{
+        margin-top: 20px;
+        font-size: 20px;
+    }
+    .productdisplay-right-roms div{
+        padding: 14px 20px;
+    }
     .productdisplay-right button{
         width: 150px;
         padding: 15px 0px;
@@ -171,6 +196,13 @@
         margin-top: 10px 0px;
     }
     .productdisplay-right-sizes div{
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+    .productdisplay-right-roms{
+        margin-top: 10px 0px;
+    }
+    .productdisplay-right-roms div{
         padding: 10px 16px;
         font-size: 12px;
     }
@@ -222,6 +254,16 @@
     .productdisplay-right-sizes div{
         padding: 4px 11px;
     }
+    .productdisplay-right-rom h1{
+        margin-top: 10px;
+    }
+    .productdisplay-right-roms{
+        margin-top: 10px;
+        gap: 5px;
+    }
+    .productdisplay-right-roms div{
+        padding: 4px 11px;
+    }
     .productdisplay-right button{
         width: 100px;
         font-size: 12px;
@@ -247,7 +289,8 @@
         height: 75px;
     }
     .productdisplay-main-img{
-        height: 330px;
+        height: 250px;
+        overflow: hidden;
     }
     .productdisplay-right{
         margin: 5px;
@@ -265,6 +308,14 @@
         margin: 20px 0px;
     }
     .productdisplay-right-sizes div{
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+    .productdisplay-right-roms{
+        gap: 10px;
+        margin: 20px 0px;
+    }
+    .productdisplay-right-roms div{
         padding: 10px 16px;
         font-size: 14px;
     }

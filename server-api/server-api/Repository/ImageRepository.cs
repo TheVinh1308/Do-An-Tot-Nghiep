@@ -40,7 +40,7 @@ namespace server_api.Repository
             return image;
         }
 
-        public async Task<Image> GetImageForPhone(int phoneId)
+        public async Task<Image> GetImageForPhoneAsync(int phoneId)
         {
             var image = await _context.Images.FirstOrDefaultAsync(i => i.PhoneId == phoneId);
 
@@ -91,5 +91,18 @@ namespace server_api.Repository
             return image;
         }
 
+        public async Task<List<Image>> GetImageByModPhoneAsync(int modPhoneId)
+        {
+            var phoneIds = await _context.Phones
+                             .Where(p => p.ModPhoneId == modPhoneId)
+                             .Select(p => p.Id)
+                             .ToArrayAsync();
+
+            var images = await _context.Images
+                            .Include(i => i.Phone)
+                            .Where(i => phoneIds.Contains(i.PhoneId))
+                            .ToListAsync();
+            return images;
+        }
     }
 }

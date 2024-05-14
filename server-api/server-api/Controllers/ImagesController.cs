@@ -41,7 +41,7 @@ namespace server_api.Controllers
         {
             if (image == null)
             {
-                return BadRequest("ModPhone object is null");
+                return BadRequest("Image object is null");
             }
 
             try
@@ -53,6 +53,14 @@ namespace server_api.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpGet]
+        [Route("GetImgByModPhone/{modPhoneId}")]
+        public async Task<IActionResult> GetImageByModPhone(int modPhoneId)
+        {
+            var image = await _imageRepository.GetImageByModPhoneAsync(modPhoneId);
+            return image == null ? NotFound() : Ok(image);
         }
 
     }

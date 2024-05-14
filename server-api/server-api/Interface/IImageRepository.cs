@@ -11,6 +11,7 @@ namespace server_api.Interface
         Task<Image> InsertImageAsync([FromForm]Image image);
         Task UpdateImageAsync(int imageId, Image image);
 
-        Task<Image> GetImageForPhone(int phoneId);
+        Task<Image> GetImageForPhoneAsync(int phoneId);
+        Task<List<Image>> GetImageByModPhoneAsync(int modPhoneId);
     }
 }
