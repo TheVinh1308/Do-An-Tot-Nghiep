@@ -18,6 +18,9 @@ namespace API_Server.Models
         public User User { get; set; }
 
         public DateTime IssuedDate { get; set; }
+        public int PaymentMethodId { get; set; }
+
+        public PaymentMethod PaymentMethod { get; set; }
 
         public string ShippingAddress { get; set; }
 

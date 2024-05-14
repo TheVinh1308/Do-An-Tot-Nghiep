@@ -102,6 +102,33 @@
     font-weight: 500;
 }
 
+.slider-price {
+    width: 280px !important;
+    display: flex !important;
+    margin: 0 auto;
+}
+
+
+.show-price,
+.title-price {
+    text-align: center
+}
+
+.shopcategory-fill-cancel,
+.shopcategory-fill-cancel button {
+
+    border-color: red;
+    color: red;
+    background-color: #fff;
+}
+
+.shopcategory-fill-cancel {
+    padding: 10px 20px;
+    border-radius: 40px;
+    border: 1px solid;
+    margin: 0 5px;
+}
+
 @media(max-width:1280px) {
     .shopcategory-banner {
         margin: 20px auto;

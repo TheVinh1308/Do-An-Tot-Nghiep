@@ -38,7 +38,7 @@ insert into Brands values ( 'Xiaomi', 'Xiaomi.png', 1, GETDATE())
 insert into Brands values ( 'Huawei', 'Huawei.png', 1, GETDATE())
 
 -- =========================== PROMOTION =============================
-insert into Promotions values (N'Không khuyến mãi', 0, GETDATE(),1)
+insert into Promotions values (N'Không khuyến mãi', 0,1)
 
 -- =========================== MODPHONE =============================
 -- MOD PHONE IPHONE

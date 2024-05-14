@@ -1,16 +1,18 @@
-import Badge from 'react-bootstrap/Badge';
+import React, { useEffect, useState } from "react";
+import { Button, Col, Modal, Row, Table, Badge } from "react-bootstrap";
+import "datatables.net-bs5";
+import $ from "jquery";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
+import { faCircleInfo, faFileSignature } from '@fortawesome/free-solid-svg-icons';
 import Breadcrumb from "../Breadcrumb";
 import Footer from "../Footer";
 import Header from "../Header";
 import Sidebar from "../Sidebar";
-import { Button, Col, Image, Modal, Row, Table } from "react-bootstrap";
-import { useEffect, useState } from "react";
-import "datatables.net-bs5";
-import $ from "jquery"
 import EditInvoice from './EditInvoice';
 import DetailInvoice from '../DetailInvoice/InvoiceDetail';
-const Invoice = () => {
 
+const Invoice = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -19,24 +21,49 @@ const Invoice = () => {
     const handleCloseDetail = () => setShowDetail(false);
     const handleShowDetail = () => setShowDetail(true);
 
+    const [showSetting, setShowSetting] = useState(false);
+    const handleShowSetting = () => setShowSetting(true);
+    const handleCloseSetting = () => setShowSetting(false);
+    const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 });
+
     useEffect(() => {
         const table = $('#DataTables_Table_Invoice_0').DataTable({
             responsive: true,
             autoWidth: true,
-            paging: [{
-                className: 'p-0',
-            }]
         });
 
+        const handleContextMenu = (event) => {
+            event.preventDefault();
+            handleShowSetting();
+            setContextMenuPosition({ x: event.clientX, y: event.clientY });
+        };
+
+        const menu = document.getElementById('show-menu');
+        const section = document.getElementById('menu');
+
+        if (menu) {
+            menu.addEventListener('contextmenu', handleContextMenu);
+        }
+
+        const handleClickOutside = (event) => {
+            if (section && !section.contains(event.target)) {
+                handleCloseSetting();
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+
         return () => {
-            // Destroy the DataTable instance when component unmounts
             table.destroy();
+            if (menu) {
+                menu.removeEventListener('contextmenu', handleContextMenu);
+            }
+            document.removeEventListener('click', handleClickOutside);
         };
     }, []);
+
     return (
-
         <>
-
             <Header />
             <Sidebar />
             <main id="main" className="main">
@@ -50,21 +77,18 @@ const Invoice = () => {
                                     <table id="DataTables_Table_Invoice_0" className="table table-striped responsive modphone-table">
                                         <thead>
                                             <tr>
-                                                {/* <th className="col-3 tb-item">Image</th> */}
                                                 <th className="col-2 tb-item">User</th>
                                                 <th className="col-1 tb-item">Date</th>
                                                 <th className="col-2 tb-item">Address</th>
                                                 <th className="col-2 tb-item">Phone</th>
                                                 <th className="col-1 tb-item">Status</th>
-
                                                 <th className="col-1 tb-item">Payment</th>
                                                 <th className="col-1 tb-item">Total</th>
                                                 <th className="col-2 tb-item">Feature</th>
-
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <tr id='show-menu'>
                                                 <td className="tb-item">Phạm Hoan Vinh</td>
                                                 <td className="tb-item">04/06/2024</td>
                                                 <td className="tb-item">16 Tân Thuận Tây, Q7, TP HCM</td>
@@ -76,101 +100,17 @@ const Invoice = () => {
                                                 <td className="tb-item">
                                                     {(25000000).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
                                                 </td>
-
-
-
                                                 <td className="tb-item">
                                                     <Row>
-                                                        <Col className="col-4"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                        <Col className="col-4" onClick={handleShow}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                        <Col className="col-4" onClick={handleShowDetail} > <i class="bi bi-info-circle-fill btn btn-success"></i></Col>
+                                                        <Col className="col-4"><i className="bi bi-trash btn btn-danger"></i></Col>
+                                                        <Col className="col-4" onClick={handleShow}><i className="bi bi-pencil-square btn btn-warning"></i></Col>
+                                                        <Col className="col-4" onClick={handleShowDetail}><i className="bi bi-info-circle-fill btn btn-success"></i></Col>
                                                     </Row>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td className="tb-item">Phạm Hoan Vinh</td>
-                                                <td className="tb-item">04/06/2024</td>
-                                                <td className="tb-item">16 Tân Thuận Tây, Q7, TP HCM</td>
-                                                <td className="tb-item">0364067704</td>
-                                                <td className="tb-item">
-                                                    <Badge bg="danger">Đã huỷ</Badge>
-                                                </td>
-                                                <td className="tb-item">Tiền mặt</td>
-                                                <td className="tb-item">25000000vnd</td>
-
-
-                                                <td className="tb-item">
-                                                    <Row>
-                                                        <Col className="col-4"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                        <Col className="col-4"> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                        <Col className="col-4"> <i class="bi bi-info-circle-fill btn btn-success"></i></Col>
-                                                    </Row>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="tb-item">Phạm Hoan Vinh</td>
-                                                <td className="tb-item">04/06/2024</td>
-                                                <td className="tb-item">16 Tân Thuận Tây, Q7, TP HCM</td>
-                                                <td className="tb-item">0364067704</td>
-                                                <td className="tb-item">
-                                                    <Badge bg="danger">Đã huỷ</Badge>
-                                                </td>
-                                                <td className="tb-item">Tiền mặt</td>
-                                                <td className="tb-item">25000000vnd</td>
-
-
-                                                <td className="tb-item">
-                                                    <Row>
-                                                        <Col className="col-4"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                        <Col className="col-4"> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                        <Col className="col-4"> <i class="bi bi-info-circle-fill btn btn-success"></i></Col>
-                                                    </Row>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="tb-item">Phạm Hoan Vinh</td>
-                                                <td className="tb-item">04/06/2024</td>
-                                                <td className="tb-item">16 Tân Thuận Tây, Q7, TP HCM</td>
-                                                <td className="tb-item">0364067704</td>
-                                                <td className="tb-item">
-                                                    <Badge bg="danger">Đã huỷ</Badge>
-                                                </td>
-                                                <td className="tb-item">Tiền mặt</td>
-                                                <td className="tb-item">25000000vnd</td>
-
-
-                                                <td className="tb-item">
-                                                    <Row>
-                                                        <Col className="col-4"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                        <Col className="col-4"> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                        <Col className="col-4"> <i class="bi bi-info-circle-fill btn btn-success"></i></Col>
-                                                    </Row>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="tb-item">Phạm Hoan Vinh</td>
-                                                <td className="tb-item">04/06/2024</td>
-                                                <td className="tb-item">16 Tân Thuận Tây, Q7, TP HCM</td>
-                                                <td className="tb-item">0364067704</td>
-                                                <td className="tb-item">
-                                                    <Badge bg="danger">Đã huỷ</Badge>
-                                                </td>
-                                                <td className="tb-item">Tiền mặt</td>
-                                                <td className="tb-item">25000000vnd</td>
-
-
-                                                <td className="tb-item">
-                                                    <Row>
-                                                        <Col className="col-4"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                        <Col className="col-4"> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                        <Col className="col-4"> <i class="bi bi-info-circle-fill btn btn-success"></i></Col>
-                                                    </Row>
-                                                </td>
-                                            </tr>
-
+                                            {/* Repeat similar rows as needed */}
                                         </tbody>
                                     </table>
-                                    {/* End Table with stripped rows */}
                                 </div>
                             </div>
                         </div>
@@ -185,7 +125,6 @@ const Invoice = () => {
                 <Modal.Body>
                     <EditInvoice />
                 </Modal.Body>
-
             </Modal>
             <Modal size="lg" show={showDetail} fullscreen={true} onHide={handleCloseDetail}>
                 <Modal.Header closeButton>
@@ -194,11 +133,21 @@ const Invoice = () => {
                 <Modal.Body>
                     <DetailInvoice />
                 </Modal.Body>
-
             </Modal>
+            <div id="menu" size="lg" show={showSetting} onHide={handleCloseSetting} backdrop='false' style={{ left: contextMenuPosition.x, top: contextMenuPosition.y - 15, display: showSetting ? 'block' : 'none' }}>
+                <ul>
+                    <li onClick={handleShow}><FontAwesomeIcon icon={faPenToSquare} /> Chỉnh sửa</li>
+                    <hr />
+                    <li><FontAwesomeIcon icon={faFileSignature} /> Cập nhật trạng thái</li>
+                    <hr />
+                    <li><FontAwesomeIcon icon={faEye} /> Theo dõi đơn hàng</li>
+                    <hr />
+                    <li onClick={handleShowDetail}><FontAwesomeIcon icon={faCircleInfo} /> Xem thông tin đơn hàng</li>
+                </ul>
+            </div>
             <Footer />
         </>
     );
-}
+};
 
 export default Invoice;

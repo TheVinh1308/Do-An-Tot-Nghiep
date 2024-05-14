@@ -1471,3 +1471,28 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+
+/* INVOICE */
+#menu {
+  display: none;
+  position: fixed;
+  background-color: #fff;
+  border: solid gray 1px;
+  border-radius: 10px;
+  padding: 15px 20px 5px 25px;
+}
+
+#menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+#menu ul li {
+  padding: 2px 15px 2px 1px;
+}
+
+#menu ul li svg {
+  margin-right: 10px;
+}
