@@ -1,6 +1,6 @@
 import { Form } from "react-router-dom";
 import Breadcrumb from "../Breadcrumb";
-import Footer from "../Footer";
+
 import Header from "../Header";
 import Sidebar from "../Sidebar";
 import { Button, Col, Image, Modal, Row, Table } from "react-bootstrap";
@@ -10,6 +10,7 @@ import $ from "jquery"
 import AddPromotion from "./AddPromotion";
 import AppPromotion from "./AppPromotion";
 import EditPromotion from "./EditPromotion";
+import Footer from "../Footer/Footer";
 
 
 const Promotion = () => {
@@ -103,6 +104,7 @@ const Promotion = () => {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </main>
             {/* THÊM KHUYẾN MÃI */}
             <Modal size="lg" show={show} onHide={handleClose}>
@@ -139,7 +141,7 @@ const Promotion = () => {
 
             </Modal>
 
-            <Footer />
+
         </>
     );
 }

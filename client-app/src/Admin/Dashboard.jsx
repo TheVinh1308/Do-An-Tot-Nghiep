@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import Header from './Header';
 import Sidebar from './Sidebar';
-import Footer from './Footer';
+
 import Breadcrumb from './Breadcrumb';
 import Chart from 'chart.js/auto';
 import * as echarts from 'echarts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartSimple, faHandHoldingDollar, faSackDollar } from '@fortawesome/free-solid-svg-icons';
+import Footer from './Footer/Footer';
 
 
 const Dashboard = () => {
@@ -405,8 +406,9 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </main>
-            <Footer />
+
         </>
     );
 }

@@ -6,11 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import { faCircleInfo, faFileSignature } from '@fortawesome/free-solid-svg-icons';
 import Breadcrumb from "../Breadcrumb";
-import Footer from "../Footer";
+import Footer from "../Footer/Footer";
 import Header from "../Header";
 import Sidebar from "../Sidebar";
 import EditInvoice from './EditInvoice';
 import DetailInvoice from '../DetailInvoice/InvoiceDetail';
+import { Link } from "react-router-dom";
 
 const Invoice = () => {
     const [show, setShow] = useState(false);
@@ -116,6 +117,7 @@ const Invoice = () => {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </main>
             {/* ADD MODPHONE */}
             <Modal size="lg" show={show} onHide={handleClose}>
@@ -140,12 +142,15 @@ const Invoice = () => {
                     <hr />
                     <li><FontAwesomeIcon icon={faFileSignature} /> Cập nhật trạng thái</li>
                     <hr />
-                    <li><FontAwesomeIcon icon={faEye} /> Theo dõi đơn hàng</li>
+                    <Link to="/admin/OderTracking">
+                        <li ><FontAwesomeIcon icon={faEye} /> Theo dõi đơn hàng</li>
+
+                    </Link>
                     <hr />
                     <li onClick={handleShowDetail}><FontAwesomeIcon icon={faCircleInfo} /> Xem thông tin đơn hàng</li>
                 </ul>
             </div>
-            <Footer />
+
         </>
     );
 };

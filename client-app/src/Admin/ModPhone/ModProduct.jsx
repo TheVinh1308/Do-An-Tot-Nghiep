@@ -1,6 +1,6 @@
 import { Form } from "react-router-dom";
 import Breadcrumb from "../Breadcrumb";
-import Footer from "../Footer";
+
 import Header from "../Header";
 import Sidebar from "../Sidebar";
 import { Button, Col, Image, Modal, Row, Table } from "react-bootstrap";
@@ -10,6 +10,7 @@ import "datatables.net-bs5";
 import $ from "jquery"
 import EditModPhone from "./EditModProduct";
 import axios from "axios";
+import Footer from "../Footer/Footer";
 const ModProduct = () => {
     // SHOW THÊM DÒNG ĐIỆN THOẠI
     const [show, setShow] = useState(false);
@@ -160,6 +161,7 @@ const ModProduct = () => {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </main>
             {/* THÊM DÒNG ĐIỆN THOẠI */}
             <Modal size="lg" show={show} onHide={handleClose}>
@@ -182,7 +184,7 @@ const ModProduct = () => {
                 </Modal.Body>
 
             </Modal>
-            <Footer />
+
         </>
     );
 }

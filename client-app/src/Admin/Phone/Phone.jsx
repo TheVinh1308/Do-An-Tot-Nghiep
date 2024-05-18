@@ -1,6 +1,6 @@
 import { Form } from "react-router-dom";
 import Breadcrumb from "../Breadcrumb";
-import Footer from "../Footer";
+
 import Header from "../Header";
 import Sidebar from "../Sidebar";
 import { Button, Col, Image, Modal, Row, Table } from "react-bootstrap";
@@ -10,6 +10,7 @@ import $ from "jquery"
 import AddPhone from "./AddPhone";
 import EditPhone from "./EditPhone";
 import axios from "axios";
+import Footer from "../Footer/Footer";
 
 const Phone = () => {
     // SHOW THÊM ĐIỆN THOẠI
@@ -157,6 +158,7 @@ const Phone = () => {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </main>
             {/* ADD MODPHONE */}
             <Modal size="lg" show={show} onHide={handleClose}>
@@ -179,7 +181,7 @@ const Phone = () => {
                 </Modal.Body>
 
             </Modal>
-            <Footer />
+
         </>
     );
 }

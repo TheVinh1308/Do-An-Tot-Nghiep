@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Breadcrumb from "./Breadcrumb";
-import Footer from "./Footer";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import { Button, Col, Image, Modal, Row, ProgressBar } from "react-bootstrap";
@@ -8,6 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import StarRatings from "react-star-ratings";
 import { useState } from "react";
+import Footer from "./Footer/Footer";
 const Review = () => {
     let sumRate = 47;
     let num = 10;
@@ -274,8 +274,9 @@ const Review = () => {
                         </Col>
                     </div>
                 </section>
+                <Footer />
             </main>
-            <Footer />
+
         </>
     );
 }
