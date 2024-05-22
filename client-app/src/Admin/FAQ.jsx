@@ -1,5 +1,6 @@
 import Breadcrumb from "./Breadcrumb";
-import Footer from "./Footer";
+import Footer from "./Footer/Footer";
+
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 
@@ -444,8 +445,9 @@ const FAQ = () => {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </main>
-            <Footer />
+
         </>
     );
 }

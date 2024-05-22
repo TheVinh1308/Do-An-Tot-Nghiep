@@ -11,6 +11,7 @@ import Contact from "../Admin/Contact";
 import Review from "../Admin/Review";
 import Comment from "../Admin/Comment";
 import Brand from "../Admin/Brand/Brand";
+import OderTracking from "../Admin/Invoice/OrderTracking";
 const PrivateRouter = () => {
     return (
         <>
@@ -54,6 +55,10 @@ const PrivateRouter = () => {
                         <Route path="Brand">
                             <Route index element={<Brand />} />
                         </Route>
+                        <Route path="OderTracking">
+                            <Route index element={<OderTracking />} />
+                        </Route>
+
 
                     </Route>
                 </Routes>

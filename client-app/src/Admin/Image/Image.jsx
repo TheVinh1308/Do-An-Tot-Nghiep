@@ -1,6 +1,6 @@
 import { Form } from "react-router-dom";
 import Breadcrumb from "../Breadcrumb";
-import Footer from "../Footer";
+
 import Header from "../Header";
 import Sidebar from "../Sidebar";
 import { Button, Col, Image, Modal, Row, Table } from "react-bootstrap";
@@ -10,6 +10,7 @@ import $ from "jquery"
 import AddImage from "./AddImage";
 import EditImage from "./EditImage";
 import axios from "axios";
+import Footer from "../Footer/Footer";
 
 const Images = () => {
     // SHOW THÊM ẢNH ĐIỆN THOẠI
@@ -158,6 +159,7 @@ const Images = () => {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </main>
             {/* THÊM ẢNH ĐIỆN THOẠI */}
             <Modal size="lg" show={show} onHide={handleClose}>
@@ -180,7 +182,7 @@ const Images = () => {
                 </Modal.Body>
 
             </Modal>
-            <Footer />
+
         </>
     );
 }

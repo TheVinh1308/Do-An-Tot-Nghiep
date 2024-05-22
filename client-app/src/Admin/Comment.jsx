@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Breadcrumb from "./Breadcrumb";
-import Footer from "./Footer";
+
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import { Button, Col, Image, Modal, Row, ProgressBar } from "react-bootstrap";
+import Footer from "./Footer/Footer";
 const Comment = () => {
 
     const [liked, setLiked] = useState(false);
@@ -136,8 +137,9 @@ const Comment = () => {
                         </Col>
                     </div>
                 </section>
+                <Footer />
             </main>
-            <Footer />
+
         </>
     );
 }

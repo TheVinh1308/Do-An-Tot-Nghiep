@@ -1,5 +1,5 @@
 import Breadcrumb from "../Breadcrumb";
-import Footer from "../Footer";
+
 import Header from "../Header";
 import Sidebar from "../Sidebar";
 import { Button, Col, Image, Modal, Row, Table } from "react-bootstrap";
@@ -10,6 +10,7 @@ import AddBrand from "./AddBrand";
 import EditBrand from "./EditBrand";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Footer from "../Footer/Footer";
 const Brand = () => {
     // SHOW THÊM DÒNG ĐIỆN THOẠI
     const [show, setShow] = useState(false);
@@ -149,6 +150,7 @@ const Brand = () => {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </main>
             {/* THÊM DÒNG ĐIỆN THOẠI */}
             <Modal size="lg" show={show} onHide={handleClose}>
@@ -171,7 +173,7 @@ const Brand = () => {
                 </Modal.Body>
 
             </Modal>
-            <Footer />
+
         </>
     );
 }
