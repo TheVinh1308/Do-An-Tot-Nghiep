@@ -38,7 +38,7 @@ insert into Brands values ( 'Xiaomi', 'Xiaomi.png', 1, GETDATE())
 insert into Brands values ( 'Huawei', 'Huawei.png', 1, GETDATE())
 
 -- =========================== PROMOTION =============================
-insert into Promotions values (N'Không khuyến mãi', 0, GETDATE(),1)
+insert into Promotions values (N'Không khuyến mãi', 0,1)
 
 -- =========================== MODPHONE =============================
 -- MOD PHONE IPHONE
@@ -88,41 +88,41 @@ insert into ModPhones values(  'IPhone 11', 6.1, N'Apple đã chính thức trì
 
 -- MOD PHONE SAMSUNG
 insert into ModPhones values(  'Galaxy S24 Ultra', 6.8, N'Samsung Galaxy S24 Ultra mẫu điện thoại cao cấp được ra mắt vào đầu năm 2024, sản phẩm tiếp tục kế thừa và cải tiến từ thế hệ trước. 
-								Điểm đặc biệt là sử dụng chip Snapdragon 8 Gen 3 for Galaxy, camera 200 MP và tích hợp nhiều tính năng AI.', 12,2, 'Android 14', N'Snapdragon 8 Gen 3 for Galaxy', '5000 mAh, 45 W','sss24u.png',1,1 );
+								Điểm đặc biệt là sử dụng chip Snapdragon 8 Gen 3 for Galaxy, camera 200 MP và tích hợp nhiều tính năng AI.', 12,2, 'Android 14', N'Snapdragon 8 Gen 3 for Galaxy', '5000 mAh, 45 W','samsung-s24ultra-violet-1.jpg',1,1 );
 insert into ModPhones values(  'Galaxy S24 Plus', 6.7, N'Samsung đã cho ra mắt Samsung Galaxy S24+ 5G 256GB, chiếc điện thoại đẳng cấp của họ tại sự kiện hàng năm diễn ra vào ngày 18/01 tại Mỹ. Điểm độc đáo của sản phẩm nằm ở chip mới của Samsung,
-								đi kèm với sự phát triển trong việc bổ sung nhiều tính năng thông minh có tích hợp AI và tăng cường khả năng chụp ảnh ở phần camera.', 12,2, 'Android 14', N'Exynos 2400', '4900 mAh, 45 W','sss24p.png',1,1 );
+								đi kèm với sự phát triển trong việc bổ sung nhiều tính năng thông minh có tích hợp AI và tăng cường khả năng chụp ảnh ở phần camera.', 12,2, 'Android 14', N'Exynos 2400', '4900 mAh, 45 W','samsung-s24plus-black-1.jpg',1,1 );
 insert into ModPhones values(  'Galaxy S24', 6.2, N'Trong sự kiện Unpacked 2024 diễn ra vào ngày 18/01, Samsung đã chính thức ra mắt chiếc điện thoại Samsung Galaxy S24. Sản phẩm này mang đến nhiều cải tiến độc đáo, bao gồm việc sử dụng chip mới của Samsung,
-								tích hợp nhiều tính năng thông minh sử dụng trí tuệ nhân tạo và cải thiện đáng kể hiệu suất chụp ảnh từ hệ thống camera.', 8,2, 'Android 14', N'Exynos 2400', '4000 mAh, 25 W','sss24.png',1,1 );
+								tích hợp nhiều tính năng thông minh sử dụng trí tuệ nhân tạo và cải thiện đáng kể hiệu suất chụp ảnh từ hệ thống camera.', 8,2, 'Android 14', N'Exynos 2400', '4000 mAh, 25 W','samsung-s24-gold-1.jpg',1,1 );
 insert into ModPhones values(  'Galaxy S23 Ultra', 6.8, N'Samsung Galaxy S23 Ultra 5G 256GB là chiếc smartphone cao cấp nhất của nhà Samsung, sở hữu cấu hình không tưởng với con chip khủng được Qualcomm tối ưu riêng cho dòng Galaxy và camera lên đến 200 MP,
-								xứng danh là chiếc flagship Android được mong đợi nhất trong năm 2023.', 8,2, 'Android 14', N'Exynos 2400', '5000 mAh, 45 W','sss23u.png',1,1 );
+								xứng danh là chiếc flagship Android được mong đợi nhất trong năm 2023.', 8,2, 'Android 14', N'Exynos 2400', '5000 mAh, 45 W','samsung-s23ultra-cream-1.jpg',1,1 );
 insert into ModPhones values(  'Galaxy S23 FE', 6.4, N'Nắm bắt xu hướng công nghệ, hãng đã trang bị cho Samsung Galaxy S23 FE 5G 256GB những tính năng độc đáo và mạnh mẽ bao gồm camera 
-								50 MP có nhiều tính năng chụp ảnh, cấu hình mạnh nhờ chip Exynos 2200 và thiết kế bắt mắt.', 8,2, 'Android 13', N'Exynos 2200 8 nhân', '4500 mAh, 25 W','sss23f.png',1,1 );
+								50 MP có nhiều tính năng chụp ảnh, cấu hình mạnh nhờ chip Exynos 2200 và thiết kế bắt mắt.', 8,2, 'Android 13', N'Exynos 2200 8 nhân', '4500 mAh, 25 W','samsung-S23FE-violet-1.jpg',1,1 );
 insert into ModPhones values(  'Galaxy S23', 6.1, N'Samsung Galaxy S23 5G 128GB chắc hẳn không còn là cái tên quá xa lạ đối với các tín đồ công nghệ hiện nay, được xem là một trong những gương mặt chủ chốt 
-								đến từ nhà Samsung với cấu hình mạnh mẽ bậc nhất, camera trứ danh hàng đầu cùng lối hoàn thiện vô cùng sang trọng và hiện đại.', 8,2, 'Android 13', N'Snapdragon 8 Gen 2 for Galaxy', '3900 mAh, 25 W','sss23.png',1,1 );
+								đến từ nhà Samsung với cấu hình mạnh mẽ bậc nhất, camera trứ danh hàng đầu cùng lối hoàn thiện vô cùng sang trọng và hiện đại.', 8,2, 'Android 13', N'Snapdragon 8 Gen 2 for Galaxy', '3900 mAh, 25 W','samsung-s23-violet-1.jpg',1,1 );
 insert into ModPhones values(  'Galaxy S22 Ultra', 6.8, N'Galaxy S22 Ultra 5G chiếc smartphone cao cấp nhất trong bộ 3 Galaxy S22 series mà Samsung đã cho ra mắt và lần nữa S22 Ultra 5G tiếp tục trở lại đầy ngoạn mục mang đến 1 diện mạo mới khi tích 
-								hợp bút S Pen hoàn hảo trong thân máy, trang bị vi xử lý mạnh mẽ cho các tác vụ sử dụng vô cùng mượt mà và nổi bật hơn với cụm camera không viền độc đáo mang đậm dấu ấn riêng và có mức giá bán siêu hấp dẫn.', 8,2, 'Android 12', N'Snapdragon 8 Gen 1', '5000 mAh, 45 W','sss22u.png',1,1 );
+								hợp bút S Pen hoàn hảo trong thân máy, trang bị vi xử lý mạnh mẽ cho các tác vụ sử dụng vô cùng mượt mà và nổi bật hơn với cụm camera không viền độc đáo mang đậm dấu ấn riêng và có mức giá bán siêu hấp dẫn.', 8,2, 'Android 12', N'Snapdragon 8 Gen 1', '5000 mAh, 45 W','samsung-s22ultra-green-1.jpg',1,1 );
 insert into ModPhones values(  'Galaxy S22', 6.1, N'Samsung Galaxy S22 ra mắt với diện mạo vô cùng tinh tế và trẻ trung, mang trong mình thiết kế phẳng theo xu hướng thịnh hành, màn hình 120 Hz mượt mà,
-								cụm camera AI 50 MP và bộ xử lý đến từ Qualcomm.', 8,2, 'Android 12', N'Snapdragon 8 Gen 1', '3700 mAh, 25 W','sss22.png',1,1 );
+								cụm camera AI 50 MP và bộ xử lý đến từ Qualcomm.', 8,2, 'Android 12', N'Snapdragon 8 Gen 1', '3700 mAh, 25 W','samsung-s22-black-1.jpg',1,1 );
 insert into ModPhones values(  'Samsung Galaxy Z Fold5', 7.6, N'Samsung Galaxy Z Fold5 là mẫu điện thoại cao cấp được ra mắt vào tháng 07/2023 với nhiều điểm đáng chú ý như thiết kế gập độc đáo,
-								hiệu năng mạnh mẽ nhờ chip Snapdragon 8 Gen 2 for Galaxy cùng camera quay chụp sắc nét.', 12,2, 'Android 13', N'Snapdragon 8 Gen 2 for Galaxy', '4400 mAh, 25 W','sszfold5.png',1,1 );
+								hiệu năng mạnh mẽ nhờ chip Snapdragon 8 Gen 2 for Galaxy cùng camera quay chụp sắc nét.', 12,2, 'Android 13', N'Snapdragon 8 Gen 2 for Galaxy', '4400 mAh, 25 W','samsung-zfold5-blue-1.jpg',1,1 );
 insert into ModPhones values(  'Samsung Galaxy Z Fold4', 7.6, N'Tại sự kiện Samsung Unpacked thường niên, Samsung Galaxy Z Fold4 256GB chính thức được trình làng thị trường công nghệ, mang trên mình nhiều cải tiến đáng giá giúp Galaxy Z Fold 
-								trở thành dòng điện thoại gập đã tốt nay càng tốt hơn.', 12,2, 'Android 12', N'Snapdragon 8+ Gen 1', '4400 mAh, 25 W','sszfold4.png',1,1 );
+								trở thành dòng điện thoại gập đã tốt nay càng tốt hơn.', 12,2, 'Android 12', N'Snapdragon 8+ Gen 1', '4400 mAh, 25 W','samsung-zfold4-cream-1.jpg',1,1 );
 insert into ModPhones values(  'Samsung Galaxy Z Fold3', 7.6, N'Samsung Galaxy Z Fold3 5G, chiếc điện thoại được nâng cấp toàn diện về nhiều mặt, đặc biệt đây là điện thoại màn hình gập đầu tiên trên thế giới có camera ẩn (08/2021).
-								Sản phẩm sẽ là một “cú hit” của Samsung góp phần mang đến những trải nghiệm mới cho người dùng.', 12,2, 'Android 11', N'Snapdragon 888', '4400 mAh, 25 W','sszfold3.png',1,1 );
+								Sản phẩm sẽ là một “cú hit” của Samsung góp phần mang đến những trải nghiệm mới cho người dùng.', 12,2, 'Android 11', N'Snapdragon 888', '4400 mAh, 25 W','samsung-zfold3-black-1.jpg',1,1 );
 insert into ModPhones values(  'Samsung Galaxy Z Flip5', 6.7, N'Samsung Galaxy Z Flip5 đã chính thức ra mắt vào ngày 26 tháng 7. Đây là một chiếc điện thoại thông minh có thiết kế độc đáo với màn hình gập, 
-								được trang bị bộ vi xử lý cao cấp Snapdragon 8 Gen 2 for Galaxy, RAM 8 GB, bộ nhớ trong 256 GB, camera kép 12 MP và pin 3700 mAh.', 8,2, 'Android 13', N'Snapdragon 8 Gen 2 for Galaxy', '3700 mAh, 25 W','sszflip5.png',1,1 );
+								được trang bị bộ vi xử lý cao cấp Snapdragon 8 Gen 2 for Galaxy, RAM 8 GB, bộ nhớ trong 256 GB, camera kép 12 MP và pin 3700 mAh.', 8,2, 'Android 13', N'Snapdragon 8 Gen 2 for Galaxy', '3700 mAh, 25 W','samsung-zflip5-purple-1.jpg',1,1 );
 insert into ModPhones values(  'Samsung Galaxy Z Flip4', 6.7, N'Samsung Galaxy Z Flip4 128GB đã chính thức ra mắt thị trường công nghệ, đánh dấu sự trở lại của Samsung trên con đường định hướng người dùng về sự tiện lợi trên những chiếc điện thoại gập.
-								Với độ bền được gia tăng cùng kiểu thiết kế đẹp mắt giúp Flip4 trở thành một trong những tâm điểm sáng giá cho nửa cuối năm 2022.', 8,2, 'Android 12', N'Snapdragon 8+ Gen 1', '3700 mAh, 25 W','sszflip4.png',1,1 );
+								Với độ bền được gia tăng cùng kiểu thiết kế đẹp mắt giúp Flip4 trở thành một trong những tâm điểm sáng giá cho nửa cuối năm 2022.', 8,2, 'Android 12', N'Snapdragon 8+ Gen 1', '3700 mAh, 25 W','samsung-zflip4-blue-1.jpg',1,1 );
 insert into ModPhones values(  'Samsung Galaxy Z Flip3', 6.7, N'Trong sự kiện Galaxy Unpacked hồi 11/8, Samsung đã chính thức trình làng mẫu điện thoại màn hình gập thế hệ mới mang tên Samsung Galaxy Z Flip3 5G 128GB. Đây là một siêu phẩm với màn hình 
-								gập dạng vỏ sò cùng nhiều điểm cải tiến và thông số ấn tượng, sản phẩm chắc chắn sẽ thu hút được rất nhiều sự quan tâm của người dùng, đặc biệt là phái nữ.', 8,2, 'Android 11', N'Snapdragon 888', '3300 mAh, 15 W','sszflip3.png',1,1 );
+								gập dạng vỏ sò cùng nhiều điểm cải tiến và thông số ấn tượng, sản phẩm chắc chắn sẽ thu hút được rất nhiều sự quan tâm của người dùng, đặc biệt là phái nữ.', 8,2, 'Android 11', N'Snapdragon 888', '3300 mAh, 15 W','samsung-zflip3-cream-1.jpg',1,1 );
 insert into ModPhones values(  'Samsung Galaxy M34', 6.5, N'Samsung Galaxy M34 5G đã thu hút sự chú ý của cộng đồng người dùng smartphone không chỉ với mức giá hấp dẫn mà còn với bộ thông số kỹ thuật ấn tượng. Khả năng vượt trội của camera, 
-								pin lớn cùng với thiết kế bắt mắt của chiếc điện thoại hứa hẹn mang đến những trải nghiệm sử dụng tốt nhất dành cho bạn.', 8,2, 'Android 13', N'Exynos 1280', '6000 mAh, 25 W','ssm34.png',1,1 );
+								pin lớn cùng với thiết kế bắt mắt của chiếc điện thoại hứa hẹn mang đến những trải nghiệm sử dụng tốt nhất dành cho bạn.', 8,2, 'Android 13', N'Exynos 1280', '6000 mAh, 25 W','samsung-m34-black-1.jpg',1,1 );
 insert into ModPhones values(  'Samsung Galaxy M54', 6.7, N'Tiếp nối thành công của Galaxy M53 5G, Samsung tiếp tục tung ra thị trường mẫu điện thoại Samsung Galaxy M54 5G. Lần ra mắt này Samsung đã nâng cấp về mặt hiệu năng,
-								dung lượng pin đồng thời cải tiến về mặt thiết kế giúp đem đến sản phẩm tốt nhất cho bạn.', 8,2, 'Android 13', N'Exynos 1380 8 nhân', '6000 mAh, 25 W','ssm54.png',1,1 );
+								dung lượng pin đồng thời cải tiến về mặt thiết kế giúp đem đến sản phẩm tốt nhất cho bạn.', 8,2, 'Android 13', N'Exynos 1380 8 nhân', '6000 mAh, 25 W','samsung-m54-black-2.jpg',1,1 );
 insert into ModPhones values(  'Samsung Galaxy A35', 6.6, N'Samsung Galaxy A35 5G là một trong những dòng điện thoại thông minh tầm trung đáng chú ý của Samsung. Máy sở hữu cho mình một hiệu suất mạnh mẽ, 
-								màn hình sắc nét và viên pin lớn, chiếc điện thoại hứa hẹn mang đến trải nghiệm đa dạng và tuyệt vời cho người dùng.', 8,2, 'Android 14', N'Exynos 1380 8 nhân', '5000 mAh, 25 W','ssa35.png',1,1 );
+								màn hình sắc nét và viên pin lớn, chiếc điện thoại hứa hẹn mang đến trải nghiệm đa dạng và tuyệt vời cho người dùng.', 8,2, 'Android 14', N'Exynos 1380 8 nhân', '5000 mAh, 25 W','samsung-a35-blue-1.jpg',1,1 );
 insert into ModPhones values(  'Samsung Galaxy A14', 6.6, N'Samsung Galaxy A14 5G có thể là chiếc smartphone đầu tiên của năm 2023 được nhà sản xuất đến từ Hàn Quốc phát hành chính thức ở Việt Nam. Máy nổi bật với lối thiết kế trẻ trung, 
-								màn hình kích thước lớn và camera chính có độ phân giải lên tới 50 MP.', 8,2, 'Android 13', N'MediaTek Dimensity 700', '5000 mAh, 25 W','ssa14.png',1,1 );
+								màn hình kích thước lớn và camera chính có độ phân giải lên tới 50 MP.', 8,2, 'Android 13', N'MediaTek Dimensity 700', '5000 mAh, 25 W','samsung-a14-red-1.jpg',1,1 );
 
 -- MOD PHONE VIVO
 insert into ModPhones values(  'Vivo X70', 6.56, N'Vivo X70 ra mắt với hàng loạt đổi mới không chỉ ở ngoại hình mà cả bên trong. Chiếc điện thoại có khả năng nhiếp ảnh chuyên nghiệp, hiệu năng vượt trội cùng với tốc độ kết nối mạng 5G hàng đầu, 
@@ -294,9 +294,9 @@ insert into Phones values('iPhone 15 Pro 1TB','1500102000002',2,39499000,10,'whi
 insert into Phones values('iPhone 15 Pro 1TB','1500102000003',2,39499000,10,'blue',1024)
 insert into Phones values('iPhone 15 Pro 1TB','1500102000004',2,39499000,10,'natural',1024)
 --IPHONE 15 PRO MAX: 47 ->  58
-insert into Phones values('iPhone 15 Pro Max 256GB','1525601000001',1,31999000,10,'black',256)
+insert into Phones values('iPhone 15 Pro Max 256GB','1525601000001',1,31999000,0,'black',256)
 insert into Phones values('iPhone 15 Pro Max 256GB','1525601000002',1,31999000,10,'white',256)
-insert into Phones values('iPhone 15 Pro Max 256GB','1525601000003',1,31999000,10,'blue',256)
+insert into Phones values('iPhone 15 Pro Max 256GB','1525601000003',1,31999000,0,'blue',256)
 insert into Phones values('iPhone 15 Pro Max 256GB','1525601000004',1,31999000,10,'natural',256)
 
 insert into Phones values('iPhone 15 Pro Max 512B','1551201000001',1,37699000,10,'black',512)
@@ -304,9 +304,9 @@ insert into Phones values('iPhone 15 Pro Max 512B','1551201000002',1,37699000,10
 insert into Phones values('iPhone 15 Pro Max 512B','1551201000003',1,37699000,10,'blue',512)
 insert into Phones values('iPhone 15 Pro Max 512B','1551201000004',1,37699000,10,'natural',512)
 
-insert into Phones values('iPhone 15 Pro Max 1TB','1500101000001',1,43499000,10,'black',1024)
-insert into Phones values('iPhone 15 Pro Max 1TB','1500101000002',1,43499000,10,'white',1024)
-insert into Phones values('iPhone 15 Pro Max 1TB','1500101000003',1,43499000,10,'blue',1024)
+insert into Phones values('iPhone 15 Pro Max 1TB','1500101000001',1,43499000,0,'black',1024)
+insert into Phones values('iPhone 15 Pro Max 1TB','1500101000002',1,43499000,0,'white',1024)
+insert into Phones values('iPhone 15 Pro Max 1TB','1500101000003',1,43499000,0,'blue',1024)
 insert into Phones values('iPhone 15 Pro Max 1TB','1500101000004',1,43499000,10,'natural',1024)
 --IPHONE 14: 59 -> 73
 insert into Phones values('iPhone 14 128GB','1412808000001',8,17999000,10,'black',128)
@@ -556,28 +556,153 @@ insert into Phones values('iPhone 11 Pro Max 256GB','1125615000002',15,11799000,
 insert into Phones values('iPhone 11 Pro Max 256GB','1112815000003',15,11799000,15,'green',256)
 
 
-
-
 -- SAMSUNG S24 ULTRA
-insert into Phones values('Samsung Galaxy S24 Ultra 256GB','S242561800001',18,31999000,10,'gray',256)
-insert into Phones values('Samsung Galaxy S24 Ultra 256GB','S242561800002',18,31999000,10,'black',256)
-insert into Phones values('Samsung Galaxy S24 Ultra 256GB','S242561800003',18,31999000,10,'purple',256)
-insert into Phones values('Samsung Galaxy S24 Ultra 256GB','S242561800004',18,31999000,10,'gold',256)
+insert into Phones values('Samsung Galaxy S24 Ultra 256GB','S242561800001',18,26490000,10,'gray',256)
+insert into Phones values('Samsung Galaxy S24 Ultra 256GB','S242561800002',18,26490000,10,'black',256)
+insert into Phones values('Samsung Galaxy S24 Ultra 256GB','S242561800003',18,26490000,10,'purple',256)
+insert into Phones values('Samsung Galaxy S24 Ultra 256GB','S242561800004',18,26490000,10,'gold',256)
 
-insert into Phones values('Samsung Galaxy S24 Ultra 512GB','S245121900001',18,31999000,10,'gray',512)
-insert into Phones values('Samsung Galaxy S24 Ultra 512GB','S245121900002',18,31999000,10,'black',512)
-insert into Phones values('Samsung Galaxy S24 Ultra 512GB','S245121900003',18,31999000,10,'purple',512)
-insert into Phones values('Samsung Galaxy S24 Ultra 512GB','S245121900004',18,31999000,10,'gold',512)
+insert into Phones values('Samsung Galaxy S24 Ultra 512GB','S245121800001',18,29990000,10,'gray',512)
+insert into Phones values('Samsung Galaxy S24 Ultra 512GB','S245121800002',18,29990000,10,'black',512)
+insert into Phones values('Samsung Galaxy S24 Ultra 512GB','S245121800003',18,29990000,10,'purple',512)
+insert into Phones values('Samsung Galaxy S24 Ultra 512GB','S245121800004',18,29990000,10,'gold',512)
 
-insert into Phones values('Samsung Galaxy S24 Ultra 1TB','S240011900001',18,31999000,10,'gray',1024)
-insert into Phones values('Samsung Galaxy S24 Ultra 1TB','S240011900002',18,31999000,10,'black',1024)
-insert into Phones values('Samsung Galaxy S24 Ultra 1TB','S240011900003',18,31999000,10,'purple',1024)
-insert into Phones values('Samsung Galaxy S24 Ultra 1TB','S240011900004',18,31999000,10,'gold',1024)
--- SAMSUNG S23 ULTRA 12GB
-insert into Phones values('Samsung Galaxy S23 Ultra 512GB','S235122900001',21,36990000,10,'green',512)
-insert into Phones values('Samsung Galaxy S23 Ultra 512GB','S235122900002',21,36990000,10,'purple',512)
-insert into Phones values('Samsung Galaxy S23 Ultra 512GB','S235122900003',21,36990000,10,'cream',512)
-insert into Phones values('Samsung Galaxy S23 Ultra 512GB','S235122900003',21,36990000,10,'black',512)
+insert into Phones values('Samsung Galaxy S24 Ultra 1TB','S240011800001',18,36990000,10,'gray',1024)
+insert into Phones values('Samsung Galaxy S24 Ultra 1TB','S240011800002',18,36990000,10,'black',1024)
+insert into Phones values('Samsung Galaxy S24 Ultra 1TB','S240011800003',18,36990000,10,'purple',1024)
+insert into Phones values('Samsung Galaxy S24 Ultra 1TB','S240011800004',18,36990000,10,'gold',1024)
+-- SAMSUNG S24 Plus
+insert into Phones values('Samsung Galaxy S24 Plus 256GB','S242561900001',19,20490000,10,'gray',256)
+insert into Phones values('Samsung Galaxy S24 Plus 256GB','S242561900002',19,20490000,10,'black',256)
+insert into Phones values('Samsung Galaxy S24 Plus 256GB','S242561900003',19,20490000,10,'purple',256)
+insert into Phones values('Samsung Galaxy S24 Plus 256GB','S242561900004',19,20490000,10,'gold',256)
+
+insert into Phones values('Samsung Galaxy S24 Plus 512GB','S245121900001',19,23790000,10,'purple',512)
+insert into Phones values('Samsung Galaxy S24 Plus 512GB','S245121900002',19,23790000,10,'black',512)
+insert into Phones values('Samsung Galaxy S24 Plus 512GB','S245121900003',19,23790000,10,'gray',512)
+insert into Phones values('Samsung Galaxy S24 Plus 512GB','S245121900004',19,23790000,10,'gold',512)
+-- SAMSUNG S24
+insert into Phones values('Samsung Galaxy S24 256GB','S242562000001',20,19790000,10,'gray',256)
+insert into Phones values('Samsung Galaxy S24 256GB','S242562000002',20,19790000,10,'black',256)
+insert into Phones values('Samsung Galaxy S24 256GB','S242562000003',20,19790000,10,'purple',256)
+insert into Phones values('Samsung Galaxy S24 256GB','S242562000004',20,19790000,10,'gold',256)
+
+insert into Phones values('Samsung Galaxy S24 512GB','S245122000001',20,22990000,10,'purple',512)
+insert into Phones values('Samsung Galaxy S24 512GB','S245122000002',20,22990000,10,'black',512)
+insert into Phones values('Samsung Galaxy S24 512GB','S245122000003',20,22990000,10,'gray',512)
+insert into Phones values('Samsung Galaxy S24 512GB','S245122000004',20,22990000,10,'gold',512)
+-- SAMSUNG S23 ULTRA 8GB
+insert into Phones values('Samsung Galaxy S23 Ultra 8GB/256GB','S232562100001',21,21990000,10,'green',256)
+insert into Phones values('Samsung Galaxy S23 Ultra 8GB/256GB','S232562100002',21,21990000,10,'purple',256)
+insert into Phones values('Samsung Galaxy S23 Ultra 8GB/256GB','S232562100003',21,21990000,10,'cream',256)
+insert into Phones values('Samsung Galaxy S23 Ultra 8GB/256GB','S232562100004',21,21990000,10,'black',256)
+
+insert into Phones values('Samsung Galaxy S23 Ultra 8GB/512GB','S235122100001',21,26290000,10,'green',512)
+insert into Phones values('Samsung Galaxy S23 Ultra 8GB/512GB','S235122100002',21,26290000,10,'purple',512)
+insert into Phones values('Samsung Galaxy S23 Ultra 8GB/512GB','S235122100003',21,26290000,10,'cream',512)
+insert into Phones values('Samsung Galaxy S23 Ultra 8GB/512GB','S235122100004',21,26290000,10,'black',512)
+--Samsung s23 FE
+insert into Phones values('Samsung Galaxy S23 FE 5G 128GB','S231282200001',22,11890000,10,'green',128)
+insert into Phones values('Samsung Galaxy S23 FE 5G 128GB','S231282200002',22,11890000,10,'white',128)
+insert into Phones values('Samsung Galaxy S23 FE 5G 128GB','S231282200003',22,11890000,10,'violet',128)
+insert into Phones values('Samsung Galaxy S23 FE 5G 128GB','S231282200004',22,11890000,10,'gray',128)
+
+insert into Phones values('Samsung Galaxy S23 FE 5G 256GB','S232562200001',22,14890000,10,'green',256)
+insert into Phones values('Samsung Galaxy S23 FE 5G 256GB','S232562200002',22,14890000,10,'white',256)
+insert into Phones values('Samsung Galaxy S23 FE 5G 256GB','S232562200003',22,14890000,10,'violet',256)
+insert into Phones values('Samsung Galaxy S23 FE 5G 256GB','S232562200004',22,14890000,10,'gray',256)
+--samsung s23
+insert into Phones values('Samsung Galaxy S23 128GB','S232562300001',23,13990000,10,'green',128)
+insert into Phones values('Samsung Galaxy S23 128GB','S232562300002',23,13990000,10,'white',128)
+insert into Phones values('Samsung Galaxy S23 128GB','S232562300003',23,13990000,10,'violet',128)
+insert into Phones values('Samsung Galaxy S23 128GB','S232562300004',23,13990000,10,'black',128)
+
+insert into Phones values('Samsung Galaxy S23 256GB','S232562300001',23,14590000,10,'green',256)
+insert into Phones values('Samsung Galaxy S23 256GB','S232562300002',23,14590000,10,'white',256)
+insert into Phones values('Samsung Galaxy S23 256GB','S232562300003',23,14590000,10,'violet',256)
+insert into Phones values('Samsung Galaxy S23 256GB','S232562300004',23,14590000,10,'black',256)
+--samsung s22 ultra
+insert into Phones values('Samsung Galaxy S22 Ultra 8GB/128GB','S221282400001',24,16590000,10,'black',128)
+insert into Phones values('Samsung Galaxy S22 Ultra 8GB/128GB','S221282400002',24,16590000,10,'white',128)
+insert into Phones values('Samsung Galaxy S22 Ultra 8GB/128GB','S221282400003',24,16590000,10,'green',128)
+--samsung s22
+insert into Phones values('Samsung Galaxy S22 128GB','S221282500004',25,16590000,10,'black',128)
+-- SAMSUNG Z Fold5
+insert into Phones values('Samsung Galaxy Z Fold5 256GB','ZFOLD52562601',26,34990000,10,'cream',256)
+insert into Phones values('Samsung Galaxy Z Fold5 256GB','ZFOLD52562602',26,34990000,10,'blue',256)
+insert into Phones values('Samsung Galaxy Z Fold5 256GB','ZFOLD52562603',26,34990000,10,'black',256)
+																   
+insert into Phones values('Samsung Galaxy Z Fold5 512GB','ZFOLD55122601',26,36990000,10,'cream',512)
+insert into Phones values('Samsung Galaxy Z Fold5 512GB','ZFOLD55122602',26,36990000,10,'blue',512)
+insert into Phones values('Samsung Galaxy Z Fold5 512GB','ZFOLD55122603',26,36990000,10,'black',512)
+
+insert into Phones values('Samsung Galaxy Z Fold5 1TB','ZFOLD50012601',26,46990000,10,'cream',512)
+insert into Phones values('Samsung Galaxy Z Fold5 1TB','ZFOLD50012602',26,46990000,10,'blue',512)
+insert into Phones values('Samsung Galaxy Z Fold5 1TB','ZFOLD50012603',26,46990000,10,'black',512)
+-- SAMSUNG Z Fold4
+insert into Phones values('Samsung Galaxy Z Fold4 256GB','ZFOLD42562701',27,22490000,10,'green',256)
+insert into Phones values('Samsung Galaxy Z Fold4 256GB','ZFOLD42562702',27,22490000,10,'black',256)
+insert into Phones values('Samsung Galaxy Z Fold4 256GB','ZFOLD42562703',27,22490000,10,'cream',256)
+
+insert into Phones values('Samsung Galaxy Z Fold4 512GB','ZFOLD45122701',27,24490000,10,'green',512)
+insert into Phones values('Samsung Galaxy Z Fold4 512GB','ZFOLD45122702',27,24490000,10,'black',512)
+insert into Phones values('Samsung Galaxy Z Fold4 512GB','ZFOLD45122703',27,24490000,10,'cream',512)
+-- SAMSUNG Z Fold3
+insert into Phones values('Samsung Galaxy Z Fold3 256GB','ZFOLD32562801',28,12790000,10,'green',256)
+insert into Phones values('Samsung Galaxy Z Fold3 256GB','ZFOLD32562802',28,12790000,10,'gray',256)
+insert into Phones values('Samsung Galaxy Z Fold3 256GB','ZFOLD32562803',28,12790000,10,'black',256)
+
+insert into Phones values('Samsung Galaxy Z Fold3 512GB','ZFOLD35122801',28,13490000,10,'green',512)
+insert into Phones values('Samsung Galaxy Z Fold3 512GB','ZFOLD35122802',28,13490000,10,'gray',512)
+insert into Phones values('Samsung Galaxy Z Fold3 512GB','ZFOLD35122803',28,13490000,10,'black',512)
+-- SAMSUNG Z Flip5
+insert into Phones values('Samsung Galaxy Z Flip5 256GB','ZFLIP52562901',29,19990000,10,'green',256)
+insert into Phones values('Samsung Galaxy Z Flip5 256GB','ZFLIP52562902',29,19990000,10,'purple',256)
+insert into Phones values('Samsung Galaxy Z Flip5 256GB','ZFLIP52562903',29,19990000,10,'gray',256)
+insert into Phones values('Samsung Galaxy Z Flip5 256GB','ZFLIP52562904',29,19990000,10,'cream',256)
+
+insert into Phones values('Samsung Galaxy Z Flip5 512GB','ZFLIP55122901',29,21990000,10,'purple',512)
+insert into Phones values('Samsung Galaxy Z Flip5 512GB','ZFLIP55122902',29,21990000,10,'green',512)
+insert into Phones values('Samsung Galaxy Z Flip5 512GB','ZFLIP55122903',29,21990000,10,'gray',512)
+insert into Phones values('Samsung Galaxy Z Flip5 512GB','ZFLIP55122904',29,21990000,10,'cream',512)
+-- SAMSUNG Z FLIP4 
+insert into Phones values('Samsung Galaxy Z Flip4 256GB','ZFLIP42563001',30,12990000,10,'purple',256)
+insert into Phones values('Samsung Galaxy Z Flip4 256GB','ZFLIP42563002',30,12990000,10,'blue',256)
+insert into Phones values('Samsung Galaxy Z Flip4 256GB','ZFLIP42563003',30,12990000,10,'gray',256)
+insert into Phones values('Samsung Galaxy Z Flip4 256GB','ZFLIP42562304',30,12990000,10,'yellow',256)
+
+insert into Phones values('Samsung Galaxy Z Flip4 512GB','ZFLIP45123001',30,14990000,10,'blue',512)
+insert into Phones values('Samsung Galaxy Z Flip4 512GB','ZFLIP45123002',30,14990000,10,'purple',512)
+insert into Phones values('Samsung Galaxy Z Flip4 512GB','ZFLIP45123003',30,14990000,10,'blue',512)
+insert into Phones values('Samsung Galaxy Z Flip4 512GB','ZFLIP45123004',30,14990000,10,'yellow',512)
+-- SAMSUNG Z FLIP3 
+insert into Phones values('Samsung Galaxy Z Flip3 128GB','ZFLIP41283101',31,10590000,10,'black',128)
+insert into Phones values('Samsung Galaxy Z Flip3 128GB','ZFLIP41283102',31,10590000,10,'green',128)
+insert into Phones values('Samsung Galaxy Z Flip3 128GB','ZFLIP41283103',31,10590000,10,'purple',128)
+insert into Phones values('Samsung Galaxy Z Flip3 128GB','ZFLIP41283104',31,10590000,10,'cream',128)
+
+insert into Phones values('Samsung Galaxy Z Flip3 256GB','ZFLIP32563101',31,12090000,10,'green',256)
+insert into Phones values('Samsung Galaxy Z Flip3 256GB','ZFLIP32563102',31,12090000,10,'black',256)
+insert into Phones values('Samsung Galaxy Z Flip3 256GB','ZFLIP32563103',31,12090000,10,'purple',256)
+insert into Phones values('Samsung Galaxy Z Flip3 256GB','ZFLIP32563104',31,12090000,10,'cream',256)
+--samsung galaxy m34
+insert into Phones values('Samsung Galaxy M34 128GB','SSM341283201',32,5790000,10,'green',128)
+insert into Phones values('Samsung Galaxy M34 128GB','SSM341283202',32,5790000,10,'black',128)
+--samsung galaxy m54
+insert into Phones values('Samsung Galaxy M54 256GB','SSM542563301',33,8990000,10,'green',256)
+insert into Phones values('Samsung Galaxy M54 256GB','SSM542563302',33,8990000,10,'black',256)
+
+--samsung galaxy a35
+insert into Phones values('Samsung Galaxy A35 128GB','SSA351283401',34,7990000,10,'black',128)
+insert into Phones values('Samsung Galaxy A35 128GB','SSA351283402',34,7990000,10,'blue',128)
+
+insert into Phones values('Samsung Galaxy A35 256GB','SSM542563401',34,8880000,10,'blue',256)
+insert into Phones values('Samsung Galaxy A35 256GB','SSM542563402',34,8880000,10,'black',256)
+--samsung galaxy a14
+insert into Phones values('Samsung Galaxy A14 128GB','SSA141283501',35,3590000,10,'black',128)
+insert into Phones values('Samsung Galaxy A14 128GB','SSA141283502',35,3590000,10,'gray',128)
+insert into Phones values('Samsung Galaxy A14 128GB','SSA141823503',35,3590000,10,'red',128)
+
 --OPPO Find N3
 insert into Phones values('OPPO Find N3 5G 512GB','FN35125800001',52,44990000,10,'yellow',512)
 insert into Phones values('OPPO Find N3 5G 512GB','FN35125800002',52,44990000,10,'black',512)
@@ -879,9 +1004,148 @@ insert into Images values(244,'["iphone-11-pro-green.jpg","iphone-11-pro-green-1
 insert into Images values(245,'["iphone-11-pro-max-gold.jpg","iphone-11-pro-max-gold-1.jpg", "iphone-11-pro-max-gold-2.jpg", "iphone-11-pro-max-gold-3.jpg"]', 1)
 insert into Images values(246,'["iphone-11-pro-max-gray.jpg","iphone-11-pro-max-gray-1.jpg", "iphone-11-pro-max-gray-2.jpg", "iphone-11-pro-max-gray-3.jpg"]', 1)
 insert into Images values(247,'["iphone-11-pro-max-green.jpg","iphone-11-pro-max-green-1.jpg", "iphone-11-pro-max-green-2.jpg", "iphone-11-pro-max-green-3.jpg"]', 1)
-insert into Images values(148,'["iphone-11-pro-max-gold.jpg","iphone-11-pro-max-gold-1.jpg", "iphone-11-pro-max-gold-2.jpg", "iphone-11-pro-max-gold-3.jpg"]', 1)
+insert into Images values(248,'["iphone-11-pro-max-gold.jpg","iphone-11-pro-max-gold-1.jpg", "iphone-11-pro-max-gold-2.jpg", "iphone-11-pro-max-gold-3.jpg"]', 1)
 insert into Images values(249,'["iphone-11-pro-max-gray.jpg","iphone-11-pro-max-gray-1.jpg", "iphone-11-pro-max-gray-2.jpg", "iphone-11-pro-max-gray-3.jpg"]', 1)
 insert into Images values(250,'["iphone-11-pro-max-green.jpg","iphone-11-pro-max-green-1.jpg", "iphone-11-pro-max-green-2.jpg", "iphone-11-pro-max-green-3.jpg"]', 1)
 insert into Images values(251,'["iphone-11-pro-max-gold.jpg","iphone-11-pro-max-gold-1.jpg", "iphone-11-pro-max-gold-2.jpg", "iphone-11-pro-max-gold-3.jpg"]', 1)
 insert into Images values(252,'["iphone-11-pro-max-gray.jpg","iphone-11-pro-max-gray-1.jpg", "iphone-11-pro-max-gray-2.jpg", "iphone-11-pro-max-gray-3.jpg"]', 1)
 insert into Images values(253,'["iphone-11-pro-max-green.jpg","iphone-11-pro-max-green-1.jpg", "iphone-11-pro-max-green-2.jpg", "iphone-11-pro-max-green-3.jpg"]', 1)
+
+--IMAGE SAMSUNG S24 Ultra
+insert into Images values(254,'["samsung-s24ultra-grey-1.jpg","samsung-s24ultra-grey-2.jpg","samsung-s24ultra-grey-3.jpg","samsung-s24ultra-grey-4.jpg"]',1)
+insert into Images values(255,'["samsung-s24ultra-black-1.jpg","samsung-s24ultra-black-2.jpg","samsung-s24ultra-black-3.jpg","samsung-s24ultra-black-4.jpg"]',1)
+insert into Images values(256,'["samsung-s24ultra-violet-1.jpg","samsung-s24ultra-violet-2.jpg","samsung-s24ultra-violet-3.jpg","samsung-s24ultra-violet-4.jpg"]',1)
+insert into Images values(257,'["samsung-s24ultra-gold-1.jpg","samsung-s24ultra-gold-2.jpg","samsung-s24ultra-gold-3.jpg","samsung-s24ultra-gold-4.jpg"]',1)
+insert into Images values(258,'["samsung-s24ultra-grey-1.jpg","samsung-s24ultra-grey-2.jpg","samsung-s24ultra-grey-3.jpg","samsung-s24ultra-grey-4.jpg"]',1)
+insert into Images values(259,'["samsung-s24ultra-black-1.jpg","samsung-s24ultra-black-2.jpg","samsung-s24ultra-black-3.jpg","samsung-s24ultra-black-4.jpg"]',1)
+insert into Images values(260,'["samsung-s24ultra-violet-1.jpg","samsung-s24ultra-violet-2.jpg","samsung-s24ultra-violet-3.jpg","samsung-s24ultra-violet-4.jpg"]',1)
+insert into Images values(261,'["samsung-s24ultra-gold-1.jpg","samsung-s24ultra-gold-2.jpg","samsung-s24ultra-gold-3.jpg","samsung-s24ultra-gold-4.jpg"]',1)
+insert into Images values(262,'["samsung-s24ultra-grey-1.jpg","samsung-s24ultra-grey-2.jpg","samsung-s24ultra-grey-3.jpg","samsung-s24ultra-grey-4.jpg"]',1)
+insert into Images values(263,'["samsung-s24ultra-black-1.jpg","samsung-s24ultra-black-2.jpg","samsung-s24ultra-black-3.jpg","samsung-s24ultra-black-4.jpg"]',1)
+insert into Images values(264,'["samsung-s24ultra-violet-1.jpg","samsung-s24ultra-violet-2.jpg","samsung-s24ultra-violet-3.jpg","samsung-s24ultra-violet-4.jpg"]',1)
+insert into Images values(265,'["samsung-s24ultra-gold-1.jpg","samsung-s24ultra-gold-2.jpg","samsung-s24ultra-gold-3.jpg","samsung-s24ultra-gold-4.jpg"]',1)
+--Image Samsung s24 plus
+insert into Images values(266,'["samsung-s24plus-grey-1.jpg","samsung-s24plus-grey-2.jpg","samsung-s24plus-grey-3.jpg","samsung-s24plus-grey-4.jpg"]',1)
+insert into Images values(267,'["samsung-s24plus-black-1.jpg","samsung-s24plus-black-2.jpg","samsung-s24plus-black-3.jpg","samsung-s24plus-black-4.jpg"]',1)
+insert into Images values(268,'["samsung-s24plus-violet-1.jpg","samsung-s24plus-violet-2.jpg","samsung-s24plus-violet-3.jpg","samsung-s24plus-violet-4.jpg"]',1)
+insert into Images values(269,'["samsung-s24plus-gold-1.jpg","samsung-s24plus-gold-2.jpg","samsung-s24plus-gold-3.jpg","samsung-s24plus-gold-4.jpg"]',1)
+
+insert into Images values(270,'["samsung-s24plus-grey-1.jpg","samsung-s24plus-grey-2.jpg","samsung-s24plus-grey-3.jpg","samsung-s24plus-grey-4.jpg"]',1)
+insert into Images values(271,'["samsung-s24plus-black-1.jpg","samsung-s24plus-black-2.jpg","samsung-s24plus-black-3.jpg","samsung-s24plus-black-4.jpg"]',1)
+insert into Images values(272,'["samsung-s24plus-violet-1.jpg","samsung-s24plus-violet-2.jpg","samsung-s24plus-violet-3.jpg","samsung-s24plus-violet-4.jpg"]',1)
+insert into Images values(273,'["samsung-s24plus-gold-1.jpg","samsung-s24plus-gold-2.jpg","samsung-s24plus-gold-3.jpg","samsung-s24plus-gold-4.jpg"]',1)
+
+--Image Samsung s24 plus
+insert into Images values(274,'["samsung-s24-grey-1.jpg","samsung-s24-grey-2.jpg","samsung-s24plus-grey-3.jpg","samsung-s24plus-grey-4.jpg"]',1)
+insert into Images values(267,'["samsung-s24-black-1.jpg","samsung-s24-black-2.jpg","samsung-s24plus-black-3.jpg","samsung-s24plus-black-4.jpg"]',1)
+insert into Images values(268,'["samsung-s24-violet-1.jpg","samsung-s24-violet-2.jpg","samsung-s24plus-violet-3.jpg","samsung-s24plus-violet-4.jpg"]',1)
+insert into Images values(269,'["samsung-s24-gold-1.jpg","samsung-s24-gold-2.jpg","samsung-s24plus-gold-3.jpg","samsung-s24plus-gold-4.jpg"]',1)
+
+insert into Images values(270,'["samsung-s24-grey-1.jpg","samsung-s24-grey-2.jpg","samsung-s24-grey-3.jpg","samsung-s24-grey-4.jpg"]',1)
+insert into Images values(271,'["samsung-s24-black-1.jpg","samsung-s24-black-2.jpg","samsung-s24-black-3.jpg","samsung-s24-black-4.jpg"]',1)
+insert into Images values(272,'["samsung-s24-violet-1.jpg","samsung-s24-violet-2.jpg","samsung-s24-violet-3.jpg","samsung-s24-violet-4.jpg"]',1)
+insert into Images values(273,'["samsung-s24-gold-1.jpg","samsung-s24-gold-2.jpg","samsung-s24-gold-3.jpg","samsung-s24-gold-4.jpg"]',1)
+--Image Samsung s23 ultra
+insert into Images values(274,'["samsung-s23ultra-green-1.jpg","samsung-s23ultra-green-2.jpg","samsung-s23ultra-green-3.jpg","samsung-s23ultra-green-4.jpg"]',1)
+insert into Images values(275,'["samsung-s23ultra-purple-1.jpg","samsung-s23ultra-purple-2.jpg","samsung-s23ultra-purple-3.jpg","samsung-s23ultra-purple-4.jpg"]',1)
+insert into Images values(276,'["samsung-s23ultra-cream-1.jpg","samsung-s23ultra-cream-2.jpg","samsung-s23ultra-cream-3.jpg","samsung-s23ultra-cream-4.jpg"]',1)
+insert into Images values(277,'["samsung-s23ultra-black-1.jpg","samsung-s23ultra-black-2.jpg","samsung-s23ultra-black-3.jpg","samsung-s23ultra-black-4.jpg"]',1)
+insert into Images values(278,'["samsung-s23ultra-green-1.jpg","samsung-s23ultra-green-2.jpg","samsung-s23ultra-green-3.jpg","samsung-s23ultra-green-4.jpg"]',1)
+insert into Images values(279,'["samsung-s23ultra-purple-1.jpg","samsung-s23ultra-purple-2.jpg","samsung-s23ultra-purple-3.jpg","samsung-s23ultra-purple-4.jpg"]',1)
+insert into Images values(280,'["samsung-s23ultra-cream-1.jpg","samsung-s23ultra-cream-2.jpg","samsung-s23ultra-cream-3.jpg","samsung-s23ultra-cream-4.jpg"]',1)
+insert into Images values(281,'["samsung-s23ultra-black-1.jpg","samsung-s23ultra-black-2.jpg","samsung-s23ultra-black-3.jpg","samsung-s23ultra-black-4.jpg"]',1)
+--image Samsung s23 FE
+insert into Images values(282,'["samsung-S23FE-green-1.jpg","samsung-S23FE-green-2.jpg","samsung-S23FE-green-3.jpg","samsung-S23FE-green-4.jpg"]',1)
+insert into Images values(283,'["samsung-S23FE-white-1.jpg","samsung-S23FE-white-2.jpg","samsung-S23FE-white-3.jpg","samsung-S23FE-white-4.jpg"]',1)
+insert into Images values(284,'["samsung-S23FE-violet-1.jpg","samsung-S23FE-violet-2.jpg","samsung-S23FE-violet-3.jpg","samsung-S23FE-violet-4.jpg"]',1)
+insert into Images values(285,'["samsung-S23FE-grey-1.jpg","samsung-S23FE-grey-2.jpg","samsung-S23FE-grey-4.jpg","samsung-S23FE-grey-4.jpg"]',1)
+insert into Images values(286,'["samsung-S23FE-green-1.jpg","samsung-S23FE-green-2.jpg","samsung-S23FE-green-3.jpg","samsung-S23FE-green-4.jpg"]',1)
+insert into Images values(287,'["samsung-S23FE-white-1.jpg","samsung-S23FE-white-2.jpg","samsung-S23FE-white-3.jpg","samsung-S23FE-white-4.jpg"]',1)
+insert into Images values(288,'["samsung-S23FE-violet-1.jpg","samsung-S23FE-violet-2.jpg","samsung-S23FE-violet-3.jpg","samsung-S23FE-violet-4.jpg"]',1)
+insert into Images values(289,'["samsung-S23FE-grey-1.jpg","samsung-S23FE-grey-2.jpg","samsung-S23FE-grey-4.jpg","samsung-S23FE-grey-4.jpg"]',1)
+--image samsung s23
+insert into Images values(290,'["samsung-s23-green-1.jpg","samsung-s23-green-2.jpg","samsung-s23-green-3.jpg","samsung-s23-green-4.jpg"]',1)
+insert into Images values(291,'["samsung-s23-white-1.jpg","samsung-s23-white-2.jpg","samsung-s23-white-3.jpg","samsung-s23-white-4.jpg"]',1)
+insert into Images values(292,'["samsung-s23-violet-1.jpg","samsung-s23-violet-2.jpg","samsung-s23-violet-3.jpg","samsung-s23-violet-4.jpg"]',1)
+insert into Images values(293,'["samsung-s23-black-1.jpg","samsung-s23-black-2.jpg","samsung-s23-black-4.jpg","samsung-s23-black-4.jpg"]',1)
+insert into Images values(294,'["samsung-s23-green-1.jpg","samsung-s23-green-2.jpg","samsung-s23-green-3.jpg","samsung-s23-green-4.jpg"]',1)
+insert into Images values(295,'["samsung-s23-white-1.jpg","samsung-s23-white-2.jpg","samsung-s23-white-3.jpg","samsung-s23-white-4.jpg"]',1)
+insert into Images values(296,'["samsung-s23-violet-1.jpg","samsung-s23-violet-2.jpg","samsung-s23-violet-3.jpg","samsung-s23-violet-4.jpg"]',1)
+insert into Images values(297,'["samsung-s23-black-1.jpg","samsung-s23-black-2.jpg","samsung-s23-black-4.jpg","samsung-s23-black-4.jpg"]',1)
+--image s22 ultra
+insert into Images values(298,'["samsung-s22ultra-black-1.jpg","samsung-s22ultra-black-2.jpg","samsung-s22ultra-black-3.jpg","samsung-s22ultra-black-4.jpg"]',1)
+insert into Images values(299,'["samsung-s22ultra-white-1.jpg","samsung-s22ultra-white-2.jpg","samsung-s22ultra-white-3.jpg","samsung-s22ultra-white-4.jpg"]',1)
+insert into Images values(300,'["samsung-s22ultra-green-1.jpg","samsung-s22ultra-green-2.jpg","samsung-s22ultra-green-4.jpg","samsung-s22ultra-green-4.jpg"]',1)
+--image s22
+insert into Images values(301,'["samsung-s22-black-1.jpg","samsung-s22-black-2.jpg","samsung-s22-black-3.jpg","samsung-s22-black-4.jpg"]',1)
+--image zfold5
+insert into Images values(302,'["samsung-zfold5-cream-1.jpg","samsung-zfold5-cream-2.jpg","samsung-zfold5-cream-3.jpg","samsung-zfold5-cream-4.jpg"]',1)
+insert into Images values(303,'["samsung-zfold5-blue-1.jpg","samsung-zfold5-blue-2.jpg","samsung-zfold5-blue-3.jpg","samsung-zfold5-blue-4.jpg"]',1)
+insert into Images values(304,'["samsung-zfold5-black-1.jpg","samsung-zfold5-black-2.jpg","samsung-zfold5-black-3.jpg","samsung-zfold5-black-4.jpg"]',1)
+insert into Images values(305,'["samsung-zfold5-cream-1.jpg","samsung-zfold5-cream-2.jpg","samsung-zfold5-cream-3.jpg","samsung-zfold5-cream-4.jpg"]',1)
+insert into Images values(306,'["samsung-zfold5-blue-1.jpg","samsung-zfold5-blue-2.jpg","samsung-zfold5-blue-3.jpg","samsung-zfold5-blue-4.jpg"]',1)
+insert into Images values(307,'["samsung-zfold5-black-1.jpg","samsung-zfold5-black-2.jpg","samsung-zfold5-black-3.jpg","samsung-zfold5-black-4.jpg"]',1)
+insert into Images values(308,'["samsung-zfold5-cream-1.jpg","samsung-zfold5-cream-2.jpg","samsung-zfold5-cream-3.jpg","samsung-zfold5-cream-4.jpg"]',1)
+insert into Images values(309,'["samsung-zfold5-blue-1.jpg","samsung-zfold5-blue-2.jpg","samsung-zfold5-blue-3.jpg","samsung-zfold5-blue-4.jpg"]',1)
+insert into Images values(310,'["samsung-zfold5-black-1.jpg","samsung-zfold5-black-2.jpg","samsung-zfold5-black-3.jpg","samsung-zfold5-black-4.jpg"]',1)
+--image zfold4
+insert into Images values(311,'["samsung-zfold4-green-1.jpg","samsung-zfold4-green-2.jpg","samsung-zfold4-green-3.jpg","samsung-zfold4-green-4.jpg"]',1)
+insert into Images values(312,'["samsung-zfold4-black-1.jpg","samsung-zfold4-black-2.jpg","samsung-zfold4-black-3.jpg","samsung-zfold4-black-4.jpg"]',1)
+insert into Images values(313,'["samsung-zfold4-cream-1.jpg","samsung-zfold4-cream-2.jpg","samsung-zfold4-cream-3.jpg","samsung-zfold4-cream-4.jpg"]',1)
+insert into Images values(314,'["samsung-zfold4-green-1.jpg","samsung-zfold4-green-2.jpg","samsung-zfold4-green-3.jpg","samsung-zfold4-green-4.jpg"]',1)
+insert into Images values(315,'["samsung-zfold4-black-1.jpg","samsung-zfold4-black-2.jpg","samsung-zfold4-black-3.jpg","samsung-zfold4-black-4.jpg"]',1)
+insert into Images values(316,'["samsung-zfold4-cream-1.jpg","samsung-zfold4-cream-2.jpg","samsung-zfold4-cream-3.jpg","samsung-zfold4-cream-4.jpg"]',1)
+--image zfold3
+insert into Images values(317,'["samsung-zfold3-green-1.jpg","samsung-zfold3-green-2.jpg","samsung-zfold3-green-3.jpg","samsung-zfold3-green-4.jpg"]',1)
+insert into Images values(318,'["samsung-zfold3-grey-1.jpg","samsung-zfold3-grey-2.jpg","samsung-zfold3-grey-3.jpg","samsung-zfold3-grey-4.jpg"]',1)
+insert into Images values(319,'["samsung-zfold3-black-1.jpg","samsung-zfold3-black-2.jpg","samsung-zfold3-black-3.jpg","samsung-zfold3-black-4.jpg"]',1)
+insert into Images values(320,'["samsung-zfold3-green-1.jpg","samsung-zfold3-green-2.jpg","samsung-zfold3-green-3.jpg","samsung-zfold3-green-4.jpg"]',1)
+insert into Images values(321,'["samsung-zfold3-grey-1.jpg","samsung-zfold3-grey-2.jpg","samsung-zfold3-grey-3.jpg","samsung-zfold3-grey-4.jpg"]',1)
+insert into Images values(322,'["samsung-zfold3-black-1.jpg","samsung-zfold3-black-2.jpg","samsung-zfold3-black-3.jpg","samsung-zfold3-black-4.jpg"]',1)
+--image zflip5
+insert into Images values(323,'["samsung-zflip5-green-1.jpg","samsung-zflip5-green-2.jpg","samsung-zflip5-green-3.jpg","samsung-zflip5-green-4.jpg"]',1)
+insert into Images values(324,'["samsung-zflip5-purple-1.jpg","samsung-zflip5-purple-2.jpg","samsung-zflip5-purple-3.jpg","samsung-zflip5-purple-4.jpg"]',1)
+insert into Images values(325,'["samsung-zflip5-gray-1.jpg","samsung-zflip5-gray-2.jpg","samsung-zflip5-gray-3.jpg","samsung-zflip5-gray-4.jpg"]',1)
+insert into Images values(326,'["samsung-zflip5-cream-1.jpg","samsung-zflip5-cream-2.jpg","samsung-zflip5-cream-3.jpg","samsung-zflip5-cream-4.jpg"]',1)
+
+insert into Images values(327,'["samsung-zflip5-purple-1.jpg","samsung-zflip5-purple-2.jpg","samsung-zflip5-purple-3.jpg","samsung-zflip5-purple-4.jpg"]',1)
+insert into Images values(328,'["samsung-zflip5-green-1.jpg","samsung-zflip5-green-2.jpg","samsung-zflip5-green-3.jpg","samsung-zflip5-green-4.jpg"]',1)
+insert into Images values(329,'["samsung-zflip5-gray-1.jpg","samsung-zflip5-gray-2.jpg","samsung-zflip5-gray-3.jpg","samsung-zflip5-gray-4.jpg"]',1)
+insert into Images values(330,'["samsung-zflip5-cream-1.jpg","samsung-zflip5-cream-2.jpg","samsung-zflip5-cream-3.jpg","samsung-zflip5-cream-4.jpg"]',1)
+--image zflip4
+insert into Images values(331,'["samsung-zflip4-purple-1.jpg","samsung-zflip4-purple-2.jpg","samsung-zflip4-purple-3.jpg","samsung-zflip4-purple-4.jpg"]',1)
+insert into Images values(332,'["samsung-zflip4-blue-1.jpg","samsung-zflip4-blue-2.jpg","samsung-zflip4-blue-3.jpg","samsung-zflip4-blue-4.jpg"]',1)
+insert into Images values(333,'["samsung-zflip4-gray-1.jpg","samsung-zflip4-gray-2.jpg","samsung-zflip4-gray-3.jpg","samsung-zflip4-gray-4.jpg"]',1)
+insert into Images values(334,'["samsung-zflip4-yello-1.jpg","samsung-zflip4-yello-2.jpg","samsung-zflip4-yello-3.jpg","samsung-zflip4-yello-4.jpg"]',1)
+
+insert into Images values(335,'["samsung-zflip4-blue-1.jpg","samsung-zflip4-blue-2.jpg","samsung-zflip4-blue-3.jpg","samsung-zflip4-blue-4.jpg"]',1)
+insert into Images values(336,'["samsung-zflip4-purple-1.jpg","samsung-zflip4-purple-2.jpg","samsung-zflip4-purple-3.jpg","samsung-zflip4-purple-4.jpg"]',1)
+insert into Images values(337,'["samsung-zflip4-gray-1.jpg","samsung-zflip4-gray-2.jpg","samsung-zflip4-gray-3.jpg","samsung-zflip4-gray-4.jpg"]',1)
+insert into Images values(338,'["samsung-zflip4-yello-1.jpg","samsung-zflip4-yello-2.jpg","samsung-zflip4-yello-3.jpg","samsung-zflip4-yello-4.jpg"]',1)
+--image zflip3
+insert into Images values(339,'["samsung-zflip3-black-1.jpg","samsung-zflip3-black-2.jpg","samsung-zflip3-black-3.jpg","samsung-zflip3-black-4.jpg"]',1)
+insert into Images values(340,'["samsung-zflip3-green-1.jpg","samsung-zflip3-green-2.jpg","samsung-zflip3-green-3.jpg","samsung-zflip3-green-4.jpg"]',1)
+insert into Images values(341,'["samsung-zflip3-purple-1.jpg","samsung-zflip3-purple-2.jpg","samsung-zflip3-purple-3.jpg","samsung-zflip3-purple-4.jpg"]',1)
+insert into Images values(342,'["samsung-zflip3-cream-1.jpg","samsung-zflip3-cream-2.jpg","samsung-zflip3-cream-3.jpg","samsung-zflip3-cream-4.jpg"]',1)
+
+insert into Images values(343,'["samsung-zflip3-green-1.jpg","samsung-zflip3-green-2.jpg","samsung-zflip3-green-3.jpg","samsung-zflip3-green-4.jpg"]',1)
+insert into Images values(344,'["samsung-zflip3-black-1.jpg","samsung-zflip3-black-2.jpg","samsung-zflip3-black-3.jpg","samsung-zflip3-black-4.jpg"]',1)
+insert into Images values(345,'["samsung-zflip3-purple-1.jpg","samsung-zflip3-purple-2.jpg","samsung-zflip3-purple-3.jpg","samsung-zflip3-purple-4.jpg"]',1)
+insert into Images values(346,'["samsung-zflip3-cream-1.jpg","samsung-zflip3-cream-2.jpg","samsung-zflip3-cream-3.jpg","samsung-zflip3-cream-4.jpg"]',1)
+--image m34
+insert into Images values(347,'["samsung-m34-green-1.jpg","samsung-m34-green-2.jpg","samsung-m34-green-3.jpg","samsung-m34-green-4.jpg"]',1)
+insert into Images values(348,'["samsung-m34-black-1.jpg","samsung-m34-black-2.jpg","samsung-m34-black-3.jpg","samsung-m34-black-4.jpg"]',1)
+--image m54
+insert into Images values(349,'["samsung-m54-green-1.jpg","samsung-m54-green-2.jpg","samsung-m54-green-3.jpg","samsung-m54-green-4.jpg"]',1)
+insert into Images values(350,'["samsung-m54-black-1.jpg","samsung-m54-black-2.jpg","samsung-m54-black-3.jpg","samsung-m54-black-4.jpg"]',1)
+--image a35
+insert into Images values(351,'["samsung-a35-black-1.jpg","samsung-a35-black-2.jpg","samsung-a35-black-3.jpg","samsung-a35-black-4.jpg"]',1)
+insert into Images values(352,'["samsung-a35-blue-1.jpg","samsung-a35-blue-2.jpg","samsung-a35-blue-3.jpg","samsung-a35-blue-4.jpg"]',1)
+insert into Images values(353,'["samsung-a35-blue-1.jpg","samsung-a35-blue-2.jpg","samsung-a35-blue-3.jpg","samsung-a35-blue-4.jpg"]',1)
+insert into Images values(354,'["samsung-a35-black-1.jpg","samsung-a35-black-2.jpg","samsung-a35-black-3.jpg","samsung-a35-black-4.jpg"]',1)
+--image a14
+insert into Images values(351,'["samsung-a14-black-1.jpg","samsung-a14-black-2.jpg","samsung-a14-black-3.jpg","samsung-a14-black-4.jpg"]',1)
+insert into Images values(351,'["samsung-a14-gray-1.jpg","samsung-a14-gray-2.jpg","samsung-a14-gray-3.jpg","samsung-a14-gray-4.jpg"]',1)
+insert into Images values(351,'["samsung-a14-red-1.jpg","samsung-a14-red-2.jpg","samsung-a14-red-3.jpg","samsung-a14-red-4.jpg"]',1)
+
+

@@ -58,17 +58,24 @@ namespace server_api.Repository
 
         public async Task<List<Phone>> GetFirstPhoneEachModPhoneAsync()
         {
-            var models = await _context.ModPhones.Select(m => m.Id)
-                                                 .ToListAsync();
-            List<Phone> result = new List<Phone>();
-            foreach (var item in models)
-            {
-                result.Add(_context.Phones.Include(a => a.ModPhone)
-                                          .Include(a => a.ModPhone.Brand)
-                    .FirstOrDefault(p => p.ModPhoneId == item));
-            }
+            var result = await _context.Phones
+                                       .Include(p => p.ModPhone)
+                                       .Include(p => p.ModPhone.Brand)
+                                       .GroupBy(p => new { p.ModPhoneId, p.Rom })
+                                       .Select(g => g.First())
+                                       .ToListAsync();
 
             return result;
+        }
+
+
+        public async Task<List<Phone>> GetListPhoneByModPhoneAsync(int modPhoneId)
+        {
+            var phones = await _context.Phones.Include(a => a.ModPhone).ThenInclude(a => a.Promotion)
+                                                .Where(p => p.ModPhoneId == modPhoneId)
+                                                .ToListAsync();
+
+            return phones;
         }
     }
 }

@@ -44,6 +44,20 @@ namespace server_api.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetListPhoneByModPhone/{modPhoneId}")]
+        public async Task<IActionResult> GetListPhoneByModPhone(int modPhoneId)
+        {
+            try
+            {
+                return Ok(await _phoneRepository.GetListPhoneByModPhoneAsync(modPhoneId));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPhoneById(int id)
         {

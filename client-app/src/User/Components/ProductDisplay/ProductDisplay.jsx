@@ -1,18 +1,21 @@
 import "./ProductDisplay.css"
 import star_icon from "../Assets/star_icon.png"
 import star_dull_icon from "../Assets/star_dull_icon.png"
-import { useCallback, useContext, useEffect, useState } from "react"
-import { ShopContext } from "../../Context/ShopContext"
+import { useCallback, useEffect, useState } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 const ProductDisplay = (props) => {
     const {id} = useParams()
     const [images, setImages] = useState([]);
-    const [colors, setColors] = useState([])
+    const [colors, setColors] = useState([{phone: {}}])
     const [color, setColor] = useState({})
     const [roms, setRoms] = useState([{phone: {}}]);
-    const {product} = props // danh sách dòng điện thoại
+    const {product} = props // điện thoại đang được chọn
     const [phones, setPhones] = useState([]) // danh sách điện thoại
+    const [selectedColor, setSelectedColor] = useState(null);
+    const [selectedRom, setSelectedRom] = useState(null);
+    const [selectedColorButton, setSelectedColorButton] = useState(null);
+    const [selectedRomButton, setSelectedRomButton] = useState(null);
     // lấy hình ảnh theo phone
     useEffect(() => {
         axios.get(`https://localhost:7258/api/Images/${id}`)
@@ -43,40 +46,53 @@ const ProductDisplay = (props) => {
           });
     }, []);
 
-    const [selectedColor, setSelectedColor] = useState(null);
-    const [selectedRom, setSelectedRom] = useState(null);
+    const selectedPhone = phones.find(item => 
+                                        item.rom === selectedRom && 
+                                        item.color === selectedColor && 
+                                        item.modPhoneId === product.modPhone.id)
+   
+                                        useEffect(() => {
+                                            if (colors.length > 0 && selectedColor === null && selectedRom === null && selectedColorButton === null && selectedRomButton === null) {
+                                                let availableColor = null;
+                                                let availableRom = null;
+                                        
+                                                // Find the first color with sufficient stock
+                                                for (let i = 0; i < colors.length; i++) {
+                                                    if (colors[i].phone.stock > 0) {
+                                                        availableColor = colors[i];
+                                                        availableRom = colors[i]
+                                                        break;
+                                                    }
+                                                }
 
-    const selectedPhone = phones.find(item => item.rom === selectedRom && item.color === selectedColor)
-    console.log(selectedPhone);
+                                              
+                                        
+                                                if (availableColor) {
+                                                    setSelectedColor(availableColor.phone.color);
+                                                    setSelectedColorButton(availableColor.phone.color);
+                                                    handleChangeColor(availableColor.phoneId);
+                                                    setIndexImage(1);
+                                                }
+                                                if (availableRom) {
+                                                    setSelectedRom(availableRom.phone.rom);
+                                                    setSelectedRomButton(availableRom.phone.rom);
+                                                }
+                                            }
+                                        }, [colors, roms, selectedColor, selectedRom, selectedColorButton, selectedRomButton, handleChangeColor]);
+                                        
+                                        
+                                        
+    console.log('mau duoc chon',selectedColor);
+    console.log('rom duoc chon', selectedRom);
 
 
-    useEffect(() => {
-        if (colors.length > 0 && selectedColor === null && selectedRom === null) { // Chỉ thực hiện khi danh sách màu được tải và màu mặc định chưa được thiết lập
-
-          const firstColor = colors[0].phoneId; // Lấy màu đầu tiên trong danh sách
-          setSelectedColor(colors[0].phone.color); // Thiết lập màu đầu tiên là màu mặc định
-          handleChangeColor(firstColor); // Gọi hàm handleChangeColor với màu đầu tiên
-          setIndexImage(1)
-
-          const firstRom = colors[0].phone.rom
-          setSelectedRom(firstRom)
-
-
-          
-        }
-    }, [colors, selectedColor,selectedRom, handleChangeColor]);
-    // console.log('mau duoc chon',selectedColor);
-    // console.log('rom duoc chon', selectedRom);
-    // console.log(colors);
-    // console.log('màu: ',colors);
-      //COLOR
-    const uniqueColor = {};
-    colors.forEach(item => {
-        if (!uniqueColor[item.phone.color]) {
-            uniqueColor[item.phone.color] = item;
-        }
-    });
-    const uniqueColorArray = Object.values(uniqueColor);
+    // const uniqueColor = {};
+    // colors.forEach(item => {
+    //     if (!uniqueColor[item.phone.color]) {
+    //         uniqueColor[item.phone.color] = item;
+    //     }
+    // });
+    // const uniqueColorArray = Object.values(uniqueColor);
 
     //ROM
     const uniqueRom = {};
@@ -88,8 +104,7 @@ const ProductDisplay = (props) => {
     const uniqueRomArray = Object.values(uniqueRom);
 
     const [indexImage, setIndexImage] = useState(null)
-
-
+    console.log(colors);
     return ( 
         <>
             <div className="productdisplay">
@@ -149,9 +164,19 @@ const ProductDisplay = (props) => {
                             <div className="productdisplay-right-roms">
                             {
                                 Array.isArray(uniqueRomArray) && uniqueRomArray.map((item,index) => {
-                                
+
                                         return(
-                                            <button key={index} style={{width: 50, height: 50, margin: 0, padding: 0}} onClick={() => (handleChangeColor(item.phoneId), setSelectedRom(item.phone.rom))}>
+                                            <button
+                                                key={index} 
+                                                style={{width: 50, height: 50, margin: 0, padding: 0, backgroundColor: "#B4B1B1", color: "#000"}} 
+                                                className={`${selectedRomButton === item.phone.rom ? 'selected' : ''}`}
+                                                // disabled={item.phone.stock < 1 }
+                                                onClick={() => {
+                                                    handleChangeColor(item.phoneId);
+                                                    setSelectedRom(item.phone.rom);
+                                                    setSelectedRomButton(item.phone.rom);
+                                                }}
+                                            >
                                                 {item.phone.rom}
                                             </button> 
 
@@ -163,15 +188,24 @@ const ProductDisplay = (props) => {
                         <h1>Select Size</h1>
                         <div className="productdisplay-right-sizes">
                         {
-                              Array.isArray(uniqueColorArray) && uniqueColorArray.map((item,index) => {
-                               
-                                    return(
-                                        <button key={index} style={{background: "#fff", width: 50, height: 50, margin: 0, padding: 0}} onClick={() => (handleChangeColor(item.phoneId), setSelectedColor(item.phone.color))}>
-                                            <img  src={`https://localhost:7258/images/products/${JSON.parse(item.path)[0]}`} alt="" style={{width: 50, backgroundColor: "#fff"}} />
-                                        </button> 
-
-                                    )
-                            }) 
+                              Array.isArray(colors) && colors.map((item, index) => (
+                                item.phone.rom === selectedRom && (
+                                  <button
+                                    key={index}
+                                    className={`${selectedColorButton === item.phone.color ? 'selected' : ''} ${item.phone.stock < 1 && selectedRom === item.phone.rom ? 'disabled' : ''}`}
+                                    style={{ background: "#fff", width: 60, height: 60, margin: 0, padding: 0 }}
+                                    disabled={selectedRom === item.phone.rom && item.phone.stock < 1}
+                                    onClick={() => {
+                                      handleChangeColor(item.phoneId);
+                                      setSelectedColor(item.phone.color);
+                                      setSelectedColorButton(item.phone.color);
+                                    }}
+                                  >
+                                    <img src={`https://localhost:7258/images/products/${JSON.parse(item.path)[0]}`} alt="" style={{ width: 50, backgroundColor: "#fff" }} />
+                                  </button>
+                                )
+                              ))
+                              
                         }
                         </div>
                     </div>

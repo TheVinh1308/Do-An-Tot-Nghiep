@@ -23,6 +23,7 @@ const PublicRouter = () => {
                         <Route path='oppo' element={<ShopCategory brand="oppo" banner={`https://localhost:7258/images/baner/oppo.jpg`} />} />
                         <Route path='xiaomi' element={<ShopCategory brand="xiaomi" banner={`https://localhost:7258/images/baner/xiaomi.jpg`} />} />
                         <Route path='iphone/:id' element={<Product />}></Route>
+                        <Route path='samsung/:id' element={<Product />}></Route>
                         <Route path='cart' element={<Cart />} />
                         <Route path='login' element={<Login />} />
                     </Route>
