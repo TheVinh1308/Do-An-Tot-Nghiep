@@ -126,91 +126,91 @@ insert into ModPhones values(  'Samsung Galaxy A14', 6.6, N'Samsung Galaxy A14 5
 
 -- MOD PHONE VIVO
 insert into ModPhones values(  'Vivo X70', 6.56, N'Vivo X70 ra mắt với hàng loạt đổi mới không chỉ ở ngoại hình mà cả bên trong. Chiếc điện thoại có khả năng nhiếp ảnh chuyên nghiệp, hiệu năng vượt trội cùng với tốc độ kết nối mạng 5G hàng đầu, 
-								chắc chắn sẽ đáp ứng nhu cầu giải trí hằng ngày của bạn.', 8,3, 'Android 11', N'MediaTek Dimensity 1200', '4400 mAh, 44 W','vvx70.png',1,1 );
+								chắc chắn sẽ đáp ứng nhu cầu giải trí hằng ngày của bạn.', 8,3, 'Android 11', N'MediaTek Dimensity 1200', '4400 mAh, 44 W','vivo-x70pro-green-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo X70 Pro', 6.56, N'Vivo cho ra mắt Vivo X70 Pro, một sản phẩm cao cấp ấn tượng với kiểu dáng lẫn hiệu năng tuyệt vời. Đặc biệt, camera còn được nâng cấp hàng loạt các tính năng thông minh, cùng bạn sáng tạo nên
-								những kiệt tác đầy nghệ thuật.', 12,3, 'Android 11', N'MediaTek Dimensity 1200', '4450 mAh, 44 W','vvx70pro.png',1,1 );
+								những kiệt tác đầy nghệ thuật.', 12,3, 'Android 11', N'MediaTek Dimensity 1200', '4450 mAh, 44 W','vivo-x70pro-black-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo X80', 6.78, N'Vivo X80 được xem là thiết bị hướng đến đối tượng người dùng chuyên nhiếp ảnh trên điện thoại, bằng việc hợp tác cùng nhà sản xuất ống kính nổi tiếng mang thương hiệu ZEISS. 
-								Với những tính năng mới mẻ hay chế độ quay - chụp độc đáo, X80 hứa hẹn mang đến cho bạn những trải nghiệm đầy mới lạ và chất lượng.', 12,3, 'Android 12', N'MediaTek Dimensity 9000', '4500 mAh, 80 W','vvx80.png',1,1 );
+								Với những tính năng mới mẻ hay chế độ quay - chụp độc đáo, X80 hứa hẹn mang đến cho bạn những trải nghiệm đầy mới lạ và chất lượng.', 12,3, 'Android 12', N'MediaTek Dimensity 9000', '4500 mAh, 80 W','vivo-x80-green-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo X80 Pro', 6.78, N'Mới đây Vivo đã trở lại đường đua cho các sản phẩm flagship khi tung ra phiên bản Vivo X80 Pro. Máy được trang bên trong một cấu hình mạnh mẽ hứa hẹn mang đến cho bạn những trải
-								nghiệm chơi game đồ họa cao một cách mượt mà. Cùng với đó là sự hợp tác với nhà sản xuất ống kính ZEISS để mang lại nhiều tính năng mới mẻ.', 12,3, 'Android 12', N'Snapdragon 8 Gen 1', '4700 mAh, 80 W','vvx80pro.png',1,1 );
+								nghiệm chơi game đồ họa cao một cách mượt mà. Cùng với đó là sự hợp tác với nhà sản xuất ống kính ZEISS để mang lại nhiều tính năng mới mẻ.', 12,3, 'Android 12', N'Snapdragon 8 Gen 1', '4700 mAh, 80 W','vivo-x80pro-black-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo X60', 6.56, N'Vivo X60 - mẫu smartphone mới nhất thuộc dòng X series cao cấp vừa được ra mắt. Mang thiết kế ấn tượng, hiệu năng mạnh mẽ và cụm camera ZEISS dẫn đầu công nghệ. 
-								Thêm một siêu phẩm đến từ Vivo mà các tín đồ công nghệ không thể bỏ lỡ.', 8,3, 'Android 11', N'Exynos 1080', '4300 mAh','vvx60.png',1,1 );
+								Thêm một siêu phẩm đến từ Vivo mà các tín đồ công nghệ không thể bỏ lỡ.', 8,3, 'Android 11', N'Exynos 1080', '4300 mAh','vivo-x60-blue-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo V29e', 6.67, N'vivo V29e 5G là một phiên bản điện thoại di động đáng chú ý trong phân khúc tầm trung, đặc biệt với sự kết hợp tinh tế giữa thiết kế và hiệu suất. Điều làm nổi bật chiếc điện thoại này chính là camera chất lượng,
-								thiết kế sang trọng và viên pin lớn kèm sạc nhanh. ', 12,3, 'Android 13', N'Snapdragon 695 5G', '4800 mAh, 44w','vvv29e.png',1,1 );
+								thiết kế sang trọng và viên pin lớn kèm sạc nhanh. ', 12,3, 'Android 13', N'Snapdragon 695 5G', '4800 mAh, 44w','vivo-v29e-blue-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo V29 ', 6.78, N'Nhằm cạnh tranh với nhiều hãng điện thoại khác trong phân khúc, vivo đã cho ra mắt sản phẩm mang tên vivo V29 5G, sản phẩm lần này đem đến nhiều cải tiến mới với thiết kế độc đáo, 
-								hiệu năng mạnh mẽ với chip rồng cùng camera hỗ trợ chụp ảnh sắc nét.', 12,3, 'Android 13', N'Snapdragon 778G 5G', '4600 mAh, 80w','vvv29.png',1,1 );
+								hiệu năng mạnh mẽ với chip rồng cùng camera hỗ trợ chụp ảnh sắc nét.', 12,3, 'Android 13', N'Snapdragon 778G 5G', '4600 mAh, 80w','vivo-v29-purple-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo V25e ', 6.44, N'Cùng với vivo V25, nhà sản xuất Trung Quốc cũng đã tung ra thị trường mẫu điện thoại vivo V25E mới sở hữu thiết kế vô cùng hiện đại và độc đáo với mặt lưng kính có thể thay đổi màu sắc, 
-								camera 64 MP hỗ trợ OIS và sạc nhanh 44 W, đáp ứng đầy đủ nhu cầu của người dùng.', 8,3, 'Android 12', N'MediaTek Helio G99', '4500 mAh, 44w','vvv25e.png',1,1 );
+								camera 64 MP hỗ trợ OIS và sạc nhanh 44 W, đáp ứng đầy đủ nhu cầu của người dùng.', 8,3, 'Android 12', N'MediaTek Helio G99', '4500 mAh, 44w','vivo-v25e-black-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo V25 ', 6.44, N'2022 là một năm bùng nổ cho điện thoại V series khi nhiều sản phẩm được cho ra mắt với thông số và thiết kế rất ấn tượng, trong đó có Vivo V25 vừa được giới thiệu vào tháng 10/2022, 
-								hứa hẹn sẽ gây sốt trên thị trường công nghệ trong giai đoạn cuối năm nay nhờ tạo hình đẹp cùng hiệu năng mạnh mẽ.', 8,3, 'Android 12', N'MediaTek Dimensity 900 5G', '4500 mAh, 44w','vvv25.png',1,1 );
+								hứa hẹn sẽ gây sốt trên thị trường công nghệ trong giai đoạn cuối năm nay nhờ tạo hình đẹp cùng hiệu năng mạnh mẽ.', 8,3, 'Android 12', N'MediaTek Dimensity 900 5G', '4500 mAh, 44w','vivo-v25-yellow-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo V27e ', 6.62, N'vivo V27e một trong những chiếc điện thoại tầm trung nổi bật của vivo trong năm 2023. Với thiết kế độc đáo và khả năng chụp ảnh - quay phim ấn tượng, vì thế máy đã mang lại cho vivo nhiều niềm tự hào 
-								khi ra mắt tại thị trường Việt Nam, hứa hẹn mang đến trải nghiệm tuyệt vời đến với người dùng.', 8,3, 'Android 13', N'MediaTek Helio G99', '4600 mAh, 66w','vvv27e.png',1,1 );
+								khi ra mắt tại thị trường Việt Nam, hứa hẹn mang đến trải nghiệm tuyệt vời đến với người dùng.', 8,3, 'Android 13', N'MediaTek Helio G99', '4600 mAh, 66w','vivo-v27e-purple-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo V27 ', 6.78, N'Với thiết kế sang trọng, camera đỉnh cao cùng hiệu năng mạnh mẽ, Vivo V27 5G chính thức là cái tên sở hữu đầy đủ các yếu tố trên vừa được nhà Vivo cho ra mắt vào khoảng đầu năm 2023,
-								hứa hẹn sẽ đem đến khả năng chụp ảnh chuyên nghiệp và hiệu suất vượt trội.', 8,3, 'Android 13', N'MediaTek Dimensity 7200 5G 8 nhân', '4600 mAh, 66w','vvv27.png',1,1 );
+								hứa hẹn sẽ đem đến khả năng chụp ảnh chuyên nghiệp và hiệu suất vượt trội.', 8,3, 'Android 13', N'MediaTek Dimensity 7200 5G 8 nhân', '4600 mAh, 66w','vivo-v27-blue-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo Y100 ', 6.67, N'vivo Y100 mẫu điện thoại tầm trung với nhiều nâng cấp đáng giá, được vivo giới thiệu tại thị trường Việt Nam. Lần ra mắt này hãng đem đến một sản phẩm với thiết kế đẹp mắt, màn hình sắc nét và hiệu năng ổn định với nhiều tác vụ,
-								hứa hẹn đem đến cho bạn trải nghiệm di động đỉnh cao.', 8,3, 'Android 14', N'Snapdragon 685 8 nhân', '5000 mAh, 80w','vvy100.png',1,1 );
+								hứa hẹn đem đến cho bạn trải nghiệm di động đỉnh cao.', 8,3, 'Android 14', N'Snapdragon 685 8 nhân', '5000 mAh, 80w','vivo-y100-green-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo Y03 ', 6.56, N'vivo Y03 64GB - phiên bản điện thoại vừa hấp dẫn lại vừa phù hợp với túi tiền, được vivo giới thiệu tại Việt Nam. Không chỉ toát lên nét mới mẻ và bắt mắt hơn các sản phẩm trước, chiếc smartphone này còn đi kèm với 
-								những cải tiến đáng kể về cấu hình cũng như viên pin lớn 5000 mAh.', 4,3, 'Android 14', N'MediaTek Helio G85', '5000 mAh, 15w','vvy03.png',1,1 );
+								những cải tiến đáng kể về cấu hình cũng như viên pin lớn 5000 mAh.', 4,3, 'Android 14', N'MediaTek Helio G85', '5000 mAh, 15w','vivo-y03-green-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo Y36 ', 6.64, N'vivo Y36 128GB là một trong những sản phẩm điện thoại thông minh nổi bật và đáng chú ý của thương hiệu vivo. Với những tính năng và thông số kỹ thuật vượt trội, vivo Y36 hứa hẹn mang đến cho người dùng trải nghiệm di
-								động đỉnh cao.', 8,3, 'Android 13', N'Snapdragon 680', '5000 mAh, 44w','vvy36.png',1,1 );
+								động đỉnh cao.', 8,3, 'Android 13', N'Snapdragon 680', '5000 mAh, 44w','vivo-y36-aqua-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo Y35 ', 6.58, N'vivo Y35 là một chiếc điện thoại tầm trung đáng chú ý được ra mắt vào tháng 10/2022, máy nổi bật nhờ sở hữu thiết kế đẹp, khả năng sạc nhanh cùng cấu hình ổn trong phân khúc, ngoài ra camera với độ phân giải lên
-								đến 50 MP cũng là điểm cộng dành cho chiếc máy này.', 8,3, 'Android 12', N'Snapdragon 680', '5000 mAh, 44w','vvy35.png',1,1 );
+								đến 50 MP cũng là điểm cộng dành cho chiếc máy này.', 8,3, 'Android 12', N'Snapdragon 680', '5000 mAh, 44w','vivo-y35-yellow-1.jpg',1,1 );
 insert into ModPhones values(  'Vivo T1 ', 6.44, N'Ngay từ khi công bố thông số kỹ thuật đầy đủ cùng mức giá bán, Vivo T1 5G bỗng dưng trở thành cái tên được cộng đồng game thủ nhắc đến rất nhiều nhờ có hiệu năng cực cao nhưng giá thành trang bị lại cực kỳ hợp lý. 
-								Đi kèm với đó là nhiều công nghệ tối ưu game tân tiến giúp quá trình chơi game của bạn được diễn ra mượt mà.', 8,3, 'Android 12', N'Snapdragon 778G 5G', '4700 mAh, 66w','vvt1.png',1,1 );
+								Đi kèm với đó là nhiều công nghệ tối ưu game tân tiến giúp quá trình chơi game của bạn được diễn ra mượt mà.', 8,3, 'Android 12', N'Snapdragon 778G 5G', '4700 mAh, 66w','vivo-t1-green-1.jpg',1,1 );
 
 -- MOD PHONE OPPO
 insert into ModPhones values(  'OPPO Find N3', 7.82, N'OPPO chính thức giới thiệu sản phẩm OPPO Find N3 5G, một chiếc điện thoại thông minh với thiết kế gập ngang hoàn toàn hiện đại và đẳng cấp, nổi bật với camera và hiệu năng đứng đầu.
-								Đây là một bước đột phá của OPPO trong việc kết hợp sự tiện ích và thẩm mỹ tối ưu, đem lại trải nghiệm độc đáo cho người dùng.', 16,4, 'Android 13', N'Snapdragon 8 Gen 2 8 nhân', '4805 mAh, 67w','opfn3.png',1,1 );
+								Đây là một bước đột phá của OPPO trong việc kết hợp sự tiện ích và thẩm mỹ tối ưu, đem lại trải nghiệm độc đáo cho người dùng.', 16,4, 'Android 13', N'Snapdragon 8 Gen 2 8 nhân', '4805 mAh, 67w','oppo-n3-yellow-1.jpg',1,1 );
 insert into ModPhones values(  'OPPO Find N3 Flip', 6.8, N'OPPO Find N3 Flip 5G Hồng được OPPO cho ra mắt chính thức tại thị trường Việt Nam vào tháng 10/2023. Sản phẩm được hãng đầu tư mạnh mẽ về camera với độ phân giải lên đến 50 MP, cấu hình sử dụng chip
-								Dimensity 9200 5G và thiết kế được thay đổi với bản lề gập mở tốt hơn cùng màu hồng sang trọng và nữ tính.', 12,4, 'Android 13', N'MediaTek Dimensity 9200 5G 8 nhân', '4300 mAh, 44w','opfn3f.png',1,1 );
+								Dimensity 9200 5G và thiết kế được thay đổi với bản lề gập mở tốt hơn cùng màu hồng sang trọng và nữ tính.', 12,4, 'Android 13', N'MediaTek Dimensity 9200 5G 8 nhân', '4300 mAh, 44w','oppo-n3flip-black-1.jpg',1,1 );
 insert into ModPhones values(  'OPPO Find N2 Flip', 6.8, N'OPPO Find N2 Flip 5G - chiếc điện thoại gập đầu tiên của OPPO đã được giới thiệu chính thức tại Việt Nam vào tháng 03/2023. Sở hữu cấu hình mạnh mẽ cùng thiết kế siêu nhỏ gọn giúp tối ưu kích thước, 
-								chiếc điện thoại sẽ cùng bạn nổi bật trong mọi không gian với vẻ ngoài đầy cá tính.', 8,4, 'Android 13', N'MediaTek Dimensity 9000+ 8 nhân', '4300 mAh, 44w','opfn2f.png',1,1 );
+								chiếc điện thoại sẽ cùng bạn nổi bật trong mọi không gian với vẻ ngoài đầy cá tính.', 8,4, 'Android 13', N'MediaTek Dimensity 9000+ 8 nhân', '4300 mAh, 44w','oppo-n2flip-purple-1.jpg',1,1 );
 insert into ModPhones values(  'OPPO Find X5 Pro', 6.7, N'OPPO Find X5 Pro 5G có lẽ là cái tên sáng giá được xướng tên trong danh sách điện thoại có thiết kế ấn tượng trong năm 2022. Máy được hãng cho ra mắt với một diện mạo độc lạ chưa từng có, cùng với đó 
-								là những nâng cấp về chất lượng ở camera nhờ sự hợp tác với nhà sản xuất máy ảnh Hasselblad. ', 12,4, 'Android 12', N'Snapdragon 8 Gen 1', '5000 mAh, 80w','opx5.png',1,1 );
+								là những nâng cấp về chất lượng ở camera nhờ sự hợp tác với nhà sản xuất máy ảnh Hasselblad. ', 12,4, 'Android 12', N'Snapdragon 8 Gen 1', '5000 mAh, 80w','oppo-findx5-white-1.jpg',1,1 );
 insert into ModPhones values(  'OPPO Reno11 F', 6.7, N'OPPO Reno11 F 5G là một chiếc điện thoại tầm trung mới được OPPO ra mắt trong thời gian gần đây. Máy sở hữu nhiều ưu điểm nổi bật như thiết kế trẻ trung, màn hình đẹp, hiệu năng mạnh mẽ nhờ chip Dimensity 7050 5G,
-								hứa hẹn mang đến trải nghiệm tốt khi sử dụng.', 8,4, 'Android 14', N'MediaTek Dimensity 7050 5G 8 nhân', '5000 mAh, 67w','opr11f.png',1,1 );
+								hứa hẹn mang đến trải nghiệm tốt khi sử dụng.', 8,4, 'Android 14', N'MediaTek Dimensity 7050 5G 8 nhân', '5000 mAh, 67w','oppo-reno-11f-blue-1.jpg',1,1 );
 insert into ModPhones values(  'OPPO Reno11 Pro', 6.7, N'OPPO Reno11 F 5G là một chiếc điện thoại tầm trung mới được OPPO ra mắt trong thời gian gần đây. Máy sở hữu nhiều ưu điểm nổi bật như thiết kế trẻ trung, màn hình đẹp, hiệu năng mạnh mẽ nhờ chip Dimensity 7050 5G,
-								hứa hẹn mang đến trải nghiệm tốt khi sử dụng.', 12,4, 'Android 14', N'MediaTek Dimensity 8200 5G 8 nhân', '4600 mAh, 80w','opr11p.png',1,1 );
+								hứa hẹn mang đến trải nghiệm tốt khi sử dụng.', 12,4, 'Android 14', N'MediaTek Dimensity 8200 5G 8 nhân', '4600 mAh, 80w','oppo-reno11p-white-1.jpg',1,1 );
 insert into ModPhones values(  'OPPO Reno11', 6.7, N'OPPO Reno11 5G tiếp tục mang đến sự hấp dẫn cho người dùng, lấy cảm hứng từ những thành công trước đó. Điểm độc đáo của chiếc điện thoại nằm ở thiết kế thu hút, cấu hình mạnh mẽ và khả năng chụp ảnh ấn tượng. 
-								Được tạo ra để đáp ứng một loạt các nhu cầu từ giải trí, nhiếp ảnh đến công việc đòi hỏi hiệu năng cao.', 8,4, 'Android 14', N'MediaTek Dimensity 7050 5G 8 nhân', '5000 mAh, 67w','opr11p.png',1,1 );
+								Được tạo ra để đáp ứng một loạt các nhu cầu từ giải trí, nhiếp ảnh đến công việc đòi hỏi hiệu năng cao.', 8,4, 'Android 14', N'MediaTek Dimensity 7050 5G 8 nhân', '5000 mAh, 67w','oppo-reno11-gray-1.jpg',1,1 );
 insert into ModPhones values(  'OPPO Reno10 Pro+', 6.74, N'OPPO Reno10 Pro+ 5G là một sản phẩm tiếp nối sự thành công của thế hệ trước đó, với thiết kế đẹp mắt, cấu hình mạnh mẽ và máy ảnh chất lượng cao. Máy đáp ứng được nhu cầu giải trí, chụp ảnh và làm việc của người dùng, 
-								là lựa chọn hoàn hảo cho những ai đang tìm kiếm một chiếc điện thoại đa năng và hiện đại.', 12,4, 'Android 13', N'Snapdragon 8+ Gen 1', '4700 mAh, 100w','opr10pp.png',1,1 );
+								là lựa chọn hoàn hảo cho những ai đang tìm kiếm một chiếc điện thoại đa năng và hiện đại.', 12,4, 'Android 13', N'Snapdragon 8+ Gen 1', '4700 mAh, 100w','oppo-remo10p+-gray-1.jpg',1,1 );
 insert into ModPhones values(  'OPPO Reno10 Pro', 6.7, N'OPPO Reno10 Pro 5G là một trong những sản phẩm của OPPO được ra mắt trong 2023. Với thiết kế đẹp mắt, màn hình lớn và hiệu năng mạnh mẽ, Reno10 Pro chắc chắn sẽ là lựa chọn đáng cân nhắc dành cho
-								những ai đang tìm kiếm chiếc máy tầm trung để phục vụ tốt mọi nhu cầu.', 12,4, 'Android 13', N'Snapdragon 778G 5G', '4600 mAh, 80w','opr10p.png',1,1 );
+								những ai đang tìm kiếm chiếc máy tầm trung để phục vụ tốt mọi nhu cầu.', 12,4, 'Android 13', N'Snapdragon 778G 5G', '4600 mAh, 80w','oppo-remo10p-gray-1.jpg',1,1 );
 insert into ModPhones values(  'OPPO Reno10', 6.7, N'Là một trong những chiếc smartphone mới nhất của OPPO trên thị trường hiện nay, OPPO Reno10 5G mang trên mình bộ áo đẹp mắt, hiệu năng ổn định đi cùng với đó là khả năng nhiếp ảnh vượt trội, 
-								đáp ứng mượt mà hầu hết các nhu cầu của người dùng.', 8,4, 'Android 13', N'MediaTek Dimensity 7050 5G 8 nhân', '5000 mAh, 67w','opr10.png',1,1 );
+								đáp ứng mượt mà hầu hết các nhu cầu của người dùng.', 8,4, 'Android 13', N'MediaTek Dimensity 7050 5G 8 nhân', '5000 mAh, 67w','oppo-reno10-blue-1.jpg',1,1 );
 insert into ModPhones values(  'OPPO A79', 6.72, N'OPPO trình làng mẫu điện thoại tầm trung với tên gọi là OPPO A79 5G. Được thiết kế với mặt lưng họa tiết độc đáo không chỉ mang đến vẻ hiện đại mà còn tôn lên sự sang trọng. Điều đặc sắc của sản phẩm là khả năng chụp ảnh và hiệu suất, 
-								đưa tên tuổi của OPPO lên vị thế mới trong làng điện thoại.', 8,4, 'Android 13', N'MediaTek Dimensity 6020 5G 8 nhân', '5000 mAh, 33w','opa79.png',1,1 );
+								đưa tên tuổi của OPPO lên vị thế mới trong làng điện thoại.', 8,4, 'Android 13', N'MediaTek Dimensity 6020 5G 8 nhân', '5000 mAh, 33w','oppo-a79-purple-1.jpg',1,1 );
 insert into ModPhones values(  'OPPO A98', 6.72, N'Những mẫu điện thoại OPPO cho ra mắt thời gian gần đây (2023) có vẻ ngoài đẹp mắt phù hợp với thị hiếu người tiêu dùng hiện nay. Trong đó OPPO A98 5G mẫu điện thoại mới của điện thoại OPPO A, với lối thiết kế hiện đại, màn hình hiển thị chi
-								tiết thông tin cũng như một hiệu năng ổn định.', 8,4, 'Android 13', N'Snapdragon 695 5G', '5000 mAh, 67w','opa98.png',1,1 );
+								tiết thông tin cũng như một hiệu năng ổn định.', 8,4, 'Android 13', N'Snapdragon 695 5G', '5000 mAh, 67w','oppo-a98-black-1.jpg',1,1 );
 insert into ModPhones values(  'OPPO A78 ', 6.43, N'OPPO A78 một sản phẩm được nhà OPPO cho ra mắt với thiết kế trẻ trung, thiết bị này được đánh giá có hiệu năng ổn định, màn hình sắc nét và viên pin có dung lượng lớn,
-								phù hợp cho người dùng sử dụng lâu dài.', 8,4, 'Android 13', N'Snapdragon 680', '5000 mAh, 67w','opa78.png',1,1 );
+								phù hợp cho người dùng sử dụng lâu dài.', 8,4, 'Android 13', N'Snapdragon 680', '5000 mAh, 67w','oppo-a78-black-1.jpg',1,1 );
 
 -- MOD PHONE XIAOMI
 insert into ModPhones values(  'Xiaomi 14 Ultra', 6.73, N'Xiaomi Redmi Note 11 Pro 4G mang trong mình khá nhiều những nâng cấp cực kì sáng giá. Là chiếc điện thoại có màn hình lớn, tần số quét 120 Hz,
-								hiệu năng ổn định cùng một viên pin siêu trâu.', 6,5, 'Android 11', N'Snapdragon 695 5G', '4500 mAh, 120w','xirn11pp.png',1,1 );
+								hiệu năng ổn định cùng một viên pin siêu trâu.', 6,5, 'Android 11', N'Snapdragon 695 5G', '4500 mAh, 120w','xiaomi-14-ultra-black-2.jpg',1,1 );
 insert into ModPhones values(  'Xiaomi 14', 6.36, N'Xiaomi 14 được ra mắt với tâm hướng mang đến những trải nghiệm mới mẻ và chất lượng. Như một lá cờ đầu trong ngành công nghệ, điện thoại không chỉ có thiết kế đẹp mà còn ấn tượng về màn hình,
-								cấu hình mạnh mẽ, máy ảnh chất lượng và pin có thời gian sử dụng lâu dài.', 12,5, 'Android 14', N'Snapdragon 8 Gen 3', '4610 mAh, 90w','xi14.png',1,1 );
+								cấu hình mạnh mẽ, máy ảnh chất lượng và pin có thời gian sử dụng lâu dài.', 12,5, 'Android 14', N'Snapdragon 8 Gen 3', '4610 mAh, 90w','xiaomi-14-white-1.jpg',1,1 );
 insert into ModPhones values(  'Xiaomi 13T Pro ', 6.67, N'Xiaomi 13T Pro 5G là mẫu máy thuộc phân khúc tầm trung đáng chú ý tại thị trường Việt Nam. Điện thoại ấn tượng nhờ được trang bị chip Dimensity 9200+,
-								camera 50 MP có kèm sự hợp tác với Leica cùng kiểu thiết kế tinh tế đầy sang trọng.', 12,5, 'Android 13', N'MediaTek Dimensity 9200+ 5G 8 nhân', '5000 mAh, 120w','xi13tp.png',1,1 );
+								camera 50 MP có kèm sự hợp tác với Leica cùng kiểu thiết kế tinh tế đầy sang trọng.', 12,5, 'Android 13', N'MediaTek Dimensity 9200+ 5G 8 nhân', '5000 mAh, 120w','xiaomi-13tpro-black-1.jpg',1,1 );
 insert into ModPhones values(  'Xiaomi Redmi Note 13 Pro+', 6.67, N'Xiaomi tiếp tục cho ra mắt một chiếc điện thoại tầm trung mới mang tên gọi Xiaomi Redmi Note 13 Pro+ 5G. Sản phẩm được chăm chút với thiết kế trang nhã và độc đáo, 
-								không chỉ mang lại vẻ đẹp hiện đại mà còn nâng cao đẳng cấp sang trọng. Điểm đặc biệt nổi bật của sản phẩm là khả năng hiển thị và hiệu suất mạnh mẽ, tạo ra trải nghiệm sử dụng tối ưu.', 8,5, 'Android 13', N'MediaTek Dimensity 7200 Ultra', '5000 mAh, 120w','xi13pp.png',1,1 );
+								không chỉ mang lại vẻ đẹp hiện đại mà còn nâng cao đẳng cấp sang trọng. Điểm đặc biệt nổi bật của sản phẩm là khả năng hiển thị và hiệu suất mạnh mẽ, tạo ra trải nghiệm sử dụng tối ưu.', 8,5, 'Android 13', N'MediaTek Dimensity 7200 Ultra', '5000 mAh, 120w','xiaomi-13tpro+-white-1.jpg',1,1 );
 insert into ModPhones values(  'Xiaomi Redmi Note 13 Pro', 6.67, N'Xiaomi Redmi Note 13 Pro 5G khi ra mắt đã tạo được ấn tượng đối với người dùng nhờ được trang bị chip Snapdragon 7s Gen 2, camera 200 MP và sạc nhanh 67 W.
-								Đây được xem là những thông số nổi trội trong phân khúc, hứa hẹn mang đến những trải nghiệm tốt vượt ngoài mong đợi.', 8,5, 'Android 13', N'Snapdragon 7s Gen 2 8 nhân', '5100 mAh, 67w','xi13p.png',1,1 );
+								Đây được xem là những thông số nổi trội trong phân khúc, hứa hẹn mang đến những trải nghiệm tốt vượt ngoài mong đợi.', 8,5, 'Android 13', N'Snapdragon 7s Gen 2 8 nhân', '5100 mAh, 67w','xiaomi-13pro-green-1.jpg',1,1 );
 insert into ModPhones values(  'Xiaomi 12T Pro', 6.67, N'Cuối cùng Xiaomi 12T Pro 5G cũng đã chính thức lộ diện trên thị trường sau hàng loạt thông tin rò rỉ về thông số, đúng như dự đoán thì độ phân giải trên camera của phiên bản này được nhà sản xuất nâng cấp lên đến 200 MP, 
-								giúp máy trở thành thiết bị có khả năng ghi hình sắc nét thuộc top đầu giới smartphone, đi kèm với đó là màn hình chất lượng cùng bộ vi xử lý mạnh mẽ xứng tầm flagship.', 12,5, 'Android 12', N'Snapdragon 8+ Gen 1', '5000 mAh, 120w','xi12tp.png',1,1 );
+								giúp máy trở thành thiết bị có khả năng ghi hình sắc nét thuộc top đầu giới smartphone, đi kèm với đó là màn hình chất lượng cùng bộ vi xử lý mạnh mẽ xứng tầm flagship.', 12,5, 'Android 12', N'Snapdragon 8+ Gen 1', '5000 mAh, 120w','xiaomi-12tpro-black-1.jpg',1,1 );
 insert into ModPhones values(  'Xiaomi 12T', 6.67, N'Xiaomi 12T series đã ra mắt trong sự kiện của Xiaomi vào ngày 4/10, trong đó có Xiaomi 12T 5G 128GB - máy sở hữu nhiều công nghệ hàng đầu trong giới smartphone tiêu biểu như: Chipset mạnh mẽ đến từ MediaTek, 
-								camera 108 MP sắc nét cùng khả năng sạc 120 W siêu nhanh.', 8,5, 'Android 12', N'MediaTek Dimensity 8100 Ultra 8 nhân', '5000 mAh, 120w','xi12t.png',1,1 );
+								camera 108 MP sắc nét cùng khả năng sạc 120 W siêu nhanh.', 8,5, 'Android 12', N'MediaTek Dimensity 8100 Ultra 8 nhân', '5000 mAh, 120w','xiaomi-12t-blue-1.jpg',1,1 );
 insert into ModPhones values(  ' Xiaomi Redmi A2', 6.52, N'Xiaomi Redmi A2 chiếc điện thoại giá rẻ trên thị trường nhưng không vì thế mà nó kém cạnh về hiệu năng và tính năng. Với chip Helio G36, màn hình 6.52 inch, pin 5000 mAh. 
-								Máy sẽ là một sự lựa chọn tuyệt vời cho những người muốn có một chiếc smartphone đơn giản nhưng hiệu quả.', 2,5, 'Android 13', N'MediaTek Helio G36 8 nhân', '5000 mAh, 10w','xira2.png',1,1 );
+								Máy sẽ là một sự lựa chọn tuyệt vời cho những người muốn có một chiếc smartphone đơn giản nhưng hiệu quả.', 2,5, 'Android 13', N'MediaTek Helio G36 8 nhân', '5000 mAh, 10w','xiaomi-redmia2-green-1.jpg',1,1 );
 insert into ModPhones values(  ' Xiaomi Redmi A2+', 6.52, N'Xiaomi Redmi A2+ chiếc điện thoại được nhà Xiaomi tung ra thị trường Việt Nam trong thời gian 05/2023. Máy mang trong mình hiệu năng ổn định với các tác vụ đơn giản, 
-								viên pin lớn cùng hệ thống camera mang đến khả năng chụp ổn định.', 3,5, 'Android 13', N'MediaTek Helio G36 8 nhân', '5000 mAh, 10w','xira2p.png',1,1 );
+								viên pin lớn cùng hệ thống camera mang đến khả năng chụp ổn định.', 3,5, 'Android 13', N'MediaTek Helio G36 8 nhân', '5000 mAh, 10w','xiaomi-redmia2+-blue-1.jpg',1,1 );
 insert into ModPhones values(  ' Xiaomi Redmi Note 11', 6.43, N'Redmi Note 11 (6GB/128GB) vừa được Xiaomi cho ra mắt, được xem là chiếc smartphone có giá tầm trung ấn tượng, với 1 cấu hình mạnh, cụm camera xịn sò, pin khỏe,
-								sạc nhanh mà giá lại rất phải chăng.', 6,5, 'Android 11', N'Snapdragon 680', '5000 mAh, 33w','xirn11.png',1,1 );
+								sạc nhanh mà giá lại rất phải chăng.', 6,5, 'Android 11', N'Snapdragon 680', '5000 mAh, 33w','xiaomi-note11-purple-1.jpg',1,1 );
 insert into ModPhones values(  'Xiaomi Redmi Note 11 Pro', 6.67, N'Xiaomi Redmi Note 11 Pro 4G mang trong mình khá nhiều những nâng cấp cực kì sáng giá. Là chiếc điện thoại có màn hình lớn, tần số quét 120 Hz,
-								hiệu năng ổn định cùng một viên pin siêu trâu.', 8,5, 'Android 11', N'MediaTek Helio G96', '5000 mAh, 67w','xirn11p.png',1,1 );
+								hiệu năng ổn định cùng một viên pin siêu trâu.', 8,5, 'Android 11', N'MediaTek Helio G96', '5000 mAh, 67w','xiaomi-note11pro-gray-1.jpg',1,1 );
 insert into ModPhones values(  'Xiaomi Redmi Note 11 Pro+', 6.67, N'Xiaomi Redmi Note 11 Pro 4G mang trong mình khá nhiều những nâng cấp cực kì sáng giá. Là chiếc điện thoại có màn hình lớn, tần số quét 120 Hz,
-								hiệu năng ổn định cùng một viên pin siêu trâu.', 6,5, 'Android 11', N'Snapdragon 695 5G', '4500 mAh, 120w','xirn11pp.png',1,1 );
+								hiệu năng ổn định cùng một viên pin siêu trâu.', 6,5, 'Android 11', N'Snapdragon 695 5G', '4500 mAh, 120w','xiaomi-note11pro+-green-1.jpg',1,1 );
 
 -- MOD PHONE HAUWEI
 insert into ModPhones values(  'HUAWEI Mate 30 Pro', 6.53, N'Những năm gần đây thì Huawei luôn mang tới cho người dùng sự bất ngờ với những trang bị đột phá lần đầu tiên xuất hiện trên chiếc smartphone của mình và
@@ -702,26 +702,160 @@ insert into Phones values('Samsung Galaxy A35 256GB','SSM542563402',34,8880000,1
 insert into Phones values('Samsung Galaxy A14 128GB','SSA141283501',35,3590000,10,'black',128)
 insert into Phones values('Samsung Galaxy A14 128GB','SSA141283502',35,3590000,10,'gray',128)
 insert into Phones values('Samsung Galaxy A14 128GB','SSA141823503',35,3590000,10,'red',128)
-
---OPPO Find N3
-insert into Phones values('OPPO Find N3 5G 512GB','FN35125800001',52,44990000,10,'yellow',512)
-insert into Phones values('OPPO Find N3 5G 512GB','FN35125800002',52,44990000,10,'black',512)
--- OPPO Find N3 Flip
-insert into Phones values('OPPO Find N3 Flip 5G 256GB','FN3F256570001',53,22990000,10,'pink',256)
-insert into Phones values('OPPO Find N3 Flip 5G 256GB','FN3F256570002',53,22990000,10,'black',256)
-insert into Phones values('OPPO Find N3 Flip 5G 256GB','FN3F256570003',53,22990000,10,'yellow',256)
-
--- XIAOMI 13T PRO 5G
-insert into Phones values('Xiaomi 13T Pro 5G 256GB','13T2563100001',67,15990000,10,'blue',256)
-insert into Phones values('Xiaomi 13T Pro 5G 256GB','13T2563100002',67,15990000,10,'black',256)
-insert into Phones values('Xiaomi 13T Pro 5G 256GB','13T2563100003',67,15990000,10,'green',256)
--- VIVO V27E
-insert into Phones values('Vivo V27e 256GB','VV27E25644001',45,8990000,10,'black',256)
-insert into Phones values('Vivo V27e 256GB','VV27E25644002',45,8990000,10,'purple',256)
+--vivo x70
+insert into Phones values('Vivo x70 128GB','VVX701283601',36,7890000,10,'black',128)
+insert into Phones values('Vivo x70 128GB','VVX701283602',36,7890000,10,'green',128)
+--vivo x70 pro
+insert into Phones values('Vivo x70 Pro 5G 256GB','VVX70P2563701',37,11490000,10,'green',256)
+insert into Phones values('Vivo x70 Pro 5G 256GB','VVX70P2563702',37,11490000,10,'black',256)
+--vivo x80
+insert into Phones values('Vivo x80 5G 256GB','VVX802563801',38,10490000,10,'green',256)
+insert into Phones values('Vivo x80 5G 256GB','VVX802563802',38,10490000,10,'black',256)
+--vivo x80 Pro
+insert into Phones values('Vivo x80 Pro 5G 256GB','VVX80P2563901',39,10490000,10,'black',256)
+insert into Phones values('Vivo x80 Pro 5G 512GB','VVX80P5123902',39,10490000,10,'black',512)
+--vivo x60
+insert into Phones values('Vivo x60 5G 128GB','VVX601284001',40,6990000,10,'blue',128)
+insert into Phones values('Vivo x60 5G 128GB','VVX601284002',40,6990000,10,'black',128)
 -- VIVO V29E 12GB
-insert into Phones values('Vivo V29e 12GB 256GB','VV29E25644121',41,9990000,10,'black',256)
-insert into Phones values('Vivo V29e 12GB 256GB','VV29E25644122',41,9990000,10,'blue',256)
+insert into Phones values('Vivo V29e 12GB 256GB','VV29E25641001',41,8990000,10,'black',256)
+insert into Phones values('Vivo V29e 12GB 256GB','VV29E25641002',41,8990000,10,'blue',256)
+-- VIVO V29
+insert into Phones values('Vivo V29 12GB 256GB','VV2925642001',42,9900000,10,'black',256)
+insert into Phones values('Vivo V29 12GB 256GB','VV2925642002',42,9900000,10,'purple',256)
+-- VIVO V25e
+insert into Phones values('Vivo V25e 8GB 128GB','VV25E25643001',43,5490000,10,'black',128)
+insert into Phones values('Vivo V25e 8GB 128GB','VV25E25643002',43,5490000,10,'blue',128)
+-- VIVO V25
+insert into Phones values('Vivo V25 8GB 128GB','VV2512844001',44,6990000,10,'black',128)
+insert into Phones values('Vivo V25 8GB 128GB','VV2512844002',44,6990000,10,'yellow',128)
+-- VIVO V27E
+insert into Phones values('Vivo V27e 256GB','VV27E25645001',45,8990000,10,'black',256)
+insert into Phones values('Vivo V27e 256GB','VV27E25645002',45,8990000,10,'purple',256)
+-- VIVO V27
+insert into Phones values('Vivo V27 256GB','VV27E25646001',46,9400000,10,'blue',256)
+insert into Phones values('Vivo V27 256GB','VV27E25646002',46,9400000,10,'green',256)
+-- VIVO Y100
+insert into Phones values('Vivo Y100 8GB 128GB','VVY1001284701',47,7050000,10,'black',128)
+insert into Phones values('Vivo Y100 8GB 128GB','VVY1001284702',47,7050000,10,'green',128)
+-- VIVO Y03
+insert into Phones values('Vivo Y03 64GB','VVY1000644801',48,2990000,10,'black',64)
+insert into Phones values('Vivo Y03 64GB','VVY1000644802',48,2990000,10,'green',64)
 
+insert into Phones values('Vivo Y03 128GB','VVY1001284701',48,7050000,10,'black',128)
+insert into Phones values('Vivo Y03 128GB','VVY1001284702',48,7050000,10,'green',128)
+-- VIVO Y36
+insert into Phones values('Vivo Y36 128GB','VY36128490001',49,3990000,10,'black',128)
+insert into Phones values('Vivo Y36 128GB','VY36128490002',49,3990000,10,'aqua',128)
+
+insert into Phones values('Vivo Y36 256GB','VY36256490001',49,4690000,10,'black',256)
+insert into Phones values('Vivo Y36 256GB','VY36256490002',49,4690000,10,'aqua',256)
+--Vivo Y03
+insert into Phones values('Vivo Y35 128GB','VY35128500001',50,4590000,10,'yellow',128)
+insert into Phones values('Vivo Y35 128GB','VY35128500002',50,4590000,10,'black',128)
+--Vivo T1
+insert into Phones values('Vivo T1 128GB','VT112851001',51,7990000,10,'black',128)
+insert into Phones values('Vivo T1 128GB','VT112851002',51,7990000,10,'green',128)
+--OPPO Find N3
+insert into Phones values('OPPO Find N3 5G 512GB','FN35125200001',52,41990000,10,'yellow',512)
+insert into Phones values('OPPO Find N3 5G 512GB','FN35125200002',52,41990000,10,'black',512)
+-- OPPO Find N3 Flip
+insert into Phones values('OPPO Find N3 Flip 5G 256GB','FN3F256530001',53,22990000,10,'pink',256)
+insert into Phones values('OPPO Find N3 Flip 5G 256GB','FN3F256530002',53,22990000,10,'black',256)
+insert into Phones values('OPPO Find N3 Flip 5G 256GB','FN3F256530003',53,22990000,10,'yellow',256)
+-- OPPO Find N2 Flip 5G
+insert into Phones values('OPPO Find N2 Flip 5G 256GB','FN2F256540001',54,19990000,10,'black',256)
+insert into Phones values('OPPO Find N2 Flip 5G 256GB','FN2F256540002',54,19990000,10,'purple',256)
+-- OPPO Find X5 Pro
+insert into Phones values('OPPO Find X5 Pro 12GB 256GB','FX5P256550001',55,16790000,10,'black',256)
+insert into Phones values('OPPO Find X5 Pro 12GB 256GB','FX5P256550002',55,16790000,10,'white',256)
+-- OPPO Reno 11 F 
+insert into Phones values('OPPO Reno 11 F 8GB 256GB','OPR11F256560001',56,16790000,10,'blue',256)
+insert into Phones values('OPPO Reno 11 F 8GB 256GB','OPR11F256560002',56,16790000,10,'green',256)
+-- OPPO RENO 11 Pro 5G
+insert into Phones values('OPPO Reno11 Pro 5G 512GB','OR11P51257001',57,16990000,10,'gray',512)
+insert into Phones values('OPPO Reno11 Pro 5G 512GB','OR11P51257002',57,16990000,10,'white',512)
+-- OPPO RENO 11
+insert into Phones values('OPPO RENO 11 5G 256GB','OPR112565801',58,10790000,10,'gray',256)
+insert into Phones values('OPPO RENO 11 5G 256GB','OPR112565802',58,10790000,10,'green',256)
+-- OPPO RENO 10 Pro+ 5G
+insert into Phones values('OPPO Reno10 Pro+ 5G 256GB','OR10P25659001',59,15990000,10,'gray',256)
+insert into Phones values('OPPO Reno10 Pro+ 5G 256GB','OR10P25659002',59,15990000,10,'purple',256)
+-- OPPO RENO 10 Pro 5G
+insert into Phones values('OPPO Reno10 Pro 5G 256GB','OR10P25660001',60,11290000,10,'gray',256)
+insert into Phones values('OPPO Reno10 Pro 5G 256GB','OR10P25660002',60,11290000,10,'purple',256)
+-- OPPO RENO 10 
+insert into Phones values('OPPO Reno10 5G 128GB','OR10P12861001',61,7890000,10,'gray',128)
+insert into Phones values('OPPO Reno10 5G 128GB','OR10P12861002',61,7890000,10,'blue',128)
+insert into Phones values('OPPO Reno10 5G 256GB','OR10P25661001',61,8990000,10,'gray',256)
+insert into Phones values('OPPO Reno10 5G 256GB','OR10P25661002',61,8990000,10,'blue',256)
+--OPPO A79
+insert into Phones values('OPPO A79 5G 256GB','OA7925662001',62,7990000,10,'black',256)
+insert into Phones values('OPPO A79 5G 256GB','OA7925662002',62,7990000,10,'purle',256)
+--OPPO A98
+insert into Phones values('OPPO A98 5G 256GB','OA9825663001',63,7390000,10,'black',256)
+insert into Phones values('OPPO A98 5G 256GB','OA9825663002',63,7390000,10,'blue',256)
+--OPPO A78
+insert into Phones values('OPPO A78 5G 256GB','OA7825664001',64,7390000,10,'black',256)
+insert into Phones values('OPPO A78 5G 256GB','OA7825664002',64,7390000,10,'green',256)
+--xiaomi 14 ultra
+insert into Phones values('Xiaomi 14 Ultra 512GB','X14U51265001',65,32990000,10,'black',512)
+insert into Phones values('Xiaomi 14 Ultra 512GB','X14U51265001',65,32990000,10,'gray',512)
+--xiaomi 14
+insert into Phones values('Xiaomi 14 256GB','X1425666001',66,32990000,10,'black',256)
+insert into Phones values('Xiaomi 14 256GB','X1425666002',66,32990000,10,'white',256)
+insert into Phones values('Xiaomi 14 256GB','X1425666003',66,32990000,10,'green',256)
+
+insert into Phones values('Xiaomi 14 512GB','X1451266001',66,32990000,10,'black',512)
+insert into Phones values('Xiaomi 14 512GB','X1451266002',66,32990000,10,'white',512)
+insert into Phones values('Xiaomi 14 512GB','X1451266003',66,32990000,10,'green',512)
+-- XIAOMI 13T PRO 5G
+insert into Phones values('Xiaomi 13T Pro 5G 256GB','X13T25667001',67,11790000,10,'black',256)
+insert into Phones values('Xiaomi 13T Pro 5G 256GB','X13T25667002',67,11790000,10,'blue',256)
+insert into Phones values('Xiaomi 13T Pro 5G 256GB','X13T25667003',67,11790000,10,'green',256)
+
+insert into Phones values('Xiaomi 13T Pro 5G 512GB','X13T25667001',67,14790000,10,'black',512)
+insert into Phones values('Xiaomi 13T Pro 5G 512GB','X13T25667002',67,14790000,10,'blue',512)
+insert into Phones values('Xiaomi 13T Pro 5G 512GB','X13T25667003',67,14790000,10,'green',512)
+--Xiaomi Redmi Note 13 Pro Plus
+insert into Phones values('Xiaomi Redmi Note 13 Pro Plus 5G 256GB','XR13P25668001',68,9900000,10,'black',256)
+insert into Phones values('Xiaomi Redmi Note 13 Pro Plus 5G 256GB','XR13P25668002',68,9900000,10,'white',256) 
+insert into Phones values('Xiaomi Redmi Note 13 Pro Plus 5G 256GB','XR13P25668003',68,9900000,10,'purple',256)
+--Xiaomi Redmi Note 13 Pro
+insert into Phones values('Xiaomi Redmi Note 13 Pro 5G 256GB','XR13P25669001',69,8690000,10,'black',256)
+insert into Phones values('Xiaomi Redmi Note 13 Pro 5G 256GB','XR13P25669002',69,8690000,10,'green',256) 
+insert into Phones values('Xiaomi Redmi Note 13 Pro 5G 256GB','XR13P25669003',69,8690000,10,'purple',256)
+--Xiaomi 12T pro
+insert into Phones values('Xiaomi 12T Pro 256GB','X12TP25670001',70,14690000,10,'black',256)
+insert into Phones values('Xiaomi 12T Pro 256GB','X12TP25670002',70,14690000,10,'gray',256)
+--Xiaomi 12T
+insert into Phones values('Xiaomi 12T 128GB','X12T12871001',71,8990000,10,'black',128)
+insert into Phones values('Xiaomi 12T 128GB','X12T12871002',71,8990000,10,'blue',128)
+insert into Phones values('Xiaomi 12T 128GB','X12T12871003',71,8990000,10,'gray',128)
+-- XIAOMI REDMI A2
+insert into Phones values('Xiaomi Redmi A2 32GB','XRA2327201',72,2190000,10,'blue',32)
+insert into Phones values('Xiaomi Redmi A2 32GB','XRA2327202',72,2190000,10,'black',32)
+insert into Phones values('Xiaomi Redmi A2 32GB','XRA2327203',72,2190000,10,'green',32)
+-- XIAOMI REDMI A2+
+insert into Phones values('Xiaomi Redmi A2+ 64GB','XRA2P647301',73,2790000,10,'blue',64)
+insert into Phones values('Xiaomi Redmi A2+ 64GB','XRA2P647302',73,2790000,10,'black',64)
+insert into Phones values('Xiaomi Redmi A2+ 64GB','XRA2P647303',73,2790000,10,'green',64)
+--xiaomi redmi note 11
+insert into Phones values('Xiaomi Redmi Note 11 128GB','XRN111287401',74,4090000,10,'blue',128)
+insert into Phones values('Xiaomi Redmi Note 11 128GB','XRN111287402',74,4090000,10,'purple',128)
+insert into Phones values('Xiaomi Redmi Note 11 128GB','XRN111287403',74,4090000,10,'gray',128)
+--xiaomi redmi note 11 pro
+insert into Phones values('Xiaomi Redmi Note 11 Pro 128GB','XRN11P1287501',75,5790000,10,'blue',128)
+insert into Phones values('Xiaomi Redmi Note 11 Pro 128GB','XRN11P1287502',75,5790000,10,'white',128)
+insert into Phones values('Xiaomi Redmi Note 11 Pro 128GB','XRN111P287503',75,5790000,10,'gray',128)
+--xiaomi redmi note 11 pro+
+insert into Phones values('Xiaomi Redmi Note 11 Pro+ 128GB','XRN11P1287501',75,5790000,10,'blue',128)
+insert into Phones values('Xiaomi Redmi Note 11 Pro+ 128GB','XRN11P1287502',75,5790000,10,'green',128)
+insert into Phones values('Xiaomi Redmi Note 11 Pro+ 128GB','XRN111P287503',75,5790000,10,'blue',128)
+
+insert into Phones values('Xiaomi Redmi Note 11 Pro+ 256GB','XRN11PP2567601',76,6590000,10,'black',256)
+insert into Phones values('Xiaomi Redmi Note 11 Pro+ 256GB','XRN11PP2567602',76,6590000,10,'green',256)
+insert into Phones values('Xiaomi Redmi Note 11 Pro+ 256GB','XRN11PP2567603',76,6590000,10,'blue',256)
 --Image IPHONE 15
 --128GB
 insert into Images values(1, '["iphone-15-black.jpg", "iphone-15-black-1.jpg", "iphone-15-black-2.jpg", "iphone-15-black-3.jpg"]', 1)
@@ -1037,115 +1171,265 @@ insert into Images values(273,'["samsung-s24plus-gold-1.jpg","samsung-s24plus-go
 
 --Image Samsung s24 plus
 insert into Images values(274,'["samsung-s24-grey-1.jpg","samsung-s24-grey-2.jpg","samsung-s24plus-grey-3.jpg","samsung-s24plus-grey-4.jpg"]',1)
-insert into Images values(267,'["samsung-s24-black-1.jpg","samsung-s24-black-2.jpg","samsung-s24plus-black-3.jpg","samsung-s24plus-black-4.jpg"]',1)
-insert into Images values(268,'["samsung-s24-violet-1.jpg","samsung-s24-violet-2.jpg","samsung-s24plus-violet-3.jpg","samsung-s24plus-violet-4.jpg"]',1)
-insert into Images values(269,'["samsung-s24-gold-1.jpg","samsung-s24-gold-2.jpg","samsung-s24plus-gold-3.jpg","samsung-s24plus-gold-4.jpg"]',1)
+insert into Images values(275,'["samsung-s24-black-1.jpg","samsung-s24-black-2.jpg","samsung-s24plus-black-3.jpg","samsung-s24plus-black-4.jpg"]',1)
+insert into Images values(276,'["samsung-s24-violet-1.jpg","samsung-s24-violet-2.jpg","samsung-s24plus-violet-3.jpg","samsung-s24plus-violet-4.jpg"]',1)
+insert into Images values(277,'["samsung-s24-gold-1.jpg","samsung-s24-gold-2.jpg","samsung-s24plus-gold-3.jpg","samsung-s24plus-gold-4.jpg"]',1)
 
-insert into Images values(270,'["samsung-s24-grey-1.jpg","samsung-s24-grey-2.jpg","samsung-s24-grey-3.jpg","samsung-s24-grey-4.jpg"]',1)
-insert into Images values(271,'["samsung-s24-black-1.jpg","samsung-s24-black-2.jpg","samsung-s24-black-3.jpg","samsung-s24-black-4.jpg"]',1)
-insert into Images values(272,'["samsung-s24-violet-1.jpg","samsung-s24-violet-2.jpg","samsung-s24-violet-3.jpg","samsung-s24-violet-4.jpg"]',1)
-insert into Images values(273,'["samsung-s24-gold-1.jpg","samsung-s24-gold-2.jpg","samsung-s24-gold-3.jpg","samsung-s24-gold-4.jpg"]',1)
+insert into Images values(278,'["samsung-s24-grey-1.jpg","samsung-s24-grey-2.jpg","samsung-s24-grey-3.jpg","samsung-s24-grey-4.jpg"]',1)
+insert into Images values(279,'["samsung-s24-black-1.jpg","samsung-s24-black-2.jpg","samsung-s24-black-3.jpg","samsung-s24-black-4.jpg"]',1)
+insert into Images values(280,'["samsung-s24-violet-1.jpg","samsung-s24-violet-2.jpg","samsung-s24-violet-3.jpg","samsung-s24-violet-4.jpg"]',1)
+insert into Images values(281,'["samsung-s24-gold-1.jpg","samsung-s24-gold-2.jpg","samsung-s24-gold-3.jpg","samsung-s24-gold-4.jpg"]',1)
 --Image Samsung s23 ultra
-insert into Images values(274,'["samsung-s23ultra-green-1.jpg","samsung-s23ultra-green-2.jpg","samsung-s23ultra-green-3.jpg","samsung-s23ultra-green-4.jpg"]',1)
-insert into Images values(275,'["samsung-s23ultra-purple-1.jpg","samsung-s23ultra-purple-2.jpg","samsung-s23ultra-purple-3.jpg","samsung-s23ultra-purple-4.jpg"]',1)
-insert into Images values(276,'["samsung-s23ultra-cream-1.jpg","samsung-s23ultra-cream-2.jpg","samsung-s23ultra-cream-3.jpg","samsung-s23ultra-cream-4.jpg"]',1)
-insert into Images values(277,'["samsung-s23ultra-black-1.jpg","samsung-s23ultra-black-2.jpg","samsung-s23ultra-black-3.jpg","samsung-s23ultra-black-4.jpg"]',1)
-insert into Images values(278,'["samsung-s23ultra-green-1.jpg","samsung-s23ultra-green-2.jpg","samsung-s23ultra-green-3.jpg","samsung-s23ultra-green-4.jpg"]',1)
-insert into Images values(279,'["samsung-s23ultra-purple-1.jpg","samsung-s23ultra-purple-2.jpg","samsung-s23ultra-purple-3.jpg","samsung-s23ultra-purple-4.jpg"]',1)
-insert into Images values(280,'["samsung-s23ultra-cream-1.jpg","samsung-s23ultra-cream-2.jpg","samsung-s23ultra-cream-3.jpg","samsung-s23ultra-cream-4.jpg"]',1)
-insert into Images values(281,'["samsung-s23ultra-black-1.jpg","samsung-s23ultra-black-2.jpg","samsung-s23ultra-black-3.jpg","samsung-s23ultra-black-4.jpg"]',1)
+insert into Images values(282,'["samsung-s23ultra-green-1.jpg","samsung-s23ultra-green-2.jpg","samsung-s23ultra-green-3.jpg","samsung-s23ultra-green-4.jpg"]',1)
+insert into Images values(283,'["samsung-s23ultra-purple-1.jpg","samsung-s23ultra-purple-2.jpg","samsung-s23ultra-purple-3.jpg","samsung-s23ultra-purple-4.jpg"]',1)
+insert into Images values(284,'["samsung-s23ultra-cream-1.jpg","samsung-s23ultra-cream-2.jpg","samsung-s23ultra-cream-3.jpg","samsung-s23ultra-cream-4.jpg"]',1)
+insert into Images values(285,'["samsung-s23ultra-black-1.jpg","samsung-s23ultra-black-2.jpg","samsung-s23ultra-black-3.jpg","samsung-s23ultra-black-4.jpg"]',1)
+insert into Images values(286,'["samsung-s23ultra-green-1.jpg","samsung-s23ultra-green-2.jpg","samsung-s23ultra-green-3.jpg","samsung-s23ultra-green-4.jpg"]',1)
+insert into Images values(287,'["samsung-s23ultra-purple-1.jpg","samsung-s23ultra-purple-2.jpg","samsung-s23ultra-purple-3.jpg","samsung-s23ultra-purple-4.jpg"]',1)
+insert into Images values(288,'["samsung-s23ultra-cream-1.jpg","samsung-s23ultra-cream-2.jpg","samsung-s23ultra-cream-3.jpg","samsung-s23ultra-cream-4.jpg"]',1)
+insert into Images values(289,'["samsung-s23ultra-black-1.jpg","samsung-s23ultra-black-2.jpg","samsung-s23ultra-black-3.jpg","samsung-s23ultra-black-4.jpg"]',1)
 --image Samsung s23 FE
-insert into Images values(282,'["samsung-S23FE-green-1.jpg","samsung-S23FE-green-2.jpg","samsung-S23FE-green-3.jpg","samsung-S23FE-green-4.jpg"]',1)
-insert into Images values(283,'["samsung-S23FE-white-1.jpg","samsung-S23FE-white-2.jpg","samsung-S23FE-white-3.jpg","samsung-S23FE-white-4.jpg"]',1)
-insert into Images values(284,'["samsung-S23FE-violet-1.jpg","samsung-S23FE-violet-2.jpg","samsung-S23FE-violet-3.jpg","samsung-S23FE-violet-4.jpg"]',1)
-insert into Images values(285,'["samsung-S23FE-grey-1.jpg","samsung-S23FE-grey-2.jpg","samsung-S23FE-grey-4.jpg","samsung-S23FE-grey-4.jpg"]',1)
-insert into Images values(286,'["samsung-S23FE-green-1.jpg","samsung-S23FE-green-2.jpg","samsung-S23FE-green-3.jpg","samsung-S23FE-green-4.jpg"]',1)
-insert into Images values(287,'["samsung-S23FE-white-1.jpg","samsung-S23FE-white-2.jpg","samsung-S23FE-white-3.jpg","samsung-S23FE-white-4.jpg"]',1)
-insert into Images values(288,'["samsung-S23FE-violet-1.jpg","samsung-S23FE-violet-2.jpg","samsung-S23FE-violet-3.jpg","samsung-S23FE-violet-4.jpg"]',1)
-insert into Images values(289,'["samsung-S23FE-grey-1.jpg","samsung-S23FE-grey-2.jpg","samsung-S23FE-grey-4.jpg","samsung-S23FE-grey-4.jpg"]',1)
+insert into Images values(290,'["samsung-S23FE-green-1.jpg","samsung-S23FE-green-2.jpg","samsung-S23FE-green-3.jpg","samsung-S23FE-green-4.jpg"]',1)
+insert into Images values(291,'["samsung-S23FE-white-1.jpg","samsung-S23FE-white-2.jpg","samsung-S23FE-white-3.jpg","samsung-S23FE-white-4.jpg"]',1)
+insert into Images values(292,'["samsung-S23FE-violet-1.jpg","samsung-S23FE-violet-2.jpg","samsung-S23FE-violet-3.jpg","samsung-S23FE-violet-4.jpg"]',1)
+insert into Images values(293,'["samsung-S23FE-grey-1.jpg","samsung-S23FE-grey-2.jpg","samsung-S23FE-grey-4.jpg","samsung-S23FE-grey-4.jpg"]',1)
+insert into Images values(294,'["samsung-S23FE-green-1.jpg","samsung-S23FE-green-2.jpg","samsung-S23FE-green-3.jpg","samsung-S23FE-green-4.jpg"]',1)
+insert into Images values(295,'["samsung-S23FE-white-1.jpg","samsung-S23FE-white-2.jpg","samsung-S23FE-white-3.jpg","samsung-S23FE-white-4.jpg"]',1)
+insert into Images values(296,'["samsung-S23FE-violet-1.jpg","samsung-S23FE-violet-2.jpg","samsung-S23FE-violet-3.jpg","samsung-S23FE-violet-4.jpg"]',1)
+insert into Images values(297,'["samsung-S23FE-grey-1.jpg","samsung-S23FE-grey-2.jpg","samsung-S23FE-grey-4.jpg","samsung-S23FE-grey-4.jpg"]',1)
 --image samsung s23
-insert into Images values(290,'["samsung-s23-green-1.jpg","samsung-s23-green-2.jpg","samsung-s23-green-3.jpg","samsung-s23-green-4.jpg"]',1)
-insert into Images values(291,'["samsung-s23-white-1.jpg","samsung-s23-white-2.jpg","samsung-s23-white-3.jpg","samsung-s23-white-4.jpg"]',1)
-insert into Images values(292,'["samsung-s23-violet-1.jpg","samsung-s23-violet-2.jpg","samsung-s23-violet-3.jpg","samsung-s23-violet-4.jpg"]',1)
-insert into Images values(293,'["samsung-s23-black-1.jpg","samsung-s23-black-2.jpg","samsung-s23-black-4.jpg","samsung-s23-black-4.jpg"]',1)
-insert into Images values(294,'["samsung-s23-green-1.jpg","samsung-s23-green-2.jpg","samsung-s23-green-3.jpg","samsung-s23-green-4.jpg"]',1)
-insert into Images values(295,'["samsung-s23-white-1.jpg","samsung-s23-white-2.jpg","samsung-s23-white-3.jpg","samsung-s23-white-4.jpg"]',1)
-insert into Images values(296,'["samsung-s23-violet-1.jpg","samsung-s23-violet-2.jpg","samsung-s23-violet-3.jpg","samsung-s23-violet-4.jpg"]',1)
-insert into Images values(297,'["samsung-s23-black-1.jpg","samsung-s23-black-2.jpg","samsung-s23-black-4.jpg","samsung-s23-black-4.jpg"]',1)
+insert into Images values(298,'["samsung-s23-green-1.jpg","samsung-s23-green-2.jpg","samsung-s23-green-3.jpg","samsung-s23-green-4.jpg"]',1)
+insert into Images values(299,'["samsung-s23-white-1.jpg","samsung-s23-white-2.jpg","samsung-s23-white-3.jpg","samsung-s23-white-4.jpg"]',1)
+insert into Images values(300,'["samsung-s23-violet-1.jpg","samsung-s23-violet-2.jpg","samsung-s23-violet-3.jpg","samsung-s23-violet-4.jpg"]',1)
+insert into Images values(301,'["samsung-s23-black-1.jpg","samsung-s23-black-2.jpg","samsung-s23-black-4.jpg","samsung-s23-black-4.jpg"]',1)
+insert into Images values(302,'["samsung-s23-green-1.jpg","samsung-s23-green-2.jpg","samsung-s23-green-3.jpg","samsung-s23-green-4.jpg"]',1)
+insert into Images values(303,'["samsung-s23-white-1.jpg","samsung-s23-white-2.jpg","samsung-s23-white-3.jpg","samsung-s23-white-4.jpg"]',1)
+insert into Images values(304,'["samsung-s23-violet-1.jpg","samsung-s23-violet-2.jpg","samsung-s23-violet-3.jpg","samsung-s23-violet-4.jpg"]',1)
+insert into Images values(305,'["samsung-s23-black-1.jpg","samsung-s23-black-2.jpg","samsung-s23-black-4.jpg","samsung-s23-black-4.jpg"]',1)
 --image s22 ultra
-insert into Images values(298,'["samsung-s22ultra-black-1.jpg","samsung-s22ultra-black-2.jpg","samsung-s22ultra-black-3.jpg","samsung-s22ultra-black-4.jpg"]',1)
-insert into Images values(299,'["samsung-s22ultra-white-1.jpg","samsung-s22ultra-white-2.jpg","samsung-s22ultra-white-3.jpg","samsung-s22ultra-white-4.jpg"]',1)
-insert into Images values(300,'["samsung-s22ultra-green-1.jpg","samsung-s22ultra-green-2.jpg","samsung-s22ultra-green-4.jpg","samsung-s22ultra-green-4.jpg"]',1)
+insert into Images values(306,'["samsung-s22ultra-black-1.jpg","samsung-s22ultra-black-2.jpg","samsung-s22ultra-black-3.jpg","samsung-s22ultra-black-4.jpg"]',1)
+insert into Images values(307,'["samsung-s22ultra-white-1.jpg","samsung-s22ultra-white-2.jpg","samsung-s22ultra-white-3.jpg","samsung-s22ultra-white-4.jpg"]',1)
+insert into Images values(308,'["samsung-s22ultra-green-1.jpg","samsung-s22ultra-green-2.jpg","samsung-s22ultra-green-4.jpg","samsung-s22ultra-green-4.jpg"]',1)
 --image s22
-insert into Images values(301,'["samsung-s22-black-1.jpg","samsung-s22-black-2.jpg","samsung-s22-black-3.jpg","samsung-s22-black-4.jpg"]',1)
+insert into Images values(309,'["samsung-s22-black-1.jpg","samsung-s22-black-2.jpg","samsung-s22-black-3.jpg","samsung-s22-black-4.jpg"]',1)
 --image zfold5
-insert into Images values(302,'["samsung-zfold5-cream-1.jpg","samsung-zfold5-cream-2.jpg","samsung-zfold5-cream-3.jpg","samsung-zfold5-cream-4.jpg"]',1)
-insert into Images values(303,'["samsung-zfold5-blue-1.jpg","samsung-zfold5-blue-2.jpg","samsung-zfold5-blue-3.jpg","samsung-zfold5-blue-4.jpg"]',1)
-insert into Images values(304,'["samsung-zfold5-black-1.jpg","samsung-zfold5-black-2.jpg","samsung-zfold5-black-3.jpg","samsung-zfold5-black-4.jpg"]',1)
-insert into Images values(305,'["samsung-zfold5-cream-1.jpg","samsung-zfold5-cream-2.jpg","samsung-zfold5-cream-3.jpg","samsung-zfold5-cream-4.jpg"]',1)
-insert into Images values(306,'["samsung-zfold5-blue-1.jpg","samsung-zfold5-blue-2.jpg","samsung-zfold5-blue-3.jpg","samsung-zfold5-blue-4.jpg"]',1)
-insert into Images values(307,'["samsung-zfold5-black-1.jpg","samsung-zfold5-black-2.jpg","samsung-zfold5-black-3.jpg","samsung-zfold5-black-4.jpg"]',1)
-insert into Images values(308,'["samsung-zfold5-cream-1.jpg","samsung-zfold5-cream-2.jpg","samsung-zfold5-cream-3.jpg","samsung-zfold5-cream-4.jpg"]',1)
-insert into Images values(309,'["samsung-zfold5-blue-1.jpg","samsung-zfold5-blue-2.jpg","samsung-zfold5-blue-3.jpg","samsung-zfold5-blue-4.jpg"]',1)
-insert into Images values(310,'["samsung-zfold5-black-1.jpg","samsung-zfold5-black-2.jpg","samsung-zfold5-black-3.jpg","samsung-zfold5-black-4.jpg"]',1)
+insert into Images values(310,'["samsung-zfold5-cream-1.jpg","samsung-zfold5-cream-2.jpg","samsung-zfold5-cream-3.jpg","samsung-zfold5-cream-4.jpg"]',1)
+insert into Images values(311,'["samsung-zfold5-blue-1.jpg","samsung-zfold5-blue-2.jpg","samsung-zfold5-blue-3.jpg","samsung-zfold5-blue-4.jpg"]',1)
+insert into Images values(312,'["samsung-zfold5-black-1.jpg","samsung-zfold5-black-2.jpg","samsung-zfold5-black-3.jpg","samsung-zfold5-black-4.jpg"]',1)
+insert into Images values(313,'["samsung-zfold5-cream-1.jpg","samsung-zfold5-cream-2.jpg","samsung-zfold5-cream-3.jpg","samsung-zfold5-cream-4.jpg"]',1)
+insert into Images values(314,'["samsung-zfold5-blue-1.jpg","samsung-zfold5-blue-2.jpg","samsung-zfold5-blue-3.jpg","samsung-zfold5-blue-4.jpg"]',1)
+insert into Images values(315,'["samsung-zfold5-black-1.jpg","samsung-zfold5-black-2.jpg","samsung-zfold5-black-3.jpg","samsung-zfold5-black-4.jpg"]',1)
+insert into Images values(316,'["samsung-zfold5-cream-1.jpg","samsung-zfold5-cream-2.jpg","samsung-zfold5-cream-3.jpg","samsung-zfold5-cream-4.jpg"]',1)
+insert into Images values(317,'["samsung-zfold5-blue-1.jpg","samsung-zfold5-blue-2.jpg","samsung-zfold5-blue-3.jpg","samsung-zfold5-blue-4.jpg"]',1)
+insert into Images values(318,'["samsung-zfold5-black-1.jpg","samsung-zfold5-black-2.jpg","samsung-zfold5-black-3.jpg","samsung-zfold5-black-4.jpg"]',1)
 --image zfold4
-insert into Images values(311,'["samsung-zfold4-green-1.jpg","samsung-zfold4-green-2.jpg","samsung-zfold4-green-3.jpg","samsung-zfold4-green-4.jpg"]',1)
-insert into Images values(312,'["samsung-zfold4-black-1.jpg","samsung-zfold4-black-2.jpg","samsung-zfold4-black-3.jpg","samsung-zfold4-black-4.jpg"]',1)
-insert into Images values(313,'["samsung-zfold4-cream-1.jpg","samsung-zfold4-cream-2.jpg","samsung-zfold4-cream-3.jpg","samsung-zfold4-cream-4.jpg"]',1)
-insert into Images values(314,'["samsung-zfold4-green-1.jpg","samsung-zfold4-green-2.jpg","samsung-zfold4-green-3.jpg","samsung-zfold4-green-4.jpg"]',1)
-insert into Images values(315,'["samsung-zfold4-black-1.jpg","samsung-zfold4-black-2.jpg","samsung-zfold4-black-3.jpg","samsung-zfold4-black-4.jpg"]',1)
-insert into Images values(316,'["samsung-zfold4-cream-1.jpg","samsung-zfold4-cream-2.jpg","samsung-zfold4-cream-3.jpg","samsung-zfold4-cream-4.jpg"]',1)
+insert into Images values(319,'["samsung-zfold4-green-1.jpg","samsung-zfold4-green-2.jpg","samsung-zfold4-green-3.jpg","samsung-zfold4-green-4.jpg"]',1)
+insert into Images values(320,'["samsung-zfold4-black-1.jpg","samsung-zfold4-black-2.jpg","samsung-zfold4-black-3.jpg","samsung-zfold4-black-4.jpg"]',1)
+insert into Images values(321,'["samsung-zfold4-cream-1.jpg","samsung-zfold4-cream-2.jpg","samsung-zfold4-cream-3.jpg","samsung-zfold4-cream-4.jpg"]',1)
+
+insert into Images values(322,'["samsung-zfold4-green-1.jpg","samsung-zfold4-green-2.jpg","samsung-zfold4-green-3.jpg","samsung-zfold4-green-4.jpg"]',1)
+insert into Images values(323,'["samsung-zfold4-black-1.jpg","samsung-zfold4-black-2.jpg","samsung-zfold4-black-3.jpg","samsung-zfold4-black-4.jpg"]',1)
+insert into Images values(324,'["samsung-zfold4-cream-1.jpg","samsung-zfold4-cream-2.jpg","samsung-zfold4-cream-3.jpg","samsung-zfold4-cream-4.jpg"]',1)
 --image zfold3
-insert into Images values(317,'["samsung-zfold3-green-1.jpg","samsung-zfold3-green-2.jpg","samsung-zfold3-green-3.jpg","samsung-zfold3-green-4.jpg"]',1)
-insert into Images values(318,'["samsung-zfold3-grey-1.jpg","samsung-zfold3-grey-2.jpg","samsung-zfold3-grey-3.jpg","samsung-zfold3-grey-4.jpg"]',1)
-insert into Images values(319,'["samsung-zfold3-black-1.jpg","samsung-zfold3-black-2.jpg","samsung-zfold3-black-3.jpg","samsung-zfold3-black-4.jpg"]',1)
-insert into Images values(320,'["samsung-zfold3-green-1.jpg","samsung-zfold3-green-2.jpg","samsung-zfold3-green-3.jpg","samsung-zfold3-green-4.jpg"]',1)
-insert into Images values(321,'["samsung-zfold3-grey-1.jpg","samsung-zfold3-grey-2.jpg","samsung-zfold3-grey-3.jpg","samsung-zfold3-grey-4.jpg"]',1)
-insert into Images values(322,'["samsung-zfold3-black-1.jpg","samsung-zfold3-black-2.jpg","samsung-zfold3-black-3.jpg","samsung-zfold3-black-4.jpg"]',1)
+insert into Images values(325,'["samsung-zfold3-green-1.jpg","samsung-zfold3-green-2.jpg","samsung-zfold3-green-3.jpg","samsung-zfold3-green-4.jpg"]',1)
+insert into Images values(326,'["samsung-zfold3-grey-1.jpg","samsung-zfold3-grey-2.jpg","samsung-zfold3-grey-3.jpg","samsung-zfold3-grey-4.jpg"]',1)
+insert into Images values(327,'["samsung-zfold3-black-1.jpg","samsung-zfold3-black-2.jpg","samsung-zfold3-black-3.jpg","samsung-zfold3-black-4.jpg"]',1)
+
+insert into Images values(328,'["samsung-zfold3-green-1.jpg","samsung-zfold3-green-2.jpg","samsung-zfold3-green-3.jpg","samsung-zfold3-green-4.jpg"]',1)
+insert into Images values(329,'["samsung-zfold3-grey-1.jpg","samsung-zfold3-grey-2.jpg","samsung-zfold3-grey-3.jpg","samsung-zfold3-grey-4.jpg"]',1)
+insert into Images values(330,'["samsung-zfold3-black-1.jpg","samsung-zfold3-black-2.jpg","samsung-zfold3-black-3.jpg","samsung-zfold3-black-4.jpg"]',1)
 --image zflip5
-insert into Images values(323,'["samsung-zflip5-green-1.jpg","samsung-zflip5-green-2.jpg","samsung-zflip5-green-3.jpg","samsung-zflip5-green-4.jpg"]',1)
-insert into Images values(324,'["samsung-zflip5-purple-1.jpg","samsung-zflip5-purple-2.jpg","samsung-zflip5-purple-3.jpg","samsung-zflip5-purple-4.jpg"]',1)
-insert into Images values(325,'["samsung-zflip5-gray-1.jpg","samsung-zflip5-gray-2.jpg","samsung-zflip5-gray-3.jpg","samsung-zflip5-gray-4.jpg"]',1)
-insert into Images values(326,'["samsung-zflip5-cream-1.jpg","samsung-zflip5-cream-2.jpg","samsung-zflip5-cream-3.jpg","samsung-zflip5-cream-4.jpg"]',1)
+insert into Images values(331,'["samsung-zflip5-green-1.jpg","samsung-zflip5-green-2.jpg","samsung-zflip5-green-3.jpg","samsung-zflip5-green-4.jpg"]',1)
+insert into Images values(332,'["samsung-zflip5-purple-1.jpg","samsung-zflip5-purple-2.jpg","samsung-zflip5-purple-3.jpg","samsung-zflip5-purple-4.jpg"]',1)
+insert into Images values(333,'["samsung-zflip5-gray-1.jpg","samsung-zflip5-gray-2.jpg","samsung-zflip5-gray-3.jpg","samsung-zflip5-gray-4.jpg"]',1)
+insert into Images values(334,'["samsung-zflip5-cream-1.jpg","samsung-zflip5-cream-2.jpg","samsung-zflip5-cream-3.jpg","samsung-zflip5-cream-4.jpg"]',1)
 
-insert into Images values(327,'["samsung-zflip5-purple-1.jpg","samsung-zflip5-purple-2.jpg","samsung-zflip5-purple-3.jpg","samsung-zflip5-purple-4.jpg"]',1)
-insert into Images values(328,'["samsung-zflip5-green-1.jpg","samsung-zflip5-green-2.jpg","samsung-zflip5-green-3.jpg","samsung-zflip5-green-4.jpg"]',1)
-insert into Images values(329,'["samsung-zflip5-gray-1.jpg","samsung-zflip5-gray-2.jpg","samsung-zflip5-gray-3.jpg","samsung-zflip5-gray-4.jpg"]',1)
-insert into Images values(330,'["samsung-zflip5-cream-1.jpg","samsung-zflip5-cream-2.jpg","samsung-zflip5-cream-3.jpg","samsung-zflip5-cream-4.jpg"]',1)
+insert into Images values(335,'["samsung-zflip5-purple-1.jpg","samsung-zflip5-purple-2.jpg","samsung-zflip5-purple-3.jpg","samsung-zflip5-purple-4.jpg"]',1)
+insert into Images values(336,'["samsung-zflip5-green-1.jpg","samsung-zflip5-green-2.jpg","samsung-zflip5-green-3.jpg","samsung-zflip5-green-4.jpg"]',1)
+insert into Images values(337,'["samsung-zflip5-gray-1.jpg","samsung-zflip5-gray-2.jpg","samsung-zflip5-gray-3.jpg","samsung-zflip5-gray-4.jpg"]',1)
+insert into Images values(338,'["samsung-zflip5-cream-1.jpg","samsung-zflip5-cream-2.jpg","samsung-zflip5-cream-3.jpg","samsung-zflip5-cream-4.jpg"]',1)
 --image zflip4
-insert into Images values(331,'["samsung-zflip4-purple-1.jpg","samsung-zflip4-purple-2.jpg","samsung-zflip4-purple-3.jpg","samsung-zflip4-purple-4.jpg"]',1)
-insert into Images values(332,'["samsung-zflip4-blue-1.jpg","samsung-zflip4-blue-2.jpg","samsung-zflip4-blue-3.jpg","samsung-zflip4-blue-4.jpg"]',1)
-insert into Images values(333,'["samsung-zflip4-gray-1.jpg","samsung-zflip4-gray-2.jpg","samsung-zflip4-gray-3.jpg","samsung-zflip4-gray-4.jpg"]',1)
-insert into Images values(334,'["samsung-zflip4-yello-1.jpg","samsung-zflip4-yello-2.jpg","samsung-zflip4-yello-3.jpg","samsung-zflip4-yello-4.jpg"]',1)
+insert into Images values(339,'["samsung-zflip4-purple-1.jpg","samsung-zflip4-purple-2.jpg","samsung-zflip4-purple-3.jpg","samsung-zflip4-purple-4.jpg"]',1)
+insert into Images values(340,'["samsung-zflip4-blue-1.jpg","samsung-zflip4-blue-2.jpg","samsung-zflip4-blue-3.jpg","samsung-zflip4-blue-4.jpg"]',1)
+insert into Images values(341,'["samsung-zflip4-gray-1.jpg","samsung-zflip4-gray-2.jpg","samsung-zflip4-gray-3.jpg","samsung-zflip4-gray-4.jpg"]',1)
+insert into Images values(342,'["samsung-zflip4-yello-1.jpg","samsung-zflip4-yello-2.jpg","samsung-zflip4-yello-3.jpg","samsung-zflip4-yello-4.jpg"]',1)
 
-insert into Images values(335,'["samsung-zflip4-blue-1.jpg","samsung-zflip4-blue-2.jpg","samsung-zflip4-blue-3.jpg","samsung-zflip4-blue-4.jpg"]',1)
-insert into Images values(336,'["samsung-zflip4-purple-1.jpg","samsung-zflip4-purple-2.jpg","samsung-zflip4-purple-3.jpg","samsung-zflip4-purple-4.jpg"]',1)
-insert into Images values(337,'["samsung-zflip4-gray-1.jpg","samsung-zflip4-gray-2.jpg","samsung-zflip4-gray-3.jpg","samsung-zflip4-gray-4.jpg"]',1)
-insert into Images values(338,'["samsung-zflip4-yello-1.jpg","samsung-zflip4-yello-2.jpg","samsung-zflip4-yello-3.jpg","samsung-zflip4-yello-4.jpg"]',1)
+insert into Images values(343,'["samsung-zflip4-blue-1.jpg","samsung-zflip4-blue-2.jpg","samsung-zflip4-blue-3.jpg","samsung-zflip4-blue-4.jpg"]',1)
+insert into Images values(344,'["samsung-zflip4-purple-1.jpg","samsung-zflip4-purple-2.jpg","samsung-zflip4-purple-3.jpg","samsung-zflip4-purple-4.jpg"]',1)
+insert into Images values(345,'["samsung-zflip4-gray-1.jpg","samsung-zflip4-gray-2.jpg","samsung-zflip4-gray-3.jpg","samsung-zflip4-gray-4.jpg"]',1)
+insert into Images values(346,'["samsung-zflip4-yello-1.jpg","samsung-zflip4-yello-2.jpg","samsung-zflip4-yello-3.jpg","samsung-zflip4-yello-4.jpg"]',1)
 --image zflip3
-insert into Images values(339,'["samsung-zflip3-black-1.jpg","samsung-zflip3-black-2.jpg","samsung-zflip3-black-3.jpg","samsung-zflip3-black-4.jpg"]',1)
-insert into Images values(340,'["samsung-zflip3-green-1.jpg","samsung-zflip3-green-2.jpg","samsung-zflip3-green-3.jpg","samsung-zflip3-green-4.jpg"]',1)
-insert into Images values(341,'["samsung-zflip3-purple-1.jpg","samsung-zflip3-purple-2.jpg","samsung-zflip3-purple-3.jpg","samsung-zflip3-purple-4.jpg"]',1)
-insert into Images values(342,'["samsung-zflip3-cream-1.jpg","samsung-zflip3-cream-2.jpg","samsung-zflip3-cream-3.jpg","samsung-zflip3-cream-4.jpg"]',1)
+insert into Images values(347,'["samsung-zflip3-black-1.jpg","samsung-zflip3-black-2.jpg","samsung-zflip3-black-3.jpg","samsung-zflip3-black-4.jpg"]',1)
+insert into Images values(348,'["samsung-zflip3-green-1.jpg","samsung-zflip3-green-2.jpg","samsung-zflip3-green-3.jpg","samsung-zflip3-green-4.jpg"]',1)
+insert into Images values(349,'["samsung-zflip3-purple-1.jpg","samsung-zflip3-purple-2.jpg","samsung-zflip3-purple-3.jpg","samsung-zflip3-purple-4.jpg"]',1)
+insert into Images values(350,'["samsung-zflip3-cream-1.jpg","samsung-zflip3-cream-2.jpg","samsung-zflip3-cream-3.jpg","samsung-zflip3-cream-4.jpg"]',1)
 
-insert into Images values(343,'["samsung-zflip3-green-1.jpg","samsung-zflip3-green-2.jpg","samsung-zflip3-green-3.jpg","samsung-zflip3-green-4.jpg"]',1)
-insert into Images values(344,'["samsung-zflip3-black-1.jpg","samsung-zflip3-black-2.jpg","samsung-zflip3-black-3.jpg","samsung-zflip3-black-4.jpg"]',1)
-insert into Images values(345,'["samsung-zflip3-purple-1.jpg","samsung-zflip3-purple-2.jpg","samsung-zflip3-purple-3.jpg","samsung-zflip3-purple-4.jpg"]',1)
-insert into Images values(346,'["samsung-zflip3-cream-1.jpg","samsung-zflip3-cream-2.jpg","samsung-zflip3-cream-3.jpg","samsung-zflip3-cream-4.jpg"]',1)
+insert into Images values(351,'["samsung-zflip3-green-1.jpg","samsung-zflip3-green-2.jpg","samsung-zflip3-green-3.jpg","samsung-zflip3-green-4.jpg"]',1)
+insert into Images values(352,'["samsung-zflip3-black-1.jpg","samsung-zflip3-black-2.jpg","samsung-zflip3-black-3.jpg","samsung-zflip3-black-4.jpg"]',1)
+insert into Images values(353,'["samsung-zflip3-purple-1.jpg","samsung-zflip3-purple-2.jpg","samsung-zflip3-purple-3.jpg","samsung-zflip3-purple-4.jpg"]',1)
+insert into Images values(354,'["samsung-zflip3-cream-1.jpg","samsung-zflip3-cream-2.jpg","samsung-zflip3-cream-3.jpg","samsung-zflip3-cream-4.jpg"]',1)
 --image m34
-insert into Images values(347,'["samsung-m34-green-1.jpg","samsung-m34-green-2.jpg","samsung-m34-green-3.jpg","samsung-m34-green-4.jpg"]',1)
-insert into Images values(348,'["samsung-m34-black-1.jpg","samsung-m34-black-2.jpg","samsung-m34-black-3.jpg","samsung-m34-black-4.jpg"]',1)
+insert into Images values(355,'["samsung-m34-green-1.jpg","samsung-m34-green-2.jpg","samsung-m34-green-3.jpg","samsung-m34-green-4.jpg"]',1)
+insert into Images values(356,'["samsung-m34-black-1.jpg","samsung-m34-black-2.jpg","samsung-m34-black-3.jpg","samsung-m34-black-4.jpg"]',1)
 --image m54
-insert into Images values(349,'["samsung-m54-green-1.jpg","samsung-m54-green-2.jpg","samsung-m54-green-3.jpg","samsung-m54-green-4.jpg"]',1)
-insert into Images values(350,'["samsung-m54-black-1.jpg","samsung-m54-black-2.jpg","samsung-m54-black-3.jpg","samsung-m54-black-4.jpg"]',1)
+insert into Images values(357,'["samsung-m54-green-1.jpg","samsung-m54-green-2.jpg","samsung-m54-green-3.jpg","samsung-m54-green-4.jpg"]',1)
+insert into Images values(358,'["samsung-m54-black-1.jpg","samsung-m54-black-2.jpg","samsung-m54-black-3.jpg","samsung-m54-black-4.jpg"]',1)
 --image a35
-insert into Images values(351,'["samsung-a35-black-1.jpg","samsung-a35-black-2.jpg","samsung-a35-black-3.jpg","samsung-a35-black-4.jpg"]',1)
-insert into Images values(352,'["samsung-a35-blue-1.jpg","samsung-a35-blue-2.jpg","samsung-a35-blue-3.jpg","samsung-a35-blue-4.jpg"]',1)
-insert into Images values(353,'["samsung-a35-blue-1.jpg","samsung-a35-blue-2.jpg","samsung-a35-blue-3.jpg","samsung-a35-blue-4.jpg"]',1)
-insert into Images values(354,'["samsung-a35-black-1.jpg","samsung-a35-black-2.jpg","samsung-a35-black-3.jpg","samsung-a35-black-4.jpg"]',1)
+insert into Images values(359,'["samsung-a35-black-1.jpg","samsung-a35-black-2.jpg","samsung-a35-black-3.jpg","samsung-a35-black-4.jpg"]',1)
+insert into Images values(360,'["samsung-a35-blue-1.jpg","samsung-a35-blue-2.jpg","samsung-a35-blue-3.jpg","samsung-a35-blue-4.jpg"]',1)
+insert into Images values(361,'["samsung-a35-blue-1.jpg","samsung-a35-blue-2.jpg","samsung-a35-blue-3.jpg","samsung-a35-blue-4.jpg"]',1)
+insert into Images values(362,'["samsung-a35-black-1.jpg","samsung-a35-black-2.jpg","samsung-a35-black-3.jpg","samsung-a35-black-4.jpg"]',1)
 --image a14
-insert into Images values(351,'["samsung-a14-black-1.jpg","samsung-a14-black-2.jpg","samsung-a14-black-3.jpg","samsung-a14-black-4.jpg"]',1)
-insert into Images values(351,'["samsung-a14-gray-1.jpg","samsung-a14-gray-2.jpg","samsung-a14-gray-3.jpg","samsung-a14-gray-4.jpg"]',1)
-insert into Images values(351,'["samsung-a14-red-1.jpg","samsung-a14-red-2.jpg","samsung-a14-red-3.jpg","samsung-a14-red-4.jpg"]',1)
+insert into Images values(363,'["samsung-a14-black-1.jpg","samsung-a14-black-2.jpg","samsung-a14-black-3.jpg","samsung-a14-black-4.jpg"]',1)
+insert into Images values(354,'["samsung-a14-gray-1.jpg","samsung-a14-gray-2.jpg","samsung-a14-gray-3.jpg","samsung-a14-gray-4.jpg"]',1)
+insert into Images values(365,'["samsung-a14-red-1.jpg","samsung-a14-red-2.jpg","samsung-a14-red-3.jpg","samsung-a14-red-4.jpg"]',1)
+--image vivo x70
+insert into Images values(366,'["vivo-x70-black-1.jpg","vivo-x70-black-2.jpg","vivo-x70-black-3.jpg","vivo-x70-black-4.jpg"]',1)
+insert into Images values(367,'["vivo-x70-green-1.jpg","vivo-x70-green-2.jpg","vivo-x70-green-3.jpg","vivo-x70-green-4.jpg"]',1)
+--image vivo x70 pro
+insert into Images values(368,'["vivo-x70pro-green-1.jpg","vivo-x70pro-green-2.jpg","vivo-x70pro-green-3.jpg","vivo-x70pro-green-4.jpg"]',1)
+insert into Images values(369,'["vivo-x70pro-black-1.jpg","vivo-x70pro-black-2.jpg","vivo-x70pro-black-3.jpg","vivo-x70pro-black-4.jpg"]',1)
+--image vivo x80
+insert into Images values(370,'["vivo-x80-green-1.jpg","vivo-x80-green-2.jpg","vivo-x80-green-3.jpg","vivo-x80-green-4.jpg"]',1)
+insert into Images values(371,'["vivo-x80-black-1.jpg","vivo-x80-black-2.jpg","vivo-x80-black-3.jpg","vivo-x80-black-4.jpg"]',1)
+--image vivo x80 pro
+insert into Images values(372,'["vivo-x80pro-black-1.jpg","vivo-x80pro-black-2.jpg","vivo-x80pro-black-3.jpg","vivo-x80pro-black-4.jpg"]',1)
+insert into Images values(373,'["vivo-x80pro-black-1.jpg","vivo-x80pro-black-2.jpg","vivo-x80pro-black-3.jpg","vivo-x80pro-black-4.jpg"]',1)
+--image vivo x60
+insert into Images values(374,'["vivo-x60-blue-1.jpg","vivo-x60-blue-2.jpg","vivo-x60-blue-3.jpg","vivo-x60-blue-4.jpg"]',1)
+insert into Images values(375,'["vivo-x60-black-1.jpg","vivo-x60-black-2.jpg","vivo-x60-black-3.jpg","vivo-x60-black-4.jpg"]',1)
+--image vivo v29e
+insert into Images values(376,'["vivo-v29e-black-1.jpg","vivo-v29e-black-2.jpg","vivo-v29e-black-3.jpg","vivo-v29e-black-4.jpg"]',1)
+insert into Images values(377,'["vivo-v29e-blue-1.jpg","vivo-v29e-blue-2.jpg","vivo-v29e-blue-3.jpg","vivo-v29e-blue-4.jpg"]',1)
+--image vivo v29
+insert into Images values(378,'["vivo-v29-black-1.jpg","vivo-v29-black-2.jpg","vivo-v29-black-3.jpg","vivo-v29-black-4.jpg"]',1)
+insert into Images values(379,'["vivo-v29-purple-1.jpg","vivo-v29-purple-2.jpg","vivo-v29-purple-3.jpg","vivo-v29-purple-4.jpg"]',1)
+--image vivo v25e
+insert into Images values(380,'["vivo-v25e-black-1.jpg","vivo-v25e-black-2.jpg","vivo-v25e-black-3.jpg","vivo-v25e-black-4.jpg"]',1)
+insert into Images values(381,'["vivo-v25e-blue-1.jpg","vivo-v25e-blue-2.jpg","vivo-v25e-blue-3.jpg","vivo-v25e-blue-4.jpg"]',1)
+--image vivo v25
+insert into Images values(382,'["vivo-v25-black-1.jpg","vivo-v25-black-2.jpg","vivo-v25-black-3.jpg","vivo-v25-black-4.jpg"]',1)
+insert into Images values(383,'["vivo-v25-yellow-1.jpg","vivo-v25-yellow-2.jpg","vivo-v25-yellow-3.jpg","vivo-v25-yellow-4.jpg"]',1)
+--image vivo v27e
+insert into Images values(384,'["vivo-v27e-black-1.jpg","vivo-v27e-black-2.jpg","vivo-v27e-black-3.jpg","vivo-v27e-black-4.jpg"]',1)
+insert into Images values(385,'["vivo-v27e-purple-1.jpg","vivo-v27e-purple-2.jpg","vivo-v27e-purple-3.jpg","vivo-v27e-purple-4.jpg"]',1)
+--image vivo v27
+insert into Images values(386,'["vivo-v27-blue-1.jpg","vivo-v27-blue-2.jpg","vivo-v27-blue-3.jpg","vivo-v27-blue-4.jpg"]',1)
+insert into Images values(387,'["vivo-v27-green-1.jpg","vivo-v27-green-2.jpg","vivo-v27-green-3.jpg","vivo-v27-green-4.jpg"]',1)
+--image vivo y100
+insert into Images values(388,'["vivo-y100-black-1.jpg","vivo-y100-black-2.jpg","vivo-y100-black-3.jpg","vivo-y100-black-4.jpg"]',1)
+insert into Images values(389,'["vivo-y100-green-1.jpg","vivo-y100-green-2.jpg","vivo-y100-green-3.jpg","vivo-y100-green-4.jpg"]',1)
+--image vivo y03
+insert into Images values(390,'["vivo-y03-black-1.jpg","vivo-y03-black-2.jpg","vivo-y03-black-3.jpg","vivo-y03-black-4.jpg"]',1)
+insert into Images values(391,'["vivo-y03-green-1.jpg","vivo-y03-green-2.jpg","vivo-y03-green-3.jpg","vivo-y03-green-4.jpg"]',1)
+insert into Images values(392,'["vivo-y03-black-1.jpg","vivo-y03-black-2.jpg","vivo-y03-black-3.jpg","vivo-y03-black-4.jpg"]',1)
+insert into Images values(393,'["vivo-y03-green-1.jpg","vivo-y03-green-2.jpg","vivo-y03-green-3.jpg","vivo-y03-green-4.jpg"]',1)
+--image vivo y36
+insert into Images values(394,'["vivo-y36-black-1.jpg","vivo-y36-black-2.jpg","vivo-y36-black-3.jpg","vivo-y36-black-4.jpg"]',1)
+insert into Images values(395,'["vivo-y36-aqua-1.jpg","vivo-y36-aqua-2.jpg","vivo-y36-aqua-3.jpg","vivo-y36-aqua-4.jpg"]',1)
+insert into Images values(396,'["vivo-y36-black-1.jpg","vivo-y36-black-2.jpg","vivo-y36-black-3.jpg","vivo-y36-black-4.jpg"]',1)
+insert into Images values(397,'["vivo-y36-aqua-1.jpg","vivo-y36-aqua-2.jpg","vivo-y36-aqua-3.jpg","vivo-y36-aqua-4.jpg"]',1)
+--image vivo y35
+insert into Images values(398,'["vivo-y35-yellow-1.jpg","vivo-y35-yellow-2.jpg","vivo-y35-yellow-3.jpg","vivo-y35-yellow-4.jpg"]',1)
+insert into Images values(399,'["vivo-y35-black-1.jpg","vivo-y35-yellow-2.jpg","vivo-y35-yellow-3.jpg","vivo-y35-yellow-4.jpg"]',1)
+--image vivo t1
+insert into Images values(400,'["vivo-t1-black-1.jpg","vivo-t1-black-2.jpg","vivo-t1-black-3.jpg","vivo-t1-black-4.jpg"]',1)
+insert into Images values(401,'["vivo-t1-green-1.jpg","vivo-t1-green-2.jpg","vivo-t1-green-3.jpg","vivo-t1-green-4.jpg"]',1)
+--image oppo find n3
+insert into Images values(402,'["oppo-n3-black-1.jpg","oppo-n3-black-2.jpg","oppo-n3-black-3.jpg","oppo-n3-black-4.jpg"]',1)
+insert into Images values(403,'["oppo-n3-yellow-1.jpg","oppo-n3-yellow-2.jpg","oppo-n3-yellow-3.jpg","oppo-n3-yellow-4.jpg"]',1)
+--image oppo find n3 flip
+insert into Images values(404,'["oppo-n3flip-pink-1.jpg","oppo-n3flip-pink-2.jpg","oppo-n3flip-pink-3.jpg","oppo-n3flip-pink-4.jpg"]',1)
+insert into Images values(405,'["oppo-n3flip-black-1.jpg","oppo-n3flip-black-2.jpg","oppo-n3flip-black-3.jpg","oppo-n3flip-black-4.jpg"]',1)
+insert into Images values(406,'["oppo-n3flip-yellow-1.jpg","oppo-n3flip-yellow-2.jpg","oppo-n3flip-yellow-3.jpg","oppo-n3flip-yellow-4.jpg"]',1)
+--image oppo find n2 flip
+insert into Images values(407,'["oppo-n2flip-black-1.jpg","oppo-n2flip-black-2.jpg","oppo-n2flip-black-3.jpg","oppo-n2flip-black-4.jpg"]',1)
+insert into Images values(408,'["oppo-n2flip-purple-1.jpg","oppo-n2flip-purple-2.jpg","oppo-n2flip-purple-3.jpg","oppo-n2flip-purple-4.jpg"]',1)
+--image oppo find x5 pro
+insert into Images values(409,'["oppo-findx5-back-1.jpg","oppo-findx5-back-2.jpg","oppo-findx5-back-3.jpg","oppo-findx5-back-4.jpg"]',1)
+insert into Images values(410,'["oppo-findx5-white-1.jpg","oppo-findx5-white-2.jpg","oppo-findx5-white-3.jpg","oppo-findx5-white-4.jpg"]',1)
+--image oppo reno 11f
+insert into Images values(411,'["oppo-reno-11f-blue-1.jpg","oppo-reno-11f-blue-2.jpg","oppo-reno-11f-blue-3.jpg","oppo-reno-11f-blue-4.jpg"]',1)
+insert into Images values(412,'["oppo-reno-11f-green-1.jpg","oppo-reno-11f-green-2.jpg","oppo-reno-11f-green-3.jpg","oppo-reno-11f-green-4.jpg"]',1)
+--image oppo reno 11 pro
+insert into Images values(413,'["oppo-reno11p-gray-1.jpg","oppo-reno11p-gray-2.jpg","oppo-reno11p-gray-3.jpg","oppo-reno11p-gray-4.jpg"]',1)
+insert into Images values(414,'["oppo-reno11p-white-1.jpg","oppo-reno11p-white-2.jpg","oppo-reno11p-white-3.jpg","oppo-reno11p-white-4.jpg"]',1)
+--image oppo reno 11
+insert into Images values(415,'["oppo-reno11-gray-1.jpg","oppo-reno11-gray-2.jpg","oppo-reno11-gray-3.jpg","oppo-reno11-gray-4.jpg"]',1)
+insert into Images values(416,'["oppo-reno11-green-1.jpg","oppo-reno11-green-2.jpg","oppo-reno11-green-3.jpg","oppo-reno11-green-4.jpg"]',1)
+--image oppo reno 10pro+
+insert into Images values(417,'["oppo-remo10p+-gray-1.jpg","oppo-remo10p+-gray-2.jpg","oppo-remo10p+-gray-3.jpg","oppo-remo10p+-gray-4.jpg"]',1)
+insert into Images values(418,'["oppo-remo10p+-purple-1.jpg","oppo-remo10p+-purple-2.jpg","oppo-remo10p+-purple-3.jpg","oppo-remo10p+-purple-4.jpg"]',1)
+--image oppo reno 10pro
+insert into Images values(419,'["oppo-remo10p-gray-1.jpg","oppo-remo10p-gray-2.jpg","oppo-remo10p-gray-3.jpg","oppo-remo10p-gray-4.jpg"]',1)
+insert into Images values(420,'["oppo-remo10p-purple-1.jpg","oppo-remo10p-purple-2.jpg","oppo-remo10p-purple-3.jpg","oppo-remo10p-purple-4.jpg"]',1)
+--image oppo reno 10
+insert into Images values(421,'["oppo-reno10-gray-1.jpg","oppo-reno10-gray-2.jpg","oppo-reno10-gray-3.jpg","oppo-reno10-gray-4.jpg"]',1)
+insert into Images values(422,'["oppo-reno10-blue-1.jpg","oppo-reno10-blue-2.jpg","oppo-reno10-blue-3.jpg","oppo-reno10-blue-4.jpg"]',1)
+insert into Images values(423,'["oppo-reno10-gray-1.jpg","oppo-reno10-gray-2.jpg","oppo-reno10-gray-3.jpg","oppo-reno10-gray-4.jpg"]',1)
+insert into Images values(424,'["oppo-reno10-blue-1.jpg","oppo-reno10-blue-2.jpg","oppo-reno10-blue-3.jpg","oppo-reno10-blue-4.jpg"]',1)
+--image oppo a79
+insert into Images values(425,'["oppo-a79-black-1.jpg","oppo-a79-black-2.jpg","oppo-a79-black-3.jpg","oppo-a79-black-4.jpg"]',1)
+insert into Images values(426,'["oppo-a79-purple-1.jpg","oppo-a79-black-2.jpg","oppo-a79-black-3.jpg","oppo-a79-black-4.jpg"]',1)
+--image oppo a98
+insert into Images values(427,'["oppo-a98-black-1.jpg","oppo-a98-black-2.jpg","oppo-a98-black-3.jpg","oppo-a98-black-4.jpg"]',1)
+insert into Images values(428,'["oppo-a98-blue-1.jpg","oppo-a98-blue-2.jpg","oppo-a98-blue-3.jpg","oppo-a98-blue-4.jpg"]',1)
+--image oppo a78
+insert into Images values(429,'["oppo-a78-black-1.jpg","oppo-a78-black-2.jpg","oppo-a78-black-3.jpg","oppo-a78-black-4.jpg"]',1)
+insert into Images values(430,'["oppo-a78-green-1.jpg","oppo-a78-green-2.jpg","oppo-a78-green-3.jpg","oppo-a78-green-4.jpg"]',1)
 
-
+--image xiaomi 14 ultra
+insert into Images values(431,'["xiaomi-14-ultra-black-1.jpg","xiaomi-14-ultra-black-2.jpg","xiaomi-14-ultra-black-3.jpg","xiaomi-14-ultra-black-4.jpg"]',1)
+insert into Images values(432,'["xiaomi-14-ultra-gray-1.jpg","xiaomi-14-ultra-gray-2.jpg","xiaomi-14-ultra-gray-3.jpg","xiaomi-14-ultra-gray-4.jpg"]',1)
+--image xiaomi 14
+insert into Images values(431,'["xiaomi-14-black-1.jpg","xiaomi-14-black-2.jpg","xiaomi-14-black-3.jpg","xiaomi-14-black-4.jpg"]',1)
+insert into Images values(432,'["xiaomi-14-white-1.jpg","xiaomi-14-white-2.jpg","xiaomi-14-white-3.jpg","xiaomi-14-white-4.jpg"]',1)
+insert into Images values(433,'["xiaomi-14-green-1.jpg","xiaomi-14-green-2.jpg","xiaomi-14-green-3.jpg","xiaomi-14-green-4.jpg"]',1)
+insert into Images values(434,'["xiaomi-14-black-1.jpg","xiaomi-14-black-2.jpg","xiaomi-14-black-3.jpg","xiaomi-14-black-4.jpg"]',1)
+insert into Images values(435,'["xiaomi-14-white-1.jpg","xiaomi-14-white-2.jpg","xiaomi-14-white-3.jpg","xiaomi-14-white-4.jpg"]',1)
+insert into Images values(436,'["xiaomi-14-green-1.jpg","xiaomi-14-green-2.jpg","xiaomi-14-green-3.jpg","xiaomi-14-green-4.jpg"]',1)
+--xiaomi 13t pro
+insert into Images values(437,'["xiaomi-13tpro-black-1.jpg","xiaomi-13tpro-black-2.jpg","xiaomi-13tpro-black-3.jpg","xiaomi-13tpro-black-4.jpg"]',1)
+insert into Images values(438,'["xiaomi-13tpro-blue-1.jpg","xiaomi-13tpro-blue-2.jpg","xiaomi-13tpro-blue-3.jpg","xiaomi-13tpro-blue-4.jpg"]',1)
+insert into Images values(439,'["xiaomi-13tpro-green-1.jpg","xiaomi-13tpro-green-2.jpg","xiaomi-13tpro-green-3.jpg","xiaomi-13tpro-green-4.jpg"]',1)
+insert into Images values(440,'["xiaomi-13tpro-black-1.jpg","xiaomi-13tpro-black-2.jpg","xiaomi-13tpro-black-3.jpg","xiaomi-13tpro-black-4.jpg"]',1)
+insert into Images values(441,'["xiaomi-13tpro-blue-1.jpg","xiaomi-13tpro-blue-2.jpg","xiaomi-13tpro-blue-3.jpg","xiaomi-13tpro-blue-4.jpg"]',1)
+insert into Images values(442,'["xiaomi-13tpro-green-1.jpg","xiaomi-13tpro-green-2.jpg","xiaomi-13tpro-green-3.jpg","xiaomi-13tpro-green-4.jpg"]',1)
+--xiaomi note13 pro plus
+insert into Images values(443,'["xiaomi-13tpro+-black-1.jpg","xiaomi-13tpro+-black-2.jpg","xiaomi-13tpro+-black-3.jpg","xiaomi-13tpro+-black-4.jpg"]',1)
+insert into Images values(444,'["xiaomi-13tpro+-white-1.jpg","xiaomi-13tpro+-white-2.jpg","xiaomi-13tpro+-white-3.jpg","xiaomi-13tpro+-white-4.jpg"]',1)
+insert into Images values(445,'["xiaomi-13tpro+-purple-1.jpg","xiaomi-13tpro+-purple-2.jpg","xiaomi-13tpro+-purple-3.jpg","xiaomi-13tpro+-purple-4.jpg"]',1)
+--xiaomi note13 pro
+insert into Images values(446,'["xiaomi-13pro-black-1.jpg","xiaomi-13pro-black-2.jpg","xiaomi-13pro-black-3.jpg","xiaomi-13pro-black-4.jpg"]',1)
+insert into Images values(447,'["xiaomi-13pro-green-1.jpg","xiaomi-13pro-green-2.jpg","xiaomi-13pro-green-3.jpg","xiaomi-13pro-green-4.jpg"]',1)
+insert into Images values(448,'["xiaomi-13pro-purple-1.jpg","xiaomi-13pro-purple-2.jpg","xiaomi-13pro-purple-3.jpg","xiaomi-13pro-purple-4.jpg"]',1)
+--xiaomi 12t pro
+insert into Images values(449,'["xiaomi-12tpro-black-1.jpg","xiaomi-12tpro-black-2.jpg","xiaomi-12tpro-black-3.jpg","xiaomi-12tpro-black-4.jpg"]',1)
+insert into Images values(450,'["xiaomi-12tpro-gray-1.jpg","xiaomi-12tpro-gray-2.jpg","xiaomi-12tpro-gray-3.jpg","xiaomi-12tpro-gray-4.jpg"]',1)
+--xiaomi 12t
+insert into Images values(451,'["xiaomi-12t-black-1.jpg","xiaomi-12t-black-2.jpg","xiaomi-12t-black-3.jpg","xiaomi-12t-black-4.jpg"]',1)
+insert into Images values(452,'["xiaomi-12t-blue-1.jpg","xiaomi-12t-blue-2.jpg","xiaomi-12t-blue-3.jpg","xiaomi-12t-blue-4.jpg"]',1)
+insert into Images values(453,'["xiaomi-12t-gray-1.jpg","xiaomi-12t-gray-2.jpg","xiaomi-12t-gray-3.jpg","xiaomi-12t-gray-4.jpg"]',1)
+--xiaomi redmi a2
+insert into Images values(454,'["xiaomi-redmia2-blue-1.jpg","xiaomi-redmia2-blue-2.jpg","xiaomi-redmia2-blue-3.jpg","xiaomi-redmia2-blue-4.jpg"]',1)
+insert into Images values(455,'["xiaomi-redmia2-black-1.jpg","xiaomi-redmia2-black-2.jpg","xiaomi-redmia2-black-3.jpg","xiaomi-redmia2-black-4.jpg"]',1)
+insert into Images values(456,'["xiaomi-redmia2-green-1.jpg","xiaomi-redmia2-green-2.jpg","xiaomi-redmia2-green-3.jpg","xiaomi-redmia2-green-4.jpg"]',1)
+--xiaomi redmi a2+
+insert into Images values(457,'["xiaomi-redmia2+-blue-1.jpg","xiaomi-redmia2+-blue-2.jpg","xiaomi-redmia2+-blue-3.jpg","xiaomi-redmia2+-blue-4.jpg"]',1)
+insert into Images values(458,'["xiaomi-redmia2+-black-1.jpg","xiaomi-redmia2+-black-2.jpg","xiaomi-redmia2+-black-3.jpg","xiaomi-redmia2+-black-4.jpg"]',1)
+insert into Images values(459,'["xiaomi-redmia2+-green-1.jpg","xiaomi-redmia2+-green-2.jpg","xiaomi-redmia2+-green-3.jpg","xiaomi-redmia2+-green-4.jpg"]',1)
+--xiaomi redmi note11
+insert into Images values(460,'["xiaomi-note11-blue-1.jpg","xiaomi-note11-blue-2.jpg","xiaomi-note11-blue-3.jpg","xiaomi-note11-blue-4.jpg"]',1)
+insert into Images values(461,'["xiaomi-note11-purple-1.jpg","xiaomi-note11-purple-2.jpg","xiaomi-note11-purple-3.jpg","xiaomi-note11-purple-.jpg"]',1)
+insert into Images values(462,'["xiaomi-note11-gray-1.jpg","xiaomi-note11-gray-2.jpg","xiaomi-note11-gray-3.jpg","xiaomi-note11-gray-4.jpg"]',1)
+--xiaomi redmi note11 pro
+insert into Images values(463,'["xiaomi-note11pro-blue-1.jpg","xiaomi-note11pro-blue-2.jpg","xiaomi-note11pro-blue-3.jpg","xiaomi-note11pro-blue-4.jpg"]',1)
+insert into Images values(464,'["xiaomi-note11pro-white-1.jpg","xiaomi-note11pro-white-2.jpg","xiaomi-note11pro-white-3.jpg","xiaomi-note11pro-white-.jpg"]',1)
+insert into Images values(465,'["xiaomi-note11pro-gray-1.jpg","xiaomi-note11pro-gray-2.jpg","xiaomi-note11pro-gray-3.jpg","xiaomi-note11pro-gray-4.jpg"]',1)
+--xiaomi redmi note11 pro+
+insert into Images values(466,'["xiaomi-note11pro+-black-1.jpg","xiaomi-note11pro+-black-2.jpg","xiaomi-note11pro+-black-3.jpg","xiaomi-note11pro+-black-4.jpg"]',1)
+insert into Images values(467,'["xiaomi-note11pro+-green-1.jpg","xiaomi-note11pro+-green-2.jpg","xiaomi-note11pro+-green-3.jpg","xiaomi-note11pro+-green-4.jpg"]',1)
+insert into Images values(468,'["xiaomi-note11pro+-blue-1.jpg","xiaomi-note11pro+-blue-2.jpg","xiaomi-note11pro+-blue-3.jpg","xiaomi-note11pro+-blue-4.jpg"]',1)
+insert into Images values(469,'["xiaomi-note11pro+-black-1.jpg","xiaomi-note11pro+-black-2.jpg","xiaomi-note11pro+-black-3.jpg","xiaomi-note11pro+-black-4.jpg"]',1)
+insert into Images values(470,'["xiaomi-note11pro+-green-1.jpg","xiaomi-note11pro+-green-2.jpg","xiaomi-note11pro+-green-3.jpg","xiaomi-note11pro+-green-4.jpg"]',1)
+insert into Images values(471,'["xiaomi-note11pro+-blue-1.jpg","xiaomi-note11pro+-blue-2.jpg","xiaomi-note11pro+-blue-3.jpg","xiaomi-note11pro+-blue-4.jpg"]',1)
