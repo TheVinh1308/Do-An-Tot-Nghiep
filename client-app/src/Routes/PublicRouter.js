@@ -18,12 +18,16 @@ const PublicRouter = () => {
 
                         <Route path='iphone' element={<ShopCategory brand="iPhone" banner={`https://localhost:7258/images/baner/iphone.jpg`} />} />
                         <Route path='samsung' element={<ShopCategory brand="Samsung" banner={`https://localhost:7258/images/baner/samsung.jpg`} />} />
-                        <Route path='vivo' element={<ShopCategory brand="vivo" banner={`https://localhost:7258/images/baner/vivo.jpg`} />} />
-                        <Route path='huawei' element={<ShopCategory brand="huawei" banner={`https://localhost:7258/images/baner/huawei.jpg`} />} />
-                        <Route path='oppo' element={<ShopCategory brand="oppo" banner={`https://localhost:7258/images/baner/oppo.jpg`} />} />
-                        <Route path='xiaomi' element={<ShopCategory brand="xiaomi" banner={`https://localhost:7258/images/baner/xiaomi.jpg`} />} />
+                        <Route path='vivo' element={<ShopCategory brand="Vivo" banner={`https://localhost:7258/images/baner/vivo.jpg`} />} />
+                        <Route path='huawei' element={<ShopCategory brand="Huawei" banner={`https://localhost:7258/images/baner/huawei.jpg`} />} />
+                        <Route path='oppo' element={<ShopCategory brand="Oppo" banner={`https://localhost:7258/images/baner/oppo.jpg`} />} />
+                        <Route path='xiaomi' element={<ShopCategory brand="Xiaomi" banner={`https://localhost:7258/images/baner/xiaomi.jpg`} />} />
                         <Route path='iphone/:id' element={<Product />}></Route>
                         <Route path='samsung/:id' element={<Product />}></Route>
+                        <Route path='vivo/:id' element={<Product />}></Route>
+                        <Route path='oppo/:id' element={<Product />}></Route>
+                        <Route path='xiaomi/:id' element={<Product />}></Route>
+                        <Route path='huawei/:id' element={<Product />}></Route>
                         <Route path='cart' element={<Cart />} />
                         <Route path='login' element={<Login />} />
                     </Route>

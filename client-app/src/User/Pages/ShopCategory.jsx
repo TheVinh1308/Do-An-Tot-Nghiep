@@ -13,6 +13,7 @@ import { Slider } from "@mui/material";
 
 const ShopCategory = (props) => {
     const { phones } = useContext(ShopContext)
+    console.log(phones);
     const [price, setPrice] = useState([1000, 560000]);
     const handleChange = (event, newValue) => {
         setPrice(newValue);
