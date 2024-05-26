@@ -1,0 +1,66 @@
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.head-body {
+    display: flex;
+    align-items: center;
+}
+
+.head-body button {
+    background: white;
+    color: black;
+    border: 1px solid black;
+    margin-left: 20px;
+}
+
+.head-body button:hover {
+    background: white;
+    color: black;
+}
+
+/* Add styles for the dropdown menu and submenus */
+.dropdown-item {
+    position: relative;
+}
+
+.dropdown-item .submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+    z-index: 1000;
+    border-radius: 5px;
+    margin-left: 1px;
+    padding: 10px;
+}
+
+.dropdown-item:hover .submenu {
+    display: block;
+}
+
+.dropdown-item .submenu .submenu-item {
+
+    padding: 5px;
+}
+
+.time-fill label {
+    padding: 0px 10px;
+}
+
+.time-fill input {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.time-fill i {
+    font-size: 1.1rem;
+}
+
+.time-fill button {
+    border-radius: 5px;
+}

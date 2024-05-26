@@ -12,6 +12,7 @@ import Review from "../Admin/Review";
 import Comment from "../Admin/Comment";
 import Brand from "../Admin/Brand/Brand";
 import OderTracking from "../Admin/Invoice/OrderTracking";
+import History from "../Admin/History/History";
 const PrivateRouter = () => {
     return (
         <>
@@ -58,7 +59,9 @@ const PrivateRouter = () => {
                         <Route path="OderTracking">
                             <Route index element={<OderTracking />} />
                         </Route>
-
+                        <Route path="History">
+                            <Route index element={<History />} />
+                        </Route>
 
                     </Route>
                 </Routes>

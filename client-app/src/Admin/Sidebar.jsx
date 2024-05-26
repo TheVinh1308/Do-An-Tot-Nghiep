@@ -83,24 +83,20 @@ const Sidebar = () => {
                     </li>{/* End Charts Nav */}
                     <li className="nav-item">
                         <a className="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-                            <i className="bi bi-gem" /><span>Quảng cáo</span><i className="bi bi-chevron-down ms-auto" />
+                            <i className="bi bi-gem" /><span>Quản trị</span><i className="bi bi-chevron-down ms-auto" />
                         </a>
                         <ul id="icons-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
                             <li>
-                                <a href="icons-bootstrap.html">
-                                    <i className="bi bi-circle" /><span>Bootstrap Icons</span>
-                                </a>
+                                <Link to="/admin/History" >
+                                    <i className="bi bi-circle" /><span>Lịch sử thao tác</span>
+                                </Link>
                             </li>
                             <li>
-                                <a href="icons-remix.html">
-                                    <i className="bi bi-circle" /><span>Remix Icons</span>
-                                </a>
+                                <Link to="/admin/History" >
+                                    <i className="bi bi-circle" /><span>Quản lý thông báo</span>
+                                </Link>
                             </li>
-                            <li>
-                                <a href="icons-boxicons.html">
-                                    <i className="bi bi-circle" /><span>Boxicons</span>
-                                </a>
-                            </li>
+
                         </ul>
                     </li>{/* End Icons Nav */}
                     <li className="nav-heading">Về chúng tôi</li>
