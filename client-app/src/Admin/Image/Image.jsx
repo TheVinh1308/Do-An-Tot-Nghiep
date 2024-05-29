@@ -21,7 +21,12 @@ const Images = () => {
     // SHOW SỬA ẢNH ĐIỆN THOẠI
     const [showEdit, setShowEdit] = useState(false);
     const handleCloseEdit = () => setShowEdit(false);
-    const handleShowEdit = () => setShowEdit(true);
+    const [ImageSelect, setImageSelect] = useState(null);
+    const handleShowEdit = (id) => {
+        setShowEdit(true);
+        setImageSelect(id);
+
+    }
 
     const [loadData, setLoadData] = useState(false);
     useEffect(() => {
@@ -70,6 +75,9 @@ const Images = () => {
                 setLoadData(true);
             });
     }, []);
+
+
+
     return (
 
         <>
@@ -105,51 +113,21 @@ const Images = () => {
                                                             <Row>
                                                                 {JSON.parse(item.path).map((imagePath, imgIndex) => (
                                                                     <Col key={imgIndex} className="col-2">
-                                                                        <Image src={'https://localhost:7258/images/image/' + imagePath} />
+                                                                        <Image src={'https://localhost:7258/images/products/' + imagePath} />
                                                                     </Col>
                                                                 ))}
                                                             </Row>
                                                         </td>
-                                                        <td className=" tb-item">IPhone 15 Pro max</td>
+                                                        <td className=" tb-item">{item.phone.name}</td>
                                                         <td className="tb-item">
                                                             <Row>
                                                                 <Col className="col-6"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                                <Col className="col-6" onClick={handleShowEdit}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
+                                                                <Col className="col-6" onClick={() => handleShowEdit(item.id)}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
                                                             </Row>
                                                         </td>
                                                     </tr>
                                                 ))
                                             }
-                                            <tr>
-                                                <td className=" tb-item">1</td>
-                                                <td className="img-phone">
-                                                    <Row>
-                                                        <Col className="col-2">
-                                                            <Image src={process.env.PUBLIC_URL + '/assets/img/Phone/ip-15-pro-max-blue-1.png'} />
-                                                        </Col>
-                                                        <Col className="col-2">
-                                                            <Image src={process.env.PUBLIC_URL + '/assets/img/Phone/ip-15-pro-max-blue-2.png'} />
-                                                        </Col>
-                                                        <Col className="col-2">
-                                                            <Image src={process.env.PUBLIC_URL + '/assets/img/Phone/ip-15-pro-max-blue-3.png'} />
-                                                        </Col>
-                                                        <Col className="col-2">
-                                                            <Image src={process.env.PUBLIC_URL + '/assets/img/Phone/ip-15-pro-max-blue-4.png'} />
-                                                        </Col>
-                                                        <Col className="col-2">
-                                                            <Image src={process.env.PUBLIC_URL + '/assets/img/Phone/ip-15-pro-max-blue-5.png'} />
-                                                        </Col>
-                                                    </Row>
-                                                </td>
-                                                <td className=" tb-item">IPhone 15 Pro max</td>
-                                                <td className="tb-item">
-                                                    <Row>
-                                                        <Col className="col-6"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                        <Col className="col-6" onClick={handleShowEdit}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                    </Row>
-                                                </td>
-                                            </tr>
-
 
                                         </tbody>
                                     </table>
@@ -178,7 +156,7 @@ const Images = () => {
                     <Modal.Title className="add-title">Cập nhật điện thoại</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <EditImage />
+                    <EditImage imageId={ImageSelect} />
                 </Modal.Body>
 
             </Modal>

@@ -20,7 +20,8 @@ namespace server_api.Repository
 
         public async Task DeleteImageAsync(int imageId)
         {
-            var image = _context.Images.SingleOrDefault(x => x.Id == imageId);
+            var image = _context.Images
+                .SingleOrDefault(x => x.Id == imageId);
             if (image != null)
             {
                 _context.Images.Remove(image);
@@ -30,13 +31,17 @@ namespace server_api.Repository
 
         public async Task<List<Image>> GetAllImageAsync()
         {
-            var images = await _context.Images.ToListAsync();
+            var images = await _context.Images
+                .Include(i=>i.Phone)
+                .ToListAsync();
             return images;
         }
 
         public async Task<Image> GetImageAsync(int id)
         {
-            var image = await _context.Images.FirstOrDefaultAsync(x => x.Id == id);
+            var image = await _context.Images
+                .Include(x=>x.Phone)
+                .FirstOrDefaultAsync(x => x.Id == id);
             return image;
         }
 
@@ -47,11 +52,6 @@ namespace server_api.Repository
             return image;
         }
 
-
-        public Task UpdateImageAsync(int imageId, Image image)
-        {
-            throw new NotImplementedException();
-        }
 
 
 
@@ -66,7 +66,7 @@ namespace server_api.Repository
                 if (file.Length > 0)
                 {
                     var fileName = file.FileName;
-                    var imagePath = Path.Combine(_environment.WebRootPath, "images", "image");
+                    var imagePath = Path.Combine(_environment.WebRootPath, "images", "products");
 
                     var uploadPath = Path.Combine(imagePath, fileName);
                     using (var fileStream = new FileStream(uploadPath, FileMode.Create))
@@ -90,6 +90,50 @@ namespace server_api.Repository
 
             return image;
         }
+
+
+        public async Task UpdateImageAsync([FromForm] int imageId, [FromForm] Image image)
+        {
+            if (imageId != image.Id)
+            {
+                throw new ArgumentException("Image ID mismatch.");
+            }
+
+            var existingImage = await _context.Images.FindAsync(imageId);
+            if (existingImage == null)
+            {
+                throw new KeyNotFoundException("Image not found.");
+            }
+
+            List<string> fileNames = new List<string>();
+
+            foreach (var file in image.Files)
+            {
+                if (file.Length > 0)
+                {
+                    var fileName = file.FileName;
+                    var imagePath = Path.Combine(_environment.WebRootPath, "images", "products");
+
+                    var uploadPath = Path.Combine(imagePath, fileName);
+                    using (var fileStream = new FileStream(uploadPath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(fileStream);
+                    }
+
+                    fileNames.Add(fileName);
+                }
+            }
+
+            string jsonFileNames = Newtonsoft.Json.JsonConvert.SerializeObject(fileNames);
+            existingImage.Path = jsonFileNames;
+            existingImage.Status = image.Status;
+            existingImage.PhoneId = image.PhoneId;
+
+            _context.Images.Update(existingImage);
+            await _context.SaveChangesAsync();
+        }
+
+
 
         public async Task<List<Image>> GetImageByModPhoneAsync(int modPhoneId)
         {

@@ -47,7 +47,7 @@ insert into ModPhones values(  'IPhone 15 Promax', 6.1, N'iPhone 15 Pro Max là 
 								tìm kiếm một chiếc điện thoại có hiệu năng mạnh mẽ, camera chất lượng và thiết kế sang trọng.', 8,1, 'iOS 17', N'Apple A17 Pro 6 nhân', '4422 mAh, 20 W','iphone-15-pro-max-titan-black.jpg',1,1 );
 insert into ModPhones values(  'IPhone 15 Pro', 6.1, N'iPhone 15 Pro là một trong những chiếc điện thoại thông minh được mong đợi nhất năm 2023. Với nhiều 
 								tính năng mới và cải tiến, iPhone 15 Pro chắc chắn sẽ là một lựa chọn tuyệt vời cho những người dùng đang tìm kiếm một chiếc 
-								điện thoại cao cấp.', 8,1, 'iOS 17', N'Apple A17 Pro 6 nhân', '3274 mAh, 20 W','iphone-15-pro-titan-white.jpg',1,1 );
+								điện thoại cao cấp.', 8,1, 'iOS 17', N'Apple A17 Pro 6 nhân', '3274 mAh, 20 W','iphone-15-pro-white-1.jpg',1,1 );
 insert into ModPhones values(  'IPhone 15 Plus', 6.7, N'iPhone 15 Plus thu hút mọi ánh nhìn ngay khi ra mắt nhờ có vẻ ngoài cao cấp, 
 								trang bị bộ xử lý mạnh mẽ, cụm camera kép đặc trưng cho khả năng chụp ảnh cực nét cùng màn hình chất lượng cao, 
 								để bạn tận hưởng trải nghiệm sử dụng tuyệt vời. ', 8,1, 'iOS 17', N'Apple A16 Bionic', '4383 mAh, 20 W','iphone-15-plus-green.jpg',1,1 );
@@ -59,7 +59,7 @@ insert into ModPhones values(  'IPhone 14 Promax ', 6.7, N'iPhone 14 Pro Max m�
 								nghiệm đầy mới mẻ cho người dùng iPhone.', 8,1, 'iOS 16', N'Apple A16 Bionic', '4323 mAh, 20 W','iphone-14-pro-max-sliver.jpg',1,1 );
 insert into ModPhones values(  'IPhone 14 Pro ', 6.7, N'iPhone 14 Pro Max một siêu phẩm trong giới smartphone được nhà Táo tung ra thị trường vào tháng 09/2022. 
 								Máy trang bị con chip Apple A16 Bionic vô cùng mạnh mẽ, đi kèm theo đó là thiết kế màn hình mới, hứa hẹn mang lại những trải 
-								nghiệm đầy mới mẻ cho người dùng iPhone.', 8,1, 'iOS 16', N'Apple A16 Bionic', '4323 mAh, 20 W','iphone-14-pro-gold.jpg',1,1 );
+								nghiệm đầy mới mẻ cho người dùng iPhone.', 8,1, 'iOS 16', N'Apple A16 Bionic', '4323 mAh, 20 W','iphone-14-pro-max-sliver.jpg',1,1 );
 insert into ModPhones values(  'IPhone 14 Plus ', 6.7, N'Sau nhiều thế hệ điện thoại của Apple thì cái tên “Plus” cũng đã chính thức trở lại vào năm 2022 
 								và xuất hiện trên chiếc iPhone 14 Plus 128GB, nổi trội với ngoại hình bắt trend cùng màn hình kích thước lớn để đem đến không gian 
 								hiển thị tốt hơn cùng cấu hình mạnh mẽ không đổi so với bản tiêu chuẩn.', 6,1, 'iOS 16', N'Apple A15 Bionic', '4325 mAh, 20 W','iphone-14-plus-yellow.jpg',1,1 );
@@ -70,13 +70,13 @@ insert into ModPhones values(  'IPhone 13 Promax', 6.7, N'Điện thoại iPhone
 								không mấy đột phá khi so với người tiền nhiệm, bên trong đây vẫn là một sản phẩm có màn hình siêu đẹp, tần số quét được nâng cấp lên 120 Hz mượt mà, 
 								cảm biến camera có kích thước lớn hơn, cùng hiệu năng mạnh mẽ với sức mạnh đến từ Apple A15 Bionic, sẵn sàng cùng bạn chinh phục mọi thử thách.', 6,1, 'iOS 15', N'Apple A15 Bionic', '4352 mAh, 20 W','iphone-13-pro-max-xanh-la.jpg',1,1 );
 insert into ModPhones values(  'IPhone 13 Pro', 6.1, N'Mỗi lần ra mắt phiên bản mới là mỗi lần iPhone chiếm sóng trên khắp các mặt trận và lần này cái tên khiến vô số người "sục sôi" là iPhone 13 Pro,
-								chiếc điện thoại thông minh vẫn giữ nguyên thiết kế cao cấp, cụm 3 camera được nâng cấp, cấu hình mạnh mẽ cùng thời lượng pin lớn ấn tượng. ', 6,1, 'iOS 15', N'Apple A15 Bionic', '3095 mAh, 20 W','iphone-13-pro-bac.jpg',1,1 );
+								chiếc điện thoại thông minh vẫn giữ nguyên thiết kế cao cấp, cụm 3 camera được nâng cấp, cấu hình mạnh mẽ cùng thời lượng pin lớn ấn tượng. ', 6,1, 'iOS 15', N'Apple A15 Bionic', '3095 mAh, 20 W','iphone-13-pro-blue-3.jpg',1,1 );
 insert into ModPhones values(  'IPhone 13 ', 6.1, N'Apple thỏa mãn sự chờ đón của iFan và người dùng với sự ra mắt của iPhone 13. Dù ngoại hình không có nhiều thay đổi so với iPhone 12 nhưng với cấu hình mạnh mẽ hơn, 
 								đặc biệt pin “trâu” hơn và khả năng quay phim chụp ảnh cũng ấn tượng hơn, hứa hẹn mang đến những trải nghiệm thú vị trên phiên bản mới này.', 4,1, 'iOS 15', N'Apple A15 Bionic', '3240 mAh, 20 W','iphone-13-hong.jpg',1,1 );
 insert into ModPhones values(  'IPhone 12 Promax ', 6.7, N'iPhone 12 Pro Max 128 GB một siêu phẩm smartphone đến từ Apple. Máy có một hiệu năng hoàn toàn mạnh mẽ đáp ứng tốt
 								nhiều nhu cầu đến từ người dùng và mang trong mình một thiết kế đầy vuông vức, sang trọng.', 6,1, 'iOS 15', N'Apple A14 Bionic', '3687 mAh, 20 W','iphone-12-pro-max-gold.jpg',1,1 );
 insert into ModPhones values(  'IPhone 12 Pro ', 6.1, N'iPhone 12 Pro - "Siêu phẩm công nghệ" với nhiều nâng cấp mạnh
-								mẽ về thiết kế, cấu hình và hiệu năng, khẳng định đẳng cấp thời thượng trên thị trường smartphone cao cấp.', 6,1, 'iOS 15', N'Apple A14 Bionic', '2815 mAh, 20 W','iphone-12-pro-bac.jpg',1,1 );
+								mẽ về thiết kế, cấu hình và hiệu năng, khẳng định đẳng cấp thời thượng trên thị trường smartphone cao cấp.', 6,1, 'iOS 15', N'Apple A14 Bionic', '2815 mAh, 20 W','iphone-12-pro-sliver-2.jpg',1,1 );
 insert into ModPhones values(  'IPhone 12 ', 6.1, N'Trong những tháng cuối năm 2020, Apple đã chính thức giới thiệu đến người dùng cũng như iFan thế hệ iPhone 12 series mới với hàng loạt tính năng bứt phá, 
 								thiết kế được lột xác hoàn toàn, hiệu năng đầy mạnh mẽ và một trong số đó chính là iPhone 12 64GB.', 4,1, 'iOS 15', N'Apple A14 Bionic', '2815 mAh, 20 W','iphone-12-tim.jpg',1,1 );
 insert into ModPhones values(  'IPhone 11 Promax ', 6.5, N'Trong năm 2019 thì chiếc smartphone được nhiều người mong muốn sở hữu trên tay và sử dụng nhất không ai khác chính là iPhone 11 Pro Max 64GB 
@@ -172,7 +172,7 @@ insert into ModPhones values(  'OPPO Reno11 F', 6.7, N'OPPO Reno11 F 5G là mộ
 insert into ModPhones values(  'OPPO Reno11 Pro', 6.7, N'OPPO Reno11 F 5G là một chiếc điện thoại tầm trung mới được OPPO ra mắt trong thời gian gần đây. Máy sở hữu nhiều ưu điểm nổi bật như thiết kế trẻ trung, màn hình đẹp, hiệu năng mạnh mẽ nhờ chip Dimensity 7050 5G,
 								hứa hẹn mang đến trải nghiệm tốt khi sử dụng.', 12,4, 'Android 14', N'MediaTek Dimensity 8200 5G 8 nhân', '4600 mAh, 80w','oppo-reno11p-white-1.jpg',1,1 );
 insert into ModPhones values(  'OPPO Reno11', 6.7, N'OPPO Reno11 5G tiếp tục mang đến sự hấp dẫn cho người dùng, lấy cảm hứng từ những thành công trước đó. Điểm độc đáo của chiếc điện thoại nằm ở thiết kế thu hút, cấu hình mạnh mẽ và khả năng chụp ảnh ấn tượng. 
-								Được tạo ra để đáp ứng một loạt các nhu cầu từ giải trí, nhiếp ảnh đến công việc đòi hỏi hiệu năng cao.', 8,4, 'Android 14', N'MediaTek Dimensity 7050 5G 8 nhân', '5000 mAh, 67w','oppo-reno11-gray-1.jpg',1,1 );
+								Được tạo ra để đáp ứng một loạt các nhu cầu từ giải trí, nhiếp ảnh đến công việc đòi hỏi hiệu năng cao.', 8,4, 'Android 14', N'MediaTek Dimensity 7050 5G 8 nhân', '5000 mAh, 67w','oppo-reno11-green-3.jpg',1,1 );
 insert into ModPhones values(  'OPPO Reno10 Pro+', 6.74, N'OPPO Reno10 Pro+ 5G là một sản phẩm tiếp nối sự thành công của thế hệ trước đó, với thiết kế đẹp mắt, cấu hình mạnh mẽ và máy ảnh chất lượng cao. Máy đáp ứng được nhu cầu giải trí, chụp ảnh và làm việc của người dùng, 
 								là lựa chọn hoàn hảo cho những ai đang tìm kiếm một chiếc điện thoại đa năng và hiện đại.', 12,4, 'Android 13', N'Snapdragon 8+ Gen 1', '4700 mAh, 100w','oppo-remo10p+-gray-1.jpg',1,1 );
 insert into ModPhones values(  'OPPO Reno10 Pro', 6.7, N'OPPO Reno10 Pro 5G là một trong những sản phẩm của OPPO được ra mắt trong 2023. Với thiết kế đẹp mắt, màn hình lớn và hiệu năng mạnh mẽ, Reno10 Pro chắc chắn sẽ là lựa chọn đáng cân nhắc dành cho
@@ -188,7 +188,7 @@ insert into ModPhones values(  'OPPO A78 ', 6.43, N'OPPO A78 một sản phẩm 
 
 -- MOD PHONE XIAOMI
 insert into ModPhones values(  'Xiaomi 14 Ultra', 6.73, N'Xiaomi Redmi Note 11 Pro 4G mang trong mình khá nhiều những nâng cấp cực kì sáng giá. Là chiếc điện thoại có màn hình lớn, tần số quét 120 Hz,
-								hiệu năng ổn định cùng một viên pin siêu trâu.', 6,5, 'Android 11', N'Snapdragon 695 5G', '4500 mAh, 120w','xiaomi-14-ultra-black-2.jpg',1,1 );
+								hiệu năng ổn định cùng một viên pin siêu trâu.', 6,5, 'Android 11', N'Snapdragon 695 5G', '4500 mAh, 120w','xiaomi-14-ultra-gray-3.jpg',1,1 );
 insert into ModPhones values(  'Xiaomi 14', 6.36, N'Xiaomi 14 được ra mắt với tâm hướng mang đến những trải nghiệm mới mẻ và chất lượng. Như một lá cờ đầu trong ngành công nghệ, điện thoại không chỉ có thiết kế đẹp mà còn ấn tượng về màn hình,
 								cấu hình mạnh mẽ, máy ảnh chất lượng và pin có thời gian sử dụng lâu dài.', 12,5, 'Android 14', N'Snapdragon 8 Gen 3', '4610 mAh, 90w','xiaomi-14-white-1.jpg',1,1 );
 insert into ModPhones values(  'Xiaomi 13T Pro ', 6.67, N'Xiaomi 13T Pro 5G là mẫu máy thuộc phân khúc tầm trung đáng chú ý tại thị trường Việt Nam. Điện thoại ấn tượng nhờ được trang bị chip Dimensity 9200+,
@@ -214,27 +214,27 @@ insert into ModPhones values(  'Xiaomi Redmi Note 11 Pro+', 6.67, N'Xiaomi Redmi
 
 -- MOD PHONE HAUWEI
 insert into ModPhones values(  'HUAWEI Mate 30 Pro', 6.53, N'Những năm gần đây thì Huawei luôn mang tới cho người dùng sự bất ngờ với những trang bị đột phá lần đầu tiên xuất hiện trên chiếc smartphone của mình và
-								mới đây chiếc Huawei Mate 30 Pro đã chính thức ra mắt và nó vẫn mang trong mình rất nhiều công nghệ mang tính đột phá của Huawei.', 8,6, 'EMUI 10', N'Kirin 990', '4500 mAh','hwm30pro.png',1,1 );
+								mới đây chiếc Huawei Mate 30 Pro đã chính thức ra mắt và nó vẫn mang trong mình rất nhiều công nghệ mang tính đột phá của Huawei.', 8,6, 'EMUI 10', N'Kirin 990', '4500 mAh','huawai-mate30pro-1.jpg',1,1 );
 insert into ModPhones values(  'HUAWEI Mate 20 Pro', 6.39, N'Thế hệ siêu phẩm mới của Huawei chính thức lộ diện với cái tên Huawei Mate 20 Pro, chiếc điện thoại thu hút trong thiết kế, mạnh mẽ trong hiệu năng cùng một hệ thống 
-								camera ấn tượng.', 6,6, 'Android 9', N'Kirin 990', '4200 mAh','hwm20pro.png',1,1 );
+								camera ấn tượng.', 6,6, 'Android 9', N'Kirin 990', '4200 mAh','huawei-mate20pro-purple-1.jpg',1,1 );
 insert into ModPhones values(  'HUAWEI Mate 20X', 7.2, N'Huawei Mate 20 X là mẫu smartphone với cấu hình cực khủng và hướng trực tiếp vào
-								đối tượng khách hàng game thủ.', 6,6, 'Android 9', N'Kirin 980', '5000 mAh','hwm20x.png',1,1 );
+								đối tượng khách hàng game thủ.', 6,6, 'Android 9', N'Kirin 980', '5000 mAh','huawei-20x-1.jpg',1,1 );
 insert into ModPhones values(  'HUAWEI Mate 20', 6.5, N'Huawei Mate 20 là chiếc flagship mới được Huawei ra mắt với điểm nhấn tới từ 3 camera ở mặt lưng và chất lượng chụp ảnh 
-								thuộc hàng tốt nhất thế giới hiện nay.', 6,6, 'Android 9', N'Kirin 980', '4000 mAh','hwm20.png',1,1 );
+								thuộc hàng tốt nhất thế giới hiện nay.', 6,6, 'Android 9', N'Kirin 980', '4000 mAh','huawei-mate20-blue-1.jpg',1,1 );
 insert into ModPhones values(  'Huawei P40 Pro+', 6.58, N'Huawei P40 Pro Plus là siêu phẩm cao cấp nhất trong bộ ba flagship vừa được Huawei ra mắt vào cuối tháng 3/2020. Máy có một màn hình tràn cạnh ấn tượng, 
-								cấu hình khủng, đặc biệt cụm camera zoom xa 100x vượt ngoài mọi mong đợi.', 8,6, 'EMUI 10', N'Kirin 990 5G', '4200 mAh','hwp40prop.png',1,1 );
-insert into ModPhones values(  'Huawei P40 Pro+', 6.58, N'Huawei P40 Pro Plus là siêu phẩm cao cấp nhất trong bộ ba flagship vừa được Huawei ra mắt vào cuối tháng 3/2020. Máy có một màn hình tràn cạnh ấn tượng, 
-								cấu hình khủng, đặc biệt cụm camera zoom xa 100x vượt ngoài mọi mong đợi.', 8,6, 'EMUI 10', N'Kirin 990', '4200 mAh','hwp40pro.png',1,1 );
+								cấu hình khủng, đặc biệt cụm camera zoom xa 100x vượt ngoài mọi mong đợi.', 8,6, 'EMUI 10', N'Kirin 990 5G', '4200 mAh','huawei-p40pro+-1.jpg',1,1 );
+insert into ModPhones values(  'Huawei P40 Pro', 6.58, N'Huawei P40 Pro là siêu phẩm cao cấp nhất trong bộ ba flagship vừa được Huawei ra mắt vào cuối tháng 3/2020. Máy có một màn hình tràn cạnh ấn tượng, 
+								cấu hình khủng, đặc biệt cụm camera zoom xa 100x vượt ngoài mọi mong đợi.', 8,6, 'EMUI 10', N'Kirin 990', '4200 mAh','huawei-p40pro-blue-1.jpg',1,1 );
 insert into ModPhones values(  'Huawei P30 Pro', 6.47, N'Huawei P30 Pro là một bước đột phá của Huawei cũng như camera trên smartphone
-								khi đem lại khả năng zoom như một "kính viễn vọng".', 8,6, 'Android 9 (Pie)', N'Kirin 980', '4200 mAh','hwp30pro.png',1,1 );
+								khi đem lại khả năng zoom như một "kính viễn vọng".', 8,6, 'Android 9 (Pie)', N'Kirin 980', '4200 mAh','huawei-p30pro-purple-1.jpg',1,1 );
 insert into ModPhones values(  'Huawei P30', 6.1, N'Huawei P30 là chiếc smartphone cao cấp vừa được Huawei giới thiệu với thiết kế tuyệt đẹp,
-								hiệu năng mạnh mẽ và thiết lập camera ấn tượng.', 8,6, 'Android 9 (Pie)', N'Kirin 980', '3650 mAh','hwp30.png',1,1 );
+								hiệu năng mạnh mẽ và thiết lập camera ấn tượng.', 8,6, 'Android 9 (Pie)', N'Kirin 980', '3650 mAh','huawei-p30-blue-1.jpg',1,1 );
 insert into ModPhones values(  'Huawei Nova 7i', 6.4, N'Sau thành công dòng sản phẩm Nova 3i, Nova 5i, Huawei tiếp tục cho ra mắt người kế nhiệm mang tên Huawei Nova 7i với nhiều đột phá về cấu hình, thiết kế và camera. 
-								Đi kèm với giá thành phải chăng, thiết bị hứa hẹn tạo nên cơn sốt điện thoại cho năm 2020.', 8,6, 'EMUI 10', N'Kirin 810', '4200 mAh, 40 W','hwn7i.png',1,1 );
+								Đi kèm với giá thành phải chăng, thiết bị hứa hẹn tạo nên cơn sốt điện thoại cho năm 2020.', 8,6, 'EMUI 10', N'Kirin 810', '4200 mAh, 40 W','huawei-nova7i-green-1.jpg',1,1 );
 insert into ModPhones values(  'Huawei Nova 5T', 6.25, N'Huawei Nova 5T là mẫu smartphone có cấu hình mạnh mẽ, thiết kế thời trang, đánh mạnh vào khâu chụp ảnh selfie với camera 32 MP,
-								nhưng lại có giá bán rất cạnh tranh.', 8,6, 'Android 9 (Pie)', N'Kirin 980', '3750 mAh','hwn5t.png',1,1 );
+								nhưng lại có giá bán rất cạnh tranh.', 8,6, 'Android 9 (Pie)', N'Kirin 980', '3750 mAh','huawei-nova5t-green-1.jpg',1,1 );
 insert into ModPhones values(  'Huawei Nova 3i', 6.3, N'Với những smartphone như Nova 2i hay Nova 3e thì Huawei đã và đang tạo nên những cơn sốt rất lớn trong phân khúc tầm trung và cái tên mới
-								Huawei Nova 3i được cải tiến và nâng cấp nhiều điểm mới, hứa hẹn sẽ mang lại làn gió mới cho thị trường.', 4,6, 'EMUI 9', N'Kirin 710', '3340 mAh','hwn3i.png',1,1 );
+								Huawei Nova 3i được cải tiến và nâng cấp nhiều điểm mới, hứa hẹn sẽ mang lại làn gió mới cho thị trường.', 4,6, 'EMUI 9', N'Kirin 710', '3340 mAh','huawei-nova3i-white-1.jpg',1,1 );
 													
 -- IPHONE 15 ID: 1 -> 15
 insert into Phones values('iPhone 15 128GB','1512804000001',4,21299000,10,'black',128)
@@ -856,6 +856,40 @@ insert into Phones values('Xiaomi Redmi Note 11 Pro+ 128GB','XRN111P287503',75,5
 insert into Phones values('Xiaomi Redmi Note 11 Pro+ 256GB','XRN11PP2567601',76,6590000,10,'black',256)
 insert into Phones values('Xiaomi Redmi Note 11 Pro+ 256GB','XRN11PP2567602',76,6590000,10,'green',256)
 insert into Phones values('Xiaomi Redmi Note 11 Pro+ 256GB','XRN11PP2567603',76,6590000,10,'blue',256)
+
+
+-- Huawei MATE 30 PRO
+insert into Phones values ('Huawei Mate 30 Pro 256GB', 'HM30P256001', 77, 14490000,10, 'blue', 256)
+-- Huawei mate 20 pro
+insert into Phones values ('Huawei Mate 20 Pro 128GB', 'HM20P128001', 78, 13990000,10, 'black', 128)
+insert into Phones values ('Huawei Mate 20 Pro 128GB', 'HM20P128002', 78, 13990000,10, 'green', 128)
+insert into Phones values ('Huawei Mate 20 Pro 128GB', 'HM20P128003', 78, 13990000,10, 'purple', 128)
+-- Huawei mate 20x
+insert into Phones values ('Huawei Mate 20X 128GB', 'HM20X128001', 79, 15950000,10, 'purple', 128)
+-- Huawei mate 20
+insert into Phones values ('Huawei Mate 20 128GB', 'HM201280001', 80, 12990000,10, 'black', 128)
+insert into Phones values ('Huawei Mate 20 128GB', 'HM201280002', 80, 12990000,10, 'blue', 128)
+-- Huawei P40 Pro+
+insert into Phones values ('Huawei P40 Pro Plus 256GB', 'HMP40256001', 81, 12990000, 10,'gray', 256)
+-- Huawei P40 Pro
+insert into Phones values ('Huawei P40 Pro 256GB', 'HMP40256001', 82, 12990000,10, 'blue', 256)
+insert into Phones values ('Huawei P40 Pro 256GB', 'HMP40256002', 82, 12990000,10, 'gray', 256)
+-- Huawei P30 Pro
+insert into Phones values ('Huawei P30 Pro 256GB', 'HMP30P25601', 83, 12490000,10, 'blue', 256)
+insert into Phones values ('Huawei P30 Pro 256GB', 'HMP30P25602', 83, 12490000,10, 'purple', 256)
+-- Huawei P30
+insert into Phones values ('Huawei P30 128GB', 'HMP30256001', 84, 12990000,10, 'black', 128)
+insert into Phones values ('Huawei P30 128GB', 'HMP30256002', 84, 12990000,10, 'blue', 128)
+-- Huawei Nova 7i
+insert into Phones values ('Huawei Nova 7i 128GB', 'HMN7I128001', 85, 14440000,10, 'green', 128)
+insert into Phones values ('Huawei Nova 7i 128GB', 'HMN7I128002', 85, 14440000,10, 'pink', 128)
+-- Huawei Nova 5t
+insert into Phones values ('Huawei Nova 5t 128GB', 'HMN5T128001', 86, 8290000,10, 'blue', 128)
+insert into Phones values ('Huawei Nova 5t 128GB', 'HMN5T128002', 86, 8290000, 10,'green', 128)
+-- Huawei Nova 3i
+insert into Phones values ('Huawei Nova 3i 128GB', 'HMN3I128001', 87, 8290000, 10,'black', 128)
+insert into Phones values ('Huawei Nova 3i 128GB', 'HMN3I128002', 87, 8290000, 10,'purple', 128)
+insert into Phones values ('Huawei Nova 3i 128GB', 'HMN3I128003', 87, 8290000, 10,'white', 128)
 --Image IPHONE 15
 --128GB
 insert into Images values(1, '["iphone-15-black.jpg", "iphone-15-black-1.jpg", "iphone-15-black-2.jpg", "iphone-15-black-3.jpg"]', 1)
@@ -1433,3 +1467,36 @@ insert into Images values(468,'["xiaomi-note11pro+-blue-1.jpg","xiaomi-note11pro
 insert into Images values(469,'["xiaomi-note11pro+-black-1.jpg","xiaomi-note11pro+-black-2.jpg","xiaomi-note11pro+-black-3.jpg","xiaomi-note11pro+-black-4.jpg"]',1)
 insert into Images values(470,'["xiaomi-note11pro+-green-1.jpg","xiaomi-note11pro+-green-2.jpg","xiaomi-note11pro+-green-3.jpg","xiaomi-note11pro+-green-4.jpg"]',1)
 insert into Images values(471,'["xiaomi-note11pro+-blue-1.jpg","xiaomi-note11pro+-blue-2.jpg","xiaomi-note11pro+-blue-3.jpg","xiaomi-note11pro+-blue-4.jpg"]',1)
+
+-- Image huawei mate 30pro
+insert into Images values(472,'["huawei-mate30pro-blue-1.jpg","huawei-mate30pro-blue-2.jpg","huawei-mate30pro-blue-3.jpg","huawei-mate30pro-blue-4.jpg"]',1)
+-- Image huawei mate 20pro 
+insert into Images values(473,'["huawei-mate20pro-black-1.jpg","huawei-mate20pro-black-2.jpg","huawei-mate20pro-black-3.jpg","huawei-mate20pro-black-4.jpg"]',1)
+insert into Images values(474,'["huawei-mate20pro-green-1.jpg","huawei-mate20pro-green-2.jpg","huawei-mate20pro-green-3.jpg","huawei-mate20pro-green-4.jpg"]',1)
+insert into Images values(475,'["huawei-mate20pro-purple-1.jpg","huawei-mate20pro-purple-2.jpg","huawei-mate20pro-purple-3.jpg","huawei-mate20pro-purple-4.jpg"]',1)
+-- Image Huawei mate 20x
+insert into Images values(476,'["huawei-20x-1.jpg","huawei-20x-2.jpg","huawei-20x-3.jpg","huawei-20x-4.jpg"]',1)
+-- Image Huawei mate 20
+insert into Images values(477,'["huawei-mate20-black-1.jpg","huawei-mate20-black-2.jpg","huawei-mate20-black-3.jpg","huawei-mate20-black-4.jpg"]',1)
+insert into Images values(478,'["huawei-mate20-blue-1.jpg","huawei-mate20-blue-2.jpg","huawei-mate20-blue-3.jpg","huawei-mate20-blue-4.jpg"]',1)
+-- Image huawei p40 pro +
+insert into Images values(479,'["huawei-p40pro+-1.jpg","huawei-p40pro+-2.jpg","huawei-p40pro+-3.jpg","huawei-p40pro+-4.jpg"]',1)
+-- Image huawei p40 pro
+insert into Images values(480,'["huawei-p40pro-blue-1.jpg","huawei-p40pro-blue-2.jpg","huawei-p40pro-blue-3.jpg","huawei-p40pro-blue-4.jpg"]',1)
+insert into Images values(481,'["huawei-p40pro-gray-1.jpg","huawei-p40pro-gray-2.jpg","huawei-p40pro-gray-3.jpg","huawei-p40pro-gray-4.jpg"]',1)
+-- Image huawei P30 pro
+insert into Images values(482,'["huawei-p30pro-blue-1.jpg","huawei-p30pro-blue-2.jpg","huawei-p30pro-blue-3.jpg","huawei-p30pro-blue-4.jpg"]',1)
+insert into Images values(483,'["huawei-p30pro-purple-1.jpg","huawei-p30pro-purple-2.jpg","huawei-p30pro-purple-3.jpg","huawei-p30pro-purple-4.jpg"]',1)
+-- Image P30
+insert into Images values(484,'["huawei-p30-black-1.jpg","huawei-p30-black-2.jpg","huawei-p30-black-3.jpg","huawei-p30-black-4.jpg"]',1)
+insert into Images values(485,'["huawei-p30-blue-1.jpg","huawei-p30-blue-2.jpg","huawei-p30-blue-3.jpg","huawei-p30-blue-4.jpg"]',1)
+-- Image huawei Nova 7i
+insert into Images values(486,'["huawei-nova7i-green-1.jpg","huawei-nova7i-green-2.jpg","huawei-nova7i-green-3.jpg","huawei-nova7i-green-4.jpg"]',1)
+insert into Images values(487,'["huawei-nova7i-pink-1.jpg","huawei-nova7i-pink-2.jpg","huawei-nova7i-pink-3.jpg","huawei-nova7i-pink-4.jpg"]',1)
+-- Image huawei nova 5t
+insert into Images values(488,'["huawei-nova5t-blue-1.jpg","huawei-nova5t-blue-2.jpg","huawei-nova5t-blue-3.jpg","huawei-nova5t-blue-4.jpg"]',1)
+insert into Images values(489,'["huawei-nova5t-green-1.jpg","huawei-nova5t-green-2.jpg","huawei-nova5t-green-3.jpg","huawei-nova5t-green-4.jpg"]',1)
+-- Image huawei nova 3i
+insert into Images values(490,'["huawei-nova3i-black-1.jpg","huawei-nova3i-black-2.jpg","huawei-nova3i-black-3.jpg","huawei-nova3i-black-4.jpg"]',1)
+insert into Images values(490,'["huawei-nova3i-purple-1.jpg","huawei-nova3i-purple-2.jpg","huawei-nova3i-purple-3.jpg","huawei-nova3i-purple-4.jpg"]',1)
+insert into Images values(490,'["huawei-nova3i-white-1.jpg","huawei-nova3i-white-2.jpg","huawei-nova3i-white-3.jpg","huawei-nova3i-white-4.jpg"]',1)
