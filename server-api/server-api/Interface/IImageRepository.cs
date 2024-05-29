@@ -9,7 +9,7 @@ namespace server_api.Interface
         Task<List<Image>> GetAllImageAsync();
         Task<Image> GetImageAsync(int id);
         Task<Image> InsertImageAsync([FromForm]Image image);
-        Task UpdateImageAsync(int imageId, Image image);
+        Task UpdateImageAsync([FromForm] int id, [FromForm] Image image);
 
         Task<Image> GetImageForPhoneAsync(int phoneId);
         Task<List<Image>> GetImageByModPhoneAsync(int modPhoneId);

@@ -92,17 +92,11 @@ namespace server_api.Repository
         }
 
 
-        public async Task UpdateImageAsync([FromForm] int imageId, [FromForm] Image image)
+        public async Task UpdateImageAsync([FromForm] int id, [FromForm] Image image)
         {
-            if (imageId != image.Id)
+            if (id != image.Id)
             {
                 throw new ArgumentException("Image ID mismatch.");
-            }
-
-            var existingImage = await _context.Images.FindAsync(imageId);
-            if (existingImage == null)
-            {
-                throw new KeyNotFoundException("Image not found.");
             }
 
             List<string> fileNames = new List<string>();
@@ -125,11 +119,10 @@ namespace server_api.Repository
             }
 
             string jsonFileNames = Newtonsoft.Json.JsonConvert.SerializeObject(fileNames);
-            existingImage.Path = jsonFileNames;
-            existingImage.Status = image.Status;
-            existingImage.PhoneId = image.PhoneId;
+            image.Path = jsonFileNames;
+          
 
-            _context.Images.Update(existingImage);
+            _context.Images.Update(image);
             await _context.SaveChangesAsync();
         }
 

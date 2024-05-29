@@ -78,10 +78,8 @@ const ProductDisplay = (props) => {
                                                     setSelectedRomButton(availableRom.phone.rom);
                                                 }
                                             }
-                                        }, [colors, roms, selectedColor, selectedRom, selectedColorButton, selectedRomButton, handleChangeColor]);
-                                        
-                                        
-                                        
+                                        }, [colors, roms, selectedColor, selectedRom, selectedColorButton, selectedRomButton]);
+                                           
     console.log('mau duoc chon',selectedColor);
     console.log('rom duoc chon', selectedRom);
 
@@ -142,7 +140,7 @@ const ProductDisplay = (props) => {
                    
                 </div>
                 <div className="productdisplay-right">
-                    <h1>{product.name}</h1>
+                    <h1>{selectedPhone && selectedPhone.name }</h1>
                     <div className="productdisplay-right-star">
                         <img src={star_icon} alt="" />
                         <img src={star_icon} alt="" />
@@ -152,8 +150,8 @@ const ProductDisplay = (props) => {
                         <p>(122)</p>
                     </div>
                     <div className="productdisplay-right-prices">
-                        <div className="productdisplay-right-price-old">${product.price}</div>
-                        <div className="productdisplay-right-price-new">${product.price}</div> 
+                        <div className="productdisplay-right-price-old">${selectedPhone && selectedPhone.price}</div>
+                        <div className="productdisplay-right-price-new">${selectedPhone &&  selectedPhone.price}</div> 
                     </div>
                     <div className="productdisplay-right-description">
                         {product.modPhone.description}
@@ -175,6 +173,7 @@ const ProductDisplay = (props) => {
                                                     handleChangeColor(item.phoneId);
                                                     setSelectedRom(item.phone.rom);
                                                     setSelectedRomButton(item.phone.rom);
+                                                    setSelectedColorButton(item.phone.color);
                                                 }}
                                             >
                                                 {item.phone.rom}
@@ -192,7 +191,7 @@ const ProductDisplay = (props) => {
                                 item.phone.rom === selectedRom && (
                                   <button
                                     key={index}
-                                    className={`${selectedColorButton === item.phone.color ? 'selected' : ''} ${item.phone.stock < 1 && selectedRom === item.phone.rom ? 'disabled' : ''}`}
+                                    className={`${selectedColorButton === item.phone.color  ? 'selected' : ''} ${item.phone.stock < 1 && selectedRom === item.phone.rom ? 'disabled' : ''}`}
                                     style={{ background: "#fff", width: 60, height: 60, margin: 0, padding: 0 }}
                                     disabled={selectedRom === item.phone.rom && item.phone.stock < 1}
                                     onClick={() => {
@@ -210,7 +209,7 @@ const ProductDisplay = (props) => {
                         </div>
                     </div>
                    
-                    {/* <button onClick={() => addToCart(product.id)}>ADD TO CART</button> */}
+                    {/* <button onClick={() => addToCart(selectedPhone.id)}>ADD TO CART</button> */}
                     <p className="productdisplay-right-category"><span>Category: </span>Women, T-Shirt, Crop Top</p>
                     <p className="productdisplay-right-category"><span>Tag: </span>Modern, Latest</p>
                 </div>

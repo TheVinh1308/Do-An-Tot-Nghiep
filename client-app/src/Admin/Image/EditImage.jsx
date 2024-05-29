@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
-const EditImage = ({ imageId }) => {
+const EditImage = ({ imageId,setIsSave }) => {
     const [imageSrcs, setImageSrcs] = useState([]);
     const [isInsert, setIsInsert] = useState(false);
     const [image, setImage] = useState({ status: true, Files: [] });
+    
 
     const handleImageChange = (e) => {
         let files = e.target.files;
@@ -28,8 +29,6 @@ const EditImage = ({ imageId }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const formData = new FormData();
-
         if (Array.isArray(image.Files)) {
             const formData = new FormData();
 
@@ -39,8 +38,10 @@ const EditImage = ({ imageId }) => {
             });
 
             // Append other form data fields
+             formData.append('id', image.id);
             formData.append('status', image.status);
             formData.append('phoneId', image.phoneId);
+            console.log(formData);
 
             axios.put(`https://localhost:7258/api/Images/${imageId}`, formData, {
                 headers: {
@@ -48,9 +49,10 @@ const EditImage = ({ imageId }) => {
                 },
             })
                 .then((res) => {
-                    setIsInsert(true);
                     setImage(res.data);
                     alert("Success");
+                    setIsInsert(true);
+                    
                 })
                 .catch((err) => {
                     alert("Thêm thất bại!!!");
@@ -69,7 +71,7 @@ const EditImage = ({ imageId }) => {
             .then(res => {
                 setPhones(res.data);
             });
-    }, []);
+    }, [isInsert]);
 
 
     const [getImage, setGetImage] = useState({ phone: {} });
@@ -86,11 +88,12 @@ const EditImage = ({ imageId }) => {
                     setTest(imagePaths);
                 }
             });
-    }, [imageId]);
+    }, [imageId,isInsert]);
     console.log(test[0]);
     return (
         <>
             <form className="form-modphone g-3" datatype="" onSubmit={handleSubmit}>
+                <input type="hidden" name="id" value={getImage.id} onChange={handleSelect} />
                 <Row>
                     <Col className="col-8 form-item" md={8} xs={12}>
                         <i class="bi bi-image"></i>

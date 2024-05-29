@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./CSS/ShopCategory.css"
 import dropdown_icon from "../Components/Assets/dropdown_icon.png"
 import Item from "../Components/Item/Item";
@@ -10,11 +10,22 @@ import Dropdown from "react-bootstrap/Dropdown";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { DropdownButton, Row } from "react-bootstrap";
 import { Slider } from "@mui/material";
+import axios from "axios";
 
 const ShopCategory = (props) => {
     const { phones } = useContext(ShopContext)
     console.log(phones);
     const [price, setPrice] = useState([1000, 560000]);
+    const [images, setImages] = useState([]);
+
+
+
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Images`)
+          .then((res) => {
+            setImages(res.data);
+          });
+    }, []); 
     const handleChange = (event, newValue) => {
         setPrice(newValue);
     };
@@ -171,16 +182,22 @@ const ShopCategory = (props) => {
                     item !== null ?
                         props.brand === item.modPhone.brand.name
                             ?
+                            Array.isArray(images) && images.map((itemImg, indexImg) => (
+                                itemImg.phoneId === item.id ?
                             <Item
                                 key={index}
                                 id={item.id}
                                 name={item.name}
-                                image={`https://localhost:7258/images/products/${item.modPhone.image}`}
-                            // new_price={item.new_price} 
+                                image={`https://localhost:7258/images/products/${JSON.parse(itemImg.path)[0]}`}
+                                price={(item.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} 
                             // ld_price={item.old_price}
                             />
                             : null
+                            ))
+                            : null
+                            
                         : null
+                            
                 ))}
             </div>
             <div className="shopcategory-loadmore">

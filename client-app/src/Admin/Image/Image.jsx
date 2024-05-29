@@ -24,7 +24,7 @@ const Images = () => {
     const [ImageSelect, setImageSelect] = useState(null);
     const handleShowEdit = (id) => {
         setShowEdit(true);
-        setImageSelect(id);
+        setImageSelect(id)
 
     }
 
@@ -74,7 +74,7 @@ const Images = () => {
                 // setDataTableData(res.data); // Cập nhật dữ liệu DataTable
                 setLoadData(true);
             });
-    }, []);
+    }, [show,handleCloseEdit,handleClose]);
 
 
 

@@ -54,6 +54,24 @@ namespace server_api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> EditImage([FromForm] int id, [FromForm] Image image)
+        {
+            if (id != image.Id)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                await _imageRepository.UpdateImageAsync(id,image);
+                return CreatedAtAction(nameof(GetImageById), new { id = image.Id }, image);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         [HttpGet]
         [Route("GetImgByModPhone/{modPhoneId}")]
