@@ -1,8 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
-import "./CSS/Login.css"
+import { useNavigate } from "react-router-dom";
+import "./CSS/Register.css"
 import axios from "axios";
 import { useState } from "react";
-const Login = () => {
+const Register = () => {
     const [account, setAccount] = useState({});
     const navigate = useNavigate();
     const [error, setError] = useState(null);
@@ -16,39 +16,36 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`https://localhost:7258/api/Users/login`, account)
+        axios.post(`https://localhost:7258/api/Users/register`, account)
             .then(res => {
-                localStorage.setItem("jwt", res.data.token);
-                // setCookie('token', res.data.token, { path: '/' });
                 if (res.status === 200) {
-                    navigate("/");
+                    navigate("/login");
 
                 }
             })
             .catch(error => {
-                setError("Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại!");
+                setError("Đăng ký thất bại!");
                 console.log(error);
             });
     }
     return ( 
     <>
-        <div className="login">
-            <div className="login-container">
+        <div className="register">
+            <div className="register-container">
                 <h1>Sign Up</h1>
-                <div className="login-fields">
+                <div className="register-fields">
                     <input type="text" placeholder="Username" name="Username" onChange={handleChange}/>
                     <input type="password"  placeholder="Password" name="Password" onChange={handleChange}/>
+                    <input type="text"  placeholder="Fullname" name="Fullname" onChange={handleChange}/>
+                    <input type="email"  placeholder="Email" name="Email" onChange={handleChange}/>
+                    <input type="number"  placeholder="Phone" name="Phone" onChange={handleChange}/>
                 </div>
                 <p style={{color: "red"}}>{error}</p>
-                <button onClick={handleSubmit}>Continute</button>
-                <p className="login-login">Already have an account? <Link to="/register"><span>Đăng ký tại đây.</span></Link></p>
-                <div className="login-agree">
-                    {/* <input type="checkbox" name="" id=""/> */}
-                    {/* <p>By continuing, i agree to the terms of use & privacy policy</p> */}
-                </div>
+                <button onClick={handleSubmit}>Đăng ký</button>
+                
             </div>
         </div>
     </> );
 }
  
-export default Login;
+export default Register;

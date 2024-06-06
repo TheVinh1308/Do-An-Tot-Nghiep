@@ -74,8 +74,8 @@ const Images = () => {
                 // setDataTableData(res.data); // Cập nhật dữ liệu DataTable
                 setLoadData(true);
             });
-    }, [show,handleCloseEdit,handleClose]);
-
+    }, [show,showEdit]);
+    console.log(images);
 
 
     return (

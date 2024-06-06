@@ -1,7 +1,7 @@
 import "./Navbar.css"
 import logo from "../Assets/logo.png"
 import cart_icon from "../Assets/cart_icon.png"
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
 import nav_droppdown from "../Assets/dropdown_icon.png"
@@ -11,6 +11,8 @@ import vivo_icon from "../Assets/vivo.png"
 import oppo_icon from "../Assets/oppo.png"
 import huawei_icon from "../Assets/huawei.png"
 import xiaomi_icon from "../Assets/xiaomi.png"
+import 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 const Navbar = () => {
     const [menu, setMenu] = useState();
     // const shopContext = useContext(ShopContext);
@@ -20,6 +22,30 @@ const Navbar = () => {
         menuRef.current.classList.toggle('nav-menu-visible')
         e.target.classList.toggle('open')
     }
+
+    const [userId, setUserId] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userName, setUserName] = useState();
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt');
+        if (token) {
+            const decoded = jwtDecode(token);
+            setUserName(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"]);
+            setUserId(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
+            setIsAuthenticated(true);
+        }
+    }, []);
+
+    const handleLogout = () => {
+        // Xóa token khỏi cookie
+        window.location.href = "/"
+        localStorage.removeItem("jwt")
+
+        // Cập nhật trạng thái đăng nhập
+        setIsAuthenticated(false);
+
+    };
     return (
         <>
             <div className="navbar">
@@ -63,9 +89,29 @@ const Navbar = () => {
 
                 </ul>
                 <div className="nav-login-cart">
-                    <Link to="/login">
-                        <button>Login</button>
-                    </Link>
+                   
+                    <nav role="navigation" class="primary-navigation">
+                        <ul>
+                            {
+                                isAuthenticated ?  
+                                <li><a href="#">{userName}</a>
+                                <ul class="dropdown">
+                                    <li><a href="">Trạng thái đơn hàng</a></li>
+                                    <li><a href="">Lịch sử mua hàng</a></li>
+                                    <li><a href="">Sản phẩm yêu thích</a></li>
+                                    <li><a href="" onClick={handleLogout}>Đăng xuất</a></li>
+                                </ul>
+                                </li>
+                                : 
+                                <>
+                                    <Link to="/login"><li>Đăng nhập</li></Link>
+                                </>
+                            }
+                           
+
+                        </ul>
+                    </nav>
+                  
                     <Link to="/cart">
                         <img src={cart_icon} alt="" />
                     </Link>

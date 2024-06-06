@@ -1,0 +1,133 @@
+﻿using API_Server.Models;
+using EshopIdentity.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using server_api.Interface;
+using server_api.Models;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Principal;
+using System.Text;
+
+namespace server_api.Repository
+{
+    public class UserRepository : IUserRepository
+    {
+        private readonly UserManager<User> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IConfiguration _configuration;
+
+        public UserRepository(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        {
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _configuration = configuration;
+        }
+
+        public async Task<List<User>> GetAllUserAsync()
+        {
+            return await _userManager.Users.ToListAsync();
+        }
+
+        public async Task<User> GetUserAsync(string id)
+        {
+            var user = await _userManager.Users.Where(u => u.Id == id).FirstOrDefaultAsync();
+
+            return user;
+        }
+
+        public async Task<string> LoginAsync([Bind("Username", "Password")] LoginModel account)
+        {
+            var user = await _userManager.FindByNameAsync(account.Username);
+            if (user != null && await _userManager.CheckPasswordAsync(user, account.Password))
+            {
+                var userRoles = await _userManager.GetRolesAsync(user);
+
+                var authClaims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, user.UserName),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id),
+                    new Claim(ClaimTypes.GivenName, user.Fullname),
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                };
+
+                foreach (var userRole in userRoles)
+                {
+                    authClaims.Add(new Claim(ClaimTypes.Role, userRole));
+                }
+
+                var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
+
+                var token = new JwtSecurityToken(
+                    issuer: _configuration["JWT:ValidIssuer"],
+                    audience: _configuration["JWT:ValidAudience"],
+                    expires: DateTime.Now.AddHours(3),
+                    claims: authClaims,
+                    signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
+                );
+
+                return new JwtSecurityTokenHandler().WriteToken(token);
+            }
+
+            return null;
+        }
+
+        public async Task<string> RegisterAdminAsync([Bind("Username", "Password", "Fullname", "Email", "Phone")] RegisterModel account)
+        {
+            var userExists = await _userManager.FindByNameAsync(account.Username);
+            if (userExists != null)
+                return null;
+
+            User user = new User()
+            {
+                Email = account.Email,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                UserName = account.Username,
+                Fullname = account.Fullname,
+                PhoneNumber = account.Phone,
+            };
+            var result = await _userManager.CreateAsync(user, account.Password);
+            if (!result.Succeeded)
+                return null;
+
+            if (!await _roleManager.RoleExistsAsync("Admin"))
+                await _roleManager.CreateAsync(new IdentityRole("Admin"));
+            if (!await _roleManager.RoleExistsAsync("User"))
+                await _roleManager.CreateAsync(new IdentityRole("User"));
+
+            if (await _roleManager.RoleExistsAsync("Admin"))
+            {
+                await _userManager.AddToRoleAsync(user, "Admin");
+            }
+            return result.Succeeded.ToString();
+        }
+
+        public async Task<string> RegisterAsync([Bind("Username", "Password", "Fullname", "Email", "Phone")] RegisterModel account)
+        {
+            var userExists = await _userManager.FindByNameAsync(account.Username);
+            if (userExists != null)
+                return null;
+
+            User user = new User()
+            {
+                Email = account.Email,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                UserName = account.Username,
+                Fullname = account.Fullname,
+                PhoneNumber = account.Phone,
+            };
+            var result = await _userManager.CreateAsync(user, account.Password);
+            if (!result.Succeeded)
+                return null; // User creation failed
+            if (await _roleManager.RoleExistsAsync("User"))
+            {
+                await _userManager.AddToRoleAsync(user, "User");
+            }
+
+            return result.Succeeded.ToString();
+
+        }
+    }
+}
