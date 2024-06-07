@@ -81,5 +81,18 @@ namespace server_api.Controllers
             return image == null ? NotFound() : Ok(image);
         }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteImage(int id)
+        {
+            try
+            {
+                await _imageRepository.DeleteImageAsync(id);
+                return Ok();
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

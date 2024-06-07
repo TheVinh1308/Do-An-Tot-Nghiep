@@ -37,6 +37,7 @@ namespace server_api.Data
 
         public DbSet<Vote> Votes { get; set; } = default!;
 
+        public DbSet<Historys> Historys { get; set; } = default!;
 
     }
 }

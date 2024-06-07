@@ -40,6 +40,8 @@ insert into Brands values ( 'Huawei', 'Huawei.png', 1, GETDATE())
 -- =========================== PROMOTION =============================
 insert into Promotions values (N'Không khuyến mãi', 0,1)
 
+-- ========================== HISTORYS ==============================
+insert into Historys values (
 -- =========================== MODPHONE =============================
 -- MOD PHONE IPHONE
 insert into ModPhones values(  'IPhone 15 Promax', 6.1, N'iPhone 15 Pro Max là một chiếc điện thoại thông minh cao cấp được mong đợi nhất năm 2023. 

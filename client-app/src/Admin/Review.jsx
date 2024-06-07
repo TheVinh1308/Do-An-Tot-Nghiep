@@ -6,8 +6,9 @@ import { Button, Col, Image, Modal, Row, ProgressBar } from "react-bootstrap";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import StarRatings from "react-star-ratings";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "./Footer/Footer";
+import axios from "axios";
 const Review = () => {
     let sumRate = 47;
     let num = 10;
@@ -28,6 +29,28 @@ const Review = () => {
     const handleReply = () => {
         setReply(!reply);
     }
+
+    const [modPhones, setModPhones] = useState([]);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/ModPhones`)
+            .then(res => {
+                setModPhones(res.data);
+            });
+    }, []);
+
+    const [modPhoneId, setModPhoneId] = useState(1);
+    const handleGetIdModPhone = (modPhoneId) => {
+        setModPhoneId(modPhoneId);
+    }
+
+
+    const [modPhoneSelected, setModPhoneSelected] = useState({});
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/ModPhones/${modPhoneId}`)
+            .then(res => {
+                setModPhoneSelected(res.data);
+            });
+    }, [modPhoneId]);
     return (
         <>
             <Header />
@@ -38,26 +61,20 @@ const Review = () => {
                     <div className="row">
                         <Col className="col-4">
                             <aside id="sidebar" className="sidebar-review">
-                                <ul className="list-review">
-                                    <li>IPhone 15 Pro max</li>
-                                    <li>IPhone 15 Pro</li>
-                                    <li>IPhone 15 </li>
-                                    <li>Điện thoại 01</li>
-                                    <li>Điện thoại 01</li>
-                                    <li>Điện thoại 01</li>
-                                    <li>Điện thoại 01</li>
-                                    <li>Điện thoại 01</li>
-                                    <li>Điện thoại 01</li>
-                                    <li>Điện thoại 01</li>
-                                    <li>Điện thoại 01</li>
-                                    <li>Điện thoại 01</li>
+                                <ul className="list-review" style={{ maxHeight: "100vh", overflow: "scroll", cursor: "pointer" }}>
+                                    {
+                                        modPhones.map((item, index) => (
+                                            <li key={index} onClick={() => { handleGetIdModPhone(item.id) }}>{item.name}</li>
+                                        ))
+                                    }
+
                                 </ul>
                             </aside>
                         </Col>
                         <Col className="col-8">
                             <Row className="preview">
                                 <Col className="col-6 thumbnail-review">
-                                    <img src={process.env.PUBLIC_URL + '/assets/img/Phone/ip-15-pro-max-blue-1.png'} width="100%" />
+                                    <img src={'https://localhost:7258/images/modPhones/' + modPhoneSelected.image} width="100%" />
 
                                 </Col>
                                 <Col className="col-6">

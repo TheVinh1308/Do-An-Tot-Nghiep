@@ -37,6 +37,14 @@ const History = () => {
         setTitle(title);
     }
 
+    const [history, setHistory] = useState([]);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/History`)
+            .then(res => {
+                setHistory(res.data);
+            });
+    }, []);
+
     return (
         <>
             <Header />
@@ -108,6 +116,14 @@ const History = () => {
                                         </thead>
                                         <tbody>
                                             <tr>
+                                                {
+                                                    history.map((item, index) => (
+                                                        <tr key={index}>
+                                                            <td>{item.id}</td>
+                                                            {/* <td>{item.user.}</td> */}
+                                                        </tr>
+                                                    ))
+                                                }
                                                 <td>001</td>
                                                 <td>Phạm Hoan Vinh</td>
                                                 <td>Mua hàng</td>

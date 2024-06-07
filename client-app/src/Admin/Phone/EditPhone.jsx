@@ -29,6 +29,15 @@ const EditPhone = ({ PhoneId }) => {
             .then(res => {
                 setPhone(res.data);
                 navigate("/admin/Phone");
+                const formDataHistory = new FormData();
+                formDataHistory.append("action", "Chỉnh sửa");
+                formDataHistory.append("time", new Date().toISOString());
+                formDataHistory.append("productId", PhoneId);
+                formDataHistory.append("operation", "Sửa");
+                axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                    .then(ress => {
+
+                    })
             })
             .catch(error => {
                 console.error('Error adding phone:', error);
