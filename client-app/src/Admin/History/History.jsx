@@ -6,6 +6,7 @@ import $ from "jquery";
 import Footer from "../Footer/Footer";
 import InforHistory from "./InforHistory";
 import "./History.css"
+import axios from "axios";
 
 const History = () => {
     const [loadData, setLoadData] = useState(false);

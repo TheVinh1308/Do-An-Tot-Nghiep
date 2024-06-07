@@ -50,7 +50,7 @@ const Images = () => {
                 setImages(res.data);
                 setLoadData(true);
             });
-    }, [show,handleCloseEdit,handleClose]);
+    }, [show, handleCloseEdit, handleClose]);
 
 
 
@@ -92,7 +92,7 @@ const Images = () => {
                                                     <td>{item.phone.name}</td>
                                                     <td>
                                                         <Row>
-                                                            <Col className="col-6" onClick={() => handleDelete(item.id)}>
+                                                            <Col className="col-6" >
                                                                 <i className="bi bi-trash btn btn-danger"></i>
                                                             </Col>
                                                             <Col className="col-6" onClick={() => handleShowEdit(item.id)}>
