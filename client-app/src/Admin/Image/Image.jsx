@@ -50,21 +50,9 @@ const Images = () => {
                 setImages(res.data);
                 setLoadData(true);
             });
-    }, [show, handleCloseEdit, handleClose]);
+    }, [show,handleCloseEdit,handleClose]);
 
-    const handleDelete = (imageId) => {
-        const shouldDelete = window.confirm("Bạn có chắc chắn muốn xoá ảnh này?");
-        if (shouldDelete) {
-            axios.delete(`https://localhost:7258/api/Images/${imageId}`)
-                .then(() => {
-                    const updatedData = dataTableData.filter(image => image.id !== imageId);
-                    setDataTableData(updatedData);
-                })
-                .catch(error => {
-                    console.error("Xoá ảnh không thành công: ", error);
-                });
-        }
-    };
+
 
     return (
         <>

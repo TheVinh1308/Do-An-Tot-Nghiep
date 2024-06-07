@@ -71,7 +71,7 @@ const EditImage = ({ imageId,setIsSave }) => {
             .then(res => {
                 setPhones(res.data);
             });
-    }, [isInsert]);
+    }, []);
 
 
     const [getImage, setGetImage] = useState({ phone: {} });
@@ -88,7 +88,7 @@ const EditImage = ({ imageId,setIsSave }) => {
                     setTest(imagePaths);
                 }
             });
-    }, [imageId,isInsert]);
+    }, [imageId]);
     console.log(test[0]);
     return (
         <>

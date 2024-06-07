@@ -7,6 +7,7 @@ import men_banner from "../User/Components/Assets/banner_mens.png"
 import women_banner from "../User/Components/Assets/banner_women.png"
 import kid_banner from "../User/Components/Assets/banner_kids.png"
 import Shop from "../User/Pages/Shop";
+import Register from "../User/Pages/Register";
 
 const PublicRouter = () => {
     return (
@@ -30,6 +31,7 @@ const PublicRouter = () => {
                         <Route path='huawei/:id' element={<Product />}></Route>
                         <Route path='cart' element={<Cart />} />
                         <Route path='login' element={<Login />} />
+                        <Route path='register' element={<Register />} />
                     </Route>
                 </Routes>
 
