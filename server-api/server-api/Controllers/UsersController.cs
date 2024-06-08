@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using server_api.Interface;
 using server_api.Models;
+using server_api.Repository;
 
 namespace server_api.Controllers
 {
@@ -74,6 +75,19 @@ namespace server_api.Controllers
             else
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new { Message = "Đăng ký admin thất bại." });
+            }
+        }
+        [HttpGet]
+        [Route("roles")]
+        public async Task<IActionResult> GetListRole()
+        {
+            try
+            {
+                return Ok(await _userRepository.ListRole());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 

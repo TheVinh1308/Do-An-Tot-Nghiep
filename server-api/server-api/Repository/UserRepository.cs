@@ -38,6 +38,12 @@ namespace server_api.Repository
             return user;
         }
 
+        public async Task<List<IdentityRole>> ListRole()
+        {
+            var roles = await _roleManager.Roles.ToListAsync();
+            return roles;
+        }
+
         public async Task<string> LoginAsync([Bind("Username", "Password")] LoginModel account)
         {
             var user = await _userManager.FindByNameAsync(account.Username);
