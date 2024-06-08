@@ -116,25 +116,21 @@ const History = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                {
-                                                    history.map((item, index) => (
-                                                        <tr key={index}>
-                                                            <td>{item.id}</td>
-                                                            {/* <td>{item.user.}</td> */}
-                                                        </tr>
-                                                    ))
-                                                }
-                                                <td>001</td>
-                                                <td>Phạm Hoan Vinh</td>
-                                                <td>Mua hàng</td>
-                                                <td>25/05/2024</td>
-                                                <td>Samsung Galaxy S24</td>
-                                                <td>Thêm</td>
-                                                <td>01</td>
-                                                <td onClick={handleShowApp}><i className="bi bi-info-circle-fill btn btn-success"></i></td>
-                                            </tr>
-                                            {/* Các hàng khác */}
+                                            {
+                                                history.map((item, index) => (
+                                                    <tr key={index}>
+                                                        <td>{item.id}</td>
+                                                        <td>{item.user?.fullname}</td>
+                                                        <td>{item.action}</td>
+                                                        <td>{item.time}</td>
+                                                        <td>{item.phone.name}</td>
+                                                        <td>{item.operation}</td>
+                                                        <td>{item.amount}</td>
+                                                        <td onClick={handleShowApp}><i className="bi bi-info-circle-fill btn btn-success"></i></td>
+                                                    </tr>
+                                                ))
+                                            }
+
                                         </tbody>
                                     </table>
                                 </div>

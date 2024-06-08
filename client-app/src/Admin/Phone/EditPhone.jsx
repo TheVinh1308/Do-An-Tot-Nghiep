@@ -1,4 +1,5 @@
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { Button, Col, Form, Image, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
@@ -8,6 +9,22 @@ const EditPhone = ({ PhoneId }) => {
     const navigate = useNavigate();
 
     const { id } = useParams();
+
+    // User
+    const [userId, setUserId] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userName, setUserName] = useState();
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt');
+        if (token) {
+            const decoded = jwtDecode(token);
+            setUserName(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"]);
+            setUserId(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
+            setIsAuthenticated(true);
+        }
+    }, []);
+    // end user
 
     const handleChange = (e) => {
         let name = e.target.name;
@@ -30,7 +47,8 @@ const EditPhone = ({ PhoneId }) => {
                 setPhone(res.data);
                 navigate("/admin/Phone");
                 const formDataHistory = new FormData();
-                formDataHistory.append("action", "Chỉnh sửa");
+                formDataHistory.append("action", "Chỉnh sửa thông tin");
+                formDataHistory.append("userId", userId);
                 formDataHistory.append("time", new Date().toISOString());
                 formDataHistory.append("productId", PhoneId);
                 formDataHistory.append("operation", "Sửa");

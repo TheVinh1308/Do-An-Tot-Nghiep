@@ -11,9 +11,9 @@ namespace API_Server.Models
         [ForeignKey("UserId")]
         public User User { get; set; }
 
-        public int PhoneId {  get; set; }
+        public int ModPhoneId {  get; set; }
 
-        public Phone Phone { get; set; }
+        public ModPhone ModPhone { get; set; }
 
         public string Content { get; set; }
 

@@ -16,10 +16,10 @@ namespace API_Server.Models
         // Reference navigation property cho khóa ngoại đến Invoice
         public Invoice Invoice { get; set; }
 
-        public int PhoneId { get; set; }
+        public int ModPhoneId { get; set; }
 
         // Navigation reference property cho khóa ngoại đến Product
-        public Phone Phone { get; set; }
+        public ModPhone ModPhone { get; set; }
         public double Rate { get; set; }
         public string Content {  get; set; }
         public string Path { get; set; }

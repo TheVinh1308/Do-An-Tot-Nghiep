@@ -22,7 +22,10 @@ namespace server_api.Repository
 
         public Task<List<Historys>> GetAllHistoryAsync()
         {
-          var historys = _context.Historys.ToListAsync();
+          var historys = _context.Historys
+                .Include(h=>h.User)
+                .Include(h=>h.Phone)
+                .ToListAsync();
             return historys;
         }
 
