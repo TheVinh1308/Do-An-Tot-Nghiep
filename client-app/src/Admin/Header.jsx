@@ -5,12 +5,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [sidebarOpen, setSidebarOpen] = useState(true);
     return (
         <>
             <header id="header" className="header fixed-top d-flex align-items-center">
                 <div className="d-flex align-items-center justify-content-between collapse">
-                    <a href="index.html" className="logo d-flex align-items-center">
+                    <a href="" className="logo d-flex align-items-center">
                         <img src={process.env.PUBLIC_URL + "/assets/img/logo.png"} alt />
                         <span className="d-none d-lg-block">NiceAdmin</span>
                     </a>

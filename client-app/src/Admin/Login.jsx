@@ -1,53 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
-import "./CSS/Login.css"
-import axios from "axios";
-import { useState } from "react";
+import { Link } from "react-router-dom";
+
 const Login = () => {
-    const [account, setAccount] = useState({});
-    const navigate = useNavigate();
-    const [error, setError] = useState(null);
-    const handleChange = (e) => {
-        let name = e.target.name;
-        let value = e.target.value;
-        setAccount(prev => ({ ...prev, [name]: value }));
-    }
-
-    console.log(account);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        axios.post(`https://localhost:7258/api/Users/login`, account)
-            .then(res => {
-                localStorage.setItem("jwt", res.data.token);
-                // setCookie('token', res.data.token, { path: '/' });
-                if (res.status === 200) {
-                    navigate("/");
-
-                }
-            })
-            .catch(error => {
-                setError("Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại!");
-                console.log(error);
-            });
-    }
     return (
         <>
-            {/* <div className="login">
-            <div className="login-container">
-                <h1>Sign Up</h1>
-                <div className="login-fields">
-                    <input type="text" placeholder="Username" name="Username" onChange={handleChange}/>
-                    <input type="password"  placeholder="Password" name="Password" onChange={handleChange}/>
-                </div>
-                <p style={{color: "red"}}>{error}</p>
-                <button onClick={handleSubmit}>Continute</button>
-                <p className="login-login">Already have an account? <Link to="/register"><span>Đăng ký tại đây.</span></Link></p>
-                <div className="login-agree">
-                  
-                </div>
-            </div>
-        </div> */}
-
             <main>
                 <div className="container">
                     <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
@@ -71,16 +26,15 @@ const Login = () => {
                                                     <label htmlFor="yourUsername" className="form-label">Username</label>
                                                     <div className="input-group has-validation">
                                                         <span className="input-group-text" id="inputGroupPrepend">@</span>
-                                                        <input type="text" name="Username" onChange={handleChange} className="form-control" id="yourUsername" required />
+                                                        <input type="text" name="username" className="form-control" id="yourUsername" required />
                                                         <div className="invalid-feedback">Please enter your username.</div>
                                                     </div>
                                                 </div>
                                                 <div className="col-12">
                                                     <label htmlFor="yourPassword" className="form-label">Password</label>
-                                                    <input type="password" name="Password" onChange={handleChange} className="form-control" id="yourPassword" required />
+                                                    <input type="password" name="password" className="form-control" id="yourPassword" required />
                                                     <div className="invalid-feedback">Please enter your password!</div>
                                                 </div>
-                                                <p style={{ color: "red" }}>{error}</p>
                                                 <div className="col-12">
                                                     <div className="form-check">
                                                         <input className="form-check-input" type="checkbox" name="remember" defaultValue="true" id="rememberMe" />
@@ -88,16 +42,20 @@ const Login = () => {
                                                     </div>
                                                 </div>
                                                 <div className="col-12">
-                                                    <button className="btn btn-primary w-100" type="submit" onClick={handleSubmit}>Login</button>
+                                                    <button className="btn btn-primary w-100" type="submit">Login</button>
                                                 </div>
                                                 <div className="col-12">
-                                                    <p className="small mb-0">Don't have account? <Link to="/register">Create an account</Link></p>
+                                                    <p className="small mb-0">Don't have account? <Link to="/admin/Register">Create an account</Link></p>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                     <div className="credits">
-
+                                        {/* All the links in the footer should remain intact. */}
+                                        {/* You can delete the links only if you purchased the pro version. */}
+                                        {/* Licensing information: https://bootstrapmade.com/license/ */}
+                                        {/* Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ */}
+                                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +63,9 @@ const Login = () => {
                     </section>
                 </div>
             </main>
-        </>);
+
+        </>
+    );
 }
 
 export default Login;

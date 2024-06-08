@@ -13,6 +13,8 @@ import Comment from "../Admin/Comment";
 import Brand from "../Admin/Brand/Brand";
 import OderTracking from "../Admin/Invoice/OrderTracking";
 import History from "../Admin/History/History";
+import Register from "../Admin/Register";
+import Login from "../Admin/Login";
 const PrivateRouter = () => {
     return (
         <>
@@ -62,7 +64,12 @@ const PrivateRouter = () => {
                         <Route path="History">
                             <Route index element={<History />} />
                         </Route>
-
+                        <Route path="Register">
+                            <Route index element={<Register />} />
+                        </Route>
+                        <Route path="Login">
+                            <Route index element={<Login />} />
+                        </Route>
                     </Route>
                 </Routes>
             </BrowserRouter>

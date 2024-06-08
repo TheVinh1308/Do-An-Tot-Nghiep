@@ -1497,3 +1497,9 @@ h6 {
 #menu ul li svg {
   margin-right: 10px;
 }
+
+/* LOGIN + REGISTER  */
+.register {
+  background-color: white !important;
+  height: 100% !important;
+}
