@@ -1,6 +1,7 @@
 import { faFilePen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 
@@ -16,7 +17,21 @@ const AddModProduct = () => {
         setModPhone(prev => ({ ...prev, ImageFile: e.target.files[0] }));
     }
 
+    // User
+    const [userId, setUserId] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userName, setUserName] = useState();
 
+    useEffect(() => {
+        const token = localStorage.getItem('jwt');
+        if (token) {
+            const decoded = jwtDecode(token);
+            setUserName(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"]);
+            setUserId(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
+            setIsAuthenticated(true);
+        }
+    }, []);
+    // end user
     const handleChange = (e) => {
         let name = e.target.name;
         let value = e.target.value;
@@ -41,8 +56,20 @@ const AddModProduct = () => {
             }
         }) // Pass formData here
             .then(res => {
+                const newModPhone = res.data;
                 setBrand(res.data);
                 setIsInsert(true);
+                const formDataHistory = new FormData();
+                formDataHistory.append("action", "Thêm dòng điện gf thoại");
+                formDataHistory.append("userId", userId);
+                formDataHistory.append("time", new Date().toISOString());
+                formDataHistory.append("productId", newModPhone.id);
+                formDataHistory.append("operation", "Thêm");
+                formDataHistory.append("amount", 1);
+                axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                    .then(ress => {
+
+                    })
             })
             .catch(error => {
                 console.error('Error adding brand:', error);

@@ -11,6 +11,7 @@ import EditBrand from "./EditBrand";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import { jwtDecode } from "jwt-decode";
 const Brand = () => {
     // SHOW THÊM DÒNG ĐIỆN THOẠI
     const [show, setShow] = useState(false);
@@ -68,6 +69,22 @@ const Brand = () => {
         }
     }, [loadData]);
 
+    // User
+    const [userId, setUserId] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userName, setUserName] = useState();
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt');
+        if (token) {
+            const decoded = jwtDecode(token);
+            setUserName(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"]);
+            setUserId(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
+            setIsAuthenticated(true);
+        }
+    }, []);
+    // end user
+
     // LẤY NGÀY HIỆN TẠI
     var day = new Date();
     const [dataTableData, setDataTableData] = useState([]);
@@ -89,6 +106,17 @@ const Brand = () => {
                     // Xoá thành công, cập nhật dữ liệu DataTable
                     const updatedData = dataTableData.filter(brand => brand.id !== brandId);
                     setDataTableData(updatedData);
+                    const formDataHistory = new FormData();
+                    formDataHistory.append("action", "Xoá nhãn hiệu");
+                    formDataHistory.append("userId", userId);
+                    formDataHistory.append("time", new Date().toISOString());
+                    formDataHistory.append("productId", 1);
+                    formDataHistory.append("operation", "Xoá");
+                    formDataHistory.append("amount", 1);
+                    axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                        .then(ress => {
+
+                        })
                 })
                 .catch(error => {
                     console.error("Xoá brand không thành công: ", error);

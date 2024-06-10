@@ -11,6 +11,7 @@ import AddPhone from "./AddPhone";
 import EditPhone from "./EditPhone";
 import axios from "axios";
 import Footer from "../Footer/Footer";
+import { jwtDecode } from "jwt-decode";
 
 const Phone = () => {
     // SHOW THÊM ĐIỆN THOẠI
@@ -78,15 +79,45 @@ const Phone = () => {
             });
     }, [phones])
 
+    // User
+    const [userId, setUserId] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userName, setUserName] = useState();
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt');
+        if (token) {
+            const decoded = jwtDecode(token);
+            setUserName(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"]);
+            setUserId(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
+            setIsAuthenticated(true);
+        }
+    }, []);
+    // end user
+
+
     // XOÁ PHONE
     const handleDelete = (phoneId) => {
         const shouldDelete = window.confirm("Bạn có chắc chắn muốn xoá brand này?");
         if (shouldDelete) {
             axios.delete(`https://localhost:7258/api/Phones/${phoneId}`)
                 .then(() => {
+                    const deletePhone = phones.find(p => p.id = phoneId);
+                    const formDataHistory = new FormData();
+                    formDataHistory.append("action", "Xoá điện thoại");
+                    formDataHistory.append("userId", userId);
+                    formDataHistory.append("time", new Date().toISOString());
+                    formDataHistory.append("productId", deletePhone.id);
+                    formDataHistory.append("operation", "Xoá");
+                    formDataHistory.append("amount", deletePhone.stock);
+                    axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                        .then(ress => {
+
+                        })
                     // Xoá thành công, cập nhật dữ liệu DataTable
                     const updatedData = dataTableData.filter(phone => phone.id !== phoneId);
                     setDataTableData(updatedData);
+
                 })
                 .catch(error => {
                     console.error("Xoá phone không thành công: ", error);

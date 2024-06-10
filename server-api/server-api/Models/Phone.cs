@@ -20,10 +20,12 @@ namespace API_Server.Models
 
         public int Rom {  get; set; }
 
+        public bool Status { get; set; }
         public Phone()
         {
             Price = 0;
             Stock = 0;
+            Status = true;
         }
 
        

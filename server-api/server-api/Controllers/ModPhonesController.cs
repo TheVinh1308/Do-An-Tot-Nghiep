@@ -78,7 +78,7 @@ namespace server_api.Controllers
 
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBrand(int id)
+        public async Task<IActionResult> DeleteModPhone(int id)
         {
             try
             {

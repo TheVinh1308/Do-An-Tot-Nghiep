@@ -1,4 +1,5 @@
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { Button, Col, Form, Image, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +10,21 @@ const AddPhone = () => {
     const [clickSku, seClickSku] = useState(false);
     const [modPhones, setModPhones] = useState([]);
 
+    // User
+    const [userId, setUserId] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userName, setUserName] = useState();
 
+    useEffect(() => {
+        const token = localStorage.getItem('jwt');
+        if (token) {
+            const decoded = jwtDecode(token);
+            setUserName(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"]);
+            setUserId(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
+            setIsAuthenticated(true);
+        }
+    }, []);
+    // end user
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -56,10 +71,21 @@ const AddPhone = () => {
         });
         axios.post(`https://localhost:7258/api/Phones`, formData) // Pass formData here
             .then(res => {
-                setPhone(res.data);
+                const newPhone = res.data;
+                setPhone(newPhone);
                 navigate("/admin/Phone");
                 setIsInsert(true);
-                console.log(res.data);
+                const formDataHistory = new FormData();
+                formDataHistory.append("action", "Thêm điện thoại");
+                formDataHistory.append("userId", userId);
+                formDataHistory.append("time", new Date().toISOString());
+                formDataHistory.append("productId", newPhone.id);
+                formDataHistory.append("operation", "Thêm");
+                formDataHistory.append("amount", newPhone.stock);
+                axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                    .then(ress => {
+
+                    })
             })
             .catch(error => {
                 console.error('Error adding phone:', error);

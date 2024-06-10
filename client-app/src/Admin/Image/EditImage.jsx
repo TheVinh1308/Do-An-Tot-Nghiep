@@ -1,12 +1,27 @@
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
-const EditImage = ({ imageId,setIsSave }) => {
+const EditImage = ({ imageId, setIsSave }) => {
     const [imageSrcs, setImageSrcs] = useState([]);
     const [isInsert, setIsInsert] = useState(false);
     const [image, setImage] = useState({ status: true, Files: [] });
-    
 
+    // User
+    const [userId, setUserId] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userName, setUserName] = useState();
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt');
+        if (token) {
+            const decoded = jwtDecode(token);
+            setUserName(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"]);
+            setUserId(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
+            setIsAuthenticated(true);
+        }
+    }, []);
+    // end user
     const handleImageChange = (e) => {
         let files = e.target.files;
         let name = e.target.name;
@@ -38,7 +53,7 @@ const EditImage = ({ imageId,setIsSave }) => {
             });
 
             // Append other form data fields
-             formData.append('id', image.id);
+            formData.append('id', image.id);
             formData.append('status', image.status);
             formData.append('phoneId', image.phoneId);
             console.log(formData);
@@ -52,7 +67,17 @@ const EditImage = ({ imageId,setIsSave }) => {
                     setImage(res.data);
                     alert("Success");
                     setIsInsert(true);
-                    
+                    const formDataHistory = new FormData();
+                    formDataHistory.append("action", "Sửa hình ảnh");
+                    formDataHistory.append("userId", userId);
+                    formDataHistory.append("time", new Date().toISOString());
+                    formDataHistory.append("productId", imageId);
+                    formDataHistory.append("operation", "Sửa");
+                    formDataHistory.append("amount", 1);
+                    axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                        .then(ress => {
+
+                        })
                 })
                 .catch((err) => {
                     alert("Thêm thất bại!!!");

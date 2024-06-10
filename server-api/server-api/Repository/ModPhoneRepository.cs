@@ -22,14 +22,16 @@ namespace server_api.Repository
             var modPhone = _context.ModPhones.SingleOrDefault(x => x.Id == modPhoneId);
             if (modPhone != null)
             {
-                _context.ModPhones.Remove(modPhone);
+                modPhone.Status = false;
                 await _context.SaveChangesAsync();
             }
         }
 
         public async Task<List<ModPhone>> GetAllModPhoneAsync()
         {
-            var modPhones = await _context.ModPhones.Include(p => p.Brand).ToListAsync();
+            var modPhones = await _context.ModPhones.Include(p => p.Brand)
+                .Where(p => p.Status == true)
+                .ToListAsync();
             return modPhones;
         }
 

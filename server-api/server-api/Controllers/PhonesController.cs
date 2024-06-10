@@ -30,6 +30,8 @@ namespace server_api.Controllers
             }
         }
 
+      
+
         [HttpGet]
         [Route("FirstByModel")]
         public async Task<IActionResult> GetFirstPhoneEachModPhone()
@@ -43,6 +45,21 @@ namespace server_api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet]
+        [Route("GetFisrtPhoneByModPhone/{modPhoneId}")]
+        public async Task<IActionResult> GetFisrtPhoneByModPhone(int modPhoneId)
+        {
+            try
+            {
+                return Ok(await _phoneRepository.GetFirstPhoneByModPhoneIdAsync(modPhoneId));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
 
         [HttpGet]
         [Route("GetListPhoneByModPhone/{modPhoneId}")]

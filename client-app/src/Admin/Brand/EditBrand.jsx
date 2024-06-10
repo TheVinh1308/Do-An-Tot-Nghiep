@@ -1,4 +1,5 @@
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { Col, Image, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
@@ -11,7 +12,21 @@ const EditBrand = ({ brandId }) => {
         setBrand((prev) => ({ ...prev, LogoFile: e.target.files[0] }));
     }
 
+    // User
+    const [userId, setUserId] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userName, setUserName] = useState();
 
+    useEffect(() => {
+        const token = localStorage.getItem('jwt');
+        if (token) {
+            const decoded = jwtDecode(token);
+            setUserName(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"]);
+            setUserId(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
+            setIsAuthenticated(true);
+        }
+    }, []);
+    // end user
     const [brand, setBrand] = useState({ status: true, LogoFile: null });
     const navigate = useNavigate();
 
@@ -33,6 +48,17 @@ const EditBrand = ({ brandId }) => {
             .then(res => {
                 setBrand(res.data);
                 navigate("/admin/Brand");
+                const formDataHistory = new FormData();
+                formDataHistory.append("action", "Sửa nhãn hiệu");
+                formDataHistory.append("userId", userId);
+                formDataHistory.append("time", new Date().toISOString());
+                formDataHistory.append("productId", 1);
+                formDataHistory.append("operation", "Sửa");
+                formDataHistory.append("amount", 1);
+                axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                    .then(ress => {
+
+                    })
             })
             .catch(error => {
                 console.error('Error adding brand:', error);

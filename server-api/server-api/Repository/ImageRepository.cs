@@ -24,7 +24,7 @@ namespace server_api.Repository
                 .SingleOrDefault(x => x.Id == imageId);
             if (image != null)
             {
-                _context.Images.Remove(image);
+                image.Status = false;
                 await _context.SaveChangesAsync();
             }
         }
@@ -33,6 +33,7 @@ namespace server_api.Repository
         {
             var images = await _context.Images
                 .Include(i=>i.Phone)
+                 .Where(i => i.Status == true)
                 .ToListAsync();
             return images;
         }

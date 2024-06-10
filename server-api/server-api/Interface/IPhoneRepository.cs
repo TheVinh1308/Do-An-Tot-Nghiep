@@ -12,5 +12,6 @@ namespace server_api.Interface
         Task DeletePhoneAsync(int phoneId);
         Task<List<Phone>> GetFirstPhoneEachModPhoneAsync();
         Task<List<Phone>> GetListPhoneByModPhoneAsync(int modPhoneId);
+        Task<Phone> GetFirstPhoneByModPhoneIdAsync(int modPhoneId);
     }
 }

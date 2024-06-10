@@ -52,6 +52,7 @@ const EditPhone = ({ PhoneId }) => {
                 formDataHistory.append("time", new Date().toISOString());
                 formDataHistory.append("productId", PhoneId);
                 formDataHistory.append("operation", "Sửa");
+                formDataHistory.append("amount", "-");
                 axios.post(`https://localhost:7258/api/History`, formDataHistory)
                     .then(ress => {
 

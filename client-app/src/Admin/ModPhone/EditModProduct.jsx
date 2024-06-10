@@ -1,4 +1,5 @@
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 const EditModPhone = ({ modPhoneId }) => {
@@ -14,7 +15,21 @@ const EditModPhone = ({ modPhoneId }) => {
         setModPhone(prev => ({ ...prev, ImageFile: e.target.files[0] }));
     }
 
+    // User
+    const [userId, setUserId] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userName, setUserName] = useState();
 
+    useEffect(() => {
+        const token = localStorage.getItem('jwt');
+        if (token) {
+            const decoded = jwtDecode(token);
+            setUserName(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"]);
+            setUserId(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
+            setIsAuthenticated(true);
+        }
+    }, []);
+    // end user
     const handleChange = (e) => {
         let name = e.target.name;
         let value = e.target.value;
@@ -30,6 +45,21 @@ const EditModPhone = ({ modPhoneId }) => {
             brand: selectedBrand
         }));
     }
+    const [phoneByModPhone, setPhoneByModPhone] = useState();
+    const fetchPhoneByModPhoneId = async (id) => {
+        try {
+            const response = await axios.get(`https://localhost:7258/api/Phones/GetFisrtPhoneByModPhone/${id}`);
+            setPhoneByModPhone(response.data);
+        } catch (error) {
+            console.error('Error fetching phone:', error);
+        }
+    }
+
+    useEffect(() => {
+        if (modPhone.id) {
+            fetchPhoneByModPhoneId(modPhone.id);
+        }
+    }, [modPhone.id]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -37,14 +67,28 @@ const EditModPhone = ({ modPhoneId }) => {
         Object.entries(modPhone).forEach(([key, value]) => {
             formData.append(key, value);
         });
+
         axios.put(`https://localhost:7258/api/ModPhones/${modPhoneId}`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
         }) // Pass formData here
             .then(res => {
-                setModPhone(res.data);
+                const newModPhone = res.data;
+                setModPhone(newModPhone);
                 setIsInsert(true);
+
+                const formDataHistory = new FormData();
+                formDataHistory.append("action", "Sửa dòng điện gf thoại");
+                formDataHistory.append("userId", userId);
+                formDataHistory.append("time", new Date().toISOString());
+                formDataHistory.append("productId", phoneByModPhone.id);
+                formDataHistory.append("operation", "Sửa");
+                formDataHistory.append("amount", 1);
+                axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                    .then(ress => {
+
+                    })
             })
             .catch(error => {
                 console.error('Error adding brand:', error);

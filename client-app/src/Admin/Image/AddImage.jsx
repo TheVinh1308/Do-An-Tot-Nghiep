@@ -1,11 +1,28 @@
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 
 const AddImage = () => {
     const [imageSrcs, setImageSrcs] = useState([]);
     const [isInsert, setIsInsert] = useState(false);
-    const [image, setImage] = useState({status: true, Files: []});
+    const [image, setImage] = useState({ status: true, Files: [] });
+
+    // User
+    const [userId, setUserId] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userName, setUserName] = useState();
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt');
+        if (token) {
+            const decoded = jwtDecode(token);
+            setUserName(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"]);
+            setUserId(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
+            setIsAuthenticated(true);
+        }
+    }, []);
+    // end user
 
     const handleImageChange = (e) => {
         let files = e.target.files;
@@ -13,7 +30,7 @@ const AddImage = () => {
         const previews = Array.from(files).map(file => URL.createObjectURL(file));
 
         const filesArray = Array.from(files);
-  
+
         setImage(prev => ({ ...prev, [name]: filesArray }));
         setImageSrcs(previews);
     };
@@ -28,14 +45,14 @@ const AddImage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-      
+
         const formData = new FormData();
-      
+
         // Append each file to form data
         image.Files.forEach(file => {
-          formData.append('Files', file);
+            formData.append('Files', file);
         });
-      
+
         // Append other form data fields
         formData.append('status', image.status);
         formData.append('phoneId', image.phoneId);
@@ -45,17 +62,29 @@ const AddImage = () => {
                 'Content-Type': 'multipart/form-data',
             },
         })
-        .then((res) => {
-            setIsInsert(true);
-            setImage(res.data);
-            alert("success")
-        })
-        .catch((err) => {
-          alert("Thêm thất bại!!!")
-          console.log(`error`,err);
-          console.log(formData);
-        })
-      }
+            .then((res) => {
+                const newImg = res.data;
+                setIsInsert(true);
+                setImage(newImg);
+                alert("success")
+                const formDataHistory = new FormData();
+                formDataHistory.append("action", "Thêm hình ảnh");
+                formDataHistory.append("userId", userId);
+                formDataHistory.append("time", new Date().toISOString());
+                formDataHistory.append("productId", newImg.id);
+                formDataHistory.append("operation", "Thêm");
+                formDataHistory.append("amount", 1);
+                axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                    .then(ress => {
+
+                    })
+            })
+            .catch((err) => {
+                alert("Thêm thất bại!!!")
+                console.log(`error`, err);
+                console.log(formData);
+            })
+    }
 
     const [phones, setPhones] = useState([]);
     useEffect(() => {
