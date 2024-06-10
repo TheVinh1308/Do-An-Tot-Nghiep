@@ -123,7 +123,7 @@ const History = () => {
                                                         <td>{item.user?.fullname}</td>
                                                         <td>{item.action}</td>
                                                         <td>{item.time}</td>
-                                                        <td>{item.action.includes("nhãn hiệu") ? "Brand" : item.phone?.name}</td>
+                                                        <td>{item.action.includes("hình ảnh") ? item.phone.name : item.productName}</td>
                                                         <td>{item.operation}</td>
                                                         <td>{item.amount}</td>
                                                         <td onClick={handleShowApp}><i className="bi bi-info-circle-fill btn btn-success"></i></td>

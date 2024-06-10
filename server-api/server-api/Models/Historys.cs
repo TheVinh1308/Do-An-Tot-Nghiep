@@ -12,6 +12,7 @@ namespace server_api.Models
         public string Action { get; set; }
         public DateTime Time { get; set; }
 
+        public string ProductName { get; set; }
         public int ProductId { get; set; }
         [ForeignKey("ProductId")]
         public Phone Phone { get; set; }

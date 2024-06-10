@@ -38,6 +38,14 @@ const EditBrand = ({ brandId }) => {
         setBrand(prev => ({ ...prev, [name]: value }));
     }
 
+    const [brands, setBrands] = useState([]);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Brands`)
+            .then(res => {
+                setBrands(res.data);
+            });
+    }, [brands]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -47,12 +55,14 @@ const EditBrand = ({ brandId }) => {
         axios.put(`https://localhost:7258/api/Brands/${brandId}`, formData) // Pass formData here
             .then(res => {
                 setBrand(res.data);
-                navigate("/admin/Brand");
+                const item = brands.find(b => b.id == brandId);
                 const formDataHistory = new FormData();
                 formDataHistory.append("action", "Sửa nhãn hiệu");
                 formDataHistory.append("userId", userId);
                 formDataHistory.append("time", new Date().toISOString());
                 formDataHistory.append("productId", 1);
+                formDataHistory.append("productName", `Brand ${item.name}`);
+
                 formDataHistory.append("operation", "Sửa");
                 formDataHistory.append("amount", 1);
                 axios.post(`https://localhost:7258/api/History`, formDataHistory)
@@ -61,7 +71,7 @@ const EditBrand = ({ brandId }) => {
                     })
             })
             .catch(error => {
-                console.error('Error adding brand:', error);
+                console.error('Sửa thất bại:', error);
             });
     }
 
