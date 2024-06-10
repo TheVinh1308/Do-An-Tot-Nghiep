@@ -4,6 +4,7 @@ import star_dull_icon from "../Assets/star_dull_icon.png"
 import { useCallback, useEffect, useState } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
+import Tabs from "../Tabs/Tabs"
 const ProductDisplay = (props) => {
     const {id} = useParams()
     const [images, setImages] = useState([]);
@@ -214,6 +215,7 @@ const ProductDisplay = (props) => {
                     <p className="productdisplay-right-category"><span>Tag: </span>Modern, Latest</p>
                 </div>
             </div>
+            <Tabs/>
         </>
      );
 }
