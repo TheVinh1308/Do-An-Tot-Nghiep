@@ -12,7 +12,6 @@ import axios from "axios";
 import Footer from "../Footer/Footer";
 import { jwtDecode } from "jwt-decode";
 
-
 const ModProduct = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -26,9 +25,10 @@ const ModProduct = () => {
         setModPhoneSelect(modPhoneId);
     }
 
-    const [userId, setUserId] = useState();
+    // User Authentication
+    const [userId, setUserId] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [userName, setUserName] = useState();
+    const [userName, setUserName] = useState(null);
 
     useEffect(() => {
         const token = localStorage.getItem('jwt');
@@ -40,6 +40,7 @@ const ModProduct = () => {
         }
     }, []);
 
+    // Load and manage ModPhone data
     const [modPhone, setModPhone] = useState([]);
     const [loadData, setLoadData] = useState(false);
 
@@ -50,28 +51,10 @@ const ModProduct = () => {
                 responsive: true,
                 autoWidth: true,
                 buttons: [
-                    {
-                        extend: 'copy',
-                        className: 'btn bg-primary text-white',
-                    },
-                    {
-                        extend: 'csv',
-                        className: 'btn bg-secondary text-white',
-                    },
-                    {
-                        extend: 'excel',
-                        className: 'btn bg-success text-white',
-                        filename: function () {
-                            return 'data_' + Date.now();
-                        },
-                    },
-                    {
-                        extend: 'pdf',
-                        className: 'btn bg-danger text-white',
-                        filename: function () {
-                            return 'data_' + Date.now();
-                        },
-                    },
+                    { extend: 'copy', className: 'btn bg-primary text-white' },
+                    { extend: 'csv', className: 'btn bg-secondary text-white' },
+                    { extend: 'excel', className: 'btn bg-success text-white', filename: `data_${Date.now()}` },
+                    { extend: 'pdf', className: 'btn bg-danger text-white', filename: `data_${Date.now()}` },
                 ],
             });
 
@@ -81,22 +64,56 @@ const ModProduct = () => {
         }
     }, [loadData]);
 
+    const [dataTableData, setDataTableData] = useState({});
+
+
     useEffect(() => {
         axios.get(`https://localhost:7258/api/ModPhones`)
             .then(res => {
                 setModPhone(res.data);
                 setLoadData(true);
+            })
+            .catch(error => {
+                console.error("Failed to load modPhones: ", error);
             });
     }, []);
+
+    const [phoneByModPhone, setPhoneByModPhone] = useState();
+    const fetchPhoneByModPhoneId = async (id) => {
+        try {
+            const response = await axios.get(`https://localhost:7258/api/Phones/GetFisrtPhoneByModPhone/${id}`);
+            setPhoneByModPhone(response.data);
+        } catch (error) {
+            console.error('Error fetching phone:', error);
+        }
+    }
+
+    useEffect(() => {
+        if (dataTableData.id) {
+            fetchPhoneByModPhoneId(dataTableData.id);
+        }
+    }, [dataTableData.id]);
 
     const handleDelete = (modPhoneId) => {
         const shouldDelete = window.confirm("Bạn có chắc chắn muốn xoá dòng sản phẩm này?");
         if (shouldDelete) {
             axios.delete(`https://localhost:7258/api/ModPhones/${modPhoneId}`)
                 .then(() => {
-                    const updatedData = modPhone.filter(modPhone => modPhone.id !== modPhoneId);
+                    const updatedData = modPhone.filter(item => item.id != modPhoneId);
                     setModPhone(updatedData);
-                    setLoadData(true);
+                    const deleteModPhone = modPhone.find(item => item.id == modPhoneId);
+                    const formDataHistory = new FormData();
+                    formDataHistory.append("action", "Xoá dòng điện thoại");
+                    formDataHistory.append("userId", userId);
+                    formDataHistory.append("time", new Date().toISOString());
+                    formDataHistory.append("productId", 1);
+                    formDataHistory.append("productName", deleteModPhone.name);
+                    formDataHistory.append("operation", "Sửa");
+                    formDataHistory.append("amount", 1);
+                    axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                        .then(ress => {
+
+                        })
                 })
                 .catch(error => {
                     console.error("Xoá dòng sản phẩm không thành công: ", error);
@@ -132,8 +149,8 @@ const ModProduct = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {modPhone.map((item, index) => (
-                                                <tr key={index}>
+                                            {modPhone.map((item) => (
+                                                <tr key={item.id}>
                                                     <td className="tb-item">{item.id}</td>
                                                     <td className="img-modphone">
                                                         <Image src={`https://localhost:7258/images/modPhones/${item.image}`} />

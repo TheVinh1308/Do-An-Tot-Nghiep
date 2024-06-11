@@ -41,6 +41,15 @@ const EditImage = ({ imageId, setIsSave }) => {
         console.log(value);
     }
 
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Images`)
+            .then(res => {
+                setImages(res.data);
+            });
+    }, []);
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -65,13 +74,13 @@ const EditImage = ({ imageId, setIsSave }) => {
             })
                 .then((res) => {
                     setImage(res.data);
-                    alert("Success");
                     setIsInsert(true);
+                    const editImagePhone = images.find(i => i.id == imageId);
                     const formDataHistory = new FormData();
                     formDataHistory.append("action", "Sửa hình ảnh");
                     formDataHistory.append("userId", userId);
                     formDataHistory.append("time", new Date().toISOString());
-                    formDataHistory.append("productId", imageId);
+                    formDataHistory.append("productId", editImagePhone.id);
                     formDataHistory.append("operation", "Sửa");
                     formDataHistory.append("amount", 1);
                     axios.post(`https://localhost:7258/api/History`, formDataHistory)
@@ -161,7 +170,7 @@ const EditImage = ({ imageId, setIsSave }) => {
                     <Col className="col-4 form-item" md={4} xs={12}>
                         <i class="bi bi-layout-wtf"></i>
                         <label htmlFor="inputNanme4" className="form-label">Điện thoại</label>
-                        <Form.Select name="phoneId" onChange={handleSelect}>
+                        <Form.Select name="phoneId" onChange={handleSelect} disabled>
                             <option value={getImage.phone.id}>{getImage?.phone?.name}</option>
                             {phones.map((item, index) => (
                                 <option key={index} value={item.id}>{item.name}</option>

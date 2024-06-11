@@ -66,14 +66,14 @@ const AddImage = () => {
                 const newImg = res.data;
                 setIsInsert(true);
                 setImage(newImg);
-                alert("success")
+
                 const formDataHistory = new FormData();
                 formDataHistory.append("action", "Thêm hình ảnh");
                 formDataHistory.append("userId", userId);
                 formDataHistory.append("time", new Date().toISOString());
-                formDataHistory.append("productId", newImg.id);
+                formDataHistory.append("productId", newImg.phoneId);
                 formDataHistory.append("operation", "Thêm");
-                formDataHistory.append("amount", 1);
+                formDataHistory.append("amount", 4);
                 axios.post(`https://localhost:7258/api/History`, formDataHistory)
                     .then(ress => {
 

@@ -102,29 +102,29 @@ const Phone = () => {
         if (shouldDelete) {
             axios.delete(`https://localhost:7258/api/Phones/${phoneId}`)
                 .then(() => {
-                    const deletePhone = phones.find(p => p.id = phoneId);
+                    const deletePhone = phones.find(p => p.id === phoneId);
                     const formDataHistory = new FormData();
                     formDataHistory.append("action", "Xoá điện thoại");
                     formDataHistory.append("userId", userId);
                     formDataHistory.append("time", new Date().toISOString());
                     formDataHistory.append("productId", deletePhone.id);
+                    formDataHistory.append("productName", deletePhone.name);
                     formDataHistory.append("operation", "Xoá");
                     formDataHistory.append("amount", deletePhone.stock);
                     axios.post(`https://localhost:7258/api/History`, formDataHistory)
                         .then(ress => {
+                            // Handle response if necessary
+                        });
 
-                        })
-                    // Xoá thành công, cập nhật dữ liệu DataTable
-                    const updatedData = dataTableData.filter(phone => phone.id !== phoneId);
-                    setDataTableData(updatedData);
-
+                    // Update state
+                    setPhones(prevPhones => prevPhones.filter(phone => phone.id !== phoneId));
+                    setDataTableData(prevData => prevData.filter(phone => phone.id !== phoneId));
                 })
                 .catch(error => {
                     console.error("Xoá phone không thành công: ", error);
                 });
         }
     }
-
     return (
 
         <>
@@ -159,8 +159,8 @@ const Phone = () => {
                                         </thead>
                                         <tbody>
                                             {
-                                                phones.map((item, index) => (
-                                                    <tr key={index}>
+                                                dataTableData.map((item, index) => (
+                                                    <tr key={item.id}>
                                                         <td className="tb-item">{item.id}</td>
                                                         <td className="tb-item">{item.sku}</td>
                                                         <td className="tb-item">{item.name}</td>

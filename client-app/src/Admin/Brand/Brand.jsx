@@ -106,11 +106,13 @@ const Brand = () => {
                     // Xoá thành công, cập nhật dữ liệu DataTable
                     const updatedData = dataTableData.filter(brand => brand.id !== brandId);
                     setDataTableData(updatedData);
+                    const deleteBrand = brands.find(item => item.id == brandId);
                     const formDataHistory = new FormData();
                     formDataHistory.append("action", "Xoá nhãn hiệu");
                     formDataHistory.append("userId", userId);
                     formDataHistory.append("time", new Date().toISOString());
                     formDataHistory.append("productId", 1);
+                    formDataHistory.append("productName", `Brand ${deleteBrand.name}`);
                     formDataHistory.append("operation", "Xoá");
                     formDataHistory.append("amount", 1);
                     axios.post(`https://localhost:7258/api/History`, formDataHistory)

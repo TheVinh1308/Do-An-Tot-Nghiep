@@ -60,6 +60,7 @@ const AddBrand = () => {
                 formDataHistory.append("userId", userId);
                 formDataHistory.append("time", new Date().toISOString());
                 formDataHistory.append("productId", 1);
+                formDataHistory.append("productName", `Brand ${newBrand.name}`);
                 formDataHistory.append("operation", "Thêm");
                 formDataHistory.append("amount", 1);
                 axios.post(`https://localhost:7258/api/History`, formDataHistory)

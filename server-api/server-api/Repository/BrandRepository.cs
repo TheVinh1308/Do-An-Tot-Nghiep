@@ -23,14 +23,15 @@ namespace server_api.Repository
             var brand = _context.Brands.SingleOrDefault(x => x.Id == brandId);
             if (brand != null)
             {
-                _context.Brands.Remove(brand);
+                brand.Status = false;
                 await _context.SaveChangesAsync();
             }
         }
 
         public async Task<List<Brand>> GetAllBrandAsync()
         {
-            var brands = await _context.Brands.ToListAsync();
+            var brands = await _context.Brands.Where(b=>b.Status == true)
+                .ToListAsync();
             return brands;
         }
 
