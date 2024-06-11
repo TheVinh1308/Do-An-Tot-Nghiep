@@ -106,7 +106,8 @@ const Commnent = ({selectedPhone,isAuthenticated,userId,userName}) => {
                     <button type="submit" class="btn btn-normal pull-right btn-success" onClick={handleSubmit}>Submit</button>
                 </form>
                         {
-                        comments.map((item,index) => (
+                        comments.length > 0 &&
+                        comments.filter(item => item.parentCommentId === null).map((item, index) => (
                             <>
                                 <div className="media" key={item.id}>
                                    
