@@ -1,3 +1,4 @@
+
 .content-item {
     padding:30px 0;
 	background-color:#FFFFFF;
@@ -55,11 +56,12 @@
 }
 
 #comments form {
-	margin-bottom:30px;
+	margin-bottom:55px;
 }
 
 #comments .btn {
-	margin-top:7px;
+	margin-top:10px;
+    margin-bottom:20px;
 }
 
 #comments form fieldset {
@@ -72,8 +74,9 @@
 
 #comments .media {
 	border-top:1px dashed #DDDDDD;
-	padding:20px 0;
-	margin:0;
+	padding:18px 0;
+	margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 #comments .media > .pull-left {
@@ -101,7 +104,6 @@
 
 #comments .media-detail {
 	margin:0;
-    display: flex;
 }
 
 #comments .media-detail li {
@@ -123,4 +125,25 @@
 	color:#666666;
 	font-size:15px;
 	margin-right:10px;
+}
+.reply{
+    margin-left: 100px;
+}
+.reply textarea{
+    height: 100px;
+}
+.reply-sub{
+    margin-bottom: 10px;
+    background-color: green;
+    margin-right: 10px;
+}
+.comment-reply{
+    margin-left: 100px;
+}
+.reply-reply{
+    margin-top: 50px;
+    margin-left: 100px; 
+}
+.reply-reply textarea{
+    height: 100px;
 }

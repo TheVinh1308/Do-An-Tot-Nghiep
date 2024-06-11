@@ -37,6 +37,12 @@ namespace server_api.Repository
             return comment;
         }
 
+        public async Task<List<Comment>> GetCommentByModPhoneAsync(int modPhoneId)
+        {
+            var comments = await _context.Comments.Include(c => c.User).Where(c => c.ModPhoneId == modPhoneId).ToListAsync();
+            return comments;
+        }
+
         public async Task<Comment> InsertCommentAsync(Comment comment)
         {
             _context.Comments.Add(comment);

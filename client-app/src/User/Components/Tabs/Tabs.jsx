@@ -1,6 +1,6 @@
 import Commnent from "../Comment/Comment";
 import "./Tabs.css"
-const Tabs = () => {
+const Tabs = ({selectedPhone,isAuthenticated,userId,userName}) => {
   return (
     <>
       <div className="page">
@@ -50,7 +50,7 @@ const Tabs = () => {
           </label>
           <ul>
             <li className="tab-content tab-content-first typography">
-                <Commnent />
+                <Commnent selectedPhone={selectedPhone} isAuthenticated={isAuthenticated} userId={userId} userName={userName}/>
             </li>
             <li className="tab-content tab-content-2 typography">
              
