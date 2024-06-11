@@ -11,6 +11,7 @@ import EditModPhone from "./EditModProduct";
 import axios from "axios";
 import Footer from "../Footer/Footer";
 import { jwtDecode } from "jwt-decode";
+import 'datatables.net-buttons/js/buttons.html5.mjs';
 
 const ModProduct = () => {
     const [show, setShow] = useState(false);

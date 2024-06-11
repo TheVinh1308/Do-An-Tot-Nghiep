@@ -12,6 +12,7 @@ import Sidebar from "../Sidebar";
 import EditInvoice from './EditInvoice';
 import DetailInvoice from '../DetailInvoice/InvoiceDetail';
 import { Link } from "react-router-dom";
+import 'datatables.net-buttons/js/buttons.html5.mjs';
 
 const Invoice = () => {
     const [show, setShow] = useState(false);

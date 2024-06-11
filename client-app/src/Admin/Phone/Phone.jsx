@@ -12,7 +12,7 @@ import EditPhone from "./EditPhone";
 import axios from "axios";
 import Footer from "../Footer/Footer";
 import { jwtDecode } from "jwt-decode";
-
+import 'datatables.net-buttons/js/buttons.html5.mjs';
 const Phone = () => {
     // SHOW THÊM ĐIỆN THOẠI
     const [show, setShow] = useState(false);
@@ -146,13 +146,11 @@ const Phone = () => {
                                             <tr>
                                                 <th className="col-1 tb-item">ID</th>
                                                 <th className="col-1 tb-item">SKU</th>
-                                                {/* <th className="col-3 tb-item">Image</th> */}
                                                 <th className="col-3 tb-item">Name</th>
                                                 <th className="col-2 tb-item">Price</th>
                                                 <th className="col-1 tb-item">Rom</th>
-                                                <th className="col-1 tb-item">Color</th>
+                                                <th className="col-2 tb-item">Color</th>
                                                 <th className="col-1 tb-item">Stock</th>
-                                                <th className="col-1 tb-item">ModPhone</th>
                                                 <th className="col-1 tb-item">Feature</th>
 
                                             </tr>
@@ -164,11 +162,10 @@ const Phone = () => {
                                                         <td className="tb-item">{item.id}</td>
                                                         <td className="tb-item">{item.sku}</td>
                                                         <td className="tb-item">{item.name}</td>
-                                                        <td className="tb-item">{item.price}</td>
+                                                        <td className="tb-item">{(item.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
                                                         <td className="tb-item">{item.rom}</td>
                                                         <td className="tb-item">{item.color}</td>
                                                         <td className="tb-item">{item.stock}</td>
-                                                        <td className="tb-item">{item.status}</td>
                                                         <td className="tb-item">
                                                             <Row>
                                                                 <Col className="col-6" onClick={() => handleDelete(item.id)}> <i class="bi bi-trash btn btn-danger"></i></Col>

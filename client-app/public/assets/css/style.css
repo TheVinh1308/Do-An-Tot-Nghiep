@@ -13,6 +13,24 @@
   scroll-behavior: smooth;
 }
 
+th,
+td {
+  text-align: center !important;
+}
+
+.dt-buttons .buttons-csv {
+  background-color: gray !important;
+}
+
+.dt-paging-button {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.paging_full_numbers {
+  float: right !important;
+}
+
 body {
   font-family: "Open Sans", sans-serif !important;
   background: #fff;
@@ -59,7 +77,8 @@ body {
 #DataTables_Table_DetailInvoice_0,
 #DataTables_Brand_0,
 #DataTables_Brand_1,
-#DataTables_Table_History {
+#DataTables_Table_History,
+#DataTables_Table_Promotion_0 {
   width: auto !important;
 }
 

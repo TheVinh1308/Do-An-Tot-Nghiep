@@ -7,6 +7,7 @@ import Footer from "../Footer/Footer";
 import InforHistory from "./InforHistory";
 import "./History.css"
 import axios from "axios";
+import { format } from 'date-fns';
 
 const History = () => {
     const [loadData, setLoadData] = useState(false);
@@ -107,10 +108,10 @@ const History = () => {
                                             <tr>
                                                 <th className="col-1 tb-item">ID</th>
                                                 <th className="col-2 tb-item">User</th>
-                                                <th className="col-1 tb-item">Hành động</th>
+                                                <th className="col-2 tb-item">Hành động</th>
                                                 <th className="col-2 tb-item">Ngày giờ</th>
                                                 <th className="col-2 tb-item">Sản phẩm</th>
-                                                <th className="col-2 tb-item">Thao tác</th>
+                                                <th className="col-1 tb-item">Thao tác</th>
                                                 <th className="col-1 tb-item">Số lượng</th>
                                                 <th className="col-2 tb-item">Chi tiết</th>
                                             </tr>
@@ -122,10 +123,10 @@ const History = () => {
                                                         <td>{item.id}</td>
                                                         <td>{item.user?.fullname}</td>
                                                         <td>{item.action}</td>
-                                                        <td>{item.time}</td>
+                                                        <td>{format(new Date(item.time), 'H:mm:ss - d/MM/yyyy')}</td>
                                                         <td>{item.action.includes("hình ảnh") ? item.phone.name : item.productName}</td>
                                                         <td>{item.operation}</td>
-                                                        <td>{item.amount}</td>
+                                                        <td>{(item.amount) == 0 ? "-" : item.amount}</td>
                                                         <td onClick={handleShowApp}><i className="bi bi-info-circle-fill btn btn-success"></i></td>
                                                     </tr>
                                                 ))

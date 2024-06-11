@@ -11,7 +11,7 @@ import AddPromotion from "./AddPromotion";
 import AppPromotion from "./AppPromotion";
 import EditPromotion from "./EditPromotion";
 import Footer from "../Footer/Footer";
-
+import 'datatables.net-buttons/js/buttons.html5.mjs';
 
 const Promotion = () => {
 
@@ -29,20 +29,47 @@ const Promotion = () => {
     const [showEdit, setShowEdit] = useState(false);
     const handleCloseEdit = () => setShowEdit(false);
     const handleShowEdit = () => setShowEdit(true);
+    const [loadData, setLoadData] = useState(false);
     useEffect(() => {
-        const table = $('#DataTables_Table_Image_0').DataTable({
-            responsive: true,
-            autoWidth: true,
-            paging: [{
-                className: 'p-0',
-            }]
-        });
+        if (loadData) {
+            $('#DataTables_Table_Promotion_0').DataTable({
+                dom: 'Bfrtip',
+                responsive: true,
+                autoWidth: true,
+                paging: [{
+                    className: 'p-0',
+                }],
+                buttons: [
+                    {
+                        extend: 'copy',
+                        className: 'btn bg-primary text-white',
+                    },
+                    {
+                        extend: 'csv',
+                        className: 'btn bg-secondary text-white',
+                    },
+                    {
+                        extend: 'excel',
+                        className: 'btn bg-success text-white',
+                        filename: function () {
+                            return 'data_' + Date.now();
+                        },
+                    },
+                    {
+                        extend: 'pdf',
+                        className: 'btn bg-danger text-white',
+                        filename: function () {
+                            return 'data_' + Date.now();
+                        },
+                    },
+                ],
+            });
+        }
+    }, [loadData]);
 
-        return () => {
-            // Destroy the DataTable instance when component unmounts
-            table.destroy();
-        };
-    }, []);
+
+
+
     return (
         <>
             <Header />
@@ -54,18 +81,19 @@ const Promotion = () => {
                         <div className="col-12">
                             <div className="card">
                                 <div className="card-body">
-                                    <h5 className="card-title">Danh sách hình ảnh</h5>
+                                    <h5 className="card-title">Danh sách khuyến mãi</h5>
                                     <div className="btn btn-success btn-addmodphone" onClick={handleShow}>Thêm</div>
-                                    <table id="DataTables_Table_Image_0" className="table table-striped responsive modphone-table">
+                                    <table id="DataTables_Table_Promotion_0" className="table table-striped responsive modphone-table">
                                         {/*  */}
                                         <thead>
                                             <tr>
                                                 <th className="col-1 tb-item">ID</th>
-                                                <th className="col-2 tb-item">Theme</th>
-                                                <th className="col-2 tb-item">Percent</th>
-                                                <th className="col-5 tb-item">Content</th>
+                                                <th className="col-2 tb-item">Tên khuyến mãi</th>
+                                                <th className="col-1 tb-item">Tỉ lệ</th>
+                                                <th className="col-4 tb-item">Nội dung</th>
+                                                <th className="col-1 tb-item">Ngày bắt đầu</th>
+                                                <th className="col-1 tb-item">Ngày kết thúc</th>
                                                 <th className="col-2 tb-item">Feature</th>
-
                                             </tr>
                                         </thead>
                                         <tbody>

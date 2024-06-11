@@ -1,4 +1,3 @@
-import { Form } from "react-router-dom";
 import Breadcrumb from "../Breadcrumb";
 import Header from "../Header";
 import Sidebar from "../Sidebar";
@@ -10,13 +9,13 @@ import AddImage from "./AddImage";
 import EditImage from "./EditImage";
 import axios from "axios";
 import Footer from "../Footer/Footer";
+import 'datatables.net-buttons/js/buttons.html5.mjs';
 
 const Images = () => {
     const [show, setShow] = useState(false);
     const [showEdit, setShowEdit] = useState(false);
     const [imageSelect, setImageSelect] = useState(null);
     const [images, setImages] = useState([]);
-    const [dataTableData, setDataTableData] = useState([]);
     const [loadData, setLoadData] = useState(false);
 
     const handleShow = () => setShow(true);
@@ -83,18 +82,16 @@ const Images = () => {
                                                     <td className="img-phone">
                                                         <Row>
                                                             {JSON.parse(item.path).map((imagePath, imgIndex) => (
-                                                                <Col key={imgIndex} className="col-2">
+                                                                <Col key={imgIndex} className="col-3">
                                                                     <Image src={`https://localhost:7258/images/products/${imagePath}`} />
                                                                 </Col>
                                                             ))}
                                                         </Row>
                                                     </td>
-                                                    <td>{item.phone.name}</td>
+                                                    <td className="col-6">{item.phone.name}</td>
                                                     <td>
                                                         <Row>
-                                                            <Col className="col-6" >
-                                                                <i className="bi bi-trash btn btn-danger"></i>
-                                                            </Col>
+
                                                             <Col className="col-6" onClick={() => handleShowEdit(item.id)}>
                                                                 <i className="bi bi-pencil-square btn btn-warning"></i>
                                                             </Col>
