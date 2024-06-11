@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import Tabs from "../Tabs/Tabs"
+import { jwtDecode } from "jwt-decode"
 const ProductDisplay = (props) => {
     const {id} = useParams()
     const [images, setImages] = useState([]);
@@ -46,6 +47,23 @@ const ProductDisplay = (props) => {
             setPhones(res.data)
           });
     }, []);
+    //thông tin người dùng
+    const [userId, setUserId] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userName, setUserName] = useState();
+
+   
+    useEffect(() => {
+        const token = localStorage.getItem('jwt');
+        if (token) {
+            const decoded = jwtDecode(token);
+            setUserId(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
+            setUserName(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"]);
+            setIsAuthenticated(true);
+        }
+    }, []);
+
+
 
     const selectedPhone = phones.find(item => 
                                         item.rom === selectedRom && 
@@ -81,8 +99,9 @@ const ProductDisplay = (props) => {
                                             }
                                         }, [colors, roms, selectedColor, selectedRom, selectedColorButton, selectedRomButton]);
                                            
-    console.log('mau duoc chon',selectedColor);
-    console.log('rom duoc chon', selectedRom);
+    // console.log('mau duoc chon',selectedColor);
+    // console.log('rom duoc chon', selectedRom);
+    // console.log(selectedPhone);
 
 
     // const uniqueColor = {};
@@ -101,9 +120,16 @@ const ProductDisplay = (props) => {
         }
     });
     const uniqueRomArray = Object.values(uniqueRom);
-
-    const [indexImage, setIndexImage] = useState(null)
-    console.log(colors);
+    
+    const [indexImage, setIndexImage] = useState('');
+    // hình ảnh mặc định khi chưa chọn ảnh
+    useEffect(() => {
+        if (color.path) {
+            const parsedList = JSON.parse(color.path);
+            setIndexImage(parsedList[0]);
+        }
+    }, [color.path]);
+    
     return ( 
         <>
             <div className="productdisplay">
@@ -114,7 +140,7 @@ const ProductDisplay = (props) => {
                             JSON.parse(color.path).map((path, pathIndex) => (
                                 pathIndex !== 0 ?
                                 <>
-                                    <button key={pathIndex} onClick={() => (setIndexImage(pathIndex))}>
+                                    <button key={pathIndex} onClick={() => (setIndexImage(path) )}>
                                         <img
                                             src={`https://localhost:7258/images/products/${path}` }
                                             alt=""
@@ -125,18 +151,13 @@ const ProductDisplay = (props) => {
                         ))}
                     </div>
                     <div className="productdisplay-img">
-                        {
-                            (color.path) && color &&
-                            JSON.parse(color.path).map((path, pathIndex) => (
                                 <img
-                                    key={pathIndex}
+                                    
                                     className="productdisplay-main-img"
-                                    src={`https://localhost:7258/images/products/${path}`}
+                                    src={`https://localhost:7258/images/products/${indexImage}`}
                                     alt=""
-                                    style={{ display: pathIndex === indexImage ? 'block' : 'none' }}
+                                    // style={{ display: pathIndex === indexImage ? 'block' : 'none' }}
                                 />
-                            ))
-                        }
                     </div>
                    
                 </div>
@@ -215,7 +236,9 @@ const ProductDisplay = (props) => {
                     <p className="productdisplay-right-category"><span>Tag: </span>Modern, Latest</p>
                 </div>
             </div>
-            <Tabs/>
+            {selectedPhone && (
+                    <Tabs selectedPhone={selectedPhone} isAuthenticated={isAuthenticated} userId={userId} userName={userName} />
+    )}
         </>
      );
 }

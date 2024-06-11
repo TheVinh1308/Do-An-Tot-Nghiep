@@ -39,12 +39,28 @@ namespace server_api.Controllers
             try
             {
                 var newComment = await _commentRepository.InsertCommentAsync(comment);
-                return CreatedAtAction(nameof(GetCommentById), new { comment }, comment);
+                return CreatedAtAction(nameof(GetCommentById), new { id = comment.Id }, comment);
             }
             catch
             {
                 return BadRequest();
             }
         }
+        [HttpGet]
+        [Route("GetCommentByModPhone/{modPhoneId}")]
+        public async Task<IActionResult> GetCommentByModPhone(int modPhoneId)
+        {
+            try
+            {
+                var comments = await _commentRepository.GetCommentByModPhoneAsync(modPhoneId);
+                return comments == null ? NotFound() : Ok(comments);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+
     }
 }
