@@ -10,12 +10,10 @@ namespace server_api.Repository
     public class PromotionRepository : IPromotionRepository
     {
         private readonly EPhoneShopIdentityContext _context;
-        private readonly IWebHostEnvironment _environment;
 
-        public PromotionRepository(EPhoneShopIdentityContext context, IWebHostEnvironment environment)
+        public PromotionRepository(EPhoneShopIdentityContext context)
         {
             _context = context;
-            _environment = environment;
         }
 
        
@@ -32,7 +30,7 @@ namespace server_api.Repository
 
         public async Task<List<Promotion>> GetAllPromotionAsync()
         {
-            var promotion = await _context.Promotions.Where(b=>b.Status == true)
+            var promotion = await _context.Promotions
                 .ToListAsync();
             return promotion;
         }
@@ -43,21 +41,32 @@ namespace server_api.Repository
             return promotion;
         }
 
-        public async Task<Promotion> InsertPromotionAsync([FromForm]Promotion promotion)
+        public async Task<Promotion> InsertPromotionAsync([FromForm] Promotion promotion)
         {
-           
-            _context.Promotions.Add(promotion);
-            await _context.SaveChangesAsync();
-            return promotion;
+            try
+            {
+                // Update the status before adding to the context
+
+                _context.Promotions.Add(promotion);
+                await _context.SaveChangesAsync();
+                return promotion;
+            }
+            catch (DbUpdateException ex)
+            {
+                // Log the detailed error message
+                var innerExceptionMessage = ex.InnerException?.Message ?? ex.Message;
+                Console.WriteLine($"Error occurred while saving the entity changes: {innerExceptionMessage}");
+
+                // You might want to rethrow the exception or handle it accordingly
+                throw new Exception($"An error occurred while saving the promotion: {innerExceptionMessage}");
+            }
         }
 
         public async Task UpdatePromotionAsync([FromForm] int promotionId, [FromForm] Promotion promotion)
         {
-            { 
            
                 _context.Promotions.Update(promotion);
                 await _context.SaveChangesAsync();
-            }
         }
     }
 }

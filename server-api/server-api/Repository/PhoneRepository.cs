@@ -18,6 +18,7 @@ namespace server_api.Repository
         public async Task<List<Phone>> GetAllPhoneAsync()
         {
             var phones = await _context.Phones.Include(p => p.ModPhone)
+                .ThenInclude(p=>p.Promotion)
                    .Where(p => p.Status == true)
                                               .ToListAsync();
             return phones;
@@ -27,12 +28,15 @@ namespace server_api.Repository
         {
             var phone = await _context.Phones.Include(p => p.ModPhone)
                                              .Include(p => p.ModPhone.Brand)
+                                             .Include(p=>p.ModPhone.Promotion)
                                              .SingleOrDefaultAsync(x => x.Id == id);
             return phone;
         }
         public async Task<Phone> GetFirstPhoneByModPhoneIdAsync(int modPhoneId)
         {
             var phone = await _context.Phones.Include(p => p.ModPhone)
+                .ThenInclude(pro=>pro.Promotion)
+                .Include(p => p.ModPhone)
                                              .ThenInclude(mp => mp.Brand)
                                              .FirstOrDefaultAsync(p => p.ModPhone.Id == modPhoneId);
             return phone;
@@ -69,6 +73,7 @@ namespace server_api.Repository
             var result = await _context.Phones
                                        .Include(p => p.ModPhone)
                                        .Include(p => p.ModPhone.Brand)
+                                       .Include(p=>p.ModPhone.Promotion)
                                        .GroupBy(p => new { p.ModPhoneId, p.Rom })
                                        .Select(g => g.First())
                                        .ToListAsync();

@@ -18,14 +18,16 @@ const ShopCategory = (props) => {
     const [price, setPrice] = useState([1000, 560000]);
     const [images, setImages] = useState([]);
 
+    useEffect(() => {
 
+    }, [phones]);
 
     useEffect(() => {
         axios.get(`https://localhost:7258/api/Images`)
-          .then((res) => {
-            setImages(res.data);
-          });
-    }, []); 
+            .then((res) => {
+                setImages(res.data);
+            });
+    }, []);
     const handleChange = (event, newValue) => {
         setPrice(newValue);
     };
@@ -184,20 +186,24 @@ const ShopCategory = (props) => {
                             ?
                             Array.isArray(images) && images.map((itemImg, indexImg) => (
                                 itemImg.phoneId === item.id ?
-                            <Item
-                                key={index}
-                                id={item.id}
-                                name={item.name}
-                                image={`https://localhost:7258/images/products/${JSON.parse(itemImg.path)[0]}`}
-                                price={(item.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} 
-                            // ld_price={item.old_price}
-                            />
-                            : null
+                                    <Item
+                                        key={index}
+                                        id={item.id}
+                                        name={item.name}
+                                        image={`https://localhost:7258/images/products/${JSON.parse(itemImg.path)[0]}`}
+                                        price={item.price}
+                                        promotionId={item.modPhone.promotionId}
+                                        discountPercent={item.modPhone.promotion.discountPercent}
+                                        startDay={item.modPhone.promotion.startDay}
+                                        endDay={item.modPhone.promotion.endDay}
+                                    // ld_price={item.old_price}
+                                    />
+                                    : null
                             ))
                             : null
-                            
+
                         : null
-                            
+
                 ))}
             </div>
             <div className="shopcategory-loadmore">

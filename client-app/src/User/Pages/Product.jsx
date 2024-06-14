@@ -9,27 +9,28 @@ import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 
 const Product = () => {
-    const {phones} = useContext(ShopContext)
-    const {id} = useParams();
+    const { phones } = useContext(ShopContext)
+    const { id } = useParams();
     console.log(phones);
     const product = phones.find((e) => e.id === Number(id))
+    console.log(`product`, product);
     console.log(id);
-    return ( 
+    return (
         <>
             <div>
                 <Navbar />
                 {
-                    product !== undefined ? <Breadcrum brand={product.modPhone.brand.name} name={product.modPhone.name}/> : <></>
+                    product !== undefined ? <Breadcrum brand={product.modPhone.brand.name} name={product.modPhone.name} /> : <></>
                 }
                 {
                     product !== undefined ? <ProductDisplay product={product} /> : <></>
                 }
                 <DescriptionBox />
                 <RelatedProducts />
-                <Footer/>
+                <Footer />
             </div>
         </>
-     );
+    );
 }
- 
+
 export default Product;

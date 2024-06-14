@@ -2,10 +2,11 @@ import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 export const ShopContext = createContext(null)
 
-const ShopContextProvider = (props) =>{
+const ShopContextProvider = (props) => {
 
 
-    const [phones, setPhones] = useState([{modPhone: {brand: {}}}]);
+    const [phones, setPhones] = useState([{ modPhone: { brand: {}, promotion: {} } }]);
+    console.log(phones);
     useEffect(() => {
         axios.get(`https://localhost:7258/api/Phones/FirstByModel`)
             .then((res) => {
@@ -14,14 +15,14 @@ const ShopContextProvider = (props) =>{
             .catch((err) => {
                 console.log("Lỗi lấy dữ liệu: ", err);
             })
-               
-    },[])
+
+    }, [])
 
 
     // const [cartItems, setCartItems] = useState()
-    
 
-    const contextValue = {phones}
+
+    const contextValue = { phones }
 
     return (
         <ShopContext.Provider value={contextValue}>

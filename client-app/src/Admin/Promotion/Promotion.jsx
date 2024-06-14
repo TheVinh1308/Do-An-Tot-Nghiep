@@ -1,9 +1,8 @@
-import { Form } from "react-router-dom";
 import Breadcrumb from "../Breadcrumb";
 
 import Header from "../Header";
 import Sidebar from "../Sidebar";
-import { Button, Col, Image, Modal, Row, Table } from "react-bootstrap";
+import { Col, Modal, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import "datatables.net-bs5";
 import $ from "jquery"
@@ -11,8 +10,10 @@ import AddPromotion from "./AddPromotion";
 import AppPromotion from "./AppPromotion";
 import EditPromotion from "./EditPromotion";
 import Footer from "../Footer/Footer";
+import axios from "axios";
+import { format } from "date-fns";
 import 'datatables.net-buttons/js/buttons.html5.mjs';
-
+import { jwtDecode } from "jwt-decode";
 const Promotion = () => {
 
     // THÊM KHUYẾN MÃI
@@ -28,47 +29,84 @@ const Promotion = () => {
     // SỬA KHUYẾN MÃI
     const [showEdit, setShowEdit] = useState(false);
     const handleCloseEdit = () => setShowEdit(false);
-    const handleShowEdit = () => setShowEdit(true);
+    const [promotionId, setPromotionId] = useState(null);
+    const handleShowEdit = (promotionID) => {
+        setShowEdit(true);
+        setPromotionId(promotionID);
+    };
+
+    // User
+    const [userId, setUserId] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userName, setUserName] = useState();
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt');
+        if (token) {
+            const decoded = jwtDecode(token);
+            setUserName(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"]);
+            setUserId(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
+            setIsAuthenticated(true);
+        }
+    }, []);
+    // end user
     const [loadData, setLoadData] = useState(false);
     useEffect(() => {
         if (loadData) {
-            $('#DataTables_Table_Promotion_0').DataTable({
+            const table = $('#DataTables_Table_Promotion_0').DataTable({
                 dom: 'Bfrtip',
                 responsive: true,
                 autoWidth: true,
-                paging: [{
-                    className: 'p-0',
-                }],
                 buttons: [
-                    {
-                        extend: 'copy',
-                        className: 'btn bg-primary text-white',
-                    },
-                    {
-                        extend: 'csv',
-                        className: 'btn bg-secondary text-white',
-                    },
-                    {
-                        extend: 'excel',
-                        className: 'btn bg-success text-white',
-                        filename: function () {
-                            return 'data_' + Date.now();
-                        },
-                    },
-                    {
-                        extend: 'pdf',
-                        className: 'btn bg-danger text-white',
-                        filename: function () {
-                            return 'data_' + Date.now();
-                        },
-                    },
+                    { extend: 'copy', className: 'btn bg-primary text-white' },
+                    { extend: 'csv', className: 'btn bg-secondary text-white' },
+                    { extend: 'excel', className: 'btn bg-success text-white', filename: `data_${Date.now()}` },
+                    { extend: 'pdf', className: 'btn bg-danger text-white', filename: `data_${Date.now()}` },
                 ],
             });
+
+            return () => {
+                table.destroy(true);
+            };
         }
     }, [loadData]);
+    const [promotions, setPromotions] = useState([]);
 
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Promotion`)
+            .then(res => {
+                setPromotions(res.data);
+                setLoadData(true);
+            });
+    }, []);
 
+    const handleDelete = (promotionId) => {
+        const shouldDelete = window.confirm("Bạn có chắc chắn muốn xoá khuyến mãi này không này?");
+        if (shouldDelete) {
+            axios.delete(`https://localhost:7258/api/Promotion/${promotionId}`)
+                .then(() => {
+                    // Xoá thành công, cập nhật dữ liệu DataTable
+                    const deletePromotion = promotions.filter(p => p.id !== promotionId);
+                    setPromotions(deletePromotion);
+                    const sePromotion = promotions.find(item => item.id == promotionId);
+                    const formDataHistory = new FormData();
+                    formDataHistory.append("action", "Xoá khuyến mãi");
+                    formDataHistory.append("userId", userId);
+                    formDataHistory.append("time", new Date().toISOString());
+                    formDataHistory.append("productId", 1);
+                    formDataHistory.append("productName", sePromotion.name);
+                    formDataHistory.append("operation", "Xoá");
+                    formDataHistory.append("amount", 1);
+                    axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                        .then(ress => {
 
+                        })
+                })
+                .catch(error => {
+                    console.error("Xoá khuyến mãi không thành công: ", error);
+                });
+        }
+    }
 
     return (
         <>
@@ -86,6 +124,7 @@ const Promotion = () => {
                                     <table id="DataTables_Table_Promotion_0" className="table table-striped responsive modphone-table">
                                         {/*  */}
                                         <thead>
+
                                             <tr>
                                                 <th className="col-1 tb-item">ID</th>
                                                 <th className="col-2 tb-item">Tên khuyến mãi</th>
@@ -97,33 +136,25 @@ const Promotion = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td className=" tb-item">1</td>
-                                                <td className=" tb-item">Giảm theo phần trăm</td>
-                                                <td className=" tb-item">15%</td>
-                                                <td className=" tb-item">Các sản phẩm được áp dụng giảm giá 15% trong thời gian khuyến mãi</td>
-                                                <td className="tb-item">
-                                                    <Row>
-                                                        <Col className="col-4"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                        <Col className="col-4" onClick={handleShowEdit}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                        <Col className="col-4" onClick={handleShowApp}> <i class="bi bi-app btn btn-success"></i></Col>
-                                                    </Row>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className=" tb-item">2</td>
-                                                <td className=" tb-item">Giảm theo giá tiền</td>
-                                                <td className=" tb-item">  {(1000000).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
-                                                <td className=" tb-item">Các sản phẩm được áp dụng giảm giá {(1000000).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} trong thời gian khuyến mãi</td>
-                                                <td className="tb-item">
-                                                    <Row>
-                                                        <Col className="col-4"> <i class="bi bi-trash btn btn-danger"></i></Col>
-                                                        <Col className="col-4"> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                        <Col className="col-4"> <i class="bi bi-app btn btn-success"></i></Col>
-                                                    </Row>
-                                                </td>
-                                            </tr>
-
+                                            {
+                                                promotions.map((item, index) => (
+                                                    <tr key={item.id}>
+                                                        <td className=" tb-item">{item.id}</td>
+                                                        <td className="tb-item">{item.name}</td>
+                                                        <td className=" tb-item">{item.discountPercent}%</td>
+                                                        <td className=" tb-item">{item.content}</td>
+                                                        <td>{format(new Date(item.startDay), 'dd/MM/yyyy')}</td>
+                                                        <td>{format(new Date(item.endDay), 'dd/MM/yyyy')}</td>
+                                                        <td className="tb-item">
+                                                            <Row>
+                                                                <Col className="col-4" onClick={() => handleDelete(item.id)}> <i class="bi bi-trash btn btn-danger"></i></Col>
+                                                                <Col className="col-4" onClick={() => handleShowEdit(item.id)}> <i class="bi bi-pencil-square btn btn-warning"></i></Col>
+                                                                <Col className="col-4" onClick={handleShowApp}> <i class="bi bi-app btn btn-success"></i></Col>
+                                                            </Row>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            }
                                         </tbody>
                                     </table>
                                     {/* End Table with stripped rows */}
@@ -163,7 +194,7 @@ const Promotion = () => {
                     <Modal.Title className="add-title">Cập nhật khuyến mãi</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <EditPromotion />
+                    <EditPromotion promotionID={promotionId} />
                 </Modal.Body>
 
 

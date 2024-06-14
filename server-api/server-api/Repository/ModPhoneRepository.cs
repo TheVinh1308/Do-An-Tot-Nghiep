@@ -30,6 +30,7 @@ namespace server_api.Repository
         public async Task<List<ModPhone>> GetAllModPhoneAsync()
         {
             var modPhones = await _context.ModPhones.Include(p => p.Brand)
+                .Include(p=>p.Promotion)
                 .Where(p => p.Status == true)
                 .ToListAsync();
             return modPhones;
@@ -39,6 +40,7 @@ namespace server_api.Repository
         {
             var modPhone = await _context.ModPhones
                 .Include(x=>x.Brand)
+                .Include(x=>x.Promotion)
                 .SingleOrDefaultAsync(x => x.Id == id);
             return modPhone;
         }

@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-
+using System.ComponentModel.DataAnnotations.Schema;
 namespace API_Server.Models
 {
     public class Promotion
@@ -12,12 +12,27 @@ namespace API_Server.Models
 
         public DateTime StartDay { get; set; }
         public DateTime EndDay { get; set; }
-        [DefaultValue(true)]
         public bool Status {  get; set; }
 
-        public Promotion()
-        {
-            Status = true;
-        }
+        //public Promotion()
+        //{
+        //    UpdateStatus();
+        //    if (Id == 1)
+        //    {
+        //        Status = true;
+        //    }
+        //    Status = false;
+        //}
+        //private void UpdateStatus()
+        //{
+        //    if (DateTime.Now >= StartDay && DateTime.Now <= EndDay)
+        //    {
+        //        Status = true;
+        //    }
+        //    else
+        //    {
+        //        Status = false;
+        //    }
+        //}
     }
 }

@@ -32,8 +32,9 @@ const AddPromotion = () => {
         Object.entries(promotion).forEach(([key, value]) => {
             formData.append(key, value);
         });
-        axios.post(`https://localhost:7258/api/Promotions`, formData) // Pass formData here
+        axios.post(`https://localhost:7258/api/Promotion`, formData) // Pass formData here
             .then(res => {
+                alert("Promotion applied successfully.");
                 const newPromotion = res.data;
                 setPromotion(newPromotion);
                 const formDataHistory = new FormData();
@@ -41,13 +42,17 @@ const AddPromotion = () => {
                 formDataHistory.append("userId", userId);
                 formDataHistory.append("time", new Date().toISOString());
                 formDataHistory.append("productId", 1);
-                // formDataHistory.append("productName", newPromotion.name);
+                formDataHistory.append("productName", newPromotion.name);
                 formDataHistory.append("operation", "Thêm");
                 formDataHistory.append("amount", 0);
                 axios.post(`https://localhost:7258/api/History`, formDataHistory)
                     .then(ress => {
 
                     })
+                    .catch(error => {
+                        console.error('Thêm lịch sử thất bại:', error);
+                        console.log(formDataHistory);
+                    });
             })
             .catch(error => {
                 console.error('Thêm khuyến mãi thất bại:', error);
@@ -69,7 +74,7 @@ const AddPromotion = () => {
                     <Col className="form-item" xs={12} md={2}>
                         <i class="bi bi-currency-exchange"></i>
                         <label htmlFor="inputNanme4" className="form-label">Chỉ số</label>
-                        <input type="text" className="form-control" id="discountPercent"
+                        <input type="number" className="form-control" id="discountPercent"
                             name="discountPercent"
                             onChange={handleChange} />
                     </Col>
