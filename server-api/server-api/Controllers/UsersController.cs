@@ -90,6 +90,23 @@ namespace server_api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpPost("login-google")]
+        public async Task<IActionResult> GoogleLogin([FromBody] GoogleLoginModel model)
+        {
+            try
+            {
+                var token = await _userRepository.GoogleLoginAsync(model);
+                if (token == null)
+                {
+                    return StatusCode(StatusCodes.Status500InternalServerError, new { Message = "Đăng ký thất bại." });
+                }
+                return Ok(new { Token = token });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
 
 
