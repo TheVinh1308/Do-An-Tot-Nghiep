@@ -13,6 +13,7 @@ import huawei_icon from "../Assets/huawei.png"
 import xiaomi_icon from "../Assets/xiaomi.png"
 import 'jwt-decode';
 import { jwtDecode } from 'jwt-decode';
+import axios from "axios";
 const Navbar = () => {
     const [menu, setMenu] = useState();
     // const shopContext = useContext(ShopContext);
@@ -46,6 +47,26 @@ const Navbar = () => {
         setIsAuthenticated(false);
 
     };
+
+    const [carts, setCarts] = useState([]);
+    const [resetAmount, setResetAmount] = useState();
+    // Fetch cart items based on userId
+    useEffect(() => {
+        if (userId) {
+            axios.get(`https://localhost:7258/api/Carts/GetCartByUserId/${userId}`)
+                .then((res) => {
+                    setCarts(res.data)
+                    if (carts) {
+                        setResetAmount(carts.length);
+                    }
+
+                })
+
+                .catch((error) => console.error('Error fetching carts:', error));
+        }
+    }, [userId, carts]);
+
+
 
     return (
         <>
@@ -150,7 +171,7 @@ const Navbar = () => {
                     <Link to="/cart">
                         <img src={cart_icon} alt="" />
                     </Link>
-                    <div className="nav-cart-count">{0}</div>
+                    <div className="nav-cart-count">{resetAmount}</div>
                 </div>
             </div>
             <Outlet />

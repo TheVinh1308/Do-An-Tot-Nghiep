@@ -105,7 +105,7 @@ const ShopCategory = (props) => {
                         <div style={{ width: '300px' }}>
                             <h5 className="title-price">Kéo thả số tiền mong muốn</h5>
                             <div>
-                                <p className="show-price">{price[0]} - {price[1]}</p>
+                                <p className="show-price">{price[0].toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} - {price[1].toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
                             </div>
                             <Slider className="slider-price"
                                 getAriaLabel={() => 'Temperature range'}
@@ -115,10 +115,11 @@ const ShopCategory = (props) => {
                                 max={50000000}
                                 step={100000}
                                 valueLabelDisplay="auto"
+
                             />
                             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
                                 <button className="shopcategory-fill" style={{ margin: "5px 0" }}>Huỷ</button>
-                                <button className="shopcategory-fill" onClick={() => handleClickFill(price[0] + ' - ' + price[1])} style={{ margin: "5px 0" }}>Tìm kiếm</button>
+                                <button className="shopcategory-fill" onClick={() => handleClickFill(price[0].toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) + ' - ' + price[1].toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }))} style={{ margin: "5px 0" }}>Tìm kiếm</button>
                             </div>
                         </div>
                     </Dropdown.Menu>

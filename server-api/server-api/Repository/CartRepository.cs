@@ -29,7 +29,11 @@ namespace server_api.Repository
 
         public async Task<List<Cart>> GetAllCartAsync()
         {
-            var carts = await _context.Carts.ToListAsync();
+            var carts = await _context.Carts
+                 .Include(c => c.User)
+                .Include(c => c.Phone)
+                .ThenInclude(c => c.ModPhone)
+                .ToListAsync();
             return carts;
         }
 
@@ -39,18 +43,30 @@ namespace server_api.Repository
             return cart;
         }
 
-        public async Task<Cart> InsertCartAsync( Cart cart)
+        public async Task<List<Cart>> GetCartByUserIdAsync(string userId)
+        {
+            var carts = await _context.Carts
+                .Include(c => c.User)
+                .Include(c => c.Phone)
+                .ThenInclude(c => c.ModPhone)
+                .Where(c => c.UserId == userId)
+                .ToListAsync();
+
+            return carts;
+        }
+
+
+        public async Task<Cart> InsertCartAsync([FromForm] Cart cart)
         {
             _context.Carts.Add(cart);
             await _context.SaveChangesAsync();
             return cart;
         }
 
-        public async Task UpdateCartAsync( int cartId,  Cart cart)
+        public async Task UpdateCartAsync(int id, [FromForm]  Cart cart)
         {
-            if (cartId == cart.Id)
+            if (   id == cart.Id)
             {
-                
                 _context.Carts.Update(cart);
                 await _context.SaveChangesAsync();
             }

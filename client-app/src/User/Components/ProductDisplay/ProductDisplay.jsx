@@ -6,6 +6,9 @@ import axios from "axios"
 import { useParams } from "react-router-dom"
 import Tabs from "../Tabs/Tabs"
 import { jwtDecode } from "jwt-decode"
+import { Button, Col, Row } from "react-bootstrap"
+import 'react-toastify/dist/ReactToastify.css';
+import { Bounce, toast, ToastContainer } from "react-toastify";
 const ProductDisplay = (props) => {
     const { id } = useParams()
     const [images, setImages] = useState([]);
@@ -18,6 +21,7 @@ const ProductDisplay = (props) => {
     const [selectedRom, setSelectedRom] = useState(null);
     const [selectedColorButton, setSelectedColorButton] = useState(null);
     const [selectedRomButton, setSelectedRomButton] = useState(null);
+
     // lấy hình ảnh theo phone
     useEffect(() => {
         axios.get(`https://localhost:7258/api/Images/${id}`)
@@ -101,20 +105,9 @@ const ProductDisplay = (props) => {
         }
     }, [colors, roms, selectedColor, selectedRom, selectedColorButton, selectedRomButton]);
 
-    // console.log('mau duoc chon',selectedColor);
-    // console.log('rom duoc chon', selectedRom);
-    // console.log(selectedPhone);
-
-
-    // const uniqueColor = {};
-    // colors.forEach(item => {
-    //     if (!uniqueColor[item.phone.color]) {
-    //         uniqueColor[item.phone.color] = item;
-    //     }
-    // });
-    // const uniqueColorArray = Object.values(uniqueColor);
-
-    //ROM
+    useEffect(() => {
+        console.log(`selectedPhone`, selectedPhone);
+    }, [selectedPhone]);
     const uniqueRom = {};
     roms.forEach(item => {
         if (!uniqueRom[item.phone.rom]) {
@@ -131,12 +124,106 @@ const ProductDisplay = (props) => {
             setIndexImage(parsedList[0]);
         }
     }, [color.path]);
-    console.log(product);
     useEffect(() => {
 
     }, [new Date()]);
+    const [PhoneEx, setPhoneEx] = useState([]);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Carts/GetCartByUserId/${userId}`)
+            .then((res) => {
+                setPhoneEx(res.data)
+            });
+    }, [PhoneEx, userId]);
+
+    const notify = () => toast.success("Thành công!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+    });
+    const handleAddCart = (name) => {
+        if (isAuthenticated && selectedPhone) { // Kiểm tra xem người dùng đã đăng nhập và đã chọn sản phẩm
+            const phoneEx = PhoneEx.find(item => item.phoneId === selectedPhone.id);
+            if (phoneEx) {
+                // Cập nhật số lượng trong giỏ hàng
+                const formEditCart = {
+                    ...phoneEx,
+                    quantity: phoneEx.quantity + 1
+                };
+
+                axios.put(`https://localhost:7258/api/Carts/${phoneEx.id}`, formEditCart, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                })
+                    .then(res => {
+                        const formDataHistory = new FormData();
+                        formDataHistory.append("action", "Thêm sản phẩm vào giỏ hàng");
+                        formDataHistory.append("userId", userId);
+                        formDataHistory.append("time", new Date().toISOString());
+                        formDataHistory.append("productId", selectedPhone.id); // Sử dụng selectedPhone.id
+                        formDataHistory.append("productName", name);
+                        formDataHistory.append("operation", "Thêm");
+                        formDataHistory.append("amount", 1);
+
+                        axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                            .then(ress => {
+                                notify();
+                            })
+                            .catch(error => {
+                                console.error("Error adding to history:", error);
+                            });
+                    })
+                    .catch(error => {
+                        console.error("Error updating cart:", error.response || error.message || error);
+                    });
+            } else {
+                // Thêm sản phẩm mới vào giỏ hàng
+                const formAddCart = new FormData();
+                formAddCart.append("userId", userId);
+                formAddCart.append("phoneId", selectedPhone.id); // Sử dụng selectedPhone.id
+                formAddCart.append("quantity", 1);
+
+                axios.post(`https://localhost:7258/api/Carts`, formAddCart)
+                    .then(res => {
+                        axios.get(`https://localhost:7258/api/Carts/GetCartByUserId/${userId}`)
+                            .then((res) => {
+                                setPhoneEx(res.data)
+                            });
+                        const formDataHistory = new FormData();
+                        formDataHistory.append("action", "Thêm sản phẩm vào giỏ hàng");
+                        formDataHistory.append("userId", userId);
+                        formDataHistory.append("time", new Date().toISOString());
+                        formDataHistory.append("productId", selectedPhone.id); // Sử dụng selectedPhone.id
+                        formDataHistory.append("productName", name);
+                        formDataHistory.append("operation", "Thêm");
+                        formDataHistory.append("amount", 1);
+
+                        axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                            .then(ress => {
+                                notify();
+                            })
+                            .catch(error => {
+                                console.error("Error adding to history:", error);
+                            });
+                    })
+                    .catch(error => {
+                        console.error("Error adding to cart:", error.response || error.message || error);
+                    });
+            }
+        }
+    };
+
+
+
     return (
         <>
+            <ToastContainer />
             <div className="productdisplay">
                 <div className="productdisplay-left">
                     <div className="productdisplay-img-list">
@@ -182,7 +269,7 @@ const ProductDisplay = (props) => {
                         {
 
                             product.modPhone.promotionId != 1 ? (
-                                new Date(product.modPhone.promotion.startDay) > new Date() ? (<><div className="productdisplay-right-price-new">${selectedPhone && (selectedPhone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div><div>Sắp khuyến mãi</div></>) :
+                                new Date(product.modPhone.promotion.startDay) > new Date() ? (<><div className="productdisplay-right-price-new">${selectedPhone && (selectedPhone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div><div><img className="img-km" src="https://localhost:7258/images/khac/khuyenMai.webp" alt="" /></div></>) :
                                     ((new Date() > new Date(product.modPhone.promotion.endDay)) ? <div className="productdisplay-right-price-new">${selectedPhone && (selectedPhone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div> :
                                         <>
                                             <div className="productdisplay-right-price-new">${selectedPhone && (selectedPhone.price - ((selectedPhone.price * selectedPhone.modPhone.promotion.discountPercent) / 100)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div>
@@ -248,9 +335,19 @@ const ProductDisplay = (props) => {
                         </div>
                     </div>
 
-                    {/* <button onClick={() => addToCart(selectedPhone.id)}>ADD TO CART</button> */}
-                    <p className="productdisplay-right-category"><span>Category: </span>Women, T-Shirt, Crop Top</p>
-                    <p className="productdisplay-right-category"><span>Tag: </span>Modern, Latest</p>
+                    {/* <p className="productdisplay-right-category"><span>Category: </span>Women, T-Shirt, Crop Top</p>
+                    <p className="productdisplay-right-category"><span>Tag: </span>Modern, Latest</p> */}
+                    <div>
+                        <Row>
+                            <Button className="btn-muangay">
+                                Mua ngay
+                            </Button>
+                        </Row>
+                        <Row>
+                            <Col md={6} className="col-cart"><Button className="btn-cart" onClick={() => handleAddCart(selectedPhone.name)}><i class="bi bi-cart"></i></Button></Col>
+                            <Col md={6} className="col-heart"><Button className="btn-heart"><i class="bi bi-heart-fill"></i></Button></Col>
+                        </Row>
+                    </div>
                 </div>
             </div >
             {selectedPhone && (

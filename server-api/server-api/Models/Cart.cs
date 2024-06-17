@@ -19,7 +19,6 @@ namespace API_Server.Models
         // Reference navigation property cho khóa ngoại đến Product
         public Phone Phone { get; set; }
 
-        [DefaultValue(1)]
         public int Quantity { get; set; }
 
         public Cart()
