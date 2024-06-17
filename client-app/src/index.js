@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import ShopContextProvider from './User/Context/ShopContext';
-
+import { GoogleOAuthProvider } from '@react-oauth/google';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ShopContextProvider>
-    <App />
-  </ShopContextProvider>
+  <GoogleOAuthProvider clientId="240006226320-qhsroo2ih8hoc18co07blj0bttpjtvbe.apps.googleusercontent.com">
+    <ShopContextProvider>
+      <App />
+    </ShopContextProvider>
+  </GoogleOAuthProvider>
 
 );
 

@@ -1,0 +1,322 @@
+{
+    "phoneConfig":[
+        {
+            "id": 1,
+            "tenDienThoai": "iPhone 15 Pro Max",
+            "thongTin": {
+                "manHinh": {
+                    "congNgheManHinh": "OLED",
+                    "doPhanGiai": "Super Retina XDR (1290 x 2796 Pixels)",
+                    "manHinhRong": "6.7\" - Tan so quet 120 Hz",
+                    "doSangToiDa": "2000 nits",
+                    "matKinhCamUng": "Kinh cuong luc Ceramic Shield"
+                  },
+                "cameraSau": {
+                    "doPhanGiai": "Chinh 48 MP & Phu 12 MP, 12 MP",
+                    "quayPhim": [
+                      "HD 720p@30fps",
+                      "FullHD 1080p@60fps",
+                      "FullHD 1080p@30fps",
+                      "FullHD 1080p@25fps",
+                      "FullHD 1080p@240fps",
+                      "FullHD 1080p@120fps",
+                      "4K 2160p@60fps",
+                      "4K 2160p@30fps",
+                      "4K 2160p@25fps",
+                      "4K 2160p@24fps"
+                    ],
+                    "denFlash": "Co",
+                    "tinhNang": [
+                      "Anh Raw",
+                      "Zoom quang hoc",
+                      "Zoom ky thuat so",
+                      "Xoa phong",
+                      "Troi nhanh thoi gian (Time Lapse)",
+                      "Toan canh (Panorama)",
+                      "Smart HDR 5",
+                      "Sieu do phan giai",
+                      "Sieu can (Macro)",
+                      "Quay video ProRes",
+                      "Quay cham (Slow Motion)",
+                      "Live Photo",
+                      "Goc sieu rong (Ultrawide)",
+                      "Dolby Vision HDR",
+                      "Deep Fusion",
+                      "Cinematic",
+                      "Chong rung quang hoc (OIS)",
+                      "Che do hanh dong (Action Mode)",
+                      "Chan dung dem",
+                      "Bo loc mau",
+                      "Ban dem (Night Mode)",
+                      "Photonic Engine"
+                    ]
+                  },
+                "cameraTruoc": {
+                    "doPhanGiai": "12 MP",
+                    "tinhNang": [
+                      "Smart HDR 5",
+                      "Xoa phong",
+                      "Troi nhanh thoi gian (Time Lapse)",
+                      "Retina Flash",
+                      "Quay video ProRes",
+                      "Quay video Full HD",
+                      "Quay video 4K",
+                      "Quay cham (Slow Motion)",
+                      "Nhan dan (AR Stickers)",
+                      "Live Photo",
+                      "Deep Fusion",
+                      "Cinematic",
+                      "Chup dem",
+                      "Chong rung dien tu ky thuat so (EIS)",
+                      "Bo loc mau",
+                      "TrueDepth",
+                      "Photonic Engine"
+                    ]
+                  },
+                "heDieuHanhCPU": {
+                    "heDieuHanh": "iOS 17",
+                    "chipXuLyCPU": "Apple A17 Pro 6 nhan",
+                    "tocDoCPU": "3.78 GHz",
+                    "chipDoHoaGPU": "Apple GPU 6 nhan"
+                  },
+                "boNhoLuuTru": {
+                    "RAM": "8 GB",
+                    "dungLuongLuuTru": "256 GB",
+                    "dungLuongConLaiKhaDung": "241 GB",
+                    "danhBa": "Khong gioi han"
+                  },
+                "ketNoi": {
+                    "mangDiDong": "Ho tro 5G",
+                    "SIM": "1 Nano SIM & 1 eSIM",
+                    "wifi": [
+                      "Wi-Fi MIMO",
+                      "Wi-Fi 802.11 a/b/g/n/ac/ax",
+                      "6 GHz"
+                    ],
+                "GPS": [
+                      "QZSS",
+                      "NavIC",
+                      "GPS",
+                      "GLONASS",
+                      "GALILEO",
+                      "BEIDOU"
+                    ],
+                    "bluetooth": "v5.3",
+                    "congKetNoiSac": "Type-C",
+                    "jackTaiNghe": "Type-C",
+                    "ketNoiKhac": "NFC"
+                  },
+                  "pinSac": {
+                    "dungLuongPin": "4422 mAh",
+                    "loaiPin": "Li-Ion",
+                    "hoTroSacToiDa": "20 W",
+                    "congNghePin": [
+                      "Tiet kiem pin",
+                      "Sac pin nhanh",
+                      "Sac nguoc qua cap",
+                      "Sac khong day MagSafe",
+                      "Sac khong day"
+                    ]
+                  },
+                  "tienIch": {
+                    "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                    "tinhNangDacBiet": [
+                      "Am thanh Dolby Atmos",
+                      "Phat hien va cham (Crash Detection)",
+                      "Man hinh luon hien thi AOD",
+                      "Loa kep",
+                      "HDR10",
+                      "DCI-P3",
+                      "Cong nghe True Tone",
+                      "Cong nghe hinh anh Dolby Vision",
+                      "Cong nghe HLG",
+                      "Cham 2 lan sang man hinh",
+                      "Apple Pay"
+                    ],
+                    "khangNuocBui": "IP68",
+                    "ghiAm": "Ghi am mac dinh",
+                    "xemPhim": [
+                      "H.264(MPEG4-AVC)",
+                      "AV1",
+                      "ProRes",
+                      "HEVC"
+                    ],
+                    "ngheNhac": [
+                      "MP3",
+                      "FLAC",
+                      "AAC"
+                    ]
+                  },
+                  "thongTinChung": {
+                    "thietKe": "Nguyen khoi",
+                    "chatLieu": "Khung Titan & Mat lung kinh cuong luc",
+                    "kichThuocKhoiLuong": {
+                      "dai": "159.9 mm",
+                      "ngang": "76.7 mm",
+                      "day": "8.25 mm",
+                      "nang": "221 g"
+                    },
+                    "thoiDiemRaMat": "09/2023",
+                    "hang": "iPhone (Apple)"
+                  }
+                }          
+        },
+
+        {
+            "id": 2,
+            "tenDienThoai": "iPhone 15 Pro",
+            "thongTin": {
+                "manHinh": {
+                  "congNgheManHinh": "OLED",
+                  "doPhanGiai": "Super Retina XDR (1179 x 2556 Pixels)",
+                  "manHinhRong": "6.1\" - Tan so quet 120 Hz",
+                  "doSangToiDa": "2000 nits",
+                  "matKinhCamUng": "Kinh cuong luc Ceramic Shield"
+                },
+                "cameraSau": {
+                  "doPhanGiai": "Chinh 48 MP & Phu 12 MP, 12 MP",
+                  "quayPhim": [
+                    "HD 720p@30fps",
+                    "FullHD 1080p@60fps",
+                    "FullHD 1080p@30fps",
+                    "FullHD 1080p@25fps",
+                    "FullHD 1080p@24fps",
+                    "FullHD 1080p@240fps",
+                    "FullHD 1080p@120fps",
+                    "4K 2160p@60fps",
+                    "4K 2160p@30fps",
+                    "4K 2160p@25fps",
+                    "4K 2160p@24fps"
+                  ],
+                  "denFlash": "Co",
+                  "tinhNang": [
+                    "Anh Raw",
+                    "Zoom quang hoc",
+                    "Zoom ky thuat so",
+                    "Xoa phong",
+                    "Troi nhanh thoi gian (Time Lapse)",
+                    "Toan canh (Panorama)",
+                    "Smart HDR 5",
+                    "Sieu do phan giai",
+                    "Sieu can (Macro)",
+                    "Quay video ProRes",
+                    "Quay cham (Slow Motion)",
+                    "Live Photo",
+                    "Goc sieu rong (Ultrawide)",
+                    "Dolby Vision HDR",
+                    "Deep Fusion",
+                    "Cinematic",
+                    "Chong rung quang hoc (OIS)",
+                    "Che do hanh dong (Action Mode)",
+                    "Chan dung dem",
+                    "Bo loc mau",
+                    "Ban dem (Night Mode)",
+                    "Photonic Engine"
+                  ]
+                },
+                "cameraTruoc": {
+                  "doPhanGiai": "12 MP",
+                  "tinhNang": [
+                    "Smart HDR 5",
+                    "Xoa phong",
+                    "Troi nhanh thoi gian (Time Lapse)",
+                    "Retina Flash",
+                    "Quay video ProRes",
+                    "Quay video Full HD",
+                    "Quay video 4K",
+                    "Quay cham (Slow Motion)",
+                    "Nhan dan (AR Stickers)",
+                    "Live Photo",
+                    "Deep Fusion",
+                    "Cinematic",
+                    "Chup dem",
+                    "Chong rung dien tu ky thuat so (EIS)",
+                    "Bo loc mau",
+                    "Photonic Engine"
+                  ]
+                },
+                "heDieuHanhCPU": {
+                  "heDieuHanh": "iOS 17",
+                  "chipXuLyCPU": "Apple A17 Pro 6 nhan",
+                  "tocDoCPU": "3.78 GHz",
+                  "chipDoHoaGPU": "Apple GPU 6 nhan"
+                },
+                "boNhoLuuTru": {
+                  "RAM": "8 GB",
+                  "dungLuongLuuTru": "128 GB",
+                  "dungLuongConLaiKhaDung": "113 GB",
+                  "danhBa": "Khong gioi han"
+                },
+                "ketNoi": {
+                  "mangDiDong": "Ho tro 5G",
+                  "SIM": "1 Nano SIM & 1 eSIM",
+                  "wifi": [
+                    "Wi-Fi MIMO",
+                    "Co",
+                    "6 GHz"
+                  ],
+                  "GPS": [
+                    "QZSS",
+                    "NavIC",
+                    "GLONASS",
+                    "GALILEO",
+                    "Co"
+                  ],
+                  "bluetooth": "v5.3",
+                  "congKetNoiSac": "Type-C",
+                  "jackTaiNghe": "Type-C",
+                  "ketNoiKhac": "NFC"
+                },
+                "pinSac": {
+                  "dungLuongPin": "3274 mAh",
+                  "loaiPin": "Li-Ion",
+                  "hoTroSacToiDa": "20 W",
+                  "congNghePin": [
+                    "Tiet kiem pin",
+                    "Sac pin nhanh",
+                    "Sac nguoc qua cap",
+                    "Sac khong day MagSafe",
+                    "Sac khong day"
+                  ]
+                },
+                "tienIch": {
+                  "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                  "tinhNangDacBiet": [
+                    "Am thanh Dolby Atmos",
+                    "Phat hien va cham (Crash Detection)",
+                    "Man hinh luon hien thi AOD",
+                    "Loa kep",
+                    "HDR10",
+                    "DCI-P3",
+                    "Cong nghe True Tone",
+                    "Cong nghe hinh anh Dolby Vision",
+                    "Cong nghe HLG",
+                    "Cham 2 lan sang man hinh",
+                    "Apple Pay"
+                  ],
+                  "khangNuocBui": "IP68",
+                  "ghiAm": "Ghi am mac dinh",
+                  "xemPhim": [
+                    "H.264(MPEG4-AVC)",
+                    "AV1",
+                    "ProRes",
+                    "HEVC"
+                  ],
+                  "ngheNhac": "Co"
+                },
+                "thongTinChung": {
+                  "thietKe": "Nguyen khoi",
+                  "chatLieu": "Khung Titan & Mat lung kinh cuong luc",
+                  "kichThuocKhoiLuong": {
+                    "dai": "146.6 mm",
+                    "ngang": "70.6 mm",
+                    "day": "8.25 mm",
+                    "nang": "187 g"
+                  },
+                  "thoiDiemRaMat": "09/2023",
+                  "hang": "iPhone (Apple)"
+                }
+              }              
+        }
+    ]
+}
