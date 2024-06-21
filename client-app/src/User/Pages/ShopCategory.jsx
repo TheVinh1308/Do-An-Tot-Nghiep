@@ -1,26 +1,29 @@
 import { useContext, useEffect, useState } from "react";
-import "./CSS/ShopCategory.css"
-import dropdown_icon from "../Components/Assets/dropdown_icon.png"
+import "./CSS/ShopCategory.css";
+import dropdown_icon from "../Components/Assets/dropdown_icon.png";
 import Item from "../Components/Item/Item";
 import { ShopContext } from "../Context/ShopContext";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
-import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { DropdownButton, Row } from "react-bootstrap";
 import { Slider } from "@mui/material";
 import axios from "axios";
 
 const ShopCategory = (props) => {
-    const { phones } = useContext(ShopContext)
-    console.log(phones);
-    const [price, setPrice] = useState([1000, 560000]);
+    const { phones, setPhones, defaultPhones } = useContext(ShopContext);
     const [images, setImages] = useState([]);
-
-    useEffect(() => {
-
-    }, [phones]);
+    const [filled, setFilled] = useState(false);
+    const [selectedItems, setSelectedItems] = useState([]);
+    const [priceFilterEnabled, setPriceFilterEnabled] = useState(false);
+    const [batteryFilterEnabled, setBatteryFilterEnabled] = useState(false);
+    const [filterCriteria, setFilterCriteria] = useState({
+        ram: [],
+        price: [1000, 50000000],
+        battery: [],
+        screensize: [],
+        cpu: []
+    });
 
     useEffect(() => {
         axios.get(`https://localhost:7258/api/Images`)
@@ -28,80 +31,127 @@ const ShopCategory = (props) => {
                 setImages(res.data);
             });
     }, []);
+
+    const [price, setPrice] = useState([1000, 50000000]);
+
     const handleChange = (event, newValue) => {
         setPrice(newValue);
+        setPriceFilterEnabled(true);
+        setFilterCriteria(prev => ({ ...prev, price: newValue }));
+        applyFilters({ ...filterCriteria, price: newValue });
     };
-
-    const [filled, setFilled] = useState(false);
-    const [selectedItems, setSelectedItems] = useState([]);
 
     const handleCancelFill = (itemToRemove) => {
         if (itemToRemove) {
-            setSelectedItems(selectedItems.filter(item => item !== itemToRemove));
+            const updatedItems = selectedItems.filter(item => item.itemName !== itemToRemove.itemName);
+            setSelectedItems(updatedItems);
 
+            const updatedCriteria = { ...filterCriteria };
+            updatedCriteria[itemToRemove.category] = updatedCriteria[itemToRemove.category].filter(value => value !== itemToRemove.itemName);
+            setFilterCriteria(updatedCriteria);
+
+            applyFilters(updatedCriteria);
         } else {
             setFilled(false);
             setSelectedItems([]);
+            setFilterCriteria({
+                ram: [],
+                price: [1000, 50000000],
+                battery: [],
+                screensize: [],
+                cpu: []
+            });
+            setPhones(defaultPhones);
         }
+    };
 
-
-    }
     const handleCancel = () => {
         setFilled(false);
         setSelectedItems([]);
-    }
-    const handleClickFill = (itemName) => {
+        setPriceFilterEnabled(false);
+        setBatteryFilterEnabled(false);
+        setFilterCriteria({
+            ram: [],
+            price: [1000, 50000000],
+            battery: [],
+            screensize: [],
+            cpu: []
+        });
+        setPhones(defaultPhones);
+    };
+
+    const handleClickFill = (category, itemName) => {
         setFilled(true);
-        setSelectedItems([...selectedItems, itemName]);
-    }
+        setSelectedItems([...selectedItems, { category, itemName }]);
+        setFilterCriteria(prev => {
+            const newCriteria = { ...prev };
+            if (!newCriteria[category].includes(itemName)) {
+                newCriteria[category].push(itemName);
+            }
+            return newCriteria;
+        });
+        applyFilters({ ...filterCriteria, [category]: [...filterCriteria[category], itemName] });
+    };
+
+    const applyFilters = (criteria) => {
+        let filteredPhones = defaultPhones;
+
+        if (criteria.ram.length > 0) {
+            filteredPhones = filteredPhones.filter(item => criteria.ram.includes(item.modPhone.ram));
+        }
+        if (priceFilterEnabled) {
+            filteredPhones = filteredPhones.filter(item => item.price >= criteria.price[0] && item.price <= criteria.price[1]);
+        }
+        if (criteria.battery.length > 0) {
+            filteredPhones = filteredPhones.filter(item => criteria.battery.some(b => item.modPhone.battery >= b && item.modPhone.battery < (b + 1000)));
+        }
+        if (criteria.screensize.length > 0) {
+            filteredPhones = filteredPhones.filter(item => criteria.screensize.some(s => item.modPhone.screenSize >= s && item.modPhone.screenSize < (s + 1)));
+        }
+        if (criteria.cpu.length > 0) {
+            filteredPhones = filteredPhones.filter(item => criteria.cpu.includes(item.modPhone.cpu));
+        }
+
+        setPhones(filteredPhones);
+    };
 
     return (
         <div className="shop-category">
             <Navbar />
             <img className="shopcategory-banner" src={props.banner} alt="" />
             <div className="shopcategory-indexSort">
-                <p><span>Showing 1-12</span>out of 36 products</p>
+                <p><span>Showing 1-12</span> out of 36 products</p>
                 <div className="shopcategory-sort">
                     Sort by <img src={dropdown_icon} alt="" />
                 </div>
             </div>
-            <div className="shopcategory-filter" >
-                <Dropdown    >
-                    <Dropdown.Toggle  >
+            <div className="shopcategory-filter">
+                <Dropdown>
+                    <Dropdown.Toggle>
                         Chức năng
                     </Dropdown.Toggle>
-
-                    <Dropdown.Menu  >
-                        <Dropdown.Item onClick={() => handleClickFill("Chơi Game")} name="choiGame">Chơi game</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("Quay Phim")} name="quayPhim">Quay phim</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("Chức năng cơ bản")} name="coBan">Chức năng cơ bản</Dropdown.Item>
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => handleClickFill("function", "Chơi Game")}>Chơi game</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("function", "Quay Phim")}>Quay phim</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("function", "Chức năng cơ bản")}>Chức năng cơ bản</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
-                <Dropdown  >
-                    <Dropdown.Toggle className="shopcategory-fill" >
+                <Dropdown>
+                    <Dropdown.Toggle className="shopcategory-fill">
                         Dung lượng
                     </Dropdown.Toggle>
-
-                    <Dropdown.Menu >
-                        <Dropdown.Item onClick={() => handleClickFill("2 GB")}>
-                            2 GB
-                        </Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("3 GB")}>
-                            3 GB
-                        </Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("4 GB")}>4 GB</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("6 GB")}>6 GB</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("8 GB")}>8 GB</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("12 GB")}>12 GB</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("16 GB")}>16 GB</Dropdown.Item>
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => handleClickFill("ram", "4")}>4 GB</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("ram", "6")}>6 GB</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("ram", "8")}>8 GB</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("ram", "12")}>12 GB</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
-                <Dropdown  >
-                    <Dropdown.Toggle className="shopcategory-fill" >
+                <Dropdown>
+                    <Dropdown.Toggle className="shopcategory-fill">
                         Giá tiền
                     </Dropdown.Toggle>
-
-                    <Dropdown.Menu >
+                    <Dropdown.Menu>
                         <div style={{ width: '300px' }}>
                             <h5 className="title-price">Kéo thả số tiền mong muốn</h5>
                             <div>
@@ -115,51 +165,45 @@ const ShopCategory = (props) => {
                                 max={50000000}
                                 step={100000}
                                 valueLabelDisplay="auto"
-
                             />
                             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-                                <button className="shopcategory-fill" style={{ margin: "5px 0" }}>Huỷ</button>
-                                <button className="shopcategory-fill" onClick={() => handleClickFill(price[0].toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) + ' - ' + price[1].toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }))} style={{ margin: "5px 0" }}>Tìm kiếm</button>
+                                <button className="shopcategory-fill" style={{ margin: "5px 0" }} onClick={handleCancel}>Huỷ</button>
+                                <button className="shopcategory-fill" onClick={() => handleClickFill("price", price)} style={{ margin: "5px 0" }}>Tìm kiếm</button>
                             </div>
                         </div>
                     </Dropdown.Menu>
                 </Dropdown>
-                <Dropdown  >
-                    <Dropdown.Toggle className="shopcategory-fill" >
+                <Dropdown>
+                    <Dropdown.Toggle className="shopcategory-fill">
                         Lượng Pin
                     </Dropdown.Toggle>
-                    <Dropdown.Menu >
-                        <Dropdown.Item onClick={() => handleClickFill("Trên 3000 mAh")}>
-                            3000 mAh
-                        </Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("Trên 4000 mAh")}>4000 mAh</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("Trên 5000 mAh")}>5000 mAh</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("Trên 6000 mAh")}>6000 mAh</Dropdown.Item>
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => handleClickFill("battery", 3000)}>3000 mAh</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("battery", 4000)}>4000 mAh</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("battery", 5000)}>5000 mAh</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("battery", 6000)}>6000 mAh</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
-                <Dropdown  >
-                    <Dropdown.Toggle className="shopcategory-fill" >
+                <Dropdown>
+                    <Dropdown.Toggle className="shopcategory-fill">
                         Kích thước
                     </Dropdown.Toggle>
-
-                    <Dropdown.Menu >
-                        <Dropdown.Item onClick={() => handleClickFill("4 Inches")}>4 Inches</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("5 Inches")}>5 Inches</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("6 Inches")}>6 Inches</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("7 Inches")}>7 Inches</Dropdown.Item>
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => handleClickFill("screensize", 5)}>5 Inches</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("screensize", 6)}>6 Inches</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("screensize", 7)}>7 Inches</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
-                <Dropdown  >
-                    <Dropdown.Toggle className="shopcategory-fill" >
+                <Dropdown>
+                    <Dropdown.Toggle className="shopcategory-fill">
                         Chip xử lý
                     </Dropdown.Toggle>
-
-                    <Dropdown.Menu >
-                        <Dropdown.Item onClick={() => handleClickFill("Apple Bionic")}>Apple Bionic</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("Exynos")}>Exynos</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("ARM Snapdragon")}>ARM Snapdragon</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("MediaTek")}>MediaTek</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleClickFill("Kirin")}> Kirin</Dropdown.Item>
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => handleClickFill("cpu", "Apple")}>Apple Bionic</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("cpu", "Exynos")}>Exynos</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("cpu", "Snapdragon")}>ARM Snapdragon</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("cpu", "MediaTek")}>MediaTek</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("cpu", "Kirin")}>Kirin</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             </div>
@@ -169,7 +213,7 @@ const ShopCategory = (props) => {
                     <hr />
                     {selectedItems.map((item, index) => (
                         <button key={index} className="shopcategory-fill-cancel">
-                            {item}
+                            {item.itemName}
                             <button className="cancel-fill" onClick={() => handleCancelFill(item)}>x</button>
                         </button>
                     ))}
@@ -177,14 +221,10 @@ const ShopCategory = (props) => {
                 </div>
             ) : ""}
 
-
-
             <div className="shopcategory-products">
-
                 {phones.map((item, index) => (
                     item !== null ?
-                        props.brand === item.modPhone.brand.name
-                            ?
+                        props.brand === item.modPhone.brand.name ?
                             Array.isArray(images) && images.map((itemImg, indexImg) => (
                                 itemImg.phoneId === item.id ?
                                     <Item
@@ -197,14 +237,11 @@ const ShopCategory = (props) => {
                                         discountPercent={item.modPhone.promotion.discountPercent}
                                         startDay={item.modPhone.promotion.startDay}
                                         endDay={item.modPhone.promotion.endDay}
-                                    // ld_price={item.old_price}
                                     />
                                     : null
                             ))
                             : null
-
-                        : null
-
+                        :  null
                 ))}
             </div>
             <div className="shopcategory-loadmore">
@@ -212,8 +249,7 @@ const ShopCategory = (props) => {
             </div>
             <Footer />
         </div>
-
     );
-}
+};
 
 export default ShopCategory;
