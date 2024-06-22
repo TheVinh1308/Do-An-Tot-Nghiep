@@ -6,11 +6,13 @@ const ShopContextProvider = (props) => {
 
 
     const [phones, setPhones] = useState([{ modPhone: { brand: {}, promotion: {} } }]);
+    const [defaultPhones, setDefaultPhone] = useState([{ modPhone: { brand: {}, promotion: {} } }]);
     console.log(phones);
     useEffect(() => {
         axios.get(`https://localhost:7258/api/Phones/FirstByModel`)
             .then((res) => {
                 setPhones(res.data)
+                setDefaultPhone(res.data)
             })
             .catch((err) => {
                 console.log("Lỗi lấy dữ liệu: ", err);
@@ -22,7 +24,7 @@ const ShopContextProvider = (props) => {
     // const [cartItems, setCartItems] = useState()
 
 
-    const contextValue = { phones }
+    const contextValue = { phones,setPhones,defaultPhones }
 
     return (
         <ShopContext.Provider value={contextValue}>

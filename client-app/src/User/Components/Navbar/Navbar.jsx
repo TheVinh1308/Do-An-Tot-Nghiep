@@ -64,7 +64,7 @@ const Navbar = () => {
 
                 .catch((error) => console.error('Error fetching carts:', error));
         }
-    }, [userId, carts]);
+    }, [userId]);
 
 
 
