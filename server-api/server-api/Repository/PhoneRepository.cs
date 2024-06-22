@@ -32,6 +32,24 @@ namespace server_api.Repository
                                              .SingleOrDefaultAsync(x => x.Id == id);
             return phone;
         }
+
+
+        public async Task<List<Phone>> GetNewPhoneAsync()
+        {
+            var phones = await _context.Phones
+                .Include(p => p.ModPhone)
+                .ThenInclude(p=>p.Brand)
+                .ToListAsync();
+
+            var result = phones
+                .GroupBy(p => p.ModPhone.BrandId)
+                .Select(g => g.OrderByDescending(p => p.Id).First())
+                .OrderByDescending(p => p.Id)
+                .ToList();
+
+            return result;
+        }
+
         public async Task<Phone> GetFirstPhoneByModPhoneIdAsync(int modPhoneId)
         {
             var phone = await _context.Phones.Include(p => p.ModPhone)
@@ -66,6 +84,20 @@ namespace server_api.Repository
                 _context.Phones.Update(phone);
                 await _context.SaveChangesAsync();
            }
+        }
+        public async Task<List<Phone>> GetPhonePromotionAsync()
+        {
+            var result = await _context.Phones
+     .Include(p => p.ModPhone)
+     .ThenInclude(mp => mp.Promotion)
+     .Where(p => p.ModPhone.PromotionId != 1)
+     .Where(p => p.ModPhone.Promotion.StartDay <= DateTime.Now && p.ModPhone.Promotion.EndDay >= DateTime.Now)
+     .GroupBy(p => p.ModPhone.Name)
+     .Select(g => g.OrderBy(p => p.ModPhone.Promotion.StartDay).FirstOrDefault()) // Chọn đại diện tùy ý
+     .ToListAsync();
+
+
+            return result;
         }
 
         public async Task<List<Phone>> GetFirstPhoneEachModPhoneAsync()

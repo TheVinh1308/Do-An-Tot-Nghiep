@@ -74,39 +74,45 @@ const Navbar = () => {
             <div className="navbar">
                 <div className="nav-logo">
                     <img src={logo} alt="" />
-                    <p>SHOPPER</p>
+                    <p>2VPHONE</p>
                 </div>
                 <img onClick={dropdown_toggle} src={nav_droppdown} alt="" className="nav-dropdown" />
                 <ul className="nav-menu" ref={menuRef}>
                     <li onClick={() => { setMenu("iphone") }}>
                         <Link to="/iphone" style={{ textDecoration: "none" }}>
-                            <img clasname="icon" src={iphone_icon} alt="" />
+                            {/* <img clasname="icon" src={iphone_icon} alt="" /> */}
+                            IPHONE
                         </Link>{menu === "iphone" ? <hr /> : <></>}
                     </li>
 
                     <li onClick={() => { setMenu("samsung") }}>
                         <Link to="/samsung" style={{ textDecoration: "none" }}>
-                            <img classname="icon" src={samsung_icon} alt="" />
+                            {/* <img classname="icon" src={samsung_icon} alt="" /> */}
+                            SAMSUNG
                         </Link>{menu === "samsung" ? <hr /> : <></>}
                     </li>
                     <li onClick={() => { setMenu("vivo") }}>
                         <Link to="/vivo" style={{ textDecoration: "none" }}>
-                            <img classname="icon" src={vivo_icon} alt="" />
+                            {/* <img classname="icon" src={vivo_icon} alt="" /> */}
+                            VIVO
                         </Link>{menu === "vivo" ? <hr /> : <></>}
                     </li>
                     <li onClick={() => { setMenu("oppo") }}>
                         <Link to="/oppo" style={{ textDecoration: "none" }}>
-                            <img classname="icon" src={oppo_icon} alt="" />
+                            {/* <img classname="icon" src={oppo_icon} alt="" /> */}
+                            OPPO
                         </Link>{menu === "oppo" ? <hr /> : <></>}
                     </li>
                     <li onClick={() => { setMenu("huawei") }}>
                         <Link to="/huawei" style={{ textDecoration: "none" }}>
-                            <img classname="icon" src={huawei_icon} alt="" />
+                            {/* <img classname="icon" src={huawei_icon} alt="" /> */}
+                            HUAWEI
                         </Link>{menu === "huawei" ? <hr /> : <></>}
                     </li>
                     <li onClick={() => { setMenu("xiaomi") }}>
                         <Link to="/xiaomi" style={{ textDecoration: "none" }}>
-                            <img classname="icon" src={xiaomi_icon} alt="" />
+                            {/* <img classname="icon" src={xiaomi_icon} alt="" /> */}
+                            XIAOMI
                         </Link>{menu === "xiaomi" ? <hr /> : <></>}
                     </li>
 
@@ -169,9 +175,12 @@ const Navbar = () => {
                     </nav>
 
                     <Link to="/cart">
-                        <img src={cart_icon} alt="" />
+                        <img src={cart_icon} alt="" className="img-cart" />
+
                     </Link>
                     <div className="nav-cart-count">{resetAmount}</div>
+
+
                 </div>
             </div>
             <Outlet />
