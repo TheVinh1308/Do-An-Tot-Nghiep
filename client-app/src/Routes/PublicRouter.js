@@ -14,12 +14,12 @@ const PublicRouter = () => {
                     <Route path="/">
                         <Route index element={<Shop />} />
 
-                        <Route path='iphone' element={<ShopCategory brand="iPhone" />} />
-                        <Route path='samsung' element={<ShopCategory brand="Samsung" />} />
-                        <Route path='vivo' element={<ShopCategory brand="Vivo" />} />
-                        <Route path='huawei' element={<ShopCategory brand="Huawei" />} />
-                        <Route path='oppo' element={<ShopCategory brand="Oppo" />} />
-                        <Route path='xiaomi' element={<ShopCategory brand="Xiaomi" />} />
+                        <Route path='iphone' element={<ShopCategory brand="iPhone" banner={`https://localhost:7258/images/baner/iphone.jpg`} />} />
+                        <Route path='samsung' element={<ShopCategory brand="Samsung" banner={`https://localhost:7258/images/baner/samsung.jpg`} />} />
+                        <Route path='vivo' element={<ShopCategory brand="Vivo" banner={`https://localhost:7258/images/baner/vivo.jpg`} />} />
+                        <Route path='huawei' element={<ShopCategory brand="Huawei" banner={`https://localhost:7258/images/baner/huawei.jpg`} />} />
+                        <Route path='oppo' element={<ShopCategory brand="Oppo" banner={`https://localhost:7258/images/baner/oppo.jpg`} />} />
+                        <Route path='xiaomi' element={<ShopCategory brand="Xiaomi" banner={`https://localhost:7258/images/baner/xiaomi.jpg`} />} />
                         <Route path='iphone/:id' element={<Product />}></Route>
                         <Route path='samsung/:id' element={<Product />}></Route>
                         <Route path='vivo/:id' element={<Product />}></Route>

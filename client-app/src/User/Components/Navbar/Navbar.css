@@ -142,10 +142,11 @@ nav {
 
         ul li:hover>ul,
         ul li ul:hover {
+            transform: translateX(-38px);
             visibility: visible;
             opacity: 1;
             display: block;
-            min-width: 250px;
+            /* min-width: 250px; */
             text-align: left;
             padding-top: 20px;
             box-shadow: 0px 3px 5px -1px #ccc;
@@ -153,7 +154,7 @@ nav {
 
         ul li ul li {
             clear: both;
-            width: 100%;
+            width: 250px;
             text-align: left;
             margin-bottom: 20px;
             border-style: none;
@@ -180,6 +181,44 @@ a {
 ul li ul li a {
     transition: all 0.5s ease;
 }
+
+.notification-container {
+    position: relative;
+    display: inline-block;
+}
+
+.bi-bell {
+    font-size: 24px;
+    /* Kích thước biểu tượng */
+    position: relative;
+}
+
+.bi.bi-bell.dropdown-toggle::after {
+    display: none !important;
+}
+
+.nav-bell-count {
+    position: absolute;
+    top: 35px;
+    right: 122px;
+    /* Điều chỉnh vị trí từ phải qua */
+    background-color: red;
+    /* Màu nền của số lượng */
+    color: white;
+    /* Màu chữ của số lượng */
+    border-radius: 50%;
+    /* Làm tròn hình nền */
+    padding: 2px 6px;
+    /* Đệm xung quanh số lượng */
+    font-size: 12px;
+    /* Kích thước chữ của số lượng */
+    font-weight: bold;
+    /* Độ đậm của chữ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 
 @media(max-width: 1280px) {

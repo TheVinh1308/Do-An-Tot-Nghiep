@@ -1,19 +1,13 @@
 import "./Navbar.css"
 import logo from "../Assets/logo.png"
 import cart_icon from "../Assets/cart_icon.png"
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { ShopContext } from "../../Context/ShopContext";
 import nav_droppdown from "../Assets/dropdown_icon.png"
-import iphone_icon from "../Assets/iphone.png"
-import samsung_icon from "../Assets/samsung.png"
-import vivo_icon from "../Assets/vivo.png"
-import oppo_icon from "../Assets/oppo.png"
-import huawei_icon from "../Assets/huawei.png"
-import xiaomi_icon from "../Assets/xiaomi.png"
 import 'jwt-decode';
 import { jwtDecode } from 'jwt-decode';
 import axios from "axios";
+import { format } from "date-fns";
 const Navbar = () => {
     const [menu, setMenu] = useState();
     // const shopContext = useContext(ShopContext);
@@ -66,8 +60,18 @@ const Navbar = () => {
         }
     }, [userId]);
 
+    // thông báo
+    const [notification, setNotification] = useState([]);
 
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Notification/GetNoficationByUserId/${userId}`)
+            .then(res => {
+                setNotification(res.data);
+            });
+    }, [userId])
 
+    console.log(`no`, notification);
+    const reversedNotifications = notification.slice().reverse();
     return (
         <>
 
@@ -173,11 +177,71 @@ const Navbar = () => {
 
                         </ul>
                     </nav>
+                    <div>
+                        <nav role="navigation" class="primary-navigation">
+                            <div className="nav-bell-count ">{reversedNotifications.length}</div>
+                            <ul>
+                                {
+                                    isAuthenticated ?
+                                        <li className="nav-item dropdown pe-3">
+                                            <a className="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                                                <i class="bi bi-bell dropdown-toggle"></i>
 
+                                            </a>{/* End Profile Iamge Icon */}
+                                            <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                                                {
+                                                    reversedNotifications.map((item, index) => (
+                                                        <>
+                                                            {item.title.includes("Khuyến mãi") ? (
+                                                                <>
+                                                                    <li key={index} style={{ marginBottom: "0px" }}>
+                                                                        <a href={item.url}>
+                                                                            {item.title}
+                                                                            <p>
+                                                                                {format(new Date(item.phone.modPhone.promotion.startDay), 'dd/MM/yyyy')} - {format(new Date(item.phone.modPhone.promotion.endDay), 'dd/MM/yyyy')}
+                                                                            </p>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li style={{ marginBottom: "0px" }}>
+                                                                        <hr className="dropdown-divider" />
+                                                                    </li>
+                                                                </>
+                                                            ) : (
+                                                                <>
+                                                                    <li key={index} style={{ marginBottom: "0px" }}>
+                                                                        <a href={`${item.url}`}>
+                                                                            {item.title}
+                                                                            <p> {format(new Date(item.time), 'dd/MM/yyyy')} </p>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li style={{ marginBottom: "0px" }}>
+                                                                        <hr className="dropdown-divider" />
+                                                                    </li>
+                                                                </>
+                                                            )}
+                                                        </>
+                                                    ))
+                                                }
+
+
+                                            </ul>
+                                        </li>
+
+                                        :
+                                        <>
+                                            <div></div>
+                                        </>
+                                }
+
+
+                            </ul>
+                        </nav>
+                    </div>
                     <Link to="/cart">
                         <img src={cart_icon} alt="" className="img-cart" />
 
                     </Link>
+
                     <div className="nav-cart-count">{resetAmount}</div>
 
 

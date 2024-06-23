@@ -104,10 +104,11 @@ namespace server_api.Repository
         {
             var result = await _context.Phones
                                        .Include(p => p.ModPhone)
-                                       .Include(p => p.ModPhone.Brand)
-                                       .Include(p=>p.ModPhone.Promotion)
-                                       .GroupBy(p => new { p.ModPhoneId, p.Rom })
-                                       .Select(g => g.First())
+                                           .ThenInclude(mp => mp.Brand)
+                                       .Include(p => p.ModPhone)
+                                           .ThenInclude(mp => mp.Promotion)
+                                       .GroupBy(p => p.ModPhoneId)
+                                       .Select(g => g.OrderBy(p => p.Id).First())
                                        .ToListAsync();
 
             return result;

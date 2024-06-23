@@ -1,6 +1,7 @@
 import { Breadcrumb, Dropdown, Modal } from "react-bootstrap";
 import Sidebar from "../Sidebar";
 import Header from "../Header";
+import "datatables.net-bs5";
 import { useEffect, useState } from "react";
 import $ from "jquery";
 import Footer from "../Footer/Footer";
@@ -14,18 +15,38 @@ const History = () => {
 
     useEffect(() => {
         if (loadData) {
-            const table = $('#DataTables_Table_History').DataTable({
+            $('#DataTables_Table_History').DataTable({
+                dom: 'Bfrtip',
                 responsive: true,
                 autoWidth: true,
                 paging: [{
                     className: 'p-0',
-                }]
+                }],
+                buttons: [
+                    {
+                        extend: 'copy',
+                        className: 'btn bg-primary text-white',
+                    },
+                    {
+                        extend: 'csv',
+                        className: 'btn bg-secondary text-white',
+                    },
+                    {
+                        extend: 'excel',
+                        className: 'btn bg-success text-white',
+                        filename: function () {
+                            return 'data_' + Date.now();
+                        },
+                    },
+                    {
+                        extend: 'pdf',
+                        className: 'btn bg-danger text-white',
+                        filename: function () {
+                            return 'data_' + Date.now();
+                        },
+                    },
+                ],
             });
-
-            return () => {
-                // Destroy the DataTable instance when component unmounts
-                table.destroy();
-            };
         }
     }, [loadData]);
 
@@ -44,6 +65,7 @@ const History = () => {
         axios.get(`https://localhost:7258/api/History`)
             .then(res => {
                 setHistory(res.data);
+                setLoadData(true);
             });
     }, []);
 
