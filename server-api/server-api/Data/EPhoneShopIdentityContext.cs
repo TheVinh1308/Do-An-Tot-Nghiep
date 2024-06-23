@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using server_api.Models;
+using server_api.Repository;
 
 namespace server_api.Data
 {
@@ -39,5 +40,11 @@ namespace server_api.Data
 
         public DbSet<Historys> Historys { get; set; } = default!;
 
+        public DbSet<Notification> Notifications { get; set; } = default!;
+
+        public static implicit operator EPhoneShopIdentityContext(NotificationRepository v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

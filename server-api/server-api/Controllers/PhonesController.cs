@@ -60,7 +60,36 @@ namespace server_api.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetPhonePromotion")]
+        public async Task<IActionResult> GetPhonePromotion()
+        {
+            try
+            {
+                return Ok(await _phoneRepository.GetPhonePromotionAsync());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
+        }
+
+
+        [HttpGet]
+        [Route("GetNewPhone")]
+        public async Task<IActionResult> GetNewPhone()
+        {
+            try
+            {
+                return Ok(await _phoneRepository.GetNewPhoneAsync());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
         [HttpGet]
         [Route("GetListPhoneByModPhone/{modPhoneId}")]
         public async Task<IActionResult> GetListPhoneByModPhone(int modPhoneId)

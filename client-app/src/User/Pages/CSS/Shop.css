@@ -1,0 +1,68 @@
+.content-1 {
+    background-image: url("/src/User/Components/Assets/1.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    border-left: solid white 25px;
+    border-right: solid white 25px;
+}
+
+.content-2 {
+    background-image: url("/src/User/Components/Assets/6.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /* Thay đổi từ cover thành contain */
+    background-position: center;
+    border-left: solid white 40px;
+    border-right: solid white 40px;
+    height: 80vh;
+}
+
+.content-3 {
+    background-color: white;
+    height: 70vh;
+}
+
+body {
+    background-color: white;
+}
+
+
+@media (max-width: 500px) {
+
+    .content-1,
+    .content-2 {
+        background-size: cover !important;
+        /* height: 70vh; */
+    }
+
+    .content-2 {
+        height: 60vh !important;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .content-1,
+    .content-2 {
+        background-size: cover !important;
+    }
+
+    .content-2 {
+        height: 60vh !important;
+    }
+
+}
+
+@media (max-width: 1200px) {
+
+    .content-1,
+    .content-2 {
+        background-size: cover !important;
+    }
+
+    .content-2 {
+        height: 75vh !important;
+    }
+}

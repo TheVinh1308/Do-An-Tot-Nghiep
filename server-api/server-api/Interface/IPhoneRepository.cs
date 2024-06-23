@@ -13,5 +13,8 @@ namespace server_api.Interface
         Task<List<Phone>> GetFirstPhoneEachModPhoneAsync();
         Task<List<Phone>> GetListPhoneByModPhoneAsync(int modPhoneId);
         Task<Phone> GetFirstPhoneByModPhoneIdAsync(int modPhoneId);
+        Task<List<Phone>> GetPhonePromotionAsync();
+
+        Task<List<Phone>> GetNewPhoneAsync();
     }
 }

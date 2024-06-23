@@ -3,9 +3,6 @@ import ShopCategory from "../User/Pages/ShopCategory";
 import Product from "../User/Pages/Product";
 import Login from "../User/Pages/Login";
 import Cart from "../User/Pages/Cart";
-import men_banner from "../User/Components/Assets/banner_mens.png"
-import women_banner from "../User/Components/Assets/banner_women.png"
-import kid_banner from "../User/Components/Assets/banner_kids.png"
 import Shop from "../User/Pages/Shop";
 import Register from "../User/Pages/Register";
 

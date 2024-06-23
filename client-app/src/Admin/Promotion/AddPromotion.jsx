@@ -53,6 +53,9 @@ const AddPromotion = () => {
                         console.error('Thêm lịch sử thất bại:', error);
                         console.log(formDataHistory);
                     });
+
+                //
+
             })
             .catch(error => {
                 console.error('Thêm khuyến mãi thất bại:', error);
