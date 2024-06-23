@@ -82,7 +82,7 @@
                 "boNhoLuuTru": {
                     "RAM": "8 GB",
                     "dungLuongLuuTru": "256 GB",
-                    "dungLuongConLaiKhaDung": "241 GB",
+                    "dungLuongConLai": "241 GB",
                     "danhBa": "Khong gioi han"
                   },
                 "ketNoi": {
@@ -101,7 +101,7 @@
                       "GALILEO",
                       "BEIDOU"
                     ],
-                    "bluetooth": "v5.3",
+                    "bluetooth": ["v5.3"],
                     "congKetNoiSac": "Type-C",
                     "jackTaiNghe": "Type-C",
                     "ketNoiKhac": "NFC"
@@ -119,7 +119,7 @@
                     ]
                   },
                   "tienIch": {
-                    "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                    "baoMatNangCao": ["Mo khoa khuon mat Face ID"],
                     "tinhNangDacBiet": [
                       "Am thanh Dolby Atmos",
                       "Phat hien va cham (Crash Detection)",
@@ -149,7 +149,10 @@
                   },
                   "thongTinChung": {
                     "thietKe": "Nguyen khoi",
-                    "chatLieu": "Khung Titan & Mat lung kinh cuong luc",
+                    "chatLieu":{
+                        "khung": "titan",
+                        "matLung":"kính cường lực"
+                      },
                     "kichThuocKhoiLuong": {
                       "dai": "159.9 mm",
                       "ngang": "76.7 mm",
@@ -244,7 +247,7 @@
                 "boNhoLuuTru": {
                   "RAM": "8 GB",
                   "dungLuongLuuTru": "128 GB",
-                  "dungLuongConLaiKhaDung": "113 GB",
+                  "dungLuongConLai": "113 GB",
                   "danhBa": "Khong gioi han"
                 },
                 "ketNoi": {
@@ -262,7 +265,7 @@
                     "GALILEO",
                     "Co"
                   ],
-                  "bluetooth": "v5.3",
+                  "bluetooth": ["v5.3"],
                   "congKetNoiSac": "Type-C",
                   "jackTaiNghe": "Type-C",
                   "ketNoiKhac": "NFC"
@@ -280,7 +283,7 @@
                   ]
                 },
                 "tienIch": {
-                  "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                  "baoMatNangCao": ["Mo khoa khuon mat Face ID"],
                   "tinhNangDacBiet": [
                     "Am thanh Dolby Atmos",
                     "Phat hien va cham (Crash Detection)",
@@ -306,7 +309,10 @@
                 },
                 "thongTinChung": {
                   "thietKe": "Nguyen khoi",
-                  "chatLieu": "Khung Titan & Mat lung kinh cuong luc",
+                  "chatLieu":{
+                    "khung": "titan",
+                    "matLung":"kính cường lực"
+                  },
                   "kichThuocKhoiLuong": {
                     "dai": "146.6 mm",
                     "ngang": "70.6 mm",
@@ -391,7 +397,8 @@
                 "boNhoLuuTru": {
                   "RAM": "6 GB",
                   "dungLuongLuuTru": "256 GB",
-                  "danhBa": "Khong gioi han"
+                  "danhBa": "Khong gioi han",
+                  "dungLuongConLai": "Đang cập nhật"
                 },
                 "ketNoi": {
                   "mangDiDong": "Ho tro 5G",
@@ -408,7 +415,7 @@
                     "GALILEO",
                     "BEIDOU"
                   ],
-                  "bluetooth": "v5.3",
+                  "bluetooth": ["v5.3"],
                   "congKetNoiSac": "Type-C",
                   "jackTaiNghe": "Type-C",
                   "ketNoiKhac": "NFC"
@@ -426,7 +433,7 @@
                   ]
                 },
                 "tienIch": {
-                  "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                  "baoMatNangCao": ["Mo khoa khuon mat Face ID"],
                   "tinhNangDacBiet": [
                     "Am thanh Dolby Atmos",
                     "Phat hien va cham (Crash Detection)"
@@ -446,7 +453,10 @@
                 },
                 "thongTinChung": {
                   "thietKe": "Nguyen khoi",
-                  "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                  "chatLieu":{
+                    "khung": "nhôm",
+                    "matLung":"kính cường lực"
+                  },
                   "kichThuocKhoiLuong": {
                     "dai": "160.9 mm",
                     "ngang": "77.8 mm",
@@ -557,7 +567,7 @@
                     "GALILEO",
                     "BEIDOU"
                   ],
-                  "bluetooth": "v5.3",
+                  "bluetooth": ["v5.3"],
                   "congKetNoiSac": "Type-C",
                   "jackTaiNghe": "Type-C",
                   "ketNoiKhac": "NFC"
@@ -575,7 +585,7 @@
                   ]
                 },
                 "tienIch": {
-                  "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                  "baoMatNangCao":["Mo khoa khuon mat Face ID"],
                   "tinhNangDacBiet": [
                     "Am thanh Dolby Atmos",
                     "Phat hien va cham (Crash Detection)",
@@ -603,7 +613,10 @@
                 },
                 "thongTinChung": {
                   "thietKe": "Nguyen khoi",
-                  "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                  "chatLieu":{
+                    "khung": "nhôm",
+                    "matLung":"kính cường lực"
+                  },
                   "kichThuocKhoiLuong": {
                     "dai": "147.6 mm",
                     "ngang": "71.6 mm",
@@ -715,7 +728,7 @@
                     "GALILEO",
                     "BEIDOU"
                   ],
-                  "bluetooth": "v5.3",
+                  "bluetooth": ["v5.3"],
                   "congKetNoiSac": "Lightning",
                   "jackTaiNghe": "Lightning",
                   "ketNoiKhac": "NFC"
@@ -732,7 +745,7 @@
                   ]
                 },
                 "tienIch": {
-                  "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                  "baoMatNangCao":["Mo khoa khuon mat Face ID"],
                   "tinhNangDacBiet": [
                     "Am thanh Dolby Atmos",
                     "Phat hien va cham (Crash Detection)",
@@ -761,7 +774,10 @@
                 },
                 "thongTinChung": {
                   "thietKe": "Nguyen khoi",
-                  "chatLieu": "Khung thep khong gi & Mat lung kinh cuong luc",
+                  "chatLieu":{
+                    "khung": "thép không gỉ",
+                    "matLung":"kính cường lực"
+                  },
                   "kichThuocKhoiLuong": {
                     "dai": "160.7 mm",
                     "ngang": "77.6 mm",
@@ -859,7 +875,7 @@
                     "GALILEO",
                     "BEIDOU"
                   ],
-                  "bluetooth": "v5.3",
+                  "bluetooth": ["v5.3"],
                   "congKetNoiSac": "Lightning",
                   "jackTaiNghe": "Lightning",
                   "ketNoiKhac": "NFC"
@@ -876,7 +892,7 @@
                   ]
                 },
                 "tienIch": {
-                  "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                  "baoMatNangCao": ["Mo khoa khuon mat Face ID"],
                   "tinhNangDacBiet": [
                     "Phat hien va cham (Crash Detection)",
                     "Man hinh luon hien thi AOD",
@@ -899,7 +915,10 @@
                 },
                 "thongTinChung": {
                   "thietKe": "Nguyen khoi",
-                  "chatLieu": "Khung thep khong gi & Mat lung kinh cuong luc",
+                  "chatLieu":{
+                    "khung": "thép không gỉ",
+                    "matLung":"kính cường lực"
+                  },
                   "kichThuocKhoiLuong": {
                     "dai": "147.5 mm",
                     "ngang": "71.5 mm",
@@ -997,7 +1016,7 @@
                     "GALILEO",
                     "BEIDOU"
                   ],
-                  "bluetooth": "v5.3",
+                  "bluetooth": ["v5.3"],
                   "congKetNoiSac": "Lightning",
                   "jackTaiNghe": "Lightning",
                   "ketNoiKhac": "NFC"
@@ -1013,7 +1032,7 @@
                   ]
                 },
                 "tienIch": {
-                  "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                  "baoMatNangCao": ["Mo khoa khuon mat Face ID"],
                   "tinhNangDacBiet": [
                     "Phat hien va cham (Crash Detection)",
                     "Loa kep",
@@ -1034,7 +1053,10 @@
                 },
                 "thongTinChung": {
                   "thietKe": "Nguyen khoi",
-                  "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                  "chatLieu":{
+                    "khung": "nhôm",
+                    "matLung":"kính cường lực"
+                  },
                   "kichThuocKhoiLuong": {
                     "dai": "160.8 mm",
                     "ngang": "78.1 mm",
@@ -1144,7 +1166,7 @@
                     "GALILEO",
                     "BEIDOU"
                   ],
-                  "bluetooth": "v5.3",
+                  "bluetooth": ["v5.3"],
                   "congKetNoiSac": "Lightning",
                   "jackTaiNghe": "Lightning",
                   "ketNoiKhac": "NFC"
@@ -1161,7 +1183,7 @@
                   ]
                 },
                 "tienIch": {
-                  "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                  "baoMatNangCao": ["Mo khoa khuon mat Face ID"],
                   "tinhNangDacBiet": [
                     "Am thanh Dolby Atmos",
                     "Phat hien va cham (Crash Detection)",
@@ -1188,7 +1210,10 @@
                 },
                 "thongTinChung": {
                   "thietKe": "Nguyen khoi",
-                  "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                  "chatLieu":{
+                    "khung": "nhôm",
+                    "matLung":"kính cường lực"
+                  },
                   "kichThuocKhoiLuong": {
                     "dai": "146.7 mm",
                     "ngang": "71.5 mm",
@@ -1309,7 +1334,7 @@
                   ]
                 },
                 "tienIch": {
-                  "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                  "baoMatNangCao": ["Mo khoa khuon mat Face ID"],
                   "tinhNangDacBiet": [""],
                   "khangNuocBui": "IP68",
                   "ghiAm": ["Ghi am co microphone chuyen dung chong on"],
@@ -1322,7 +1347,10 @@
                 },
                 "thongTinChung": {
                   "thietKe": "Nguyen khoi",
-                  "chatLieu": "Khung thep khong gi & Mat lung kinh cuong luc",
+                  "chatLieu":{
+                    "khung": "thép không gỉ",
+                    "matLung":"kính cường lực"
+                  },
                   "kichThuocKhoiLuong": {
                     "dai": "160.8 mm",
                     "ngang": "78.1 mm",
@@ -1443,7 +1471,7 @@
                   ]
                 },
                 "tienIch": {
-                  "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                  "baoMatNangCao": ["Mo khoa khuon mat Face ID"],
                   "tinhNangDacBiet": [""],
                   "khangNuocBui": "IP68",
                   "ghiAm": ["Ghi am co microphone chuyen dung chong on"],
@@ -1456,7 +1484,10 @@
                 },
                 "thongTinChung": {
                   "thietKe": "Nguyen khoi",
-                  "chatLieu": "Khung thep khong gi & Mat lung kinh cuong luc",
+                  "chatLieu":{
+                    "khung": "thép không gỉ",
+                    "matLung":"kính cường lực"
+                  },
                   "kichThuocKhoiLuong": {
                     "dai": "146.7 mm",
                     "ngang": "71.5 mm",
@@ -1574,7 +1605,7 @@
                   ]
                 },
                 "tienIch": {
-                  "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                  "baoMatNangCao":["Mo khoa khuon mat Face ID"],
                   "tinhNangDacBiet": [""],
                   "khangNuocBui": "IP68",
                   "ghiAm": ["Ghi am co microphone chuyen dung chong on"],
@@ -1587,7 +1618,10 @@
                 },
                 "thongTinChung": {
                   "thietKe": "Nguyen khoi",
-                  "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                  "chatLieu":{
+                    "khung": "nhôm",
+                    "matLung":"kính cường lực"
+                  },
                   "kichThuocKhoiLuong": {
                     "dai": "146.7 mm",
                     "ngang": "71.5 mm",
@@ -1697,7 +1731,7 @@
                   ]
                 },
                 "tienIch": {
-                  "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                  "baoMatNangCao": ["Mo khoa khuon mat Face ID"],
                   "tinhNangDacBiet": [""],
                   "khangNuocBui": "IP68",
                   "ghiAm": ["Ghi am co microphone chuyen dung chong on"],
@@ -1711,7 +1745,10 @@
                 },
                 "thongTinChung": {
                   "thietKe": "Nguyen khoi",
-                  "chatLieu": "Khung thep khong gi & Mat lung kinh cuong luc",
+                  "chatLieu":{
+                    "khung": "thép không gỉ",
+                    "matLung":"kính cường lực"
+                  },
                   "kichThuocKhoiLuong": {
                     "dai": "160.8 mm",
                     "ngang": "78.1 mm",
@@ -1821,7 +1858,7 @@
                   ]
                 },
                 "tienIch": {
-                  "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                  "baoMatNangCao": ["Mo khoa khuon mat Face ID"],
                   "tinhNangDacBiet": [""],
                   "khangNuocBui": "IP68",
                   "ghiAm": ["Ghi am co microphone chuyen dung chong on"],
@@ -1835,7 +1872,10 @@
                 },
                 "thongTinChung": {
                   "thietKe": "Nguyen khoi",
-                  "chatLieu": "Khung thep khong gi & Mat lung kinh cuong luc",
+                  "chatLieu":{
+                    "khung": "thép không gỉ",
+                    "matLung":"kính cường lực"
+                  },
                   "kichThuocKhoiLuong": {
                     "dai": "146.7 mm",
                     "ngang": "71.5 mm",
@@ -1945,8 +1985,8 @@
                   ]
                 },
                 "tienIch": {
-                    "tinhNangDacBiet": [""],
-                  "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                    "tinhNangDacBiet": ["Đang cập nhật"],
+                  "baoMatNangCao": ["Mo khoa khuon mat Face ID"],
                   "khangNuocBui": "IP68",
                   "ghiAm": ["Ghi am co microphone chuyen dung chong on"],
                   "xemPhim": ["H.264(MPEG4-AVC)"],
@@ -1959,7 +1999,10 @@
                 },
                 "thongTinChung": {
                   "thietKe": "Nguyen khoi",
-                  "chatLieu": "Khung thep khong gi & Mat lung kinh cuong luc",
+                  "chatLieu":{
+                    "khung": "thép không gỉ",
+                    "matLung":"kính cường lực"
+                  },
                   "kichThuocKhoiLuong": {
                     "dai": "146.7 mm",
                     "ngang": "71.5 mm",
@@ -2067,7 +2110,7 @@
                       ]
                     },
                     "tienIch": {
-                      "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                      "baoMatNangCao": ["Mo khoa khuon mat Face ID"],
                       "tinhNangDacBiet": [
                         "Am thanh Dolby Audio",
                         "Apple Pay"
@@ -2082,7 +2125,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung thep khong gi & Mat lung kinh cuong luc",
+                      "chatLieu":{
+                        "khung": "thép không gỉ",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "nang": "226 g",
                         "dai": "",
@@ -2173,7 +2219,7 @@
                         "GLONASS",
                         "GPS"
                       ],
-                      "bluetooth": "LE, Co, A2DP",
+                      "bluetooth": ["LE, Co, A2DP"],
                       "congKetNoiSac": "Lightning",
                       "jackTaiNghe": "Lightning",
                       "ketNoiKhac": [
@@ -2191,7 +2237,7 @@
                       ]
                     },
                     "tienIch": {
-                      "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                      "baoMatNangCao": ["Mo khoa khuon mat Face ID"],
                       "tinhNangDacBiet": [
                         "Am thanh Dolby Audio",
                         "Apple Pay"
@@ -2206,7 +2252,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung thep khong gi & Mat lung kinh cuong luc",
+                      "chatLieu":{
+                        "khung": "thép không gỉ",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "nang": "188 g",
                         "dai": "",
@@ -2297,7 +2346,7 @@
                         "GLONASS",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.0",
+                      "bluetooth": ["v5.0"],
                       "congKetNoiSac": "Lightning",
                       "jackTaiNghe": "Lightning",
                       "ketNoiKhac": [
@@ -2315,7 +2364,7 @@
                       ]
                     },
                     "tienIch": {
-                      "baoMatNangCao": "Mo khoa khuon mat Face ID",
+                      "baoMatNangCao": ["Mo khoa khuon mat Face ID"],
                       "tinhNangDacBiet": [
                         "Am thanh Dolby Audio",
                         "Am thanh Dolby Atmos",
@@ -2338,7 +2387,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "150.9 mm",
                         "ngang": "75.7 mm",
@@ -2457,7 +2509,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "ketNoiKhac": "NFC"
                     },
@@ -2544,7 +2596,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung Titan & Mat lung kinh cuong luc",
+                      "chatLieu":{
+                        "khung": "titan",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "162.3 mm",
                         "ngang": "79 mm",
@@ -2663,7 +2718,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "ketNoiKhac": "NFC"
                     },
@@ -2749,7 +2804,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "158.5 mm",
                         "ngang": "75.9 mm",
@@ -2868,7 +2926,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "ketNoiKhac": "NFC"
                     },
@@ -2954,7 +3012,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "147 mm",
                         "ngang": "70.6 mm",
@@ -3068,7 +3129,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": "OTG, NFC"
@@ -3136,7 +3197,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "163.4 mm",
                         "ngang": "78.1 mm",
@@ -3254,7 +3318,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": "NFC"
@@ -3327,7 +3391,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung kim loai & Mat lung kinh cuong luc Gorilla Glass 5",
+                      "chatLieu":{
+                        "khung": "Kim loại",
+                        "matLung":"kính cường lực Gorilla Glass 5"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "158 mm",
                         "ngang": "76.5 mm",
@@ -3429,7 +3496,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -3496,7 +3563,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "163.4 mm",
                         "ngang": "78.1 mm",
@@ -3610,7 +3680,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.2",
+                      "bluetooth": ["v5.2"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -3674,7 +3744,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung kim loai & Mat lung kinh",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "163.3 mm",
                         "ngang": "77.9 mm",
@@ -3777,7 +3850,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.2",
+                      "bluetooth": ["v5.2"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -3836,7 +3909,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung kim loai & Mat lung kinh",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "146 mm",
                         "ngang": "70.6 mm",
@@ -3934,7 +4010,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "ketNoiKhac": [
                         "OTG",
@@ -4005,7 +4081,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "154.9 mm",
                         "ngang": "129.9 mm",
@@ -4107,7 +4186,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.2",
+                      "bluetooth": ["v5.2"],
                       "congKetNoiSac": "Type-C",
                       "ketNoiKhac": [
                         "OTG",
@@ -4171,7 +4250,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "155.1 mm",
                         "ngang": "130.1 mm",
@@ -4267,7 +4349,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.2, LE, A2DP",
+                      "bluetooth": ["v5.2, LE, A2DP"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -4318,7 +4400,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "158.2 mm",
                         "ngang": "128.1 mm",
@@ -4410,7 +4495,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "ketNoiKhac": [
                         "OTG",
@@ -4469,7 +4554,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "165.1 mm",
                         "ngang": "71.9 mm",
@@ -4569,7 +4657,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.2",
+                      "bluetooth": ["v5.2"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -4629,7 +4717,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "165.2 mm",
                         "ngang": "71.9 mm",
@@ -4725,7 +4816,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.1",
+                      "bluetooth": ["v5.1"],
                       "congKetNoiSac": "Type-C",
                       "ketNoiKhac": [
                         "OTG",
@@ -4768,7 +4859,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyen khoi",
-                      "chatLieu": "Khung nhom & Mat lung kinh cuong luc",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "166 mm",
                         "ngang": "72.2 mm",
@@ -4865,7 +4959,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "3.5 mm",
                       "ketNoiKhac": [
@@ -4929,7 +5023,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung & Mặt lưng nhựa",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"nhựa"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "161.7 mm",
                         "ngang": "77.2 mm",
@@ -5017,7 +5114,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -5077,7 +5174,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung & Mặt lưng nhựa",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"nhựa"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "164.9 mm",
                         "ngang": "77.3 mm",
@@ -5184,7 +5284,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -5256,7 +5356,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung nhựa & Mặt lưng kính",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"kính"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "161.7 mm",
                         "ngang": "78 mm",
@@ -5341,7 +5444,7 @@
                         "GLONASS",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.2",
+                      "bluetooth": ["v5.2"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "3.5 mm",
                       "ketNoiKhac": [
@@ -5390,7 +5493,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung & Mặt lưng nhựa",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"nhựa"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "167.7 mm",
                         "ngang": "78 mm",
@@ -5465,7 +5571,7 @@
                         "GALILEO",
                         "GPS"
                       ],
-                      "bluetooth": "v5.2",
+                      "bluetooth": ["v5.2"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -5477,7 +5583,7 @@
                       "loaiPin": "Li-Po",
                       "hoTroSacToiDa": "44 W",
                       "sacKemTheoMay": "Đang cập nhật",
-                      "congNghePin": "Sạc pin nhanh"
+                      "congNghePin": ["Sạc pin nhanh"]
                     },
                     "tienIch": {
                       "baoMatNangCao": [
@@ -5490,7 +5596,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Đang cập nhật",
+                      "chatLieu":{
+                        "khung": "Đang cập nhật",
+                        "matLung":"Đang cập nhật"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "160.1 mm",
                         "ngang": "75.4 mm",
@@ -5579,7 +5688,7 @@
                         "GALILEO",
                         "GPS"
                       ],
-                      "bluetooth": "v5.2",
+                      "bluetooth": ["v5.2"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -5623,7 +5732,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng kính",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "158.3 mm",
                         "ngang": "73.2 mm",
@@ -5725,7 +5837,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -5789,7 +5901,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung hợp kim nhôm & Mặt lưng kính",
+                      "chatLieu":{
+                        "khung": "hợp kim nhôm",
+                        "matLung":"kính"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "164.95 mm",
                         "ngang": "75.23 mm",
@@ -5889,7 +6004,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.2",
+                      "bluetooth": ["v5.2"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -5954,7 +6069,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung hợp kim nhôm & Mặt lưng kính",
+                      "chatLieu":{
+                        "khung": "hợp kim nhôm",
+                        "matLung":"kính"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "164.57 mm",
                         "ngang": "75.3 mm",
@@ -6057,9 +6175,15 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung nhôm & Mặt lưng kính cường lực",
+                      "chatLieu":{
+                        "khung": "nhôm",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
-                        "nang": "175.6 g"
+                        "nang": "175.6 g",
+                        "ngang": "Đang cập nhật",
+                        "dai": "Đang cập nhật",
+                        "day": "Đang cập nhật"
                       },
                       "thoiDiemRaMat": "12/2020",
                       "hang": "vivo"
@@ -6213,7 +6337,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung nhựa & Mặt lưng kính",
+                      "chatLieu":{
+                        "khung": "nhựa",
+                        "matLung":"kính"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "162.35 mm",
                         "ngang": "74.85 mm",
@@ -6382,7 +6509,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung nhựa & Mặt lưng kính",
+                      "chatLieu":{
+                        "khung": "nhựa",
+                        "matLung":"kính"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "164.18 mm",
                         "ngang": "74.37 mm",
@@ -6549,7 +6679,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng kính",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính "
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "159.2 mm",
                         "ngang": "74.2 mm",
@@ -6658,7 +6791,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.2",
+                      "bluetooth": ["v5.2"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -6722,7 +6855,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng kính",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "159.2 mm",
                         "ngang": "74.2 mm",
@@ -6817,7 +6953,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.2",
+                      "bluetooth": ["v5.2"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -6875,7 +7011,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung & Mặt lưng nhựa",
+                      "chatLieu":{
+                        "khung": "nhựa",
+                        "matLung":"nhựa"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "162.51 mm",
                         "ngang": "75.81 mm",
@@ -6956,7 +7095,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -7001,7 +7140,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Đang cập nhật",
+                      "chatLieu":{
+                        "khung": "Đang cập nhật",
+                        "matLung":"Đang cập nhật"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "164.1 mm",
                         "ngang": "74.8 mm",
@@ -7093,7 +7235,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.0",
+                      "bluetooth": ["v5.0"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -7155,7 +7297,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung & Mặt lưng nhựa",
+                      "chatLieu":{
+                        "khung": "nhựa",
+                        "matLung":"nhựa"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "163.17 mm",
                         "ngang": "75.81 mm",
@@ -7245,7 +7390,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.0",
+                      "bluetooth": ["v5.0"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "3.5 mm",
                       "ketNoiKhac": [
@@ -7308,7 +7453,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung & Mặt lưng nhựa",
+                      "chatLieu":{
+                        "khung": "nhựa",
+                        "matLung":"nhựa"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "163.63 mm",
                         "ngang": "75.58 mm",
@@ -7402,7 +7550,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.0",
+                      "bluetooth": ["v5.0"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "3.5 mm",
                       "ketNoiKhac": [
@@ -7465,7 +7613,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng kính",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "164.06 mm",
                         "ngang": "76.17 mm",
@@ -7563,7 +7714,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.0",
+                      "bluetooth": ["v5.0"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "3.5 mm",
                       "ketNoiKhac": [
@@ -7616,7 +7767,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng nhựa",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"nhựa"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "164.3 mm",
                         "ngang": "76.1 mm",
@@ -7691,7 +7845,7 @@
                         "GALILEO",
                         "GPS"
                       ],
-                      "bluetooth": "v5.2",
+                      "bluetooth": ["v5.2"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C"
                     },
@@ -7715,7 +7869,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Đang cập nhật",
+                      "chatLieu":{
+                        "khung": "Đang cập nhật",
+                        "matLung":"Đang cập nhật"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "164.7 mm",
                         "ngang": "76.7 mm",
@@ -7829,7 +7986,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": "OTG, NFC"
@@ -7888,11 +8045,8 @@
                         "dai": "153.4 mm",
                         "ngang": "143.1 mm",
                         "day": "5.9 mm",
-                        "nang": {
-                          "kinh": "245 g",
-                          "da": "239 g"
-                        }
-                      },
+                        "nang": "kinh: 245 g, da: 239 g"
+                        },
                       "thoiDiemRaMat": "10/2023",
                       "hang": "OPPO"
                     }
@@ -7996,7 +8150,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": "OTG, NFC"
@@ -8143,7 +8297,7 @@
                         "GLONASS",
                         "GALILEO"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": "OTG, NFC"
@@ -8293,7 +8447,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.2",
+                      "bluetooth": ["v5.2"],
                       "aptX": true,
                       "A2DP": true,
                       "congKetNoiSac": "Type-C",
@@ -8459,7 +8613,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.2",
+                      "bluetooth":["v5.2"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": "OTG, NFC"
@@ -8605,11 +8759,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 14",
                       "chipXuLyCPU": "MediaTek Dimensity 8200 5G 8 nhân",
-                      "tocDoCPU": {
-                        "nhan1": "3.1 GHz",
-                        "nhan3": "3 GHz",
-                        "nhan4": "2 GHz"
-                      },
+                      "tocDoCPU": "nhân 1: 3.1 Ghz, nhân 3: 3GHz, Nhân 4: 2 GHz",
                       "chipDoHoaGPU": "Mali G610 MC6"
                     },
                     "boNhoLuuTru": {
@@ -8636,7 +8786,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.4",
+                      "bluetooth": ["v5.4"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -8813,7 +8963,7 @@
                         "GALILEO",
                         "BEIDOU"
                       ],
-                      "bluetooth": "v5.3",
+                      "bluetooth": ["v5.3"],
                       "congKetNoiSac": "Type-C",
                       "jackTaiNghe": "Type-C",
                       "ketNoiKhac": [
@@ -9740,10 +9890,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 13",
                       "chipXuLyCPU": "Snapdragon 680 8 nhân",
-                      "tocDoCPU": [
-                        "4 nhân 2.4 GHz",
-                        "4 nhân 1.9 GHz"
-                      ],
+                      "tocDoCPU":  "4 nhân 2.4 GHz,4 nhân 1.9 GHz",
                       "chipDoHoaGPU": "Adreno 610"
                     },
                     "boNhoLuuTru": {
@@ -9925,12 +10072,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 14",
                       "chipXuLyCPU": "Snapdragon 8 Gen 3 8 nhân",
-                      "tocDoCPU": [
-                        "1 nhân 3.3 GHz",
-                        "3 nhân 3.2 GHz",
-                        "2 nhân 3 GHz",
-                        "2 nhân 2.3 GHz"
-                      ],
+                      "tocDoCPU": "1 nhân 3.3 GHz, 3 nhân 3.2 GHz,2 nhân 3 GHz, 2 nhân 2.3 GHz",
                       "chipDoHoaGPU": "Adreno 750"
                     },
                     "boNhoLuuTru": {
@@ -10132,12 +10274,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 14",
                       "chipXuLyCPU": "Snapdragon 8 Gen 3 8 nhân",
-                      "tocDoCPU": [
-                        "1 nhân 3.3 GHz",
-                        "3 nhân 3.2 GHz",
-                        "2 nhân 3 GHz",
-                        "2 nhân 2.3 GHz"
-                      ],
+                      "tocDoCPU":"1 nhân 3.3 GHz,3 nhân 3.2 GHz,2 nhân 3 GHz,2 nhân 2.3 GHz",
                       "chipDoHoaGPU": "Adreno 750"
                     },
                     "boNhoLuuTru": {
@@ -10319,11 +10456,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 13",
                       "chipXuLyCPU": "MediaTek Dimensity 9200+ 5G 8 nhân",
-                      "tocDoCPU": [
-                        "1 nhân 3.35 GHz",
-                        "3 nhân 3 GHz",
-                        "4 nhân 2 GHz"
-                      ],
+                      "tocDoCPU":"1 nhân 3.35 GHz,3 nhân 3 GHz,4 nhân 2 GHz",
                       "chipDoHoaGPU": "Immortalis-G715"
                     },
                     "boNhoLuuTru": {
@@ -10503,10 +10636,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 13",
                       "chipXuLyCPU": "MediaTek Dimensity 7200 Ultra",
-                      "tocDoCPU": [
-                        "2 nhân 2.8 GHz",
-                        "6 nhân 2 GHz"
-                      ],
+                      "tocDoCPU": "2 nhân 2.8 GHz,6 nhân 2 GHz",
                       "chipDoHoaGPU": "Mali-G610"
                     },
                     "boNhoLuuTru": {
@@ -10687,10 +10817,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 13",
                       "chipXuLyCPU": "Snapdragon 7s Gen 2 8 nhân",
-                      "tocDoCPU": [
-                        "4 nhân 2.4 GHz",
-                        "4 nhân 1.95 GHz"
-                      ],
+                      "tocDoCPU": "4 nhân 2.4 GHz, 4 nhân 1.95 GHz",
                       "chipDoHoaGPU": "Adreno 710"
                     },
                     "boNhoLuuTru": {
@@ -11276,10 +11403,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 13 (Go Edition)",
                       "chipXuLyCPU": "MediaTek Helio G36 8 nhân",
-                      "tocDoCPU": [
-                        "4 nhân 2.2 GHz",
-                        "4 nhân 1.7 GHz"
-                      ],
+                      "tocDoCPU": "4 nhân 2.2 GHz, 4 nhân 1.7 GHz",
                       "chipDoHoaGPU": "IMG PowerVR GE8320"
                     },
                     "boNhoLuuTru": {
@@ -11316,7 +11440,7 @@
                       "congNghePin": ["Đang cập nhật"]
                     },
                     "tienIch": {
-                      "baoMatNangCao": "Mở khóa bằng vân tay",
+                      "baoMatNangCao": ["Mở khóa bằng vân tay"],
                       "tinhNangDacBiet": [
                         "Trợ lý ảo Google Assistant",
                         "Thu nhỏ màn hình sử dụng một tay",
@@ -11516,10 +11640,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 11",
                       "chipXuLyCPU": "MediaTek Helio G96 8 nhân",
-                      "tocDoCPU": [
-                        "2 nhân 2.05 GHz",
-                        "6 nhân 2.0 GHz"
-                      ],
+                      "tocDoCPU": "2 nhân 2.05 GHz, 6 nhân 2.0 GHz",
                       "chipDoHoaGPU": "Mali-G57 MC2"
                     },
                     "boNhoLuuTru": {
@@ -11634,10 +11755,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 11",
                       "chipXuLyCPU": "Snapdragon 695 5G 8 nhân",
-                      "tocDoCPU": [
-                        "2 nhân 2.2 GHz",
-                        "6 nhân 1.7 GHz"
-                      ],
+                      "tocDoCPU": "2 nhân 2.2 GHz, 6 nhân 1.7 GHz",
                       "chipDoHoaGPU": "Adreno 619"
                     },
                     "boNhoLuuTru": {
@@ -11684,6 +11802,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
+                      "chatLieu":{
+                        "khung": "Đang cập nhật",
+                        "matLung": "Đang cập nhật"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "163.7 mm",
                         "ngang": "76.2 mm",
@@ -11761,11 +11883,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "EMUI 10 (Android 10 không có Google)",
                       "chipXuLyCPU": "Kirin 990 8 nhân",
-                      "tocDoCPU": [
-                        "2 nhân 2.86 GHz",
-                        "2 nhân 2.09 GHz",
-                        "4 nhân 1.86 GHz"
-                      ],
+                      "tocDoCPU": "2 nhân 2.86 GHz, 2 nhân 2.09 GHz, 4 nhân 1.86 GHz",
                       "chipDoHoaGPU": "Mali-G76 MP16"
                     },
                     "boNhoLuuTru": {
@@ -11841,7 +11959,10 @@
                    
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng kính cường lực",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "nang": "198 g",
                         "dai": "Đang cập nhật",
@@ -11910,11 +12031,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 9 (Pie)",
                       "chipXuLyCPU": "Kirin 980 8 nhân",
-                      "tocDoCPU": [
-                        "2 nhân 2.6 GHz",
-                        "2 nhân 1.92 GHz",
-                        "4 nhân 1.8 GHz"
-                      ],
+                      "tocDoCPU": "2 nhân 2.6 GHz, 2 nhân 1.92 GHz, 4 nhân 1.8 GHz",
                       "chipDoHoaGPU": "Mali-G76 MP10"
                     },
                     "boNhoLuuTru": {
@@ -11983,7 +12100,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng kính",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính"
+                      },
                       "kichThuocKhoiLuong": {
                         "nang": "189 g",
                         "dai": "Đang cập nhật",
@@ -12040,11 +12160,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 9 (Pie)",
                       "chipXuLyCPU": "Kirin 980 8 nhân",
-                      "tocDoCPU": [
-                        "2 nhân 2.6 GHz",
-                        "2 nhân 1.92 GHz",
-                        "4 nhân 1.8 GHz"
-                      ],
+                      "tocDoCPU": "2 nhân 2.6 GHz, 2 nhân 1.92 GHz, 4 nhân 1.8 GHz",
                       "chipDoHoaGPU": "Mali-G76 MP10"
                     },
                     "boNhoLuuTru": {
@@ -12112,7 +12228,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng kính",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính"
+                      },
                       "kichThuocKhoiLuong": {
                         "nang": "232 g",
                         "ngang": "Đang cập nhật",
@@ -12178,11 +12297,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 9 (Pie)",
                       "chipXuLyCPU": "Kirin 980 8 nhân",
-                      "tocDoCPU": [
-                        "2 nhân 2.6 GHz",
-                        "2 nhân 1.92 GHz",
-                        "4 nhân 1.8 GHz"
-                      ],
+                      "tocDoCPU": "2 nhân 2.6 GHz, 2 nhân 1.92 GHz, 4 nhân 1.8 GHz",
                       "chipDoHoaGPU": "Mali-G76 MP10"
                     },
                     "boNhoLuuTru": {
@@ -12251,7 +12366,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng kính",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính"
+                      },
                       "kichThuocKhoiLuong": {
                         "nang": "188 g",
                         "dai": "Đang cập nhật",
@@ -12320,11 +12438,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "EMUI 10 (Android 10 không có Google)",
                       "chipXuLyCPU": "Kirin 990 5G 8 nhân",
-                      "tocDoCPU": [
-                        "2 nhân 2.86 GHz",
-                        "2 nhân 2.36 GHz",
-                        "4 nhân 1.95 GHz"
-                      ],
+                      "tocDoCPU": "2 nhân 2.86 GHz, 2 nhân 2.36 GHz, 4 nhân 1.95 GHz",
                       "chipDoHoaGPU": "Mali-G76 MP16"
                     },
                     "boNhoLuuTru": {
@@ -12387,7 +12501,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng kính cường lực",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "nang": "226 g",
                         "dai": "Đang cập nhật",
@@ -12460,11 +12577,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "EMUI 10 (Android 10 không có Google)",
                       "chipXuLyCPU": "Kirin 990 8 nhân",
-                      "tocDoCPU": [
-                        "2 nhân 2.86 GHz",
-                        "2 nhân 2.36 GHz",
-                        "4 nhân 1.95 GHz"
-                      ],
+                      "tocDoCPU": "2 nhân 2.86 GHz, 2 nhân 2.36 GHz, 4 nhân 1.95 GHz",
                       "chipDoHoaGPU": "Mali-G76 MP16"
                     },
                     "boNhoLuuTru": {
@@ -12536,7 +12649,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng kính cường lực",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "nang": "209 g",
                         "dai": "Đang cập nhật",
@@ -12596,11 +12712,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 9 (Pie)",
                       "chipXuLyCPU": "Kirin 980 8 nhân",
-                      "tocDoCPU": [
-                        "2 nhân 2.6 GHz",
-                        "2 nhân 1.92 GHz",
-                        "4 nhân 1.8 GHz"
-                      ],
+                      "tocDoCPU": "2 nhân 2.6 GHz, 2 nhân 1.92 GHz, 4 nhân 1.8 GHz",
                       "chipDoHoaGPU": "Mali-G76 MP10"
                     },
                     "boNhoLuuTru": {
@@ -12667,7 +12779,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng kính cường lực",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "nang": "192g",
                         "dai": "Đang cập nhật",
@@ -12729,11 +12844,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 9 (Pie)",
                       "chipXuLyCPU": "Kirin 980 8 nhân",
-                      "tocDoCPU": [
-                        "2 nhân 2.6 GHz",
-                        "2 nhân 1.92 GHz",
-                        "4 nhân 1.8 GHz"
-                      ],
+                      "tocDoCPU": "2 nhân 2.6 GHz, 2 nhân 1.92 GHz, 4 nhân 1.8 GHz",
                       "chipDoHoaGPU": "Mali-G76 MP10"
                     },
                     "boNhoLuuTru": {
@@ -12797,7 +12908,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng kính cường lực",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "nang": "165g",
                         "dai": "Đang cập nhật",
@@ -12873,10 +12987,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "EMUI 10 (Android 10 không có Google)",
                       "chipXuLyCPU": "Kirin 810 8 nhân",
-                      "tocDoCPU": [
-                        "2 nhân 2.27 GHz",
-                        "6 nhân 1.88 GHz"
-                      ],
+                      "tocDoCPU": "2 nhân 2.27 GHz, 6 nhân 1.88 GHz",
                       "chipDoHoaGPU": "Mali-G52 MP6"
                     },
                     "boNhoLuuTru": {
@@ -12951,7 +13062,10 @@
                     
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung & Mặt lưng nhựa",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "dai": "154.25 mm",
                         "ngang": "76.3 mm",
@@ -13027,11 +13141,7 @@
                     "heDieuHanhCPU": {
                       "heDieuHanh": "Android 9 (Pie)",
                       "chipXuLyCPU": "Kirin 980 8 nhân",
-                      "tocDoCPU": [
-                        "2 nhân 2.6 GHz",
-                        "2 nhân 1.92 GHz",
-                        "4 nhân 1.8 GHz"
-                      ],
+                      "tocDoCPU": "2 nhân 2.6 GHz, 2 nhân 1.92 GHz, 4 nhân 1.8 GHz",
                       "chipDoHoaGPU": "Mali-G76 MP10"
                     },
                     "boNhoLuuTru": {
@@ -13103,7 +13213,10 @@
                   
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng kính cường lực",
+                     "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính cường lực"
+                      },
                       "kichThuocKhoiLuong": {
                         "nang": "174 g",
                         "dai": "Đang cập nhật",
@@ -13153,11 +13266,9 @@
                       ]
                     },
                     "heDieuHanhCPU": {
+                        "heDieuHanh": "Đang cập nhật",
                       "chipXuLyCPU": "Kirin 710 8 nhân",
-                      "tocDoCPU": [
-                        "4 nhân 2.2 GHz",
-                        "4 nhân 1.7 GHz"
-                      ],
+                      "tocDoCPU": "4 nhân 2.2 GHz, 4 nhân 1.7 GHz",
                       "chipDoHoaGPU": "Mali-G51 MP4"
                     },
                     "boNhoLuuTru": {
@@ -13184,7 +13295,7 @@
                     "pinSac": {
                       "dungLuongPin": "3340 mAh",
                       "loaiPin": "Li-Po",
-                      "congNghePin": "Tiết kiệm pin"
+                      "congNghePin": ["Tiết kiệm pin"]
                     },
                     "tienIch": {
                       "baoMatNangCao": [
@@ -13209,7 +13320,10 @@
                     },
                     "thongTinChung": {
                       "thietKe": "Nguyên khối",
-                      "chatLieu": "Khung kim loại & Mặt lưng kính",
+                      "chatLieu":{
+                        "khung": "kim loại",
+                        "matLung":"kính"
+                      },
                       "kichThuocKhoiLuong": {
                         "nang": "169 g",
                         "dai": "Đang cập nhật",

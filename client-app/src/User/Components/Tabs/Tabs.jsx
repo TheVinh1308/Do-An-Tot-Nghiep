@@ -1,10 +1,11 @@
 import Commnent from "../Comment/Comment";
+import Config from "../Config/Config";
 import "./Tabs.css"
 const Tabs = ({selectedPhone,isAuthenticated,userId,userName}) => {
   return (
     <>
       <div className="page">
-        <h1>Pure CSS Tabs</h1>
+        <h1>Một số thông tin khác</h1>
         {/* tabs */}
         <div className="pcss3t pcss3t-effect-scale pcss3t-theme-1">
           <input
@@ -55,8 +56,11 @@ const Tabs = ({selectedPhone,isAuthenticated,userId,userName}) => {
             <li className="tab-content tab-content-2 typography">
              
             </li>
+            <li className="tab-content tab-content-3 typography">
+              <Config selectedPhone={selectedPhone} />
+            </li>
             <li className="tab-content tab-content-last typography">
-              
+                
             </li>
           </ul>
         </div>

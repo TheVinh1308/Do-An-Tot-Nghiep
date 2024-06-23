@@ -105,9 +105,7 @@ const ProductDisplay = (props) => {
         }
     }, [colors, roms, selectedColor, selectedRom, selectedColorButton, selectedRomButton]);
 
-    useEffect(() => {
-        console.log(`selectedPhone`, selectedPhone);
-    }, [selectedPhone]);
+   
     const uniqueRom = {};
     roms.forEach(item => {
         if (!uniqueRom[item.phone.rom]) {
@@ -133,7 +131,7 @@ const ProductDisplay = (props) => {
             .then((res) => {
                 setPhoneEx(res.data)
             });
-    }, [PhoneEx, userId]);
+    }, [userId]);
 
     const notify = () => toast.success("Thành công!", {
         position: "top-right",
