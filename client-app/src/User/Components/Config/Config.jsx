@@ -210,14 +210,14 @@ const Config = ({selectedPhone}) => {
                     </Col>
                 </Row>
 
-                <Row>
+                {/* <Row>
                     <Col lg={4}>
                         <p>Dung lượng khả dụng còn lại:</p>
                     </Col>
                     <Col>
                         <p>{config.thongTin.boNhoLuuTru.dungLuongConLai}</p>
                     </Col>
-                </Row>
+                </Row> */}
 
                 <Row>
                     <Col lg={4}>
@@ -407,7 +407,7 @@ const Config = ({selectedPhone}) => {
                     </Col>
                     <Col>
                     {
-                        config.thongTin.tienIch.ghiAm.map((item, index) => {
+                        config.thongTin.tienIch.xemPhim.map((item, index) => {
                             return (
                                     <p key={index}>{item}</p>
                             )})
@@ -446,23 +446,23 @@ const Config = ({selectedPhone}) => {
                     </Col>
                 </Row>
 
-                <Row>
+                {/* <Row>
                     <Col lg={4}>
                         <p>Chất liệu:</p>
                     </Col>
                     <Col>
                         <p>Khung: {config.thongTin.thongTinChung.chatLieu.khung}, mặt lưng: {config.thongTin.thongTinChung.chatLieu.matLung}</p>
                     </Col>
-                </Row>
+                </Row> */}
 
-                <Row>
+                {/* <Row>
                     <Col lg={4}>
                         <p>Kích thước khối lượng:</p>
                     </Col>
                     <Col>
                         <p>Dài: {config.thongTin.thongTinChung.kichThuocKhoiLuong.dai}, Ngang: {config.thongTin.thongTinChung.kichThuocKhoiLuong.ngang}, Dày: {config.thongTin.thongTinChung.kichThuocKhoiLuong.day}, Nặng: {config.thongTin.thongTinChung.kichThuocKhoiLuong.nang}</p>
                     </Col>
-                </Row>
+                </Row> */}
 
                 <Row>
                     <Col lg={4}>
