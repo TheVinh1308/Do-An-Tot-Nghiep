@@ -107,7 +107,7 @@ const Commnent = ({ selectedPhone, isAuthenticated, userId, userName }) => {
 
         try {
             await axios.post(`https://localhost:7258/api/Comments`, newComment);
-            notifySuccess("Thành công!");
+
             setShowTextareaIndex(null); // Reset showTextareaIndex sau khi trả lời
             setReplyTextareaState({});
             fetchComments();
@@ -140,7 +140,6 @@ const Commnent = ({ selectedPhone, isAuthenticated, userId, userName }) => {
 
     return (
         <>
-            <ToastContainer />
             <section className="content-item" id="comments">
                 <div className="container">
                     <div className="row">
@@ -229,28 +228,15 @@ const Commnent = ({ selectedPhone, isAuthenticated, userId, userName }) => {
                                                             </fieldset>
                                                         )}
                                                     </div>
-
-
-
                                                 ))
-
-
                                         }
-
-
                                     </>
                                 ))
-
-
                             }
-
-
                         </div>
                     </div>
                 </div>
             </section>
-
-
         </>
     );
 }

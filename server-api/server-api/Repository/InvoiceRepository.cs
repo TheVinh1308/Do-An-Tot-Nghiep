@@ -1,4 +1,5 @@
 ﻿using API_Server.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server_api.Data;
 using server_api.Interface;
@@ -38,12 +39,16 @@ namespace server_api.Repository
             return invoice;
         }
 
-        public Task<Invoice> InsertInvoiceAsync(Invoice invoice)
+
+        public async Task<List<Invoice>> GetInvoiceByUserIdAsync(string userId)
         {
-            throw new NotImplementedException();
+            var invoice = await _context.Invoices.Where(i=>i.UserId == userId).ToListAsync();
+
+            return invoice;
         }
 
-        public async Task<Invoice> InsertnvoiceAsync(Invoice invoice)
+
+        public async Task<Invoice> InsertInvoiceAsync([FromForm]Invoice invoice)
         {
             _context.Invoices.Add(invoice);
             await _context.SaveChangesAsync();

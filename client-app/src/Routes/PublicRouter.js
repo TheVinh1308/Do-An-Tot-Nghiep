@@ -5,6 +5,8 @@ import Login from "../User/Pages/Login";
 import Cart from "../User/Pages/Cart";
 import Shop from "../User/Pages/Shop";
 import Register from "../User/Pages/Register";
+import Pay from "../User/Pages/Pay";
+import Invoice from "../User/Components/Invoice/Invoice";
 
 const PublicRouter = () => {
     return (
@@ -29,6 +31,8 @@ const PublicRouter = () => {
                         <Route path='cart' element={<Cart />} />
                         <Route path='login' element={<Login />} />
                         <Route path='register' element={<Register />} />
+                        <Route path='pay' element={<Pay />} />
+                        <Route path='invoice' element={<Invoice />} />
                     </Route>
                 </Routes>
 

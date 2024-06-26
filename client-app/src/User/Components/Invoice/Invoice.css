@@ -1,0 +1,14 @@
+.invoice-content {
+    width: 80%;
+    margin: auto;
+}
+
+hr {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+i {
+    margin-right: 5px;
+}

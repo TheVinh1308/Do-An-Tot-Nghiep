@@ -1,4 +1,5 @@
 ﻿using API_Server.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server_api.Data;
 using server_api.Interface;
@@ -38,7 +39,17 @@ namespace server_api.Repository
             return invoiceDeatil;
         }
 
-        public async Task<InvoiceDetail> InsertnvoiceDetailAsync(InvoiceDetail invoiceDetail)
+        public async Task<List<InvoiceDetail>> GetInvoiceDetailByInvoiceIdAsync(int invoiceId)
+        {
+            var invoiceDeatil = await _context.InvoiceDetails
+                .Where(i => i.InvoiceId == invoiceId)
+                .Include(i=>i.Invoice)
+                .Include(i=>i.Phone)
+                .ToListAsync();
+            return invoiceDeatil;
+        }
+
+        public async Task<InvoiceDetail> InsertnvoiceDetailAsync([FromForm]InvoiceDetail invoiceDetail)
         {
             _context.InvoiceDetails.Add(invoiceDetail);
             await _context.SaveChangesAsync();

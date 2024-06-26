@@ -1,4 +1,5 @@
 ﻿using API_Server.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace server_api.Interface
 {
@@ -7,7 +8,8 @@ namespace server_api.Interface
         Task DeleteInvoiceAsync(int invoiceId);
         Task<List<Invoice>> GetAllInvoiceAsync();
         Task<Invoice> GetInvoiceAsync(int id);
-        Task<Invoice> InsertInvoiceAsync(Invoice invoice);
+        Task<Invoice> InsertInvoiceAsync([FromForm] Invoice invoice);
         Task UpdateInvoiceAsync(int invoiceId, Invoice invoice);
+        Task<List<Invoice>> GetInvoiceByUserIdAsync(string userId);
     }
 }

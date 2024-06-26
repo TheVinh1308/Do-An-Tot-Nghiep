@@ -38,9 +38,10 @@ insert into Brands values ( 'Huawei', 'Huawei.png', 1, GETDATE())
 
 -- =========================== PROMOTION =============================
 SET IDENTITY_INSERT Promotions OFF
-insert into Promotions values (N'Không khuyến mãi', 0,1,GETDATE(), N'Mặc định',GETDATE())
+insert into Promotions values (N'Mặc định',N'Không khuyến mãi', 0,GETDATE(), GETDATE(),1)
 SET IDENTITY_INSERT Promotions ON
-
+-- ============================= PaymentMethod =========================
+insert into PaymentMethods values (N'Tiền mặt', 1)
 
 
 -- ========================== HISTORYS ==============================

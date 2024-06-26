@@ -142,9 +142,9 @@ const Navbar = () => {
                                                 <hr className="dropdown-divider" />
                                             </li>
                                             <li style={{ marginBottom: "0px" }}>
-                                                <a className="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                                    <i className="bi bi-gear" />
-                                                    <span>Account Settings</span>
+                                                <a className="dropdown-item d-flex align-items-center" href="/invoice">
+                                                    <i class="bi bi-clock-history"></i>
+                                                    <span>Lịch sử mua hàng</span>
                                                 </a>
                                             </li>
                                             <li style={{ marginBottom: "0px" }}>
@@ -188,7 +188,7 @@ const Navbar = () => {
                                                 <i class="bi bi-bell dropdown-toggle"></i>
 
                                             </a>{/* End Profile Iamge Icon */}
-                                            <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                                            <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile ul-nofi">
                                                 {
                                                     reversedNotifications.map((item, index) => (
                                                         <>

@@ -45,17 +45,17 @@ const EditPhone = ({ PhoneId }) => {
         axios.put(`https://localhost:7258/api/Phones/${PhoneId}`, formData) // Pass formData here
             .then(res => {
                 setPhone(res.data);
-                navigate("/admin/Phone");
                 const formDataHistory = new FormData();
                 formDataHistory.append("action", "Chỉnh sửa thông tin");
                 formDataHistory.append("userId", userId);
                 formDataHistory.append("time", new Date().toISOString());
                 formDataHistory.append("productId", PhoneId);
                 formDataHistory.append("operation", "Sửa");
-                formDataHistory.append("amount", "-");
+                formDataHistory.append("amount", 1);
+                console.log(`fo`, formDataHistory);
                 axios.post(`https://localhost:7258/api/History`, formDataHistory)
                     .then(ress => {
-
+                        console.log(`ress.data`, ress.data);
                     })
             })
             .catch(error => {

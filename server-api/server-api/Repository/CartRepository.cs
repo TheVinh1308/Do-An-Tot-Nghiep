@@ -39,7 +39,9 @@ namespace server_api.Repository
 
         public async Task<Cart> GetCartAsync(int id)
         {
-            var cart = await _context.Carts.SingleOrDefaultAsync(x => x.Id == id);
+            var cart = await _context.Carts
+                .Include(c=>c.Phone)
+                .SingleOrDefaultAsync(x => x.Id == id);
             return cart;
         }
 

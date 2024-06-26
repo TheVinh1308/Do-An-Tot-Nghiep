@@ -1,25 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import { Select } from "@mui/material";
 import "./CartItems.css";
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 import { Bounce, toast, ToastContainer } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+import { ShopContext } from "../../Context/ShopContext"; // Ensure the path is correct
 import { jwtDecode } from "jwt-decode";
 
 const CartItems = () => {
-    // User information
     const [userId, setUserId] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userName, setUserName] = useState("");
     const [carts, setCarts] = useState([]);
-    const [amountPhone, setAmountPhone] = useState({});
     const [totalAllItem, setTotalAllItem] = useState(0);
-    const [selectedItems, setSelectedItems] = useState([]);
-    const [totalForSelectedItems, setTotalForSelectedItems] = useState(0);
     const [checkAll, setCheckAll] = useState(false);
 
-    // Toast notifications
+    const navigate = useNavigate();
+    const { cartItems, setCartItems, totalItemPrice, setTotalItemPrice } = useContext(ShopContext); // Use useContext
+    console.log(`caetItem`, cartItems);
     const notifySuccess = (message) => toast.success(message, {
         position: "top-right",
         autoClose: 5000,
@@ -43,7 +43,6 @@ const CartItems = () => {
         transition: Bounce,
     });
 
-    // Decode token and set user information
     useEffect(() => {
         const token = localStorage.getItem('jwt');
         if (token) {
@@ -54,34 +53,32 @@ const CartItems = () => {
         }
     }, []);
 
-    // Fetch cart items based on userId
     useEffect(() => {
         if (userId) {
             axios.get(`https://localhost:7258/api/Carts/GetCartByUserId/${userId}`)
-                .then((res) => setCarts(res.data))
+                .then((res) => {
+                    setCarts(res.data);
+                })
                 .catch((error) => console.error('Error fetching carts:', error));
         }
     }, [userId]);
 
-    // Calculate total price for all items in the cart
     useEffect(() => {
         const newTotal = carts.reduce((acc, item) => acc + (item.quantity * item.phone.price), 0);
         setTotalAllItem(newTotal);
     }, [carts]);
 
-    // Calculate total price for selected items
     useEffect(() => {
-        const selectedPhones = carts.filter(item => selectedItems.includes(item.phoneId));
+        const selectedPhones = carts.filter(item => cartItems.includes(item.id));
         const newTotal = selectedPhones.reduce((acc, item) => acc + (item.quantity * item.phone.price), 0);
-        setTotalForSelectedItems(newTotal);
-    }, [carts, selectedItems]);
+        setTotalItemPrice(newTotal);
+    }, [carts, cartItems, setTotalItemPrice]);
 
-    // Handle adding item quantity
-    const handleQuantityChange = async (phoneId, change) => {
+    const handleQuantityChange = async (cartId, change) => {
         try {
-            const phoneResponse = await axios.get(`https://localhost:7258/api/Phones/${phoneId}`);
+            const cartItem = carts.find(item => item.id === cartId);
+            const phoneResponse = await axios.get(`https://localhost:7258/api/Phones/${cartItem.phoneId}`);
             const phoneData = phoneResponse.data;
-            const cartItem = carts.find(item => item.phoneId === phoneId);
             const newQuantity = cartItem.quantity + change;
 
             if (newQuantity < 1 || newQuantity > phoneData.stock) {
@@ -107,13 +104,12 @@ const CartItems = () => {
             historyData.append("amount", change);
 
             await axios.post(`https://localhost:7258/api/History`, historyData);
-            setCarts(prevCarts => prevCarts.map(item => item.phoneId === phoneId ? { ...item, quantity: newQuantity } : item));
+            setCarts(prevCarts => prevCarts.map(item => item.id === cartId ? { ...item, quantity: newQuantity } : item));
         } catch (error) {
             console.error("Error updating cart:", error);
         }
     };
 
-    // Handle deleting an item from the cart
     const handleDelete = async (cartId) => {
         try {
             await axios.delete(`https://localhost:7258/api/Carts/${cartId}`);
@@ -136,25 +132,31 @@ const CartItems = () => {
         }
     };
 
-    // Handle select all items
     const handleCheckAll = () => {
         if (checkAll) {
-            setSelectedItems([]);
+            setCartItems([]);
         } else {
-            setSelectedItems(carts.map(item => item.phoneId));
+            setCartItems(carts.map(item => item.id));
         }
         setCheckAll(!checkAll);
     };
 
-    // Handle checkbox change for individual items
-    const handleCheckboxChange = (phoneId) => {
-        setSelectedItems(prevSelectedItems => {
-            if (prevSelectedItems.includes(phoneId)) {
-                return prevSelectedItems.filter(id => id !== phoneId);
+    const handleCheckboxChange = (cartId) => {
+        setCartItems(prevSelectedItems => {
+            if (prevSelectedItems.includes(cartId)) {
+                return prevSelectedItems.filter(id => id !== cartId);
             } else {
-                return [...prevSelectedItems, phoneId];
+                return [...prevSelectedItems, cartId];
             }
         });
+    };
+
+    const handleToPay = () => {
+        if (totalItemPrice === 0) {
+            notifyError("Vui lòng chọn ít nhất một sản phẩm");
+        } else {
+            navigate("/pay");
+        }
     };
 
     return (
@@ -174,11 +176,19 @@ const CartItems = () => {
                         <div className="cart-item" key={index}>
                             <Row>
                                 <Col md={1} className="cart-item-check">
-                                    <input
-                                        type="checkbox"
-                                        onChange={() => handleCheckboxChange(item.phoneId)}
-                                        checked={selectedItems.includes(item.phoneId)}
-                                    />
+                                    {
+                                        item.phone.stock == 0 ? (
+                                            <>
+                                                <p>Sản phẩm hết hàng</p>
+                                            </>
+                                        ) : (
+                                            <input
+                                                type="checkbox"
+                                                onChange={() => handleCheckboxChange(item.id)}
+                                                checked={cartItems.includes(item.id)}
+                                            />
+                                        )
+                                    }
                                 </Col>
                                 <Col md={3} className="cart-item-img">
                                     <img src={`https://localhost:7258/images/products/${item.phone.modPhone.image}`} alt="" />
@@ -190,11 +200,11 @@ const CartItems = () => {
                                         </Col>
                                         <Col md={4}>
                                             <div className="change-quantity">
-                                                <button className="btn-minus" onClick={() => handleQuantityChange(item.phoneId, -1)}>
+                                                <button className="btn-minus" onClick={() => handleQuantityChange(item.id, -1)}>
                                                     <i className="bi bi-dash"></i>
                                                 </button>
                                                 <input className="btn-value" min="1" name="quantity" value={item.quantity} type="text" readOnly />
-                                                <button className="btn-plus" onClick={() => handleQuantityChange(item.phoneId, 1)}>
+                                                <button className="btn-plus" onClick={() => handleQuantityChange(item.id, 1)}>
                                                     <i className="bi bi-plus"></i>
                                                 </button>
                                             </div>
@@ -224,7 +234,7 @@ const CartItems = () => {
                                     <h3>Tổng phụ</h3>
                                 </Col>
                                 <Col className="col-right">
-                                    <h3>{totalForSelectedItems.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h3>
+                                    <h3>{totalItemPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h3>
                                 </Col>
                             </Row>
                             <Row>
@@ -241,7 +251,7 @@ const CartItems = () => {
                                     <h2>Tổng đơn hàng</h2>
                                 </Col>
                                 <Col className="col-right">
-                                    <h2>{totalForSelectedItems.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h2>
+                                    <h2>{totalItemPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h2>
                                 </Col>
                             </Row>
                             <Row>
@@ -254,7 +264,7 @@ const CartItems = () => {
                                     </Select>
                                 </Col>
                             </Row>
-                            <Button className="btn-pay">Thanh toán</Button>
+                            <Button className="btn-pay" onClick={handleToPay}>Thanh toán</Button>
                         </Col>
                     </Row>
                 </div>

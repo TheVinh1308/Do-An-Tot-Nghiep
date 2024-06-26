@@ -32,14 +32,8 @@ namespace API_Server.Models
         //public int PaymentMethodId { get; set; }
         //public PaymentMethod PaymentMethod { get; set; }
 
-        [DefaultValue(true)]
-        public bool Status { get; set; }
+        public int Status { get; set; }
 
-        public Invoice()
-        {
-            Total = 0;
-            Status = true;
-            IssuedDate = DateTime.Now;
-        }
+       
     }
 }

@@ -33,18 +33,34 @@ namespace server_api.Controllers
             var invoice = await _invoiceRepository.GetInvoiceAsync(id);
             return invoice == null ? NotFound() : Ok(invoice);
         }
-        [HttpPost]
-        public async Task<IActionResult> AddNewInvoice(Invoice invoice)
+
+        [HttpGet("/GetInvoiceByUserId/{userId}")]
+        public async Task<IActionResult> GetInvoiceByUserId(string userId)
         {
+            var invoice = await _invoiceRepository.GetInvoiceByUserIdAsync(userId);
+            return invoice == null ? NotFound() : Ok(invoice);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddNewInvoice([FromForm] Invoice invoice)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
                 var newInvoice = await _invoiceRepository.InsertInvoiceAsync(invoice);
-                return CreatedAtAction(nameof(GetInvoiceById), new { invoice }, invoice);
+                return CreatedAtAction(nameof(GetInvoiceById), new { id = newInvoice.Id }, newInvoice);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                // Log the exception details
+                Console.WriteLine(ex); // Replace with your logging mechanism
+                return StatusCode(500, "An error occurred while creating the invoice: " + ex.Message);
             }
         }
+
     }
 }

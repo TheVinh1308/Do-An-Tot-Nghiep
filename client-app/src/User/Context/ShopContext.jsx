@@ -21,10 +21,11 @@ const ShopContextProvider = (props) => {
     }, [])
 
 
-    // const [cartItems, setCartItems] = useState()
+    const [cartItems, setCartItems] = useState([]);
+    const [totalItemPrice, setTotalItemPrice] = useState(0);
 
 
-    const contextValue = { phones,setPhones,defaultPhones }
+    const contextValue = { phones, setPhones, defaultPhones, cartItems, setCartItems, totalItemPrice, setTotalItemPrice }
 
     return (
         <ShopContext.Provider value={contextValue}>
