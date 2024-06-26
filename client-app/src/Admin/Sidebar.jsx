@@ -38,6 +38,11 @@ const Sidebar = () => {
                                     <i className="bi bi-circle" /><span>Hãng điện thoại</span>
                                 </Link>
                             </li>
+                            <li>
+                                <Link to="/admin/ConfigDetail" >
+                                    <i className="bi bi-circle" /><span>Cấu hình điện thoại</span>
+                                </Link>
+                            </li>
                         </ul>
                     </li>{/* End Components Nav */}
                     <li className="nav-item">

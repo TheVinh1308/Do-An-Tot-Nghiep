@@ -15,6 +15,8 @@ import OderTracking from "../Admin/Invoice/OrderTracking";
 import History from "../Admin/History/History";
 import Register from "../Admin/Register";
 import Login from "../Admin/Login";
+import ConfigDetail from "../Admin/ModPhone/ConfigDetail";
+import AddConfigDetail from "../Admin/ModPhone/AddConfigDetail";
 const PrivateRouter = () => {
     return (
         <>
@@ -25,6 +27,11 @@ const PrivateRouter = () => {
 
                         <Route path="ModProduct">
                             <Route index element={<ModProduct />} />
+                        </Route>
+
+                        <Route path="ConfigDetail">
+                            <Route index element={<ConfigDetail />} />
+                            <Route path="AddConfigDetail" element={<AddConfigDetail/>} />
                         </Route>
 
                         <Route path="Phone">
