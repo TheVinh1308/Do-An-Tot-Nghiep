@@ -156,5 +156,18 @@ namespace server_api.Controllers
                 return NotFound();
             }
         }
+        [HttpGet("search/{data}")]
+        public async Task<IActionResult> Search(string data)
+        {
+            try
+            {
+                var result = await _phoneRepository.SearchPhone(data);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

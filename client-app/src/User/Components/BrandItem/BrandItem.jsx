@@ -17,6 +17,7 @@ import 'swiper/css/scrollbar';
 // Import Swiper styles
 import 'swiper/css';
 import { Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 const BrandItem = () => {
 
     const [brands, setBrands] = useState([]);
@@ -66,9 +67,11 @@ const BrandItem = () => {
                     {
                         brands.map((item, index) => (
                             <SwiperSlide key={index}>
-                                <div className="brand-item">
-                                    <Image src={'https://localhost:7258/images/brands/' + item.logo} />
-                                </div>
+                                <Link to={`/${item.name}`}>
+                                    <div className="brand-item">
+                                        <Image src={'https://localhost:7258/images/brands/' + item.logo} />
+                                    </div>
+                                </Link>
 
                             </SwiperSlide>
                         ))

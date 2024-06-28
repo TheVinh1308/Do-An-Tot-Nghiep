@@ -79,7 +79,6 @@ const handleSelectChange = (event) => {
             },
         });
     }
-    
 };
 
 
@@ -96,10 +95,13 @@ const handleSelectChange = (event) => {
       },
     });
   };
+  useEffect(() => {
+    setNewCf(config);
+  }, [config])
 
   const handleSubmit = async () => {
     try {
-        setNewCf(config)
+
       const res = await axios.put(`http://localhost:3001/phoneConfig/${selectedMPhone}`, newCf);
       console.log(res.data);// Cập nhật lại dữ liệu sau khi lưu thành công
       alert("Đã lưu")
