@@ -81,34 +81,58 @@ const CartItems = () => {
             const phoneData = phoneResponse.data;
             const newQuantity = cartItem.quantity + change;
 
-            if (newQuantity < 1 || newQuantity > phoneData.stock) {
-                notifyError("Số lượng trong kho không đủ!");
+            if (newQuantity < 1) {
+                notifyError("Số lượng không thể ít hơn 1!");
                 return;
             }
 
-            const updatedItem = { ...cartItem, quantity: newQuantity };
-            await axios.put(`https://localhost:7258/api/Carts/${cartItem.id}`, updatedItem, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
+            if (newQuantity > phoneData.stock) {
+                // notifyError("Số lượng vượt quá số lượng trong kho!");
+                const updatedItem = { ...cartItem, quantity: phoneData.stock };
+                await axios.put(`https://localhost:7258/api/Carts/${cartItem.id}`, updatedItem, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                });
 
-            notifySuccess("Thành công!");
-            const historyData = new FormData();
-            historyData.append("action", "Cập nhật số lượng sản phẩm trong giỏ hàng");
-            historyData.append("userId", userId);
-            historyData.append("time", new Date().toISOString());
-            historyData.append("productId", cartItem.phoneId);
-            historyData.append("productName", cartItem.phone.name);
-            historyData.append("operation", "Cập nhật");
-            historyData.append("amount", change);
+                // notifySuccess("Số lượng sản phẩm đã được cập nhật!");
+                const historyData = new FormData();
+                historyData.append("action", "Cập nhật số lượng sản phẩm trong giỏ hàng");
+                historyData.append("userId", userId);
+                historyData.append("time", new Date().toISOString());
+                historyData.append("productId", cartItem.phoneId);
+                historyData.append("productName", cartItem.phone.name);
+                historyData.append("operation", "Cập nhật");
+                historyData.append("amount", phoneData.stock - cartItem.quantity);
 
-            await axios.post(`https://localhost:7258/api/History`, historyData);
-            setCarts(prevCarts => prevCarts.map(item => item.id === cartId ? { ...item, quantity: newQuantity } : item));
+                await axios.post(`https://localhost:7258/api/History`, historyData);
+                setCarts(prevCarts => prevCarts.map(item => item.id === cartId ? { ...item, quantity: phoneData.stock } : item));
+            } else {
+                const updatedItem = { ...cartItem, quantity: newQuantity };
+                await axios.put(`https://localhost:7258/api/Carts/${cartItem.id}`, updatedItem, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                });
+
+                notifySuccess("Số lượng sản phẩm đã được cập nhật!");
+                const historyData = new FormData();
+                historyData.append("action", "Cập nhật số lượng sản phẩm trong giỏ hàng");
+                historyData.append("userId", userId);
+                historyData.append("time", new Date().toISOString());
+                historyData.append("productId", cartItem.phoneId);
+                historyData.append("productName", cartItem.phone.name);
+                historyData.append("operation", "Cập nhật");
+                historyData.append("amount", change);
+
+                await axios.post(`https://localhost:7258/api/History`, historyData);
+                setCarts(prevCarts => prevCarts.map(item => item.id === cartId ? { ...item, quantity: newQuantity } : item));
+            }
         } catch (error) {
             console.error("Error updating cart:", error);
         }
     };
+
 
     const handleDelete = async (cartId) => {
         try {
@@ -177,7 +201,7 @@ const CartItems = () => {
                             <Row>
                                 <Col md={1} className="cart-item-check">
                                     {
-                                        item.phone.stock == 0 ? (
+                                        item.phone.stock == 0 || item.quantity > item.phone.stock ? (
                                             <>
                                                 <p>Sản phẩm hết hàng</p>
                                             </>

@@ -1,0 +1,14 @@
+.AfterPay {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.AfterPay i {
+    font-size: 3rem;
+    color: green;
+}
+
+.AfterPay .btn-afterpay button {
+    padding: 10px;
+    margin: 10px;
+}

@@ -104,7 +104,7 @@ const InvoiceDetail = ({ invoiceId }) => {
                                             invoiceDetail.map((item, index) => (
                                                 <tr>
                                                     <th scope="row">{index + 1}</th>
-                                                    <td>.</td>
+                                                    <td>   <img key={index} src={`https://localhost:7258/images/products/${item.phone.modPhone.image}`} alt="" width={100} style={{ mixBlendMode: "darken" }} /></td>
                                                     <td>{item.phone.name}</td>
                                                     <td>{item.quantity}</td>
                                                     <td>{(item.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>

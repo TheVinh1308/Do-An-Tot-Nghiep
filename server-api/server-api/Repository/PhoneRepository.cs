@@ -18,7 +18,7 @@ namespace server_api.Repository
         public async Task<List<Phone>> GetAllPhoneAsync()
         {
             var phones = await _context.Phones.Include(p => p.ModPhone)
-                .ThenInclude(p=>p.Promotion)
+                .ThenInclude(p => p.Promotion)
                    .Where(p => p.Status == true)
                                               .ToListAsync();
             return phones;
@@ -28,7 +28,7 @@ namespace server_api.Repository
         {
             var phone = await _context.Phones.Include(p => p.ModPhone)
                                              .Include(p => p.ModPhone.Brand)
-                                             .Include(p=>p.ModPhone.Promotion)
+                                             .Include(p => p.ModPhone.Promotion)
                                              .SingleOrDefaultAsync(x => x.Id == id);
             return phone;
         }
@@ -38,7 +38,7 @@ namespace server_api.Repository
         {
             var phones = await _context.Phones
                 .Include(p => p.ModPhone)
-                .ThenInclude(p=>p.Brand)
+                .ThenInclude(p => p.Brand)
                 .ToListAsync();
 
             var result = phones
@@ -53,31 +53,31 @@ namespace server_api.Repository
         public async Task<Phone> GetFirstPhoneByModPhoneIdAsync(int modPhoneId)
         {
             var phone = await _context.Phones.Include(p => p.ModPhone)
-                .ThenInclude(pro=>pro.Promotion)
+                .ThenInclude(pro => pro.Promotion)
                 .Include(p => p.ModPhone)
                                              .ThenInclude(mp => mp.Brand)
                                              .FirstOrDefaultAsync(p => p.ModPhone.Id == modPhoneId);
             return phone;
         }
 
-        public async Task<Phone> InsertPhoneAsync([FromForm]Phone phone)
+        public async Task<Phone> InsertPhoneAsync([FromForm] Phone phone)
         {
-             _context.Phones.Add(phone);
-            await _context.SaveChangesAsync();     
+            _context.Phones.Add(phone);
+            await _context.SaveChangesAsync();
             return phone;
         }
 
         public async Task DeletePhoneAsync(int phoneId)
         {
             var phone = _context.Phones.SingleOrDefault(x => x.Id == phoneId);
-            if(phone != null)
+            if (phone != null)
             {
                 phone.Status = false;
                 await _context.SaveChangesAsync();
             }
         }
 
-        public async Task UpdatePhoneAsync(int phoneId, Phone phone)
+        public async Task UpdatePhoneAsync( int phoneId, [FromForm] Phone phone)
         {
            if(phoneId == phone.Id )
            {

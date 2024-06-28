@@ -126,7 +126,7 @@ namespace server_api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdatePhone([FromForm] int id, [FromForm] Phone phone)
+        public async Task<IActionResult> UpdatePhone(int id, [FromForm] Phone phone)
         {
             if (id != phone.Id)
             {

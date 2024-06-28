@@ -55,7 +55,7 @@ namespace server_api.Repository
             return invoice;
         }
 
-        public async Task UpdateInvoiceAsync(int invoiceId, Invoice invoice)
+        public async Task UpdateInvoiceAsync(int invoiceId,[FromForm] Invoice invoice)
         {
             if (invoiceId == invoice.Id)
             {

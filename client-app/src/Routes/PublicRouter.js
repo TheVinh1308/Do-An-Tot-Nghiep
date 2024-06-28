@@ -7,6 +7,7 @@ import Shop from "../User/Pages/Shop";
 import Register from "../User/Pages/Register";
 import Pay from "../User/Pages/Pay";
 import Invoice from "../User/Components/Invoice/Invoice";
+import AfterPay from "../User/Pages/AfterPay";
 
 const PublicRouter = () => {
     return (
@@ -33,6 +34,7 @@ const PublicRouter = () => {
                         <Route path='register' element={<Register />} />
                         <Route path='pay' element={<Pay />} />
                         <Route path='invoice' element={<Invoice />} />
+                        <Route path='afterPay/:id' element={<AfterPay />} />
                     </Route>
                 </Routes>
 

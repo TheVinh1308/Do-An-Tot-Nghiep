@@ -1,6 +1,7 @@
 ﻿using API_Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using server_api.Interface;
+using server_api.Repository;
 
 namespace server_api.Controllers
 {
@@ -61,6 +62,25 @@ namespace server_api.Controllers
                 return StatusCode(500, "An error occurred while creating the invoice: " + ex.Message);
             }
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateInvoice([FromForm] int id, [FromForm] Invoice invoice)
+        {
+            if (id != invoice.Id)
+            {
+                return BadRequest("Hoá đơn không tồn tại");
+            }
+            try
+            {
+                await _invoiceRepository.UpdateInvoiceAsync(id, invoice);
+                return Ok();
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
 
     }
 }

@@ -7,6 +7,7 @@ const ShopContextProvider = (props) => {
 
     const [phones, setPhones] = useState([{ modPhone: { brand: {}, promotion: {} } }]);
     const [defaultPhones, setDefaultPhone] = useState([{ modPhone: { brand: {}, promotion: {} } }]);
+    const [phone, setPhone] = useState(null);
     console.log(phones);
     useEffect(() => {
         axios.get(`https://localhost:7258/api/Phones/FirstByModel`)
@@ -25,7 +26,7 @@ const ShopContextProvider = (props) => {
     const [totalItemPrice, setTotalItemPrice] = useState(0);
 
 
-    const contextValue = { phones, setPhones, defaultPhones, cartItems, setCartItems, totalItemPrice, setTotalItemPrice }
+    const contextValue = { phones, setPhones, defaultPhones, cartItems, setCartItems, totalItemPrice, setTotalItemPrice, phone, setPhone }
 
     return (
         <ShopContext.Provider value={contextValue}>

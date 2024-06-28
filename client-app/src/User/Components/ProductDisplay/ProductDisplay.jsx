@@ -1,14 +1,15 @@
 import "./ProductDisplay.css"
 import star_icon from "../Assets/star_icon.png"
 import star_dull_icon from "../Assets/star_dull_icon.png"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useContext, useEffect, useState } from "react"
 import axios from "axios"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import Tabs from "../Tabs/Tabs"
 import { jwtDecode } from "jwt-decode"
 import { Button, Col, Row } from "react-bootstrap"
 import 'react-toastify/dist/ReactToastify.css';
 import { Bounce, toast, ToastContainer } from "react-toastify";
+import { ShopContext } from "../../Context/ShopContext";
 const ProductDisplay = (props) => {
     const { id } = useParams()
     const [images, setImages] = useState([]);
@@ -21,6 +22,8 @@ const ProductDisplay = (props) => {
     const [selectedRom, setSelectedRom] = useState(null);
     const [selectedColorButton, setSelectedColorButton] = useState(null);
     const [selectedRomButton, setSelectedRomButton] = useState(null);
+
+    const { phone, setPhone } = useContext(ShopContext);
 
     // lấy hình ảnh theo phone
     useEffect(() => {
@@ -75,7 +78,11 @@ const ProductDisplay = (props) => {
         item.rom === selectedRom &&
         item.color === selectedColor &&
         item.modPhoneId === product.modPhone.id)
-
+    useEffect(() => {
+        setPhone(selectedPhone?.id);
+    }, [selectedPhone, setPhone]);
+    console.log(`phone`, phone);
+    console.log(`selectedPhone`, selectedPhone);
     useEffect(() => {
         if (colors.length > 0 && selectedColor === null && selectedRom === null && selectedColorButton === null && selectedRomButton === null) {
             let availableColor = null;
@@ -105,7 +112,7 @@ const ProductDisplay = (props) => {
         }
     }, [colors, roms, selectedColor, selectedRom, selectedColorButton, selectedRomButton]);
 
-   
+
     const uniqueRom = {};
     roms.forEach(item => {
         if (!uniqueRom[item.phone.rom]) {
@@ -216,6 +223,7 @@ const ProductDisplay = (props) => {
             }
         }
     };
+
 
 
 
@@ -337,9 +345,10 @@ const ProductDisplay = (props) => {
                     <p className="productdisplay-right-category"><span>Tag: </span>Modern, Latest</p> */}
                     <div>
                         <Row>
-                            <Button className="btn-muangay">
+                            <Link to="/pay"> <Button className="btn-muangay">
                                 Mua ngay
-                            </Button>
+                            </Button></Link>
+
                         </Row>
                         <Row>
                             <Col md={6} className="col-cart"><Button className="btn-cart" onClick={() => handleAddCart(selectedPhone.name)}><i class="bi bi-cart"></i></Button></Col>

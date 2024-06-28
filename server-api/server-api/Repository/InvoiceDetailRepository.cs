@@ -45,9 +45,12 @@ namespace server_api.Repository
                 .Where(i => i.InvoiceId == invoiceId)
                 .Include(i=>i.Invoice)
                 .Include(i=>i.Phone)
+                .ThenInclude(i=>i.ModPhone)
                 .ToListAsync();
             return invoiceDeatil;
         }
+
+        
 
         public async Task<InvoiceDetail> InsertnvoiceDetailAsync([FromForm]InvoiceDetail invoiceDetail)
         {
