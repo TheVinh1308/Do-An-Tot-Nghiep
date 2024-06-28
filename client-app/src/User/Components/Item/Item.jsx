@@ -1,27 +1,26 @@
 import { Link } from "react-router-dom";
 import "./Item.css"
+import StarRatings from "react-star-ratings";
 const Item = (props) => {
     console.log(props);
     return (
         <>
-
             <div className="item">
                 <Link to={`${props.id}`}>
                     <img src={props.image} alt="" />
-                    {/* onClick={window.scrollTo(0, 0)} */}
                 </Link>
                 <p>{props.name}</p>
+                <StarRatings
+                    rating={5}
+                    starRatedColor="orange"
+                    // changeRating={onStarClick}
+                    numberOfStars={5}
+                    name='rating'
+                    starDimension="15px"
+                    starSpacing="2px"
+                />
                 <div className="item-prices">
-                    {/* <div className="item-price-new">
-                        {(props.price)}
-                    </div>
-                    <div className="item-price-old">
-                        10000
-                    </div> */}
-
-
                     {
-
                         props.promotionId != 1 ? (
                             new Date(props.startDay) > new Date() ? (<><div className="item-price-new">${props && (props.price)?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div><div>Sắp khuyến mãi</div></>) :
                                 ((new Date() > new Date(props.endDay)) ? <div className="item-price-new">${props && (props.price)?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div> :
@@ -31,10 +30,8 @@ const Item = (props) => {
                                     </>))
                             : (<div className="item-price-new">${props && (props.price)?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div>)
                     }
-
                 </div>
             </div>
-
         </>
     );
 }
