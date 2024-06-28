@@ -123,5 +123,17 @@ namespace server_api.Repository
 
             return phones;
         }
+
+        public async Task<List<Phone>> SearchPhone(string data)
+        {
+            var result = await _context.Phones.Include(p => p.ModPhone).Include(p => p.ModPhone.Brand)
+                                   .Where(a => a.Name.Contains(data))
+                                    .GroupBy(p => p.ModPhoneId)
+                                       .Select(g => g.OrderBy(p => p.Id).First())
+                                       .ToListAsync();
+                     
+           
+            return (result);
+        }
     }
 }

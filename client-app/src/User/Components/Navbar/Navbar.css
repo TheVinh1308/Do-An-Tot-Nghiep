@@ -1,3 +1,99 @@
+
+
+.search-form-container {
+    background: #fff;
+    border-radius: 5px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus {
+    border-color: #007bff;
+}
+
+.search-button {
+    padding: 10px 20px;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background: #0056b3;
+}
+
+.product-suggestions {
+    display: flex; 
+    flex-direction: column;
+   
+    width: 100%;
+    max-width: 400px;
+    position: absolute;
+    background-color: #fff;
+    max-height: 400px; /* Giới hạn chiều cao tối đa */
+    overflow-y: auto;  /* Thêm thanh cuộn dọc khi vượt quá chiều cao tối đa */
+    scrollbar-width: thin;  /* Đặt độ rộng thanh cuộn mỏng (chỉ hỗ trợ Firefox) */
+    scrollbar-color: #888 #fff; /* Màu thanh cuộn và nền (chỉ hỗ trợ Firefox) */
+}
+
+/* Tùy chỉnh thanh cuộn cho Webkit (Chrome, Safari) */
+.product-suggestions::-webkit-scrollbar {
+    width: 8px; /* Độ rộng thanh cuộn */
+}
+
+.product-suggestions::-webkit-scrollbar-track {
+    background: #fff; /* Màu nền của thanh cuộn */
+}
+
+.product-suggestions::-webkit-scrollbar-thumb {
+    background-color: #888; /* Màu của thanh cuộn */
+    border-radius: 10px; /* Bo tròn các góc của thanh cuộn */
+}
+
+.product-item {
+    background: #fafafa;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+}
+
+.product-image {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.product-info {
+    margin-top: 10px;
+}
+
+.product-name {
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.product-price {
+    color: red;
+    font-size: 1.1em;
+}
+
 .navbar {
     display: flex;
     justify-content: space-around !important;
@@ -97,7 +193,6 @@
 
 .nav-menu img {
     width: 80px;
-    margin: 0 auto;
 }
 
 nav {

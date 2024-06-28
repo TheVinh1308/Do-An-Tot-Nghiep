@@ -13591,35 +13591,75 @@
     },
     {
       "thongTin": {
-        "manHinh": {},
+        "manHinh": {
+          "congNgheManHinh": "aabd",
+          "manHinhRong": "aabd",
+          "doPhanGiai": "aaabd",
+          "doSangToiDa": "aabd",
+          "matKinhCamUng": "aabd"
+        },
         "cameraSau": {
           "quayPhim": [],
-          "tinhNang": []
+          "tinhNang": [
+            "aad",
+            "aad"
+          ],
+          "doPhanGiai": "ad",
+          "denFlash": "d"
         },
         "cameraTruoc": {
           "tinhNang": []
         },
-        "heDieuHanhCPU": {},
-        "boNhoLuuTru": {},
+        "heDieuHanhCPU": {
+          "heDieuHanh": "ad",
+          "chipXuLyCPU": "ad",
+          "tocDoCPU": "ad",
+          "chipDoHoaGPU": "ad"
+        },
+        "boNhoLuuTru": {
+          "danhBa": "ad"
+        },
         "pinSac": {
-          "congNghePin": []
+          "congNghePin": [
+            "d"
+          ],
+          "loaiPin": "ad",
+          "dungLuongPin": "ad"
         },
         "ketNoi": {
           "wifi": [],
-          "bluetooth": [],
-          "GPS": []
+          "bluetooth": [
+            "ad"
+          ],
+          "GPS": [],
+          "mangDiDong": "ad",
+          "SIM": "ad",
+          "jackTaiNghe": "ad",
+          "congKetNoiSac": "ad"
         },
         "tienIch": {
-          "baoMatNangCao": [],
-          "tinhNangDacBiet": [],
-          "ghiAm": [],
-          "ngheNhac": [],
-          "xemPhim": []
+          "baoMatNangCao": [
+            "a"
+          ],
+          "tinhNangDacBiet": [
+            "a"
+          ],
+          "ghiAm": [
+            "a"
+          ],
+          "ngheNhac": [
+            "a"
+          ],
+          "xemPhim": [
+            "a"
+          ]
         },
         "thongTinChung": {
           "kichThuocKhoiLuong": {},
           "chatLieu": {},
-          "hang": "A"
+          "thietKe": "",
+          "hang": "",
+          "thoiDiemRaMat": ""
         },
         "ramLuuTru": {}
       },
