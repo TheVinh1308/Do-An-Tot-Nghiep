@@ -158,6 +158,7 @@ const ShopCategory = (props) => {
                     <Item
                         key={index}
                         id={item.id}
+                        modPhoneId={item.modPhoneId}
                         name={item.name}
                         image={`https://localhost:7258/images/products/${item.modPhone.image}`}
                         price={item.price}

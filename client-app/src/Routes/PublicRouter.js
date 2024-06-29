@@ -8,6 +8,7 @@ import Register from "../User/Pages/Register";
 import Pay from "../User/Pages/Pay";
 import Invoice from "../User/Components/Invoice/Invoice";
 import AfterPay from "../User/Pages/AfterPay";
+import Compare from "../User/Pages/Compare";
 
 const PublicRouter = () => {
     return (
@@ -35,6 +36,7 @@ const PublicRouter = () => {
                         <Route path='pay' element={<Pay />} />
                         <Route path='invoice' element={<Invoice />} />
                         <Route path='afterPay/:id' element={<AfterPay />} />
+                        <Route path='compare' element={<Compare />} />
                     </Route>
                 </Routes>
 

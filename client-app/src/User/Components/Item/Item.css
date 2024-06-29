@@ -55,7 +55,67 @@
     margin: auto;
 }
 
+.sticky-div {
+    position: fixed;
+    bottom: 0px;
+    width: 90%;
+    z-index: 1000;
+    display: block;
+    background-color: white;
+    padding-top: 20px;
+    box-shadow: -1em 0 3em rgb(138, 193, 215);
+}
 
+.sticky-div h6 {
+    margin-top: 20px;
+}
+
+button.btn-huy {
+    background-color: white !important;
+    color: gray;
+    border: solid 1px gray;
+    margin-bottom: 10px;
+}
+
+a.btn-compare {
+    color: white;
+}
+
+button.btn-huy:hover {
+    background-color: white !important;
+    color: gray;
+    border: solid 1px gray;
+    margin-bottom: 10px;
+}
+
+.add-compare {
+    width: 70px;
+    height: 70px;
+    background-color: white !important;
+    border: 2px dashed gray !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.sticky-div .row .col .del-compare {
+    transform: translate(120px, -50px);
+    margin-top: 5px;
+    background-color: white;
+    border: none;
+    color: black;
+}
+
+.star-ratings .row .col img.card-img-top {
+    display: block !important;
+    margin: auto;
+}
+
+.sticky-div .col-add {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
 
 @media(max-width:1280px) {
     .item {

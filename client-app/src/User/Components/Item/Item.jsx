@@ -2,31 +2,41 @@ import { Link } from "react-router-dom";
 import "./Item.css";
 import StarRatings from "react-star-ratings";
 import { Button, Card, Col, Modal, Row } from "react-bootstrap";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faRectangleXmark } from "@fortawesome/free-regular-svg-icons";
 import ChoiceCompare from "../../Pages/ChoiceCompare";
+import { ShopContext } from "../../Context/ShopContext";
 
 const Item = (props) => {
     const [showStickyDiv, setShowStickyDiv] = useState(false);
-
+    const { iitemCompare, setIitemCompare, show, setShow } = useContext(ShopContext); // Use useContext
     console.log(`this.props.`, props);
     const [listCompare, setListCompare] = useState({});
     const handleCompareButtonClick = (item) => {
         setShowStickyDiv(true);
         setListCompare(item);
+        setIitemCompare((prevItems) => [...prevItems, item]);
     };
 
-    const [show, setShow] = useState(false);
+
     const [brandSelect, setBrandSelect] = useState(null);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const handleCloseCompare = () => {
         setShowStickyDiv(false);
+        setIitemCompare([]);
     };
 
+
+    const handleCancel = (item) => {
+        setIitemCompare((prevItems) => prevItems.filter((compareItem) => compareItem !== item));
+    }
+
+
+    console.log(`props`, props);
     return (
         <>
             <div className="item">
@@ -79,7 +89,7 @@ const Item = (props) => {
 
             <Modal size="lg" show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title className="add-title">Thêm hãng điện thoại</Modal.Title>
+                    <Modal.Title className="add-title">Thêm sản phẩm so sánh</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <ChoiceCompare />
@@ -89,38 +99,71 @@ const Item = (props) => {
 
 
 
-            <div className="sticky-div" style={{ position: 'fixed', bottom: 0, width: '100%', zIndex: 1000, display: showStickyDiv ? 'block' : 'none', backgroundColor: 'white' }}>
+            <div className="sticky-div" style={{ display: showStickyDiv ? 'block' : 'none' }}>
                 <Row>
-                    <Col style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <Col style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} md={3} sx={6}>
                         <>
                             {/* <Button style={{ transform: 'translate(65px, 20px)', marginTop: 5, backgroundColor: 'white', border: 'none' }}>
                                 <FontAwesomeIcon icon={faXmark} style={{ color: 'gray' }} />
                             </Button> */}
-                            <Card.Img variant="top" src={listCompare.image} style={{ width: 100 }} />
-                            <h5 style={{ textAlign: 'center' }}>{listCompare.name}</h5>
+                            <Card.Img variant="top" src={listCompare?.image} style={{ width: 150 }} />
+                            <h6 style={{ textAlign: 'center' }}>{listCompare?.name}</h6>
                         </>
 
                     </Col>
-                    <Col>
-                        <Button style={{ width: 70, height: 70, backgroundColor: 'white', border: '2px dashed gray', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <FontAwesomeIcon icon={faPlus} style={{ color: 'gray' }} onClick={handleShow} />
-                        </Button>
-                    </Col>
-                    <Col>
-                        <Button style={{ width: 70, height: 70, backgroundColor: 'white', border: '2px dashed gray', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <FontAwesomeIcon icon={faPlus} style={{ color: 'gray' }} />
-                        </Button>
-                    </Col>
-                    <Col style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                    {
+                        iitemCompare.length == 1 ?
+                            <>
+                                <Col className="col-add" md={3} sx={6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                    <Button className="add-compare" onClick={handleShow} >
+                                        <FontAwesomeIcon icon={faPlus} style={{ color: 'gray' }} />
+                                    </Button>
+                                </Col>
+                                <Col className="col-add" md={3} sx={6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                    <Button className="add-compare" onClick={handleShow}>
+                                        <FontAwesomeIcon icon={faPlus} style={{ color: 'gray' }} />
+                                    </Button>
+                                </Col>
+                            </> : iitemCompare.length == 2 ?
+                                <>
+                                    <Col md={3} sx={6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                        {/* <Button className="del-compare" ><FontAwesomeIcon icon={faXmark} style={{ color: 'black' }} /></Button> */}
+                                        <Card.Img variant="top" src={`https://localhost:7258/images/products/${iitemCompare[1]?.modPhone.image}`} style={{ width: 150 }} />
+                                        <h6 style={{ textAlign: 'center' }}>{iitemCompare[1]?.name}</h6>
+                                        <Button className="btn-huy" onClick={() => handleCancel(iitemCompare[1])}>Huỷ chọn</Button>
+                                    </Col>
+                                    <Col className="col-add" md={3} sx={6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                        <Button className="add-compare" onClick={handleShow}>
+                                            <FontAwesomeIcon icon={faPlus} style={{ color: 'gray' }} />
+                                        </Button>
+                                    </Col>
+                                </> : <>
+                                    <Col md={3} sx={6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+
+                                        <Card.Img variant="top" src={`https://localhost:7258/images/products/${iitemCompare[1]?.modPhone.image}`} style={{ width: 150 }} />
+                                        <h6 style={{ textAlign: 'center' }}>{iitemCompare[1]?.name}</h6>
+                                        <Button className="btn-huy" onClick={() => handleCancel(iitemCompare[1])}>Huỷ chọn</Button>
+                                    </Col>
+                                    <Col md={3} sx={6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+
+                                        <Card.Img variant="top" src={`https://localhost:7258/images/products/${iitemCompare[2]?.modPhone.image}`} style={{ width: 150 }} />
+                                        <h6 style={{ textAlign: 'center' }}>{iitemCompare[2]?.name}</h6>
+                                        <Button className="btn-huy" onClick={() => handleCancel(iitemCompare[2])}>Huỷ chọn</Button>
+                                    </Col>
+                                </>
+                    }
+
+
+                    <Col md={3} sx={6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                         <Button onClick={handleCloseCompare} variant="secondary">
                             <FontAwesomeIcon icon={faRectangleXmark} /> Cancel
                         </Button>
-                        <Link >
-                            <Button style={{ marginTop: 2 }}>Compare</Button>
-                        </Link>
+
+                        <Button style={{ marginTop: 2 }} disabled={iitemCompare.length === 1}> <Link to="/compare" className="btn-compare">Compare  </Link></Button>
+
                     </Col>
                 </Row>
-            </div>
+            </div >
         </>
     );
 };
