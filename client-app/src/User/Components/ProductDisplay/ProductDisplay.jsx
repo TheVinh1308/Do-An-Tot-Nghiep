@@ -23,7 +23,7 @@ const ProductDisplay = (props) => {
     const [selectedColorButton, setSelectedColorButton] = useState(null);
     const [selectedRomButton, setSelectedRomButton] = useState(null);
 
-    const { phone, setPhone } = useContext(ShopContext);
+    const { phone, setPhone,setIsAddToCart } = useContext(ShopContext);
 
     // lấy hình ảnh theo phone
     useEffect(() => {
@@ -179,6 +179,7 @@ const ProductDisplay = (props) => {
                         axios.post(`https://localhost:7258/api/History`, formDataHistory)
                             .then(ress => {
                                 notify();
+                                setIsAddToCart(true)
                             })
                             .catch(error => {
                                 console.error("Error adding to history:", error);
@@ -212,6 +213,7 @@ const ProductDisplay = (props) => {
                         axios.post(`https://localhost:7258/api/History`, formDataHistory)
                             .then(ress => {
                                 notify();
+                                setIsAddToCart(true)
                             })
                             .catch(error => {
                                 console.error("Error adding to history:", error);

@@ -299,25 +299,17 @@ ul li ul li a {
 }
 
 .nav-bell-count {
-    position: absolute;
-    top: 35px;
-    right: 122px;
-    /* Điều chỉnh vị trí từ phải qua */
-    background-color: red;
-    /* Màu nền của số lượng */
-    color: white;
-    /* Màu chữ của số lượng */
-    border-radius: 50%;
-    /* Làm tròn hình nền */
-    padding: 2px 6px;
-    /* Đệm xung quanh số lượng */
-    font-size: 12px;
-    /* Kích thước chữ của số lượng */
-    font-weight: bold;
-    /* Độ đậm của chữ */
+    width: 20px;
+    height: 20px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    margin-top: -30px;
+    margin-left: -15px;
+    border-radius: 11px;
+    font-size: 14px;
+    background: red;
+    color: white;
 }
 
 

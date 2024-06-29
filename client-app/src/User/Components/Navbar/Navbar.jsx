@@ -14,7 +14,7 @@ const Navbar = () => {
     const [menu, setMenu] = useState();
     // const shopContext = useContext(ShopContext);
     const menuRef = useRef();
-    const { phones, defaultPhones, setResultSearch, resultSearch } = useContext(ShopContext);
+    const { isAddToCart } = useContext(ShopContext);
     const dropdown_toggle = (e) => {
         menuRef.current.classList.toggle('nav-menu-visible')
         e.target.classList.toggle('open')
@@ -53,14 +53,14 @@ const Navbar = () => {
                 .then((res) => {
                     setCarts(res.data)
                     if (carts) {
-                        setResetAmount(carts.length);
+                        setResetAmount(res.data.length);
                     }
 
                 })
 
                 .catch((error) => console.error('Error fetching carts:', error));
         }
-    }, [userId]);
+    }, [userId,isAddToCart]);
 
     // thông báo
     const [notification, setNotification] = useState([]);
@@ -113,8 +113,10 @@ const Navbar = () => {
 
             <div className="navbar">
                 <div className="nav-logo">
-                    <img src={logo} alt="" />
-                    <p>2VPHONE</p>
+                    <Link to="/">
+                        <img src={logo} alt="" />
+                        <p className="d-inline">2VPHONE</p>
+                    </Link>
                 </div>
                 <img onClick={dropdown_toggle} src={nav_droppdown} alt="" className="nav-dropdown" />
                 <ul className="nav-menu" ref={menuRef}>
@@ -217,7 +219,7 @@ const Navbar = () => {
                                         <li className="nav-item dropdown pe-3">
                                             <a className="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                                                 <i class="bi bi-bell dropdown-toggle"></i>
-
+                                                <div className="nav-bell-count ">{reversedNotifications.length}</div>
                                             </a>{/* End Profile Iamge Icon */}
                                             <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile ul-nofi">
                                                 {
@@ -272,8 +274,8 @@ const Navbar = () => {
                         <img src={cart_icon} alt="" className="img-cart" />
 
                     </Link>
-                    {/* <div className="nav-bell-count ">{reversedNotifications.length}</div> */}
-                    <div className="nav-cart-count">{reversedNotifications.length}</div>
+                   
+                    <div className="nav-cart-count">{resetAmount}</div>
 
 
                 </div>
