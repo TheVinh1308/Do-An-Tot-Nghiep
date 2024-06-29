@@ -18,5 +18,7 @@ namespace server_api.Interface
         Task<List<Phone>> GetNewPhoneAsync();
 
         Task<List<Phone>> SearchPhone(string data);
+
+        Task<List<Phone>> GetPhoneBuyBrandIdAsync(int brandId);
     }
 }

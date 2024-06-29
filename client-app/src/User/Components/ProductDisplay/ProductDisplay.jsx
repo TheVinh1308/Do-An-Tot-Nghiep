@@ -6,7 +6,7 @@ import axios from "axios"
 import { Link, useParams } from "react-router-dom"
 import Tabs from "../Tabs/Tabs"
 import { jwtDecode } from "jwt-decode"
-import { Button, Col, Row } from "react-bootstrap"
+import { Button, Col, Modal, Row } from "react-bootstrap"
 import 'react-toastify/dist/ReactToastify.css';
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import { ShopContext } from "../../Context/ShopContext";
@@ -361,6 +361,8 @@ const ProductDisplay = (props) => {
                 <Tabs selectedPhone={selectedPhone} isAuthenticated={isAuthenticated} userId={userId} userName={userName} />
             )
             }
+
+
         </>
     );
 }

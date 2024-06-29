@@ -14,7 +14,7 @@ const Navbar = () => {
     const [menu, setMenu] = useState();
     // const shopContext = useContext(ShopContext);
     const menuRef = useRef();
-    const { phones,defaultPhones,setResultSearch,resultSearch } = useContext(ShopContext);
+    const { phones, defaultPhones, setResultSearch, resultSearch } = useContext(ShopContext);
     const dropdown_toggle = (e) => {
         menuRef.current.classList.toggle('nav-menu-visible')
         e.target.classList.toggle('open')
@@ -80,9 +80,9 @@ const Navbar = () => {
     useEffect(() => {
         const handler = setTimeout(() => {
             setDebouncedValue(value);
-        }, 2000);
+        }, 500);
 
-        
+
         return () => {
             clearTimeout(handler);
         };
@@ -99,14 +99,14 @@ const Navbar = () => {
                     console.error('Lỗi lấy dữ liệu:', error);
                 });
         } else {
-            setResult([]); 
+            setResult([]);
         }
     }, [debouncedValue]);
 
- 
 
 
-    
+
+
 
     return (
         <>
@@ -118,38 +118,38 @@ const Navbar = () => {
                 </div>
                 <img onClick={dropdown_toggle} src={nav_droppdown} alt="" className="nav-dropdown" />
                 <ul className="nav-menu" ref={menuRef}>
-                  
-                    
+
+
                     <div>
-                    <div className="search-form-container">
-                    <div className="search-form" >
+                        <div className="search-form-container">
+                            <div className="search-form" >
                                 <input className="search-input" type="text" placeholder="Search..." onChange={(e) => setValue(e.target.value)} />
                                 <button className="search-button" type="submit">Search</button>
                             </div>
-                    </div>
+                        </div>
                         <div className="product-suggestions">
-                    {
+                            {
                                 result.length && value !== "" > 0 ? result.map((item) => (
                                     <Link to={`${item.modPhone.brand.name}/${item.id}`}>
                                         <div className="product-item" key={item.id}>
-                                        <img src={`https://localhost:7258/images/products/${item.modPhone.image}`} alt="Product 1" className="product-image" />
-                                        <div className="product-info">
-                                            <h3 className="product-name">{item.name}</h3>
-                                            <p className="product-price">{(item.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
-                                        </div>
+                                            <img src={`https://localhost:7258/images/products/${item.modPhone.image}`} alt="Product 1" className="product-image" />
+                                            <div className="product-info">
+                                                <h3 className="product-name">{item.name}</h3>
+                                                <p className="product-price">{(item.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
+                                            </div>
                                         </div>
                                     </Link>
-                        )) : <></>
-                    }
+                                )) : <></>
+                            }
                         </div>
-                            
-                        
-                   
+
+
+
                     </div>
 
 
 
-                    
+
 
                 </ul>
                 <div className="nav-login-cart">
@@ -210,7 +210,7 @@ const Navbar = () => {
                     </nav>
                     <div>
                         <nav role="navigation" class="primary-navigation">
-                           
+
                             <ul>
                                 {
                                     isAuthenticated ?

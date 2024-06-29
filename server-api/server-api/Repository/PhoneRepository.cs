@@ -33,6 +33,20 @@ namespace server_api.Repository
             return phone;
         }
 
+        public async Task<List<Phone>>GetPhoneBuyBrandIdAsync(int brandId)
+        {
+            var phone = await _context.Phones
+                .Where(p => p.ModPhone.BrandId == brandId)
+                .Include(p => p.ModPhone)
+                                             .Include(p => p.ModPhone.Brand)
+                                             .Include(p => p.ModPhone.Promotion)
+                                               .GroupBy(p => p.ModPhoneId)
+                                       .Select(g => g.OrderBy(p => p.Id).First())
+                                             .ToListAsync();
+            return phone;
+        }
+
+
 
         public async Task<List<Phone>> GetNewPhoneAsync()
         {

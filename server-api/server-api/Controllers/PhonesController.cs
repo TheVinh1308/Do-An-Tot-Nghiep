@@ -169,5 +169,19 @@ namespace server_api.Controllers
                 return NotFound();
             }
         }
+
+        [HttpGet("getPhoneByBrandId/{brandId}")]
+        public async Task<IActionResult> getPhoneByBrandId(int brandId)
+        {
+            try
+            {
+                var result = await _phoneRepository.GetPhoneBuyBrandIdAsync(brandId);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }
