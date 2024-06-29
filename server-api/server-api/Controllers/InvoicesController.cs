@@ -64,7 +64,7 @@ namespace server_api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateInvoice([FromForm] int id, [FromForm] Invoice invoice)
+        public async Task<IActionResult> UpdateInvoice(int id, Invoice invoice)
         {
             if (id != invoice.Id)
             {

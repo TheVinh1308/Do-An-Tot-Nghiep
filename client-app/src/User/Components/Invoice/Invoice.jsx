@@ -14,13 +14,24 @@ const Invoice = () => {
     const [userId, setUserId] = useState();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userName, setUserName] = useState();
-    const [show, setShow] = useState(false);
     const [invoiceId, getInvoiceId] = useState(null);
+    const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = (id) => {
         setShow(true);
         getInvoiceId(id);
     }
+    // cancle
+    const [selectedInvoice, setSelectedInvoice] = useState(null);
+    const [showReason, setShowReason] = useState(false);
+    const handleCloseReason = () => setShowReason(false);
+    const handleShowReason = (invoice) => {
+        setShowReason(true);
+        setSelectedInvoice(invoice);
+        setCancelReasons({}); // Reset cancel reasons when opening modal
+    };
+    const [cancelReasons, setCancelReasons] = useState({});
+
     useEffect(() => {
         const token = localStorage.getItem('jwt');
         if (token) {
@@ -38,17 +49,17 @@ const Invoice = () => {
             axios.get(`https://localhost:7258/GetInvoiceByUserId/${userId}`)
                 .then((res) => {
                     setInvoice(res.data);
+                    setLoadData(true);
                 })
                 .catch((error) => console.error('Error fetching invoice:', error));
         }
-    }, [userId]);
+    }, [userId,showReason]);
 
     useEffect(() => {
         const fetchInvoices = async () => {
             try {
                 const res = await axios.get(`https://localhost:7258/api/Brands`);
                 setInvoices(res.data);
-                setLoadData(true);
             } catch (error) {
                 console.error("Error fetching invoices", error);
             }
@@ -112,6 +123,30 @@ const Invoice = () => {
         }
     };
 
+    const handleCancelReasonChange = (reason) => {
+        setCancelReasons(prevReasons => ({
+            ...prevReasons,
+            [reason]: !prevReasons[reason]
+        }));
+    };
+    const isAnyReasonSelected = Object.values(cancelReasons).some(value => value);
+  
+    console.log("sl",selectedInvoice);
+    const handleCancelInvoice = () => {
+        if (selectedInvoice) {
+            const updatedInvoice = { ...selectedInvoice, status: 4 };
+
+            axios.put(`https://localhost:7258/api/Invoices/${selectedInvoice.id}`, updatedInvoice)
+                .then(() => {
+                    handleCloseReason()
+                    alert("Đã hủy đơn hàng")
+                })
+                .catch((error) => console.error('Error cancelling invoice:', error));
+        }
+    };
+
+
+
 
     return (
         <>
@@ -151,9 +186,12 @@ const Invoice = () => {
                                         </td>
                                         <td className="tb-item">
                                             <Row>
-                                                <Col className="col-4"><i className="bi bi-trash btn btn-danger"></i></Col>
-                                                <Col className="col-4"><i className="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                <Col className="col-4" onClick={() => handleShow(item.id)}><i className="bi bi-info-circle-fill btn btn-success"></i></Col>
+                                                <Col className="col-6" onClick={() => handleShowReason(item)}>
+                                                    <i className="btn btn-danger">Hủy đơn hàng</i>
+                                                </Col>
+                                                <Col className="col-4" onClick={() => handleShow(item.id)}>
+                                                    <i className="bi bi-info-circle-fill btn btn-success"></i>
+                                                </Col>
                                             </Row>
                                         </td>
                                     </tr>
@@ -173,6 +211,30 @@ const Invoice = () => {
                 <Modal.Body>
                     <InvoiceDetail invoiceId={invoiceId} />
                 </Modal.Body>
+            </Modal>
+
+            <Modal size="lg" show={showReason} onHide={handleCloseReason}>
+                <Modal.Header closeButton>
+                    <Modal.Title className="add-title">Lý do hủy đơn hàng</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div>
+                        <input type="checkbox"  className="chk" onChange={() => handleCancelReasonChange('Cập nhật số lượng')} />
+                        <span className="text">Cập nhật số lượng</span> <br />
+                        <input type="checkbox"   className="chk" onChange={() => handleCancelReasonChange('Thay đổi số điện thoại')} />
+                         <span className="text">Thay đổi số điện thoại</span> <br />
+                        <input type="checkbox"  className="chk" onChange={() => handleCancelReasonChange('Thay đổi địa chỉ nhận hàng')} /> 
+                        <span className="text">Thay đổi địa chỉ nhận hàng</span> <br />
+                        <input type="checkbox"   className="chk" onChange={() => handleCancelReasonChange('Chọn nhầm sản phẩm')} /> 
+                        <span className="text">Chọn nhầm sản phẩm</span>  <br />
+                        <input type="checkbox" className="chk" onChange={() => handleCancelReasonChange('Khác')} /> 
+                        <span className="text"  >Khác</span>
+                    </div>
+                    
+                </Modal.Body>
+                <Modal.Footer>
+                    <button type="submit" className="btn btn-success" onClick={handleCancelInvoice} disabled={!isAnyReasonSelected}>Xác nhận hủy</button>
+                </Modal.Footer>
             </Modal>
         </>
     );

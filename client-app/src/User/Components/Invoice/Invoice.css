@@ -12,3 +12,14 @@ hr {
 i {
     margin-right: 5px;
 }
+
+.chk {
+    width: 18px;
+    height: 17px;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+.text{
+    display: inline;
+    font-size: 19px;
+}
