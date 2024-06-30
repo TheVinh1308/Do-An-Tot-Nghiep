@@ -57,7 +57,7 @@ const Item = (props) => {
                         new Date(props.startDay) > new Date() ? (
                             <>
                                 <div className="item-price-new">
-                                    ${props.price?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
+                                    {props.price?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
                                 </div>
                                 <div>Sắp khuyến mãi</div>
                             </>
@@ -68,10 +68,10 @@ const Item = (props) => {
                         ) : (
                             <>
                                 <div className="item-price-new">
-                                    ${((props.price - (props.price * props.discountPercent) / 100)?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }))}
+                                    {((props.price - (props.price * props.discountPercent) / 100)?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }))}
                                 </div>
                                 <div className="item-price-old">
-                                    ${props.price?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
+                                    {props.price?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
                                 </div>
                             </>
                         )

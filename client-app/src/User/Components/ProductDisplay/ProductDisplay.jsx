@@ -140,6 +140,14 @@ const ProductDisplay = (props) => {
             });
     }, [userId]);
 
+    const [PhoneFav, setPhoneFav] = useState([]);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Favorites/GetFavByUserId/${userId}`)
+            .then((res) => {
+                setPhoneFav(res.data)
+            });
+    }, [userId]);
+
     const notify = () => toast.success("Thành công!", {
         position: "top-right",
         autoClose: 5000,
@@ -223,6 +231,80 @@ const ProductDisplay = (props) => {
                         console.error("Error adding to cart:", error.response || error.message || error);
                     });
             }
+        }
+        else{
+            window.location.href = "/login"
+        }
+    };
+
+    const handleAddFavorite = (name) => {
+        if (isAuthenticated && selectedPhone) { // Kiểm tra xem người dùng đã đăng nhập và đã chọn sản phẩm
+            const phoneFav = PhoneFav.find(item => item.phoneId === selectedPhone.id);
+            if (phoneFav) {
+                axios.delete(`https://localhost:7258/api/Favorites/${phoneFav.id}`, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                })
+                    .then(res => {
+                        const formDataHistory = new FormData();
+                        formDataHistory.append("action", "Xóa sản phẩm yêu thích");
+                        formDataHistory.append("userId", userId);
+                        formDataHistory.append("time", new Date().toISOString());
+                        formDataHistory.append("productId", selectedPhone.id); // Sử dụng selectedPhone.id
+                        formDataHistory.append("productName", name);
+                        formDataHistory.append("operation", "Xóa");
+                        formDataHistory.append("amount", 1);
+
+                        axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                            .then(ress => {
+                                notify();
+                                setIsAddToCart(true)
+                            })
+                            .catch(error => {
+                                console.error("Error adding to history:", error);
+                            });
+                    })
+                    .catch(error => {
+                        console.error("Error updating cart:", error.response || error.message || error);
+                    });
+            } else {
+                // Thêm sản phẩm mới vào fav
+                const formAddCart = new FormData();
+                formAddCart.append("userId", userId);
+                formAddCart.append("phoneId", selectedPhone.id); // Sử dụng selectedPhone.id
+
+                axios.post(`https://localhost:7258/api/Favorites`, formAddCart)
+                    .then(res => {
+                        axios.get(`https://localhost:7258/api/Favorites/GetFavByUserId/${userId}`)
+                            .then((res) => {
+                                setPhoneEx(res.data)
+                            });
+                        const formDataHistory = new FormData();
+                        formDataHistory.append("action", "Thêm sản phẩm vào sản phẩm yêu thích");
+                        formDataHistory.append("userId", userId);
+                        formDataHistory.append("time", new Date().toISOString());
+                        formDataHistory.append("productId", selectedPhone.id); // Sử dụng selectedPhone.id
+                        formDataHistory.append("productName", name);
+                        formDataHistory.append("operation", "Thêm");
+                        formDataHistory.append("amount", 1);
+
+                        axios.post(`https://localhost:7258/api/History`, formDataHistory)
+                            .then(ress => {
+                                notify();
+                                setIsAddToCart(true)
+                            })
+                            .catch(error => {
+                                console.error("Error adding to history:", error);
+                            });
+                    })
+                    .catch(error => {
+                        console.error("Error adding to fav:", error.response || error.message || error);
+                    });
+            }
+        }
+        else{
+            window.location.href = "/login"
         }
     };
 
@@ -354,7 +436,7 @@ const ProductDisplay = (props) => {
                         </Row>
                         <Row>
                             <Col md={6} className="col-cart"><Button className="btn-cart" onClick={() => handleAddCart(selectedPhone.name)}><i class="bi bi-cart"></i></Button></Col>
-                            <Col md={6} className="col-heart"><Button className="btn-heart"><i class="bi bi-heart-fill"></i></Button></Col>
+                            <Col md={6} className="col-heart"><Button className="btn-heart" onClick={() => handleAddFavorite(selectedPhone.name)}><i class="bi bi-heart-fill"></i></Button></Col>
                         </Row>
                     </div>
                 </div>

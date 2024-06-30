@@ -4,7 +4,26 @@ import { Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import "./Config.css"
 const Config = ({selectedPhone}) => {
     console.log("sl", selectedPhone);
-    const [config, setConfig] = useState({ thongTin: { manHinh: {}, cameraSau: { quayPhim: [], tinhNang: [] }, cameraTruoc: { tinhNang: [] }, heDieuHanhCPU: {},boNhoLuuTru: {}, pinSac: { congNghePin: [] }, ketNoi: { wifi: [], bluetooth:[], GPS: [] }, tienIch: { baoMatNangCao: [], tinhNangDacBiet: [], ghiAm: [], ngheNhac: [], xemPhim: [] }, thongTinChung: {kichThuocKhoiLuong :{}, chatLieu: {}}, ramLuuTru: {} } });
+    const [config, setConfig] = useState({
+      thongTin: {
+        manHinh: {},
+        cameraSau: { quayPhim: [], tinhNang: [] },
+        cameraTruoc: { tinhNang: [] },
+        heDieuHanhCPU: {},
+        boNhoLuuTru: {},
+        pinSac: { congNghePin: [] },
+        ketNoi: { wifi: [], bluetooth: [], GPS: [] },
+        tienIch: {
+          baoMatNangCao: [],
+          tinhNangDacBiet: [],
+          ghiAm: [],
+          ngheNhac: [],
+          xemPhim: [],
+        },
+        thongTinChung: { kichThuocKhoiLuong: {}, chatLieu: {} },
+        ramLuuTru: {},
+      },
+    });
 
     useEffect(() => {
         axios.get(`http://localhost:3001/phoneConfig/${selectedPhone.modPhone.id}`)

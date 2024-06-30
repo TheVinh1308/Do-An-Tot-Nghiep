@@ -27,7 +27,7 @@ const ShopCategory = (props) => {
     });
 
     const [currentPage, setCurrentPage] = useState(0);
-    const itemsPerPage = 6;
+    const itemsPerPage = 8;
 
     useEffect(() => {
         axios.get(`https://localhost:7258/api/Images`)
@@ -144,11 +144,98 @@ const ShopCategory = (props) => {
                 </div>
             </div>
             <div className="shopcategory-filter">
-                {/* Dropdown menus for filtering */}
+            <Dropdown>
+                    <Dropdown.Toggle>
+                        Chức năng
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => handleClickFill("function", "Chơi Game")}>Chơi game</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("function", "Quay Phim")}>Quay phim</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("function", "Chức năng cơ bản")}>Chức năng cơ bản</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+                <Dropdown>
+                    <Dropdown.Toggle className="shopcategory-fill">
+                        Dung lượng
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => handleClickFill("ram", "4")}>4 GB</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("ram", "6")}>6 GB</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("ram", "8")}>8 GB</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("ram", "12")}>12 GB</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+                <Dropdown>
+                    <Dropdown.Toggle className="shopcategory-fill">
+                        Giá tiền
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <div style={{ width: '300px' }}>
+                            <h5 className="title-price">Kéo thả số tiền mong muốn</h5>
+                            <div>
+                                <p className="show-price">{price[0].toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} - {price[1].toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
+                            </div>
+                            <Slider className="slider-price"
+                                getAriaLabel={() => 'Temperature range'}
+                                value={price}
+                                onChange={handleChange}
+                                min={0}
+                                max={50000000}
+                                step={100000}
+                                valueLabelDisplay="auto"
+                            />
+                            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+                                <button className="shopcategory-fill" style={{ margin: "5px 0" }} onClick={handleCancel}>Huỷ</button>
+                                <button className="shopcategory-fill" onClick={() => handleClickFill("price", price)} style={{ margin: "5px 0" }}>Tìm kiếm</button>
+                            </div>
+                        </div>
+                    </Dropdown.Menu>
+                </Dropdown>
+                <Dropdown>
+                    <Dropdown.Toggle className="shopcategory-fill">
+                        Lượng Pin
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => handleClickFill("battery", 3000)}>3000 mAh</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("battery", 4000)}>4000 mAh</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("battery", 5000)}>5000 mAh</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("battery", 6000)}>6000 mAh</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+                <Dropdown>
+                    <Dropdown.Toggle className="shopcategory-fill">
+                        Kích thước
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => handleClickFill("screensize", 5)}>5 Inches</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("screensize", 6)}>6 Inches</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("screensize", 7)}>7 Inches</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+                <Dropdown>
+                    <Dropdown.Toggle className="shopcategory-fill">
+                        Chip xử lý
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => handleClickFill("cpu", "Apple")}>Apple Bionic</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("cpu", "Exynos")}>Exynos</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("cpu", "Snapdragon")}>ARM Snapdragon</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("cpu", "MediaTek")}>MediaTek</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleClickFill("cpu", "Kirin")}>Kirin</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
             </div>
             {filled && selectedItems.length > 0 ? (
                 <div className="shopcategory-filtered">
-                    {/* Display selected filters */}
+                     <h4>Các mục đã lọc</h4>
+                    <hr />
+                    {selectedItems.map((item, index) => (
+                        <button key={index} className="shopcategory-fill-cancel">
+                            {item.itemName}
+                            <button className="cancel-fill" onClick={() => handleCancelFill(item)}>x</button>
+                        </button>
+                    ))}
+                    <button className="shopcategory-fill-cancel" onClick={handleCancel}>Huỷ lọc</button>
                 </div>
             ) : ""}
 

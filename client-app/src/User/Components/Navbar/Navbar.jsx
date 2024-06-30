@@ -156,60 +156,7 @@ const Navbar = () => {
                 </ul>
                 <div className="nav-login-cart">
 
-                    <nav role="navigation" class="primary-navigation">
-                        <ul>
-                            {
-                                isAuthenticated ?
-                                    <li className="nav-item dropdown pe-3">
-                                        <a className="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                                            <span className="d-none d-md-block dropdown-toggle ps-2">{userName}</span>
-                                        </a>{/* End Profile Iamge Icon */}
-                                        <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                                            <li style={{ marginBottom: "0px" }}>
-                                                <a className="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                                    <i className="bi bi-person" />
-                                                    <span>My Profile</span>
-                                                </a>
-                                            </li>
-                                            <li style={{ marginBottom: "0px" }}>
-                                                <hr className="dropdown-divider" />
-                                            </li>
-                                            <li style={{ marginBottom: "0px" }}>
-                                                <a className="dropdown-item d-flex align-items-center" href="/invoice">
-                                                    <i class="bi bi-clock-history"></i>
-                                                    <span>Lịch sử mua hàng</span>
-                                                </a>
-                                            </li>
-                                            <li style={{ marginBottom: "0px" }}>
-                                                <hr className="dropdown-divider" />
-                                            </li>
-                                            <li style={{ marginBottom: "0px" }}>
-                                                <a className="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                                                    <i className="bi bi-question-circle" />
-                                                    <span>Need Help?</span>
-                                                </a>
-                                            </li>
-                                            <li style={{ marginBottom: "0px" }}>
-                                                <hr className="dropdown-divider" />
-                                            </li>
-                                            <li style={{ marginBottom: "0px" }}>
-                                                <a className="dropdown-item d-flex align-items-center" href="#" onClick={handleLogout}>
-                                                    <i className="bi bi-box-arrow-right" />
-                                                    <span>Sign Out</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    :
-                                    <>
-                                        <Link to="/login"><li>Đăng nhập</li></Link>
-                                    </>
-                            }
-
-
-                        </ul>
-                    </nav>
+                   
                     <div>
                         <nav role="navigation" class="primary-navigation">
 
@@ -272,10 +219,64 @@ const Navbar = () => {
                     </div>
                     <Link to="/cart">
                         <img src={cart_icon} alt="" className="img-cart" />
-
                     </Link>
                    
                     <div className="nav-cart-count">{resetAmount}</div>
+
+                    <nav role="navigation" class="primary-navigation">
+                        <ul>
+                            {
+                                isAuthenticated ?
+                                    <li className="nav-item dropdown pe-3">
+                                        <a className="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                                            <span className="d-none d-md-block dropdown-toggle ps-2">{userName}</span>
+                                        </a>{/* End Profile Iamge Icon */}
+                                        <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                                            <li style={{ marginBottom: "0px" }}>
+                                                <a className="dropdown-item d-flex align-items-center" href="users-profile.html">
+                                                    <i className="bi bi-person" />
+                                                    <span>My Profile</span>
+                                                </a>
+                                            </li>
+                                            <li style={{ marginBottom: "0px" }}>
+                                                <hr className="dropdown-divider" />
+                                            </li>
+                                            <li style={{ marginBottom: "0px" }}>
+                                                <a className="dropdown-item d-flex align-items-center" href="/invoice">
+                                                    <i class="bi bi-clock-history"></i>
+                                                    <span>Lịch sử mua hàng</span>
+                                                </a>
+                                            </li>
+                                            <li style={{ marginBottom: "0px" }}>
+                                                <hr className="dropdown-divider" />
+                                            </li>
+                                            <li style={{ marginBottom: "0px" }}>
+                                                <a className="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                                                    <i className="bi bi-question-circle" />
+                                                    <span>Need Help?</span>
+                                                </a>
+                                            </li>
+                                            <li style={{ marginBottom: "0px" }}>
+                                                <hr className="dropdown-divider" />
+                                            </li>
+                                            <li style={{ marginBottom: "0px" }}>
+                                                <a className="dropdown-item d-flex align-items-center" href="#" onClick={handleLogout}>
+                                                    <i className="bi bi-box-arrow-right" />
+                                                    <span>Sign Out</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    :
+                                    <>
+                                        <Link to="/login"><li>Đăng nhập</li></Link>
+                                    </>
+                            }
+
+
+                        </ul>
+                    </nav>
 
 
                 </div>
