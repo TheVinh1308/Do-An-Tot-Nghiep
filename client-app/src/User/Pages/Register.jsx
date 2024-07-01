@@ -14,6 +14,7 @@ const Register = () => {
     const navigate = useNavigate();
     const [error, setError] = useState(null);
     const [isChecked, setIsChecked] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,17 +23,21 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setLoading(true);  // Set loading to true when the form is submitted
         axios.post(`https://localhost:7258/api/Users/register`, account)
             .then((res) => {
+                setLoading(false);  // Reset loading to false when request completes
                 if (res.status === 200) {
-                    navigate("/login");
+                    navigate("/confirmemail");
                 }
             })
             .catch((error) => {
+                setLoading(false);  // Reset loading to false when an error occurs
                 setError(error.response?.data?.Message || "Đăng ký thất bại!");
                 console.log(error);
             });
     };
+    
 
     const handleCheckboxChange = (e) => {
         setIsChecked(e.target.checked);
@@ -99,6 +104,7 @@ const Register = () => {
                                             <div className="col-12">
                                                 <p className="small mb-0">Already have an account? <Link to="/Login">Log in</Link></p>
                                             </div>
+                                            {loading && <div class="loader"></div>}
                                             {error && <p style={{ color: "red" }}>{error}</p>}
                                         </form>
                                     </div>

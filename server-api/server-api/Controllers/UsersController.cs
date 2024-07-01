@@ -27,6 +27,10 @@ namespace server_api.Controllers
             if (ModelState.IsValid)
             {
                 var token = await _userRepository.LoginAsync(model);
+                if (token == "403")
+                {
+                    return StatusCode(StatusCodes.Status403Forbidden, "Tài khoản chưa được xác thực"); 
+                }
                 if (token != null)
                 {
                     return Ok(new { token });
@@ -100,6 +104,7 @@ namespace server_api.Controllers
                 {
                     return StatusCode(StatusCodes.Status500InternalServerError, new { Message = "Đăng ký thất bại." });
                 }
+               
                 return Ok(new { Token = token });
             }
             catch (Exception ex)
@@ -107,6 +112,13 @@ namespace server_api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("confirmemail")]
+        public async Task<IActionResult> ConfirmEmail(string userId, string code)
+        {
+            return await _userRepository.ConfirmEmailAsync(userId, code);
+        }
+
 
 
 

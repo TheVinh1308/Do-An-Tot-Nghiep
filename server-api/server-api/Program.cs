@@ -6,6 +6,7 @@ using server_api.Data;
 using server_api.Interface;
 using server_api.Models;
 using server_api.Repository;
+using server_api.Services;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -75,6 +76,8 @@ builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
 builder.Services.AddScoped<IInvoiceDetailRepository, InvoiceDetailRepository>();
 builder.Services.AddScoped<IPaymentMethodRepository, PaymentMethodRepository>();
 builder.Services.AddScoped<IFavoriteRepository, FavoriteRepository>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddTransient<IEmailSender, EmailSender>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 

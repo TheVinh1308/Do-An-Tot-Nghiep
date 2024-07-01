@@ -8,6 +8,8 @@ import { jwtDecode } from 'jwt-decode';
 const Login = () => {
     const [account, setAccount] = useState({});
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -18,17 +20,27 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-      
+        setLoading(true);
         axios.post(`https://localhost:7258/api/Users/login`, account)
             .then(res => {
-                localStorage.setItem("jwt", res.data.token);
+                setLoading(false);
                 if (res.status === 200) {
                     navigate("/");
                 }
+               
+                localStorage.setItem("jwt", res.data.token);
             })
             .catch(error => {
-                setError("Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại!");
-                console.log(error);
+                setLoading(false);
+                
+                if(error.response.status == 403) {
+                    setError("Bạn cần xác thực email để đăng nhập! Vui lòng kiểm tra email của bạn");
+                }
+                if(error.response.status == 401) {
+                    setError("Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại!");
+                }
+                
+                
             });
     }
 
@@ -115,6 +127,7 @@ const Login = () => {
                                             </div>
                                             <div className="col-12">
                                                 <p className="small mb-0">Don't have an account? <Link to="/register">Create an account</Link></p>
+                                                {loading && <div class="loader"></div>}
                                             </div>
                                         </form>
                                     </div>

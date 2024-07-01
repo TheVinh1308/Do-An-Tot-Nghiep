@@ -1,0 +1,11 @@
+
+
+    .thongbao {
+        margin-top: 0 !important;
+        padding: 0;
+        
+    }
+
+    .yourclass::-webkit-scrollbar {
+     display: none;
+    }
