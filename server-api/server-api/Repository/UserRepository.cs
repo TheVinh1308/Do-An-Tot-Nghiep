@@ -3,13 +3,16 @@ using EshopIdentity.Models;
 using Google.Apis.Auth;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using server_api.Interface;
 using server_api.Models;
+using server_api.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Principal;
+
 using System.Text;
 
 namespace server_api.Repository
@@ -19,12 +22,16 @@ namespace server_api.Repository
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IEmailSender _emailSender;
 
-        public UserRepository(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        public UserRepository(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, IHttpContextAccessor httpContextAccessor, IEmailSender emailSender)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
+            _emailSender = emailSender;
         }
 
         public async Task<List<User>> GetAllUserAsync()
@@ -50,6 +57,10 @@ namespace server_api.Repository
             var user = await _userManager.FindByNameAsync(account.Username);
             if (user != null && await _userManager.CheckPasswordAsync(user, account.Password))
             {
+                if (!user.EmailConfirmed)
+                {
+                    return (StatusCodes.Status403Forbidden).ToString();
+                }
                 var userRoles = await _userManager.GetRolesAsync(user);
 
                 var authClaims = new List<Claim>
@@ -126,6 +137,18 @@ namespace server_api.Repository
                 PhoneNumber = account.Phone,
             };
             var result = await _userManager.CreateAsync(user, account.Password);
+            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
+            var request = _httpContextAccessor.HttpContext.Request;
+            var callbackUrl = $"{request.Scheme}://{request.Host}/api/Users/confirmemail?userId={user.Id}&code={Uri.EscapeDataString(code)}";
+
+            await _emailSender.SendEmailAsync(
+            user.Email,
+            "Chào mừng bạn đến với 2VPHONE",
+            $"<p style=\"font-size: 16px;\">Cám ơn bạn đã sử dụng dịch vụ của chúng tôi</p>" +
+            $"<p style=\"font-size: 16px;\">Ấn vào nút <a href=\"{callbackUrl}\" style=\"font-size: 16px;\">này</a> để trở lại trang web! Cảm ơn</p>"
+            );
+
             if (!result.Succeeded)
                 return null; // User creation failed
             if (await _roleManager.RoleExistsAsync("User"))
@@ -187,6 +210,32 @@ namespace server_api.Repository
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public async Task<IActionResult> ConfirmEmailAsync(string userId, string code)
+        {
+
+            if (string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(code))
+            {
+                return new BadRequestObjectResult("Invalid confirmation request.");
+            }
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return new NotFoundObjectResult("User not found.");
+            }
+
+            var result = await _userManager.ConfirmEmailAsync(user, code);
+            if (result.Succeeded)
+            {
+                var redirectUrl = "http://localhost:3000/login";
+                return new RedirectResult(redirectUrl);
+            }
+            else
+            {
+                return new BadRequestObjectResult("Error confirming email.");
+            }
         }
 
     }

@@ -9,6 +9,7 @@ import Pay from "../User/Pages/Pay";
 import Invoice from "../User/Components/Invoice/Invoice";
 import AfterPay from "../User/Pages/AfterPay";
 import Compare from "../User/Pages/Compare";
+import ConfirmEmail from "../User/Components/CofirmEmail/ConfirmEmail";
 
 const PublicRouter = () => {
     return (
@@ -37,6 +38,7 @@ const PublicRouter = () => {
                         <Route path='invoice' element={<Invoice />} />
                         <Route path='afterPay/:id' element={<AfterPay />} />
                         <Route path='compare' element={<Compare />} />
+                        <Route path='confirmemail' element={<ConfirmEmail />} />
                     </Route>
                 </Routes>
 

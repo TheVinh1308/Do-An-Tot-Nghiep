@@ -18,5 +18,7 @@ namespace server_api.Interface
 
         Task<string> GoogleLoginAsync([FromBody] GoogleLoginModel account);
 
+        Task<IActionResult> ConfirmEmailAsync(string userId, string code);
+
     }
 }
