@@ -42,6 +42,8 @@ namespace server_api.Data
 
         public DbSet<Notification> Notifications { get; set; } = default!;
 
+        public DbSet<NotificationAdmin> NotificationsAdmins { get; set; } = default!;
+
         public static implicit operator EPhoneShopIdentityContext(NotificationRepository v)
         {
             throw new NotImplementedException();

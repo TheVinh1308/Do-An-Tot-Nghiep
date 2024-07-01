@@ -2,14 +2,15 @@ import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import "datatables.net-bs5";
 import $ from "jquery";
-import { Badge, Col, Modal, Row } from "react-bootstrap";
+import { Badge, Button, Card, Col, Modal, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import "./Invoice.css";
 import { jwtDecode } from "jwt-decode";
 import InvoiceDetail from "./InvoiceDetail";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 const Invoice = () => {
-    const [invoices, setInvoices] = useState([]);
     const [loadData, setLoadData] = useState(false);
     const [userId, setUserId] = useState();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -42,18 +43,36 @@ const Invoice = () => {
         }
     }, []);
 
-    const [invoice, setInvoice] = useState([]);
+    const [invoices, setInvoices] = useState([]);
+    const [invoiceDetails, setInvoiceDetails] = useState({});
 
     useEffect(() => {
         if (userId) {
-            axios.get(`https://localhost:7258/GetInvoiceByUserId/${userId}`)
-                .then((res) => {
-                    setInvoice(res.data);
-                    setLoadData(true);
-                })
-                .catch((error) => console.error('Error fetching invoice:', error));
+            const fetchInvoicesAndDetails = async () => {
+                try {
+                    const res = await axios.get(`https://localhost:7258/GetInvoiceByUserId/${userId}`);
+                    const invoices = res.data;
+                    setInvoices(invoices);
+
+                    const detailsPromises = invoices.map(invoice =>
+                        axios.get(`https://localhost:7258/api/InvoiceDetails/GetInvoiceDetailByInvoiceId/${invoice.id}`)
+                    );
+                    const detailsResponses = await Promise.all(detailsPromises);
+
+                    const details = detailsResponses.reduce((acc, response, index) => {
+                        acc[invoices[index].id] = response.data;
+                        return acc;
+                    }, {});
+
+                    setInvoiceDetails(details);
+                } catch (error) {
+                    console.error('Error fetching invoices or invoice details:', error);
+                }
+            };
+
+            fetchInvoicesAndDetails();
         }
-    }, [userId,showReason]);
+    }, [userId, showReason]);
 
     useEffect(() => {
         const fetchInvoices = async () => {
@@ -67,38 +86,7 @@ const Invoice = () => {
         fetchInvoices();
     }, []);
 
-    useEffect(() => {
-        if (loadData) {
-            $('#DataTables_Table_Invoice_0').DataTable({
-                dom: 'Bfrtip',
-                responsive: true,
-                autoWidth: true,
-                paging: [{
-                    className: 'p-0',
-                }],
-                buttons: [
-                    {
-                        extend: 'copy',
-                        className: 'btn bg-primary text-white',
-                    },
-                    {
-                        extend: 'csv',
-                        className: 'btn bg-secondary text-white',
-                    },
-                    {
-                        extend: 'excel',
-                        className: 'btn bg-success text-white',
-                        filename: () => 'data_' + Date.now(),
-                    },
-                    {
-                        extend: 'pdf',
-                        className: 'btn bg-danger text-white',
-                        filename: () => 'data_' + Date.now(),
-                    },
-                ],
-            });
-        }
-    }, [loadData]);
+
     const getStatusBadge = (status) => {
         switch (status) {
             case 1:
@@ -106,9 +94,10 @@ const Invoice = () => {
             case 2:
                 return <Badge bg="info">Đang giao</Badge>;
             case 3:
-                return <Badge bg="success">Hoàn thành</Badge>;
-            default:
+
                 return <Badge bg="danger">Đã huỷ</Badge>;
+            default:
+                return <Badge bg="success">Hoàn thành</Badge>;
         }
     };
 
@@ -130,8 +119,8 @@ const Invoice = () => {
         }));
     };
     const isAnyReasonSelected = Object.values(cancelReasons).some(value => value);
-  
-    console.log("sl",selectedInvoice);
+
+    console.log("sl", selectedInvoice);
     const handleCancelInvoice = () => {
         if (selectedInvoice) {
             const updatedInvoice = { ...selectedInvoice, status: 4 };
@@ -145,64 +134,301 @@ const Invoice = () => {
         }
     };
 
+    console.log(`invoices`, invoiceDetails);
 
-
+    const handleTT = (status) => {
+        switch (status) {
+            case 1:
+                return "Đơn hàng đang xác nhận"
+            case 2:
+                return "Đơn hàng đang vận chuyển"
+            case 3:
+                return "Đơn hàng đã huỷ"
+            default:
+                return "Đơn hàng đã được hoàn thành"
+        }
+    }
 
     return (
         <>
             <Navbar />
             <hr />
-            <div className="invoice-content">
-                <table id="DataTables_Table_Invoice_0" className="table table-striped responsive modphone-table">
-                    <thead>
-                        <tr>
-                            <th className="col-2 tb-item">User</th>
-                            <th className="col-1 tb-item">Date</th>
-                            <th className="col-2 tb-item">Address</th>
-                            <th className="col-2 tb-item">Phone</th>
-                            <th className="col-1 tb-item">Status</th>
-                            <th className="col-1 tb-item">Payment</th>
-                            <th className="col-1 tb-item">Total</th>
-                            <th className="col-2 tb-item">Feature</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            invoice.map((item, index) => (
-                                <>
-                                    <tr id='show-menu' key={index}>
-                                        <td className="tb-item">{userName}</td>
-                                        <td className="tb-item">{item.issuedDate}</td>
-                                        <td className="tb-item">{item.shippingAddress}</td>
-                                        <td className="tb-item">{item.shippingPhone}</td>
-                                        <td className="tb-item">
-                                            {getStatusBadge(item.status)}
-                                        </td>
-                                        <td className="tb-item">
-                                            {getPaymentMethod(item.paymentMethodId)}
-                                        </td>
-                                        <td className="tb-item">
-                                            {(item.total).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
-                                        </td>
-                                        <td className="tb-item">
-                                            <Row>
-                                                <Col className="col-6" onClick={() => handleShowReason(item)}>
-                                                    <i className="btn btn-danger">Hủy đơn hàng</i>
-                                                </Col>
-                                                <Col className="col-4" onClick={() => handleShow(item.id)}>
-                                                    <i className="bi bi-info-circle-fill btn btn-success"></i>
-                                                </Col>
-                                            </Row>
-                                        </td>
-                                    </tr>
-                                </>
-                            ))
-                        }
+            <h1 className="title-compare">Lịch sử mua hàng</h1>
 
-                        {/* Repeat similar rows as needed */}
-                    </tbody>
-                </table>
-            </div>
+
+            <Tabs>
+                <TabList>
+                    <Tab>Tất cả</Tab>
+                    <Tab>Đang xác nhận</Tab>
+                    <Tab>Đang vận chuyển</Tab>
+                    <Tab>Đã huỷ</Tab>
+                    <Tab>Đã hoàn thành</Tab>
+                </TabList>
+
+                <TabPanel>
+                    {invoices.map((item, index) => (
+                        <div className="content" key={index}>
+                            <Row className="head-content">
+                                <Col>#{item.code}</Col>
+                                <Col>{handleTT(item.status)}</Col>
+                            </Row>
+                            {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                <>
+                                    <Row key={indexDetail} className="body-content">
+                                        <Col md={4}>
+                                            <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
+                                        </Col>
+                                        <Col md={8}>
+                                            <h4>{itemDetail.phone.name}</h4>
+                                            <p>{itemDetail.phone.modPhone.description}</p>
+                                            <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
+                                            <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
+
+                                        </Col>
+                                    </Row>
+                                    <hr />
+                                </>
+
+                            ))}
+                            <Row>
+                                <Col>
+                                </Col>
+                                <Col className="btn-content">
+                                    {
+                                        item.status == 3 ?
+                                            <>
+                                                <Button>Mua lại</Button>
+                                            </> :
+                                            item.status == 1 ?
+                                                <>
+                                                    <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
+                                                </>
+                                                : item.status == 2 ?
+                                                    <>
+
+                                                    </>
+                                                    : <>
+                                                        <Button>Mua lại</Button>
+                                                        <Button>Viết đánh giá</Button>
+                                                    </>
+                                    }
+                                </Col>
+                            </Row>
+                        </div>
+                    ))}
+                </TabPanel>
+                <TabPanel>
+                    {invoices.filter(item => item.status === 1).map((item, index) => (
+                        <div className="content" key={index}>
+                            <Row className="head-content">
+                                <Col>#{item.code}</Col>
+                                <Col>{handleTT(item.status)}</Col>
+                            </Row>
+                            {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                <>
+                                    <Row key={indexDetail} className="body-content">
+
+                                        <Col md={4}>
+                                            <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
+                                        </Col>
+                                        <Col md={8}>
+                                            <h4>{itemDetail.phone.name}</h4>
+                                            <p>{itemDetail.phone.modPhone.description}</p>
+                                            <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
+                                            <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
+
+                                        </Col>
+                                    </Row>
+                                    <hr />
+                                </>
+                            ))}
+                            <Row>
+                                <Col>
+                                </Col>
+                                <Col className="btn-content">
+                                    {
+                                        item.status == 3 ?
+                                            <>
+                                                <Button>Mua lại</Button>
+                                            </> :
+                                            item.status == 1 ?
+                                                <>
+                                                    <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
+                                                </>
+                                                : item.status == 2 ?
+                                                    <>
+
+                                                    </>
+                                                    : <>
+                                                        <Button>Mua lại</Button>
+                                                        <Button>Viết đánh giá</Button>
+                                                    </>
+                                    }
+                                </Col>
+                            </Row>
+                        </div>
+                    ))}
+                </TabPanel>
+                <TabPanel>
+                    {invoices.filter(item => item.status === 2).map((item, index) => (
+                        <div className="content" key={index}>
+                            <Row className="head-content">
+                                <Col>#{item.code}</Col>
+                                <Col>{handleTT(item.status)}</Col>
+                            </Row>
+                            {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                <>
+                                    <Row key={indexDetail} className="body-content">
+
+                                        <Col md={4}>
+                                            <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
+                                        </Col>
+                                        <Col md={8}>
+                                            <h4>{itemDetail.phone.name}</h4>
+                                            <p>{itemDetail.phone.modPhone.description}</p>
+                                            <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
+                                            <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
+
+                                        </Col>
+                                    </Row>
+                                    <hr />
+                                </>
+                            ))}
+                            <Row>
+                                <Col>
+                                </Col>
+                                <Col className="btn-content">
+                                    {
+                                        item.status == 3 ?
+                                            <>
+                                                <Button>Mua lại</Button>
+                                            </> :
+                                            item.status == 1 ?
+                                                <>
+                                                    <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
+                                                </>
+                                                : item.status == 2 ?
+                                                    <>
+
+                                                    </>
+                                                    : <>
+                                                        <Button>Mua lại</Button>
+                                                        <Button>Viết đánh giá</Button>
+                                                    </>
+                                    }
+                                </Col>
+                            </Row>
+                        </div>
+                    ))}
+
+                </TabPanel>
+                <TabPanel>
+                    {invoices.filter(item => item.status === 3).map((item, index) => (
+                        <div className="content" key={index}>
+                            <Row className="head-content">
+                                <Col>#{item.code}</Col>
+                                <Col>{handleTT(item.status)}</Col>
+                            </Row>
+                            {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                <>
+                                    <Row key={indexDetail} className="body-content">
+
+                                        <Col md={4}>
+                                            <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
+                                        </Col>
+                                        <Col md={8}>
+                                            <h4>{itemDetail.phone.name}</h4>
+                                            <p>{itemDetail.phone.modPhone.description}</p>
+                                            <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
+                                            <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
+
+                                        </Col>
+                                    </Row>
+                                    <hr />
+                                </>
+                            ))}
+                            <Row>
+                                <Col>
+                                </Col>
+                                <Col className="btn-content">
+                                    {
+                                        item.status == 3 ?
+                                            <>
+                                                <Button>Mua lại</Button>
+                                            </> :
+                                            item.status == 1 ?
+                                                <>
+                                                    <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
+                                                </>
+                                                : item.status == 2 ?
+                                                    <>
+
+                                                    </>
+                                                    : <>
+                                                        <Button>Mua lại</Button>
+                                                        <Button>Viết đánh giá</Button>
+                                                    </>
+                                    }
+                                </Col>
+                            </Row>
+                        </div>
+                    ))}
+
+                </TabPanel>
+                <TabPanel>
+                    {invoices.filter(item => item.status === 4).map((item, index) => (
+                        <div className="content" key={index}>
+                            <Row className="head-content">
+                                <Col>#{item.code}</Col>
+                                <Col>{handleTT(item.status)}</Col>
+                            </Row>
+                            {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                <>
+                                    <Row key={indexDetail} className="body-content">
+
+                                        <Col md={4}>
+                                            <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
+                                        </Col>
+                                        <Col md={8}>
+                                            <h4>{itemDetail.phone.name}</h4>
+                                            <p>{itemDetail.phone.modPhone.description}</p>
+                                            <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
+                                            <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
+
+                                        </Col>
+                                    </Row>
+                                    <hr />
+                                </>
+                            ))}
+                            <Row>
+                                <Col>
+                                </Col>
+                                <Col className="btn-content">
+                                    {
+                                        item.status == 3 ?
+                                            <>
+                                                <Button>Mua lại</Button>
+                                            </> :
+                                            item.status == 1 ?
+                                                <>
+                                                    <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
+                                                </>
+                                                : item.status == 2 ?
+                                                    <>
+
+                                                    </>
+                                                    : <>
+                                                        <Button>Mua lại</Button>
+                                                        <Button>Viết đánh giá</Button>
+                                                    </>
+                                    }
+                                </Col>
+                            </Row>
+                        </div>
+                    ))}
+                </TabPanel>
+            </Tabs>
+
 
             <Modal fullscreen show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
@@ -219,18 +445,18 @@ const Invoice = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <div>
-                        <input type="checkbox"  className="chk" onChange={() => handleCancelReasonChange('Cập nhật số lượng')} />
+                        <input type="checkbox" className="chk" onChange={() => handleCancelReasonChange('Cập nhật số lượng')} />
                         <span className="text">Cập nhật số lượng</span> <br />
-                        <input type="checkbox"   className="chk" onChange={() => handleCancelReasonChange('Thay đổi số điện thoại')} />
-                         <span className="text">Thay đổi số điện thoại</span> <br />
-                        <input type="checkbox"  className="chk" onChange={() => handleCancelReasonChange('Thay đổi địa chỉ nhận hàng')} /> 
+                        <input type="checkbox" className="chk" onChange={() => handleCancelReasonChange('Thay đổi số điện thoại')} />
+                        <span className="text">Thay đổi số điện thoại</span> <br />
+                        <input type="checkbox" className="chk" onChange={() => handleCancelReasonChange('Thay đổi địa chỉ nhận hàng')} />
                         <span className="text">Thay đổi địa chỉ nhận hàng</span> <br />
-                        <input type="checkbox"   className="chk" onChange={() => handleCancelReasonChange('Chọn nhầm sản phẩm')} /> 
+                        <input type="checkbox" className="chk" onChange={() => handleCancelReasonChange('Chọn nhầm sản phẩm')} />
                         <span className="text">Chọn nhầm sản phẩm</span>  <br />
-                        <input type="checkbox" className="chk" onChange={() => handleCancelReasonChange('Khác')} /> 
+                        <input type="checkbox" className="chk" onChange={() => handleCancelReasonChange('Khác')} />
                         <span className="text"  >Khác</span>
                     </div>
-                    
+
                 </Modal.Body>
                 <Modal.Footer>
                     <button type="submit" className="btn btn-success" onClick={handleCancelInvoice} disabled={!isAnyReasonSelected}>Xác nhận hủy</button>

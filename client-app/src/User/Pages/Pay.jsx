@@ -94,6 +94,18 @@ const Pay = () => {
             const res = await axios.post(`https://localhost:7258/api/Invoices`, formInvoice);
             const invoiceId = res.data.id;
 
+            const formNotificationAdmin = new FormData();
+            formNotificationAdmin.append("invoiceId", invoiceId);
+            formNotificationAdmin.append("content", `${userDetails.userName} đã đặt một đơn hàng`);
+            formNotificationAdmin.append("time", new Date().toISOString());
+            formNotificationAdmin.append("url", `http://localhost:3000/admin/Invoice`);
+            formNotificationAdmin.append("status", true);
+
+            axios.post(`https://localhost:7258/api/NotificationAdmin`, formNotificationAdmin)
+                .then((res) => {
+                    alert("Thâm thông báo");
+                })
+
             if (cart.length > 0) {
                 await Promise.all(cart.map(async (item) => {
                     const formInvoiceDetail = new FormData();
@@ -102,6 +114,9 @@ const Pay = () => {
                     formInvoiceDetail.append("quantity", item.quantity);
                     formInvoiceDetail.append("price", item.phone.price);
                     await axios.post(`https://localhost:7258/api/InvoiceDetails`, formInvoiceDetail);
+
+
+
 
                     const productResponse = await axios.get(`https://localhost:7258/api/Phones/${item.phone.id}`);
                     const product = productResponse.data;

@@ -13,6 +13,7 @@ import EditInvoice from './EditInvoice';
 import DetailInvoice from '../DetailInvoice/InvoiceDetail';
 import { Link } from "react-router-dom";
 import 'datatables.net-buttons/js/buttons.html5.mjs';
+import axios from "axios";
 
 const Invoice = () => {
     const [show, setShow] = useState(false);
@@ -62,6 +63,14 @@ const Invoice = () => {
             }
             document.removeEventListener('click', handleClickOutside);
         };
+    }, []);
+
+    const [invoice, setInvoice] = useState([]);
+    useEffect(() => {
+        axios.get(`http://localhost:3001/Invoices`)
+            .then((res) => {
+                setInvoice(res.data);
+            })
     }, []);
 
     return (

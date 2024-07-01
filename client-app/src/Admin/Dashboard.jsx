@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Header from './Header';
 import Sidebar from './Sidebar';
 
@@ -8,6 +8,7 @@ import * as echarts from 'echarts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartSimple, faHandHoldingDollar, faSackDollar } from '@fortawesome/free-solid-svg-icons';
 import Footer from './Footer/Footer';
+import axios from 'axios';
 
 
 const Dashboard = () => {
@@ -117,6 +118,28 @@ const Dashboard = () => {
         return () => {
             chart.dispose();
         };
+    }, []);
+    const formatTimeDifference = (itemTime) => {
+        const timeDifference = Date.now() - new Date(itemTime).getTime();
+        const minutes = Math.floor(timeDifference / 60000);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+
+        if (minutes < 60) {
+            return `${minutes} phút`;
+        } else if (hours < 24) {
+            return `${hours} h ${minutes % 60}  `;
+        } else {
+            return `${days} ngày ${hours % 24} h ${minutes % 60} `;
+        }
+    };
+    // thông báo
+    const [notificationAdmin, setNotificationAdmin] = useState([]);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/NotificationAdmin`)
+            .then((res) => (
+                setNotificationAdmin(res.data)
+            ))
     }, []);
 
     return (
@@ -334,6 +357,19 @@ const Dashboard = () => {
                                 <div className="card-body">
                                     <h5 className="card-title">Recent Activity <span>| Today</span></h5>
                                     <div className="activity">
+                                        {
+                                            notificationAdmin.map((item, index) => (
+                                                <div className="activity-item d-flex">
+                                                    <div className="activite-label"> <time>{formatTimeDifference(item.time)}</time></div>
+
+                                                    <i className="bi bi-circle-fill activity-badge text-success align-self-start" />
+                                                    <div className="activity-content">
+
+                                                        <a href={item.url} className="fw-bold text-dark"> {item.content}</a>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        }
                                         <div className="activity-item d-flex">
                                             <div className="activite-label">32 min</div>
                                             <i className="bi bi-circle-fill activity-badge text-success align-self-start" />

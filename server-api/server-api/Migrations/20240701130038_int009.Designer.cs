@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using server_api.Data;
 
@@ -11,9 +12,10 @@ using server_api.Data;
 namespace server_api.Migrations
 {
     [DbContext(typeof(EPhoneShopIdentityContext))]
-    partial class EPhoneShopIdentityContextModelSnapshot : ModelSnapshot
+    [Migration("20240701130038_int009")]
+    partial class int009
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -640,24 +642,16 @@ namespace server_api.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                    b.Property<int>("InvoiceId")
-                        .HasColumnType("int");
-
                     b.Property<string>("content")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("status")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("time")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("url")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
-
-                    b.HasIndex("InvoiceId");
 
                     b.ToTable("NotificationsAdmins");
                 });
@@ -1002,17 +996,6 @@ namespace server_api.Migrations
                     b.Navigation("Phone");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("server_api.Models.NotificationAdmin", b =>
-                {
-                    b.HasOne("API_Server.Models.Invoice", "Invoice")
-                        .WithMany()
-                        .HasForeignKey("InvoiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Invoice");
                 });
 #pragma warning restore 612, 618
         }
