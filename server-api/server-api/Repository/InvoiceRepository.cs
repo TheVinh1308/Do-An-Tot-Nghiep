@@ -29,7 +29,9 @@ namespace server_api.Repository
 
         public async Task<List<Invoice>> GetAllInvoiceAsync()
         {
-            var invoices = await _context.Invoices.ToListAsync();
+            var invoices = await _context.Invoices
+                .Include(i=>i.User)
+                .ToListAsync();
             return invoices;
         }
 

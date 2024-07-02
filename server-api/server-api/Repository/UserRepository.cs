@@ -46,6 +46,7 @@ namespace server_api.Repository
             return user;
         }
 
+
         public async Task<List<IdentityRole>> ListRole()
         {
             var roles = await _roleManager.Roles.ToListAsync();
@@ -107,6 +108,17 @@ namespace server_api.Repository
                 PhoneNumber = account.Phone,
             };
             var result = await _userManager.CreateAsync(user, account.Password);
+            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
+            var request = _httpContextAccessor.HttpContext.Request;
+            var callbackUrl = $"{request.Scheme}://{request.Host}/api/Users/confirmemail?userId={user.Id}&code={Uri.EscapeDataString(code)}";
+
+            await _emailSender.SendEmailAsync(
+            user.Email,
+            "Chào mừng bạn đến với 2VPHONE",
+            $"<p style=\"font-size: 16px;\">Cám ơn bạn đã sử dụng dịch vụ của chúng tôi</p>" +
+            $"<p style=\"font-size: 16px;\">Ấn vào nút <a href=\"{callbackUrl}\" style=\"font-size: 16px;\">này</a> để trở lại trang web! Cảm ơn</p>"
+            );
             if (!result.Succeeded)
                 return null;
 

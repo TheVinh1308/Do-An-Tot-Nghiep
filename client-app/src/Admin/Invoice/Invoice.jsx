@@ -12,8 +12,8 @@ import Sidebar from "../Sidebar";
 import EditInvoice from './EditInvoice';
 import DetailInvoice from '../DetailInvoice/InvoiceDetail';
 import { Link } from "react-router-dom";
-import 'datatables.net-buttons/js/buttons.html5.mjs';
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 const Invoice = () => {
     const [show, setShow] = useState(false);
@@ -29,49 +29,90 @@ const Invoice = () => {
     const handleCloseSetting = () => setShowSetting(false);
     const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 });
 
+    const [loadData, setLoadData] = useState(false);
     useEffect(() => {
-        const table = $('#DataTables_Table_Invoice_0').DataTable({
-            responsive: true,
-            autoWidth: true,
-        });
-
-        const handleContextMenu = (event) => {
-            event.preventDefault();
-            handleShowSetting();
-            setContextMenuPosition({ x: event.clientX, y: event.clientY });
-        };
-
-        const menu = document.getElementById('show-menu');
-        const section = document.getElementById('menu');
-
-        if (menu) {
-            menu.addEventListener('contextmenu', handleContextMenu);
+        if (loadData) {
+            $('#DataTables_Table_Invoice_0').DataTable({
+                dom: 'Bfrtip',
+                responsive: true,
+                autoWidth: true,
+                paging: [{
+                    className: 'p-0',
+                }],
+                buttons: [
+                    {
+                        extend: 'copy',
+                        className: 'btn bg-primary text-white',
+                    },
+                    {
+                        extend: 'csv',
+                        className: 'btn bg-secondary text-white',
+                    },
+                    {
+                        extend: 'excel',
+                        className: 'btn bg-success text-white',
+                        filename: function () {
+                            return 'data_' + Date.now();
+                        },
+                    },
+                    {
+                        extend: 'pdf',
+                        className: 'btn bg-danger text-white',
+                        filename: function () {
+                            return 'data_' + Date.now();
+                        },
+                    },
+                ],
+            });
         }
+    }, [loadData]);
 
-        const handleClickOutside = (event) => {
-            if (section && !section.contains(event.target)) {
-                handleCloseSetting();
-            }
-        };
 
-        document.addEventListener('click', handleClickOutside);
-
-        return () => {
-            table.destroy();
-            if (menu) {
-                menu.removeEventListener('contextmenu', handleContextMenu);
-            }
-            document.removeEventListener('click', handleClickOutside);
-        };
-    }, []);
-
-    const [invoice, setInvoice] = useState([]);
+    // user
+    const [userDetails, setUserDetails] = useState({ userId: null, userName: "", isAuthenticated: false });
     useEffect(() => {
-        axios.get(`http://localhost:3001/Invoices`)
+        const token = localStorage.getItem('jwt');
+        if (token) {
+            const decoded = jwtDecode(token);
+            setUserDetails({
+                userId: decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"],
+                userName: decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"],
+                isAuthenticated: true
+            });
+        }
+    }, []);
+    const [invoices, setInvoices] = useState([]);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Invoices`)
             .then((res) => {
-                setInvoice(res.data);
+                setInvoices(res.data);
+                setLoadData(true);
             })
     }, []);
+    console.log(`invoices`, invoices);
+    const getStatusBadge = (status) => {
+        switch (status) {
+            case 1:
+                return <Badge bg="secondary" style={{ border: "solid 1px black", color: "black" }}>Đang xác nhận</Badge>;
+            case 2:
+                return <Badge bg="info">Đang giao</Badge>;
+            case 3:
+                return <Badge bg="danger">Đã huỷ</Badge>;
+            default:
+                return <Badge bg="success">Hoàn thành</Badge>;
+        }
+    };
+
+    const getPaymentMethod = (paymentMethod) => {
+        switch (paymentMethod) {
+            case 1:
+                return "Tiền mặt";
+            case 2:
+                return "MOMO";
+            default:
+                return "VNPay";
+        }
+    };
 
     return (
         <>
@@ -99,27 +140,35 @@ const Invoice = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr id='show-menu'>
-                                                <td className="tb-item">Phạm Hoan Vinh</td>
-                                                <td className="tb-item">04/06/2024</td>
-                                                <td className="tb-item">16 Tân Thuận Tây, Q7, TP HCM</td>
-                                                <td className="tb-item">0364067704</td>
-                                                <td className="tb-item">
-                                                    <Badge bg="danger">Đã huỷ</Badge>
-                                                </td>
-                                                <td className="tb-item">Tiền mặt</td>
-                                                <td className="tb-item">
-                                                    {(25000000).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
-                                                </td>
-                                                <td className="tb-item">
-                                                    <Row>
-                                                        <Col className="col-4"><i className="bi bi-trash btn btn-danger"></i></Col>
-                                                        <Col className="col-4" onClick={handleShow}><i className="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                        <Col className="col-4" onClick={handleShowDetail}><i className="bi bi-info-circle-fill btn btn-success"></i></Col>
-                                                    </Row>
-                                                </td>
-                                            </tr>
-                                            {/* Repeat similar rows as needed */}
+                                            {
+                                                invoices && invoices.map((item, index) => (
+                                                    <Link to={`InvoiceDetail/${item.id}`}>
+
+                                                        <tr id='show-menu' key={index}>
+                                                            <td className="tb-item">{item.user.fullname}</td>
+                                                            <td className="tb-item">{item.issuedDate}</td>
+                                                            <td className="tb-item">{item.shippingAddress}</td>
+                                                            <td className="tb-item">{item.shippingPhone}</td>
+                                                            <td className="tb-item">
+                                                                {getStatusBadge(item.status)}
+                                                            </td>
+                                                            <td className="tb-item">
+                                                                {getPaymentMethod(item.paymentMethodId)}
+                                                            </td>
+                                                            <td className="tb-item">{(item.total).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+
+                                                            <td className="tb-item">
+                                                                <Row>
+                                                                    <Col className="col-4"><i className="bi bi-trash btn btn-danger"></i></Col>
+                                                                    <Col className="col-4" onClick={handleShow}><i className="bi bi-pencil-square btn btn-warning"></i></Col>
+                                                                    <Col className="col-4" onClick={handleShowDetail}><i className="bi bi-info-circle-fill btn btn-success"></i></Col>
+                                                                </Row>
+                                                            </td>
+                                                        </tr>
+                                                    </Link>
+
+                                                ))
+                                            }
                                         </tbody>
                                     </table>
                                 </div>
@@ -154,13 +203,11 @@ const Invoice = () => {
                     <hr />
                     <Link to="/admin/OderTracking">
                         <li ><FontAwesomeIcon icon={faEye} /> Theo dõi đơn hàng</li>
-
                     </Link>
                     <hr />
                     <li onClick={handleShowDetail}><FontAwesomeIcon icon={faCircleInfo} /> Xem thông tin đơn hàng</li>
                 </ul>
             </div>
-
         </>
     );
 };

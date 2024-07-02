@@ -60,7 +60,7 @@ const Commnent = ({ selectedPhone, isAuthenticated, userId, userName }) => {
         transition: Bounce,
     });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (isAuthenticated) {
             // Tạo một đối tượng mới chứa tất cả các giá trị cần thiết
@@ -77,19 +77,44 @@ const Commnent = ({ selectedPhone, isAuthenticated, userId, userName }) => {
 
             console.log(newComment);
 
-            axios
-                .post(`https://localhost:7258/api/Comments`, newComment)
-                .then(() => {
-                    notifySuccess("Thành công!");
-                    fetchComments();
-                })
-                .catch((err) => {
-                    console.log("Lỗi: ", err);
-                })
+            try {
+                // Post the new comment
+                await axios.post(`https://localhost:7258/api/Comments`, newComment);
+                notifySuccess("Thành công!");
+                fetchComments();
+
+                // thông báo cho admin
+                const phoneResponse = await axios.get(`https://localhost:7258/api/Phones/GetFisrtPhoneByModPhone/${selectedPhone.modPhone.id}`);
+                const phoneData = phoneResponse.data;
+
+                // Log the phone data for debugging
+                console.log('Phone Data:', phoneData);
+
+                // Prepare notification data
+                const formNotificationAdmin = new FormData();
+                formNotificationAdmin.append("itemid", phoneData?.id);
+                formNotificationAdmin.append("content", `${userName} đã thêm một bình luận: "${newComment.content}"`);
+                formNotificationAdmin.append("time", new Date().toISOString());
+                formNotificationAdmin.append("url", `http://localhost:3000/${phoneData?.modPhone?.brand.name}/${phoneData?.id}`);
+                formNotificationAdmin.append("status", true);
+
+                // Log the form data for debugging
+                for (let [key, value] of formNotificationAdmin.entries()) {
+                    console.log(key, value);
+                }
+
+                // Post the notification
+                await axios.post(`https://localhost:7258/api/NotificationAdmin`, formNotificationAdmin);
+                alert("Thêm thông báo thành công");
+            } catch (error) {
+                console.error("Error posting comment or notification:", error);
+                alert(`Request failed: ${error.message}`);
+            }
         } else {
             navigate("/login");
         }
     };
+
     const [setNO, setsetNO] = useState({});
     const [UserOfParent, setUserOfParent] = useState({});
     useEffect(() => {

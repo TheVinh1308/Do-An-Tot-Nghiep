@@ -120,7 +120,7 @@ const Dashboard = () => {
         };
     }, []);
     const formatTimeDifference = (itemTime) => {
-        const timeDifference = Date.now() - new Date(itemTime).getTime();
+        const timeDifference = Date.now() - new Date(itemTime).getTime() - (7 * 3600 * 1000);
         const minutes = Math.floor(timeDifference / 60000);
         const hours = Math.floor(minutes / 60);
         const days = Math.floor(hours / 24);
@@ -128,9 +128,9 @@ const Dashboard = () => {
         if (minutes < 60) {
             return `${minutes} phút`;
         } else if (hours < 24) {
-            return `${hours} h ${minutes % 60}  `;
+            return `${hours} hrs  `;
         } else {
-            return `${days} ngày ${hours % 24} h ${minutes % 60} `;
+            return `${days} d  `;
         }
     };
     // thông báo
@@ -342,7 +342,7 @@ const Dashboard = () => {
                         {/* NỘI DUNG BÊN PHẢI */}
                         <div className="col-lg-4">
                             {/* LUỒNG HOẠT ĐỘNG */}
-                            <div className="card">
+                            <div className="card notificaAdmin">
                                 <div className="filter">
                                     <a className="icon" href="#" data-bs-toggle="dropdown"><i className="bi bi-three-dots" /></a>
                                     <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -359,10 +359,10 @@ const Dashboard = () => {
                                     <div className="activity">
                                         {
                                             notificationAdmin.map((item, index) => (
-                                                <div className="activity-item d-flex">
+                                                <div className="activity-item d-flex" key={index}>
                                                     <div className="activite-label"> <time>{formatTimeDifference(item.time)}</time></div>
 
-                                                    <i className="bi bi-circle-fill activity-badge text-success align-self-start" />
+                                                    <i className={`bi bi-circle-fill activity-badge ${item?.content?.includes("huỷ") ? 'text-danger' : item?.content?.includes("đặt") ? 'text-success' : 'text-primary'} align-self-start`} />
                                                     <div className="activity-content">
 
                                                         <a href={item.url} className="fw-bold text-dark"> {item.content}</a>

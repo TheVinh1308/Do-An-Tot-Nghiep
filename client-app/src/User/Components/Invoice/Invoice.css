@@ -39,7 +39,7 @@ i {
     outline: darkgreen !important;
 }
 
-.content {
+.react-tabs__tab-panel .content {
     width: 70vw;
     margin: auto;
     border: solid 1px gray;

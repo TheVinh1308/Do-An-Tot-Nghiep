@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import "../Pages/CSS/AfterPay.css";
 import axios from "axios";
@@ -32,7 +32,10 @@ const AfterPay = () => {
                     <div className="btn-afterpay">
 
                         <button type="submit" onClick={() => handleShowChange(invoice.id)}>Thay đổi địa chỉ</button>
-                        <button type="">Xem đơn hàng</button>
+                        <Link to={`../invoice/invoiceDetail/${invoice.id}`}>
+                            <button type="">Xem đơn hàng</button>
+
+                        </Link>
                     </div>
                 </div>
             </div>

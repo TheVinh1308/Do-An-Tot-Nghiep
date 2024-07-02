@@ -9,10 +9,9 @@ namespace server_api.Models
         public string url { get; set; }
         public DateTime time { get; set; }
 
-        public int InvoiceId { get; set; }
+        public int itemId { get; set; }
 
         // Reference navigation property cho khóa ngoại đến Invoice
-        public Invoice Invoice { get; set; }
         public bool status { get; set; }
     }
 }

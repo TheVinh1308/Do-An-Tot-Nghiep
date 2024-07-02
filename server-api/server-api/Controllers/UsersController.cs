@@ -20,6 +20,14 @@ namespace server_api.Controllers
             _userRepository = userRepository;
         }
 
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetUserById(string userId) 
+        { 
+            var result = await _userRepository.GetUserAsync(userId);
+            return Ok(result);
+        }
+
+
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([Bind("Username", "Password")] LoginModel model)

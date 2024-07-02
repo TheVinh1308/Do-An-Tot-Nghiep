@@ -9,6 +9,7 @@ import { jwtDecode } from "jwt-decode";
 import InvoiceDetail from "./InvoiceDetail";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { Link } from "react-router-dom";
 
 const Invoice = () => {
     const [loadData, setLoadData] = useState(false);
@@ -87,19 +88,7 @@ const Invoice = () => {
     }, []);
 
 
-    const getStatusBadge = (status) => {
-        switch (status) {
-            case 1:
-                return <Badge bg="secondary" style={{ border: "solid 1px black", color: "black" }}>Đang xác nhận</Badge>;
-            case 2:
-                return <Badge bg="info">Đang giao</Badge>;
-            case 3:
 
-                return <Badge bg="danger">Đã huỷ</Badge>;
-            default:
-                return <Badge bg="success">Hoàn thành</Badge>;
-        }
-    };
 
     const getPaymentMethod = (paymentMethod) => {
         switch (paymentMethod) {
@@ -128,6 +117,19 @@ const Invoice = () => {
             axios.put(`https://localhost:7258/api/Invoices/${selectedInvoice.id}`, updatedInvoice)
                 .then(() => {
                     handleCloseReason()
+
+                    const formNotificationAdmin = new FormData();
+                    formNotificationAdmin.append("invoiceId", selectedInvoice.id);
+                    formNotificationAdmin.append("content", `${userName} đã huỷ một đơn hàng`);
+                    formNotificationAdmin.append("time", new Date().toISOString());
+                    formNotificationAdmin.append("url", `http://localhost:3000/admin/Invoice`);
+                    formNotificationAdmin.append("status", true);
+
+                    axios.post(`https://localhost:7258/api/NotificationAdmin`, formNotificationAdmin)
+                        .then((res) => {
+                            alert("Thâm thông báo");
+                        })
+
                     alert("Đã hủy đơn hàng")
                 })
                 .catch((error) => console.error('Error cancelling invoice:', error));
@@ -166,268 +168,279 @@ const Invoice = () => {
                 </TabList>
 
                 <TabPanel>
-                    {invoices.map((item, index) => (
-                        <div className="content" key={index}>
-                            <Row className="head-content">
-                                <Col>#{item.code}</Col>
-                                <Col>{handleTT(item.status)}</Col>
-                            </Row>
-                            {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
-                                <>
-                                    <Row key={indexDetail} className="body-content">
-                                        <Col md={4}>
-                                            <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
-                                        </Col>
-                                        <Col md={8}>
-                                            <h4>{itemDetail.phone.name}</h4>
-                                            <p>{itemDetail.phone.modPhone.description}</p>
-                                            <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
-                                            <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
+                    {invoices && invoices.map((item, index) => (
+                        <Link to={`InvoiceDetail/${item.id}`}>
+                            <div className="content" key={index}>
+                                <Row className="head-content">
+                                    <Col>#{item.code}</Col>
+                                    <Col>{handleTT(item.status)}</Col>
+                                </Row>
+                                {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                    <>
+                                        <Row key={indexDetail} className="body-content">
+                                            <Col md={4}>
+                                                <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
+                                            </Col>
+                                            <Col md={8}>
+                                                <h4>{itemDetail.phone.name}</h4>
+                                                <p>{itemDetail.phone.modPhone.description}</p>
+                                                <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
+                                                <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
 
-                                        </Col>
-                                    </Row>
-                                    <hr />
-                                </>
+                                            </Col>
+                                        </Row>
+                                        <hr />
+                                    </>
 
-                            ))}
-                            <Row>
-                                <Col>
-                                </Col>
-                                <Col className="btn-content">
-                                    {
-                                        item.status == 3 ?
-                                            <>
-                                                <Button>Mua lại</Button>
-                                            </> :
-                                            item.status == 1 ?
+                                ))}
+                                <Row>
+                                    <Col>
+                                    </Col>
+                                    <Col className="btn-content">
+                                        {
+                                            item.status == 3 ?
                                                 <>
-                                                    <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
-                                                </>
-                                                : item.status == 2 ?
+                                                    <Button>Mua lại</Button>
+                                                </> :
+                                                item.status == 1 ?
                                                     <>
+                                                        <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
+                                                    </>
+                                                    : item.status == 2 ?
+                                                        <>
 
-                                                    </>
-                                                    : <>
-                                                        <Button>Mua lại</Button>
-                                                        <Button>Viết đánh giá</Button>
-                                                    </>
-                                    }
-                                </Col>
-                            </Row>
-                        </div>
+                                                        </>
+                                                        : <>
+                                                            <Button>Mua lại</Button>
+                                                            <Button>Viết đánh giá</Button>
+                                                        </>
+                                        }
+                                    </Col>
+                                </Row>
+                            </div>
+                        </Link>
                     ))}
                 </TabPanel>
                 <TabPanel>
-                    {invoices.filter(item => item.status === 1).map((item, index) => (
-                        <div className="content" key={index}>
-                            <Row className="head-content">
-                                <Col>#{item.code}</Col>
-                                <Col>{handleTT(item.status)}</Col>
-                            </Row>
-                            {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
-                                <>
-                                    <Row key={indexDetail} className="body-content">
+                    {invoices && invoices.filter(item => item.status === 1).map((item, index) => (
+                        <Link to={`InvoiceDetail/${item.id}`}>
+                            <div className="content" key={index}>
+                                <Row className="head-content">
+                                    <Col>#{item.code}</Col>
+                                    <Col>{handleTT(item.status)}</Col>
+                                </Row>
+                                {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                    <>
+                                        <Row key={indexDetail} className="body-content">
 
-                                        <Col md={4}>
-                                            <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
-                                        </Col>
-                                        <Col md={8}>
-                                            <h4>{itemDetail.phone.name}</h4>
-                                            <p>{itemDetail.phone.modPhone.description}</p>
-                                            <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
-                                            <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
+                                            <Col md={4}>
+                                                <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
+                                            </Col>
+                                            <Col md={8}>
+                                                <h4>{itemDetail.phone.name}</h4>
+                                                <p>{itemDetail.phone.modPhone.description}</p>
+                                                <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
+                                                <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
 
-                                        </Col>
-                                    </Row>
-                                    <hr />
-                                </>
-                            ))}
-                            <Row>
-                                <Col>
-                                </Col>
-                                <Col className="btn-content">
-                                    {
-                                        item.status == 3 ?
-                                            <>
-                                                <Button>Mua lại</Button>
-                                            </> :
-                                            item.status == 1 ?
+                                            </Col>
+                                        </Row>
+                                        <hr />
+                                    </>
+                                ))}
+                                <Row>
+                                    <Col>
+                                    </Col>
+                                    <Col className="btn-content">
+                                        {
+                                            item.status == 3 ?
                                                 <>
-                                                    <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
-                                                </>
-                                                : item.status == 2 ?
+                                                    <Button>Mua lại</Button>
+                                                </> :
+                                                item.status == 1 ?
                                                     <>
+                                                        <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
+                                                    </>
+                                                    : item.status == 2 ?
+                                                        <>
 
-                                                    </>
-                                                    : <>
-                                                        <Button>Mua lại</Button>
-                                                        <Button>Viết đánh giá</Button>
-                                                    </>
-                                    }
-                                </Col>
-                            </Row>
-                        </div>
+                                                        </>
+                                                        : <>
+                                                            <Button>Mua lại</Button>
+                                                            <Button>Viết đánh giá</Button>
+                                                        </>
+                                        }
+                                    </Col>
+                                </Row>
+                            </div>
+                        </Link>
                     ))}
                 </TabPanel>
                 <TabPanel>
-                    {invoices.filter(item => item.status === 2).map((item, index) => (
-                        <div className="content" key={index}>
-                            <Row className="head-content">
-                                <Col>#{item.code}</Col>
-                                <Col>{handleTT(item.status)}</Col>
-                            </Row>
-                            {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
-                                <>
-                                    <Row key={indexDetail} className="body-content">
+                    {invoices && invoices.filter(item => item.status === 2).map((item, index) => (
+                        <Link to={`InvoiceDetail/${item.id}`}>
+                            <div className="content" key={index}>
+                                <Row className="head-content">
+                                    <Col>#{item.code}</Col>
+                                    <Col>{handleTT(item.status)}</Col>
+                                </Row>
+                                {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                    <>
+                                        <Row key={indexDetail} className="body-content">
 
-                                        <Col md={4}>
-                                            <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
-                                        </Col>
-                                        <Col md={8}>
-                                            <h4>{itemDetail.phone.name}</h4>
-                                            <p>{itemDetail.phone.modPhone.description}</p>
-                                            <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
-                                            <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
+                                            <Col md={4}>
+                                                <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
+                                            </Col>
+                                            <Col md={8}>
+                                                <h4>{itemDetail.phone.name}</h4>
+                                                <p>{itemDetail.phone.modPhone.description}</p>
+                                                <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
+                                                <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
 
-                                        </Col>
-                                    </Row>
-                                    <hr />
-                                </>
-                            ))}
-                            <Row>
-                                <Col>
-                                </Col>
-                                <Col className="btn-content">
-                                    {
-                                        item.status == 3 ?
-                                            <>
-                                                <Button>Mua lại</Button>
-                                            </> :
-                                            item.status == 1 ?
+                                            </Col>
+                                        </Row>
+                                        <hr />
+                                    </>
+                                ))}
+                                <Row>
+                                    <Col>
+                                    </Col>
+                                    <Col className="btn-content">
+                                        {
+                                            item.status == 3 ?
                                                 <>
-                                                    <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
-                                                </>
-                                                : item.status == 2 ?
+                                                    <Button>Mua lại</Button>
+                                                </> :
+                                                item.status == 1 ?
                                                     <>
-
+                                                        <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
                                                     </>
-                                                    : <>
-                                                        <Button>Mua lại</Button>
-                                                        <Button>Viết đánh giá</Button>
-                                                    </>
-                                    }
-                                </Col>
-                            </Row>
-                        </div>
-                    ))}
+                                                    : item.status == 2 ?
+                                                        <>
 
-                </TabPanel>
-                <TabPanel>
-                    {invoices.filter(item => item.status === 3).map((item, index) => (
-                        <div className="content" key={index}>
-                            <Row className="head-content">
-                                <Col>#{item.code}</Col>
-                                <Col>{handleTT(item.status)}</Col>
-                            </Row>
-                            {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
-                                <>
-                                    <Row key={indexDetail} className="body-content">
-
-                                        <Col md={4}>
-                                            <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
-                                        </Col>
-                                        <Col md={8}>
-                                            <h4>{itemDetail.phone.name}</h4>
-                                            <p>{itemDetail.phone.modPhone.description}</p>
-                                            <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
-                                            <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
-
-                                        </Col>
-                                    </Row>
-                                    <hr />
-                                </>
-                            ))}
-                            <Row>
-                                <Col>
-                                </Col>
-                                <Col className="btn-content">
-                                    {
-                                        item.status == 3 ?
-                                            <>
-                                                <Button>Mua lại</Button>
-                                            </> :
-                                            item.status == 1 ?
-                                                <>
-                                                    <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
-                                                </>
-                                                : item.status == 2 ?
-                                                    <>
-
-                                                    </>
-                                                    : <>
-                                                        <Button>Mua lại</Button>
-                                                        <Button>Viết đánh giá</Button>
-                                                    </>
-                                    }
-                                </Col>
-                            </Row>
-                        </div>
+                                                        </>
+                                                        : <>
+                                                            <Button>Mua lại</Button>
+                                                            <Button>Viết đánh giá</Button>
+                                                        </>
+                                        }
+                                    </Col>
+                                </Row>
+                            </div>
+                        </Link>
                     ))}
 
                 </TabPanel>
                 <TabPanel>
-                    {invoices.filter(item => item.status === 4).map((item, index) => (
-                        <div className="content" key={index}>
-                            <Row className="head-content">
-                                <Col>#{item.code}</Col>
-                                <Col>{handleTT(item.status)}</Col>
-                            </Row>
-                            {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
-                                <>
-                                    <Row key={indexDetail} className="body-content">
+                    {invoices && invoices.filter(item => item.status === 3).map((item, index) => (
+                        <Link to={`InvoiceDetail/${item.id}`}>
+                            <div className="content" key={index}>
+                                <Row className="head-content">
+                                    <Col>#{item.code}</Col>
+                                    <Col>{handleTT(item.status)}</Col>
+                                </Row>
+                                {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                    <>
+                                        <Row key={indexDetail} className="body-content">
 
-                                        <Col md={4}>
-                                            <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
-                                        </Col>
-                                        <Col md={8}>
-                                            <h4>{itemDetail.phone.name}</h4>
-                                            <p>{itemDetail.phone.modPhone.description}</p>
-                                            <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
-                                            <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
+                                            <Col md={4}>
+                                                <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
+                                            </Col>
+                                            <Col md={8}>
+                                                <h4>{itemDetail.phone.name}</h4>
+                                                <p>{itemDetail.phone.modPhone.description}</p>
+                                                <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
+                                                <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
 
-                                        </Col>
-                                    </Row>
-                                    <hr />
-                                </>
-                            ))}
-                            <Row>
-                                <Col>
-                                </Col>
-                                <Col className="btn-content">
-                                    {
-                                        item.status == 3 ?
-                                            <>
-                                                <Button>Mua lại</Button>
-                                            </> :
-                                            item.status == 1 ?
+                                            </Col>
+                                        </Row>
+                                        <hr />
+                                    </>
+                                ))}
+                                <Row>
+                                    <Col>
+                                    </Col>
+                                    <Col className="btn-content">
+                                        {
+                                            item.status == 3 ?
                                                 <>
-                                                    <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
-                                                </>
-                                                : item.status == 2 ?
+                                                    <Button>Mua lại</Button>
+                                                </> :
+                                                item.status == 1 ?
                                                     <>
+                                                        <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
+                                                    </>
+                                                    : item.status == 2 ?
+                                                        <>
 
+                                                        </>
+                                                        : <>
+                                                            <Button>Mua lại</Button>
+                                                            <Button>Viết đánh giá</Button>
+                                                        </>
+                                        }
+                                    </Col>
+                                </Row>
+                            </div>
+                        </Link>
+                    ))}
+
+                </TabPanel>
+                <TabPanel>
+                    {invoices && invoices.filter(item => item.status === 4).map((item, index) => (
+                        <Link to={`InvoiceDetail/${item.id}`}>
+                            <div className="content" key={index}>
+
+                                <Row className="head-content">
+                                    <Col>#{item.code}</Col>
+                                    <Col>{handleTT(item.status)}</Col>
+                                </Row>
+                                {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                    <>
+                                        <Row key={indexDetail} className="body-content">
+
+                                            <Col md={4}>
+                                                <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
+                                            </Col>
+                                            <Col md={8}>
+                                                <h4>{itemDetail.phone.name}</h4>
+                                                <p>{itemDetail.phone.modPhone.description}</p>
+                                                <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
+                                                <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
+
+                                            </Col>
+                                        </Row>
+                                        <hr />
+                                    </>
+                                ))}
+                                <Row>
+                                    <Col>
+                                    </Col>
+                                    <Col className="btn-content">
+                                        {
+                                            item.status == 3 ?
+                                                <>
+                                                    <Button>Mua lại</Button>
+                                                </> :
+                                                item.status == 1 ?
+                                                    <>
+                                                        <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
                                                     </>
-                                                    : <>
-                                                        <Button>Mua lại</Button>
-                                                        <Button>Viết đánh giá</Button>
-                                                    </>
-                                    }
-                                </Col>
-                            </Row>
-                        </div>
+                                                    : item.status == 2 ?
+                                                        <>
+
+                                                        </>
+                                                        : <>
+                                                            <Button>Mua lại</Button>
+                                                            <Button>Viết đánh giá</Button>
+                                                        </>
+                                        }
+                                    </Col>
+                                </Row>
+                            </div>
+                        </Link>
                     ))}
                 </TabPanel>
-            </Tabs>
+            </Tabs >
 
 
             <Modal fullscreen show={show} onHide={handleClose}>

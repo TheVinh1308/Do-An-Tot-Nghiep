@@ -640,11 +640,11 @@ namespace server_api.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                    b.Property<int>("InvoiceId")
-                        .HasColumnType("int");
-
                     b.Property<string>("content")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("itemId")
+                        .HasColumnType("int");
 
                     b.Property<bool>("status")
                         .HasColumnType("bit");
@@ -656,8 +656,6 @@ namespace server_api.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
-
-                    b.HasIndex("InvoiceId");
 
                     b.ToTable("NotificationsAdmins");
                 });
@@ -1002,17 +1000,6 @@ namespace server_api.Migrations
                     b.Navigation("Phone");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("server_api.Models.NotificationAdmin", b =>
-                {
-                    b.HasOne("API_Server.Models.Invoice", "Invoice")
-                        .WithMany()
-                        .HasForeignKey("InvoiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Invoice");
                 });
 #pragma warning restore 612, 618
         }

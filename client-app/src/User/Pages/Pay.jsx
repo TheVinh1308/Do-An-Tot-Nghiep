@@ -98,7 +98,7 @@ const Pay = () => {
             formNotificationAdmin.append("invoiceId", invoiceId);
             formNotificationAdmin.append("content", `${userDetails.userName} đã đặt một đơn hàng`);
             formNotificationAdmin.append("time", new Date().toISOString());
-            formNotificationAdmin.append("url", `http://localhost:3000/admin/Invoice`);
+            formNotificationAdmin.append("url", `http://localhost:3000/admin/invoice/InvoiceDetail/${invoiceId}`);
             formNotificationAdmin.append("status", true);
 
             axios.post(`https://localhost:7258/api/NotificationAdmin`, formNotificationAdmin)

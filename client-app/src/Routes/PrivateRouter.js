@@ -17,6 +17,7 @@ import Register from "../Admin/Register";
 import Login from "../Admin/Login";
 import ConfigDetail from "../Admin/ModPhone/ConfigDetail";
 import AddConfigDetail from "../Admin/ModPhone/AddConfigDetail";
+import InvoiceDetail from "../Admin/DetailInvoice/InvoiceDetail";
 const PrivateRouter = () => {
     return (
         <>
@@ -31,7 +32,7 @@ const PrivateRouter = () => {
 
                         <Route path="ConfigDetail">
                             <Route index element={<ConfigDetail />} />
-                            <Route path="AddConfigDetail" element={<AddConfigDetail/>} />
+                            <Route path="AddConfigDetail" element={<AddConfigDetail />} />
                         </Route>
 
                         <Route path="Phone">
@@ -77,6 +78,8 @@ const PrivateRouter = () => {
                         <Route path="Login">
                             <Route index element={<Login />} />
                         </Route>
+                        <Route path='invoice/invoiceDetail/:id' element={<InvoiceDetail />} />
+
                     </Route>
                 </Routes>
             </BrowserRouter>
