@@ -53,28 +53,25 @@ const InvoiceDetail = () => {
         }
     };
 
-    const componentRef = useRef();
-    const handlePrint = useReactToPrint({
-        content: () => componentRef.current,
-    });
+
 
     return (
         <>
-            <div className="card" ref={componentRef}>
+            <div className="card">
                 <div className="card-body">
                     <div className="container mb-5 mt-3">
                         <div className="row d-flex align-items-baseline">
                             <div className="col-xl-9">
                                 <p style={{ color: '#7e8d9f', fontSize: 20 }}>Invoice &gt;&gt; <strong>ID: #{invoice.code}</strong></p>
                             </div>
-                            <div className="col-xl-3 float-end">
+                            {/* <div className="col-xl-3 float-end">
                                 <button className="btn btn-danger text-capitalize border-0" onClick={handlePrint}>
                                     <i class="bi bi-filetype-pdf"></i> Print
                                 </button>
                                 <button className="btn btn-light text-capitalize">
                                     <i className="far fa-file-pdf text-danger" /> Export
                                 </button>
-                            </div>
+                            </div> */}
                             <hr />
                         </div>
                         <div className="container">

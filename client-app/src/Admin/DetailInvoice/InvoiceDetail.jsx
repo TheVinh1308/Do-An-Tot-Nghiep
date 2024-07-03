@@ -38,7 +38,7 @@ const InvoiceDetail = () => {
             .then((res) => {
                 setInvoice(res.data);
             })
-    }, [id]);
+    }, [invoice, id]);
     console.log(`invoice`, invoice);
     const getStatusBadge = (status) => {
         switch (status) {
@@ -57,10 +57,74 @@ const InvoiceDetail = () => {
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
     });
+    const handleInvoice = () => {
+        const updatedInvoice = { ...invoice, status: 2 };
+        axios.put(`https://localhost:7258/api/Invoices/${id}`, updatedInvoice)
+            .then(() => {
 
+                const formNotificationAdmin = new FormData();
+                formNotificationAdmin.append("invoiceId", id);
+                formNotificationAdmin.append("content", `Đơn hàng của ${userName} đã được duyệt`);
+                formNotificationAdmin.append("time", new Date().toISOString());
+                formNotificationAdmin.append("url", `http://localhost:3000/admin/invoice/InvoiceDetail/${id}`);
+                formNotificationAdmin.append("status", true);
+
+                axios.post(`https://localhost:7258/api/NotificationAdmin`, formNotificationAdmin)
+                    .then((res) => {
+                        alert("Thâm thông báo");
+                    })
+
+                alert("Đã xác nhận đơn hàng")
+            })
+            .catch((error) => console.error('Error cancelling invoice:', error));
+    }
+
+    const handleInvoiceCancel = () => {
+        const updatedInvoice = { ...invoice, status: 4 };
+        axios.put(`https://localhost:7258/api/Invoices/${id}`, updatedInvoice)
+            .then(() => {
+
+                const formNotificationAdmin = new FormData();
+                formNotificationAdmin.append("invoiceId", id);
+                formNotificationAdmin.append("content", `Đơn hàng của ${userName} đã bị huỷ`);
+                formNotificationAdmin.append("time", new Date().toISOString());
+                formNotificationAdmin.append("url", `http://localhost:3000/admin/invoice/InvoiceDetail/${id}`);
+                formNotificationAdmin.append("status", true);
+
+                axios.post(`https://localhost:7258/api/NotificationAdmin`, formNotificationAdmin)
+                    .then((res) => {
+                        alert("Thâm thông báo");
+                    })
+
+                alert("Đã xác nhận đơn hàng")
+            })
+            .catch((error) => console.error('Error cancelling invoice:', error));
+    }
+
+    const handleCompelete = () => {
+        const updatedInvoice = { ...invoice, status: 3 };
+        axios.put(`https://localhost:7258/api/Invoices/${id}`, updatedInvoice)
+            .then(() => {
+
+                const formNotificationAdmin = new FormData();
+                formNotificationAdmin.append("invoiceId", id);
+                formNotificationAdmin.append("content", `Đơn hàng của ${userName} đã hoàn thành`);
+                formNotificationAdmin.append("time", new Date().toISOString());
+                formNotificationAdmin.append("url", `http://localhost:3000/admin/invoice/InvoiceDetail/${id}`);
+                formNotificationAdmin.append("status", true);
+
+                axios.post(`https://localhost:7258/api/NotificationAdmin`, formNotificationAdmin)
+                    .then((res) => {
+                        alert("Thâm thông báo");
+                    })
+
+                alert("Đã xác nhận đơn hàng")
+            })
+            .catch((error) => console.error('Error cancelling invoice:', error));
+    }
     return (
         <>
-            <div className="card" ref={componentRef}>
+            <div className="card invoiceDetail" ref={componentRef}>
                 <div className="card-body">
                     <div className="container mb-5 mt-3">
                         <div className="row d-flex align-items-baseline">
@@ -94,6 +158,15 @@ const InvoiceDetail = () => {
                                             <span>
                                                 {getStatusBadge(invoice.status)}
                                             </span>
+                                            {
+                                                invoice.status == 1 ? <span>
+                                                    <button className="btn-h" style={{ backgroundColor: 'red', fontSize: "14px", margin: "5px", padding: '1px 10px', borderRadius: '5px', border: 'none', color: 'white' }} onClick={handleInvoiceCancel}> Huỷ</button>
+                                                    <button className="btn-xn" style={{ backgroundColor: 'green', fontSize: "14px", margin: "5px", padding: '1px 10px', borderRadius: '5px', border: 'none', color: 'white' }} onClick={handleInvoice}>Xác nhận</button>
+                                                </span> : invoice.status == 2 ?
+                                                    <button className="btn-xn" style={{ backgroundColor: 'green', fontSize: "14px", margin: "5px", padding: '1px 10px', borderRadius: '5px', border: 'none', color: 'white' }} onClick={handleCompelete}>Hoàn thành</button>
+                                                    : ""
+                                            }
+
                                         </li>
                                     </ul>
                                 </div>
@@ -153,7 +226,7 @@ const InvoiceDetail = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 }

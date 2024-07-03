@@ -23,7 +23,7 @@ const ProductDisplay = (props) => {
     const [selectedColorButton, setSelectedColorButton] = useState(null);
     const [selectedRomButton, setSelectedRomButton] = useState(null);
 
-    const { phone, setPhone,setIsAddToCart } = useContext(ShopContext);
+    const { phone, setPhone, setIsAddToCart, setTotalItemPrice } = useContext(ShopContext);
 
     // lấy hình ảnh theo phone
     useEffect(() => {
@@ -232,7 +232,7 @@ const ProductDisplay = (props) => {
                     });
             }
         }
-        else{
+        else {
             window.location.href = "/login"
         }
     };
@@ -303,11 +303,25 @@ const ProductDisplay = (props) => {
                     });
             }
         }
-        else{
+        else {
             window.location.href = "/login"
         }
     };
 
+
+
+    if (product.modPhone.promotionId !== 1) {
+        if (new Date(product.modPhone.promotion.startDay) > new Date()) {
+            setTotalItemPrice(selectedPhone?.price)
+        } else if (new Date() > new Date(product.modPhone.endDay)) {
+            setTotalItemPrice(selectedPhone?.price)
+        } else {
+            const discountedPrice = selectedPhone?.price - (selectedPhone?.price * product.modPhone.promotion.discountPercent / 100);
+            setTotalItemPrice(discountedPrice)
+        }
+    } else {
+        setTotalItemPrice(selectedPhone?.price)
+    }
 
 
 

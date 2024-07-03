@@ -18,7 +18,13 @@ import { jwtDecode } from "jwt-decode";
 const Invoice = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [selectID, setSelectID] = useState();
+    const [statusInvoice, setStatusInvoice] = useState(0);
+    const handleShow = (invoiceID, status) => {
+        setShow(true);
+        setSelectID(invoiceID);
+        setStatusInvoice(status);
+    }
 
     const [showDetail, setShowDetail] = useState(false);
     const handleCloseDetail = () => setShowDetail(false);
@@ -97,9 +103,10 @@ const Invoice = () => {
             case 2:
                 return <Badge bg="info">Đang giao</Badge>;
             case 3:
-                return <Badge bg="danger">Đã huỷ</Badge>;
-            default:
                 return <Badge bg="success">Hoàn thành</Badge>;
+            default:
+
+                return <Badge bg="danger">Đã huỷ</Badge>;
         }
     };
 
@@ -142,30 +149,29 @@ const Invoice = () => {
                                         <tbody>
                                             {
                                                 invoices && invoices.map((item, index) => (
-                                                    <Link to={`InvoiceDetail/${item.id}`}>
 
-                                                        <tr id='show-menu' key={index}>
-                                                            <td className="tb-item">{item.user.fullname}</td>
-                                                            <td className="tb-item">{item.issuedDate}</td>
-                                                            <td className="tb-item">{item.shippingAddress}</td>
-                                                            <td className="tb-item">{item.shippingPhone}</td>
-                                                            <td className="tb-item">
-                                                                {getStatusBadge(item.status)}
-                                                            </td>
-                                                            <td className="tb-item">
-                                                                {getPaymentMethod(item.paymentMethodId)}
-                                                            </td>
-                                                            <td className="tb-item">{(item.total).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+                                                    <tr id='show-menu' key={index}>
+                                                        <td className="tb-item">{item.user.fullname}</td>
+                                                        <td className="tb-item">{item.issuedDate}</td>
+                                                        <td className="tb-item">{item.shippingAddress}</td>
+                                                        <td className="tb-item">{item.shippingPhone}</td>
+                                                        <td className="tb-item">
+                                                            {getStatusBadge(item.status)}
+                                                        </td>
+                                                        <td className="tb-item">
+                                                            {getPaymentMethod(item.paymentMethodId)}
+                                                        </td>
+                                                        <td className="tb-item">{(item.total).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
 
-                                                            <td className="tb-item">
-                                                                <Row>
-                                                                    <Col className="col-4"><i className="bi bi-trash btn btn-danger"></i></Col>
-                                                                    <Col className="col-4" onClick={handleShow}><i className="bi bi-pencil-square btn btn-warning"></i></Col>
-                                                                    <Col className="col-4" onClick={handleShowDetail}><i className="bi bi-info-circle-fill btn btn-success"></i></Col>
-                                                                </Row>
-                                                            </td>
-                                                        </tr>
-                                                    </Link>
+                                                        <td className="tb-item">
+                                                            <Row>
+                                                                <Col className="col-4" onClick={() => handleShow(item.id, item.status)}><i className="bi bi-pencil-square btn btn-warning"></i></Col>
+
+                                                                <Col className="col-4" onClick={handleShowDetail}> <Link to={`InvoiceDetail/${item.id}`}><i className="bi bi-info-circle-fill btn btn-success"></i>  </Link></Col>
+
+                                                            </Row>
+                                                        </td>
+                                                    </tr>
 
                                                 ))
                                             }
@@ -184,17 +190,10 @@ const Invoice = () => {
                     <Modal.Title className="add-title">Cập nhật hoá đơn</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <EditInvoice />
+                    <EditInvoice selectID={selectID} statusInvoice={statusInvoice} />
                 </Modal.Body>
             </Modal>
-            <Modal size="lg" show={showDetail} fullscreen={true} onHide={handleCloseDetail}>
-                <Modal.Header closeButton>
-                    <Modal.Title className="add-title">Chi tiết hoá đơn</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <DetailInvoice />
-                </Modal.Body>
-            </Modal>
+
             <div id="menu" size="lg" show={showSetting} onHide={handleCloseSetting} backdrop='false' style={{ left: contextMenuPosition.x, top: contextMenuPosition.y - 15, display: showSetting ? 'block' : 'none' }}>
                 <ul>
                     <li onClick={handleShow}><FontAwesomeIcon icon={faPenToSquare} /> Chỉnh sửa</li>

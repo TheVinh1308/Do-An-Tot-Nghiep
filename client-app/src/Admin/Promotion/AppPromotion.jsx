@@ -119,7 +119,7 @@ const AppPromotion = () => {
                     setsetNO(res.data);
                 })
 
-            console.log(`itemNo`, userId);
+            console.log(`setNO`, setNO);
             const formNotification = new FormData();
             formNotification.append("userId", userId);
             formNotification.append("time", new Date().toISOString());

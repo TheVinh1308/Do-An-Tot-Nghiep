@@ -9,7 +9,7 @@ namespace server_api.Interface
         Task<List<Invoice>> GetAllInvoiceAsync();
         Task<Invoice> GetInvoiceAsync(int id);
         Task<Invoice> InsertInvoiceAsync([FromForm] Invoice invoice);
-        Task UpdateInvoiceAsync(int invoiceId,Invoice invoice);
+        Task UpdateInvoiceAsync([FromForm] int invoiceId,[FromForm] Invoice invoice);
         Task<List<Invoice>> GetInvoiceByUserIdAsync(string userId);
     }
 }

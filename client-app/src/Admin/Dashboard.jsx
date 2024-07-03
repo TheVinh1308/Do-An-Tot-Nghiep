@@ -362,7 +362,7 @@ const Dashboard = () => {
                                                 <div className="activity-item d-flex" key={index}>
                                                     <div className="activite-label"> <time>{formatTimeDifference(item.time)}</time></div>
 
-                                                    <i className={`bi bi-circle-fill activity-badge ${item?.content?.includes("huỷ") ? 'text-danger' : item?.content?.includes("đặt") ? 'text-success' : 'text-primary'} align-self-start`} />
+                                                    <i className={`bi bi-circle-fill activity-badge ${item?.content?.includes("huỷ") ? 'text-danger' : item?.content?.includes("đặt") ? 'text-success' : item?.content?.includes("duyệt") ? 'text-warning' : 'text-primary'} align-self-start`} />
                                                     <div className="activity-content">
 
                                                         <a href={item.url} className="fw-bold text-dark"> {item.content}</a>
