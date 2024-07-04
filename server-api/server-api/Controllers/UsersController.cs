@@ -27,6 +27,12 @@ namespace server_api.Controllers
             return Ok(result);
         }
 
+        [HttpGet("CountCustomer")]
+        public async Task<IActionResult> CountCustomer()
+        {
+            var result = await _userRepository.CountCustomerAsync();
+            return Ok(result);
+        }
 
         [HttpPost]
         [Route("login")]

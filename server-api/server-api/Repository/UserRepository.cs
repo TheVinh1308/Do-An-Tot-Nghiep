@@ -46,6 +46,17 @@ namespace server_api.Repository
             return user;
         }
 
+        public async Task<int> CountCustomerAsync()
+        {
+            var role = await _roleManager.FindByNameAsync("user");
+            if (role == null)
+            {
+                return 0;
+            }
+
+            var usersInRole = await _userManager.GetUsersInRoleAsync("user");
+            return usersInRole.Count;
+        }
 
         public async Task<List<IdentityRole>> ListRole()
         {

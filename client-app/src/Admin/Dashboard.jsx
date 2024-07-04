@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Header from './Header';
 import Sidebar from './Sidebar';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Breadcrumb from './Breadcrumb';
 import Chart from 'chart.js/auto';
 import * as echarts from 'echarts';
@@ -60,9 +61,20 @@ const Dashboard = () => {
             }
         });
     }, []);
-
+    const [topBrand, setTopBrand] = useState([]);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/InvoiceDetails/GetTopSellInvoiceDetailByBrand`)
+            .then((res) => {
+                setTopBrand(res.data);
+            })
+    }, []);
+    console.log(`topBrand`, topBrand);
     useEffect(() => {
         const chart = echarts.init(document.querySelector("#trafficChart"));
+        const formattedData = topBrand.map(brand => ({
+            value: brand.totalQuantity,
+            name: brand.invoiceDetail.phone.modPhone.brand.name
+        }));
         chart.setOption({
             tooltip: {
                 trigger: 'item'
@@ -90,27 +102,7 @@ const Dashboard = () => {
                 labelLine: {
                     show: false
                 },
-                data: [{
-                    value: 1048,
-                    name: 'Apple'
-                },
-                {
-                    value: 735,
-                    name: 'Samsung'
-                },
-                {
-                    value: 580,
-                    name: 'Xiaomi'
-                },
-                {
-                    value: 484,
-                    name: 'Vivo'
-                },
-                {
-                    value: 300,
-                    name: 'Nokia'
-                }
-                ]
+                data: formattedData
             }]
         });
 
@@ -118,7 +110,7 @@ const Dashboard = () => {
         return () => {
             chart.dispose();
         };
-    }, []);
+    }, [topBrand]);
     const formatTimeDifference = (itemTime) => {
         const timeDifference = Date.now() - new Date(itemTime).getTime() - (7 * 3600 * 1000);
         const minutes = Math.floor(timeDifference / 60000);
@@ -141,7 +133,119 @@ const Dashboard = () => {
                 setNotificationAdmin(res.data)
             ))
     }, []);
+    const [topsellings, setTopsellings] = useState([]);
+    const [imgTopsell, setImgTopsell] = useState([]);
+    const [filter, setFilter] = useState('today'); // State để lưu trữ bộ lọc hiện tại
 
+    // Fetch data for Today
+    useEffect(() => {
+        if (filter === 'today') {
+            axios.get(`https://localhost:7258/api/InvoiceDetails/GetTopSellInvoiceDetail`)
+                .then((res) => {
+                    setTopsellings(res.data);
+                    fetchImages(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [filter]);
+
+    // Fetch data for This Month
+    useEffect(() => {
+        if (filter === 'thisMonth') {
+            axios.get(`https://localhost:7258/api/InvoiceDetails/GetTopSellInvoiceDetailByMonth`)
+                .then((res) => {
+                    setTopsellings(res.data);
+                    fetchImages(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [filter]);
+
+    // Fetch data for This Year
+    useEffect(() => {
+        if (filter === 'thisYear') {
+            axios.get(`https://localhost:7258/api/InvoiceDetails/GetTopSellInvoiceDetailByYear`)
+                .then((res) => {
+                    setTopsellings(res.data);
+                    fetchImages(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [filter]);
+
+    const fetchImages = (data) => {
+        const fetchImagesPromises = data.map((item) =>
+            axios.get(`https://localhost:7258/api/Images/${item.invoiceDetail?.phoneId}`)
+                .then((res) => {
+                    const imagePath = JSON.parse(res.data.path)[0];
+                    return imagePath;
+                })
+                .catch((error) => {
+                    console.error(`Error fetching image for phoneId ${item.invoiceDetail?.phoneId}:`, error);
+                    return null; // Return null in case of error
+                })
+        );
+
+        Promise.all(fetchImagesPromises)
+            .then((images) => {
+                setImgTopsell(images); // Set the array of image paths
+            })
+            .catch((error) => {
+                console.error('Error fetching images:', error);
+            });
+    };
+
+    // Function to handle selecting filter
+    const handleFilterSelect = (filter) => {
+        setFilter(filter);
+    };
+
+    const filterText = {
+        today: 'Today',
+        thisMonth: 'This Month',
+        thisYear: 'This Year'
+    };
+    // Render topsellings and imgTopsell accordingly in your JSX
+
+    // Customer
+    const [customer, setCustomer] = useState(0);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Users/CountCustomer`)
+            .then((res) => {
+                setCustomer(res.data);
+            })
+    }, [customer]);
+
+    // TotalPrice
+    const [totalPrice, setTotalPrice] = useState(0);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/InvoiceDetails/GetTotalPrice`)
+            .then((res) => {
+                setTotalPrice(res.data);
+            })
+    }, [totalPrice]);
+
+    // const handleFilterSelect = (filter) => {
+    //     switch (filter) {
+    //         case 'today':
+    //             setTopsellings(topsellings);
+    //             break;
+    //         case 'thisMonth':
+    //             setTopsellings(topsellingByMonth);
+    //             break;
+    //         case 'thisYear':
+    //             setTopsellings(topsellingByYear);
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // };
     return (
         <>
             <Header />
@@ -213,7 +317,7 @@ const Dashboard = () => {
                                                     <FontAwesomeIcon icon={faSackDollar} />
                                                 </div>
                                                 <div class="ps-3">
-                                                    <h6>$3,264</h6>
+                                                    <h6 style={{ fontSize: 20 }}>{(totalPrice).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h6>
                                                     <span class="text-success small pt-1 fw-bold">8%</span> <span
                                                         class="text-muted small pt-2 ps-1">increase</span>
 
@@ -249,7 +353,7 @@ const Dashboard = () => {
                                                     <FontAwesomeIcon icon={faChartSimple} />
                                                 </div>
                                                 <div class="ps-3">
-                                                    <h6>1244</h6>
+                                                    <h6>{customer}</h6>
                                                     <span class="text-danger small pt-1 fw-bold">12%</span> <span
                                                         class="text-muted small pt-2 ps-1">decrease</span>
 
@@ -262,7 +366,21 @@ const Dashboard = () => {
                                 </div>
                                 {/* BIỂU ĐÒ DOANH THU */}
                                 <div className="col-12">
+
+
                                     <div className="card">
+                                        <div class="filter">
+                                            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                <li class="dropdown-header text-start">
+                                                    <h6>Filter</h6>
+                                                </li>
+
+                                                <li><a class="dropdown-item" href="#">Today</a></li>
+                                                <li><a class="dropdown-item" href="#">This Month</a></li>
+                                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                                            </ul>
+                                        </div>
                                         <div className="card-body">
                                             <h5 className="card-title">Doanh Thu Theo Tuần</h5>
                                             <canvas id="barChart" ref={canvasRef} style={{ maxHeight: 400 }}></canvas>
@@ -278,13 +396,13 @@ const Dashboard = () => {
                                                 <li className="dropdown-header text-start">
                                                     <h6>Filter</h6>
                                                 </li>
-                                                <li><a className="dropdown-item" href="#">Today</a></li>
-                                                <li><a className="dropdown-item" href="#">This Month</a></li>
-                                                <li><a className="dropdown-item" href="#">This Year</a></li>
+                                                <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelect('today')}>Today</a></li>
+                                                <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelect('thisMonth')}>This Month</a></li>
+                                                <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelect('thisYear')}>This Year</a></li>
                                             </ul>
                                         </div>
                                         <div className="card-body pb-0">
-                                            <h5 className="card-title">Top Selling <span>| Today</span></h5>
+                                            <h5 className="card-title">Top Selling <span>| {filterText[filter]}</span></h5>
                                             <table className="table table-borderless">
                                                 <thead>
                                                     <tr>
@@ -296,41 +414,20 @@ const Dashboard = () => {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt /></a></th>
-                                                        <td><a href="#" className="text-primary fw-bold">Ut inventore ipsa voluptas nulla</a></td>
-                                                        <td>$64</td>
-                                                        <td className="fw-bold">124</td>
-                                                        <td>$5,828</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><a href="#"><img src="assets/img/product-2.jpg" alt /></a></th>
-                                                        <td><a href="#" className="text-primary fw-bold">Exercitationem similique doloremque</a></td>
-                                                        <td>$46</td>
-                                                        <td className="fw-bold">98</td>
-                                                        <td>$4,508</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><a href="#"><img src="assets/img/product-3.jpg" alt /></a></th>
-                                                        <td><a href="#" className="text-primary fw-bold">Doloribus nisi exercitationem</a></td>
-                                                        <td>$59</td>
-                                                        <td className="fw-bold">74</td>
-                                                        <td>$4,366</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><a href="#"><img src="assets/img/product-4.jpg" alt /></a></th>
-                                                        <td><a href="#" className="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>
-                                                        <td>$32</td>
-                                                        <td className="fw-bold">63</td>
-                                                        <td>$2,016</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><a href="#"><img src="assets/img/product-5.jpg" alt /></a></th>
-                                                        <td><a href="#" className="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>
-                                                        <td>$79</td>
-                                                        <td className="fw-bold">41</td>
-                                                        <td>$3,239</td>
-                                                    </tr>
+                                                    {
+                                                        topsellings.map((item, index) => (
+                                                            <tr key={index}>
+                                                                <th scope="row"><a href="#">   {imgTopsell[index] && (
+                                                                    <img src={`https://localhost:7258/images/products/${imgTopsell[index]}`} alt={item.invoiceDetail?.phone?.name} />
+                                                                )}</a></th>
+                                                                <td><a href="#" className="text-primary fw-bold">{item.invoiceDetail.phone?.name}</a></td>
+                                                                <td>{(item.invoiceDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+                                                                <td className="fw-bold">{item.totalQuantity}</td>
+                                                                <td>{((item.invoiceDetail.phone.price) * (item.totalQuantity)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+                                                            </tr>
+                                                        ))
+                                                    }
+
                                                 </tbody>
                                             </table>
                                         </div>

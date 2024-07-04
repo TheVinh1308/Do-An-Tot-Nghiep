@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import ShopContextProvider from './User/Context/ShopContext';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <GoogleOAuthProvider clientId="240006226320-qhsroo2ih8hoc18co07blj0bttpjtvbe.apps.googleusercontent.com">

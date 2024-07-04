@@ -530,6 +530,15 @@ h6 {
   /* Search Bar */
 }
 
+
+
+.sidebar.active {
+  /* Styles when sidebar is visible */
+  display: block;
+  left: 0;
+}
+
+
 .header .toggle-sidebar-btn {
   font-size: 32px;
   padding-left: 10px;

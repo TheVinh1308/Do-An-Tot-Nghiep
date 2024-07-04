@@ -44,6 +44,50 @@ namespace server_api.Controllers
             return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
         }
 
+        // lấy theo ngày
+        [HttpGet("GetTopSellInvoiceDetail")]
+        public async Task<IActionResult> GetTopSellInvoiceDetail()
+        {
+            var invoiceDetail = await _invoiceDetailRepository.GetTopSellInvoiceDetailAsync();
+
+            return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
+        }
+
+        // Lấy theo tháng
+        [HttpGet("GetTopSellInvoiceDetailByMonth")]
+        public async Task<IActionResult> GetTopSellInvoiceDetailByMonth()
+        {
+            var invoiceDetail = await _invoiceDetailRepository.GetTopSellInvoiceDetailByMonthAsync();
+
+            return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
+        }
+
+        // Lấy theo năm
+        [HttpGet("GetTopSellInvoiceDetailByYear")]
+        public async Task<IActionResult> GetTopSellInvoiceDetailByYear()
+        {
+            var invoiceDetail = await _invoiceDetailRepository.GetTopSellInvoiceDetailByYearAsync();
+
+            return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
+        }
+
+        [HttpGet("GetTotalPrice")]
+        public async Task<IActionResult> GetTotalPrice()
+        {
+            var invoiceDetail = await _invoiceDetailRepository.TotalPriceAsync();
+
+            return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
+        }
+
+
+        [HttpGet("GetTopSellInvoiceDetailByBrand")]
+        public async Task<IActionResult> GetTopSellInvoiceDetailByBrand()
+        {
+            var invoiceDetail = await _invoiceDetailRepository.GetTopSellInvoiceDetaiByBrandlAsync();
+
+            return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddInvoiceDetail([FromForm] InvoiceDetail invoiceDetail)
         {
