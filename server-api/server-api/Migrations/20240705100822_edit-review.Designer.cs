@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using server_api.Data;
 
@@ -11,9 +12,10 @@ using server_api.Data;
 namespace server_api.Migrations
 {
     [DbContext(typeof(EPhoneShopIdentityContext))]
-    partial class EPhoneShopIdentityContextModelSnapshot : ModelSnapshot
+    [Migration("20240705100822_edit-review")]
+    partial class editreview
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

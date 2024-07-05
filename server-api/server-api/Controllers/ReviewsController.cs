@@ -7,12 +7,12 @@ namespace server_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VotesController : Controller
+    public class ReviewsController : Controller
     {
-        private readonly IVoteRepository _voteRepository;
-        public VotesController(IVoteRepository repository)
+        private readonly IReviewRepository _reviewRepository;
+        public ReviewsController(IReviewRepository repository)
         {
-            _voteRepository = repository;
+            _reviewRepository = repository;
         }
 
         [HttpGet]
@@ -20,7 +20,7 @@ namespace server_api.Controllers
         {
             try
             {
-                return Ok(await _voteRepository.GetAllVoteAsync());
+                return Ok(await _reviewRepository.GetAllReviewAsync());
             }
             catch (Exception ex)
             {
@@ -31,16 +31,16 @@ namespace server_api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetVoteById(int id)
         {
-            var vote = await _voteRepository.GetVoteAsync(id);
+            var vote = await _reviewRepository.GetReviewAsync(id);
             return vote == null ? NotFound() : Ok(vote);
         }
         [HttpPost]
-        public async Task<IActionResult> AddNewVote(Vote vote)
+        public async Task<IActionResult> AddNewVote([FromForm]Review review)
         {
             try
             {
-                var newVote = await _voteRepository.InsertVoteAsync(vote);
-                return CreatedAtAction(nameof(GetVoteById), new { vote }, vote);
+                var newVote = await _reviewRepository.InsertReviewAsync(review);
+                return CreatedAtAction(nameof(GetVoteById), new { review.Id }, review);
             }
             catch
             {

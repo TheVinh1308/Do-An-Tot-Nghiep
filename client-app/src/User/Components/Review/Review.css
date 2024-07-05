@@ -1,0 +1,12 @@
+.stars{
+    height: 50px;
+}
+.stars > span {
+    cursor: pointer;
+    border: none;
+    font-size: 40px;
+
+}
+.selecte {
+    color: yellow;
+}
