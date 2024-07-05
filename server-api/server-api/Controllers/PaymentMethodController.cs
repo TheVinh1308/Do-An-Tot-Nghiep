@@ -1,5 +1,7 @@
 ﻿using API_Server.Models;
 using Microsoft.AspNetCore.Mvc;
+using Server.Models.Momo;
+using Server.Services;
 using server_api.Interface;
 using server_api.Models;
 
@@ -10,9 +12,11 @@ namespace server_api.Controllers
     public class PaymentMethodController : Controller
     {
         private readonly IPaymentMethodRepository _paymentMethodRepository;
-        public PaymentMethodController(IPaymentMethodRepository repository)
+        private IMomoService _momoService;
+        public PaymentMethodController(IPaymentMethodRepository repository, IMomoService momoService)
         {
             _paymentMethodRepository = repository;
+            _momoService = momoService;
         }
 
         [HttpGet]
@@ -47,7 +51,34 @@ namespace server_api.Controllers
                 return BadRequest();
             }
         }
-       
 
+        [HttpPost]
+        [Route("MoMo")]
+        public async Task<IActionResult> CreatePaymentUrl([FromQuery] string fullName, [FromQuery] double amount)
+        {
+            try
+            {
+                var response = await _momoService.CreatePaymentAsync(fullName, amount);
+                var jsonResponse = new { url = response.PayUrl };
+                return Ok(jsonResponse);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { ErrorMessage = "An error occurred while processing the request." });
+            }
+        }
+
+
+        [HttpGet]
+        [Route("ConfirmPayment")]
+        public IActionResult PaymentCallBack([FromQuery] MomoExecuteResponseModel responseMoMo, string id)
+        {
+            string errorCode = responseMoMo.errorCode;
+            string orderId = responseMoMo.orderId;
+            string amount = responseMoMo.amount;
+            string date = responseMoMo.responseTime;
+
+            return Redirect($"http://localhost:3000/paymentconfirm?errorcode={Uri.EscapeDataString(errorCode)}&orderid={Uri.EscapeDataString(orderId)}&amount={Uri.EscapeDataString(amount)}&date={Uri.EscapeDataString(date)}");
+        }
     }
 }

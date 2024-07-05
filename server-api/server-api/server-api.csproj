@@ -21,10 +21,12 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
     <PackageReference Include="MimeKit" Version="4.7.0" />
+    <PackageReference Include="RestSharp" Version="111.3.1-alpha.0.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Services\Momo\" />
     <Folder Include="wwwroot\Images\baner\" />
     <Folder Include="wwwroot\images\brands\" />
     <Folder Include="wwwroot\images\modPhones\" />
