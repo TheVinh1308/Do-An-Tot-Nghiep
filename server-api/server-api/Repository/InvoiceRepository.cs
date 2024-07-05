@@ -31,20 +31,25 @@ namespace server_api.Repository
         {
             var invoices = await _context.Invoices
                 .Include(i=>i.User)
+                .Include(i=>i.PaymentMethod)
                 .ToListAsync();
             return invoices;
         }
 
         public async Task<Invoice> GetInvoiceAsync(int id)
         {
-            var invoice = await _context.Invoices.SingleOrDefaultAsync(x => x.Id == id);
+            var invoice = await _context.Invoices
+                 .Include(i => i.PaymentMethod)
+                .SingleOrDefaultAsync(x => x.Id == id);
             return invoice;
         }
 
 
         public async Task<List<Invoice>> GetInvoiceByUserIdAsync(string userId)
         {
-            var invoice = await _context.Invoices.Where(i=>i.UserId == userId).ToListAsync();
+            var invoice = await _context.Invoices
+                 .Include(i => i.PaymentMethod)
+                .Where(i=>i.UserId == userId).ToListAsync();
 
             return invoice;
         }

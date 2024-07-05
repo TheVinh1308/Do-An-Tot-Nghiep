@@ -32,6 +32,8 @@ namespace API_Server.Models
         //public int PaymentMethodId { get; set; }
         //public PaymentMethod PaymentMethod { get; set; }
 
+
+
         public int Status { get; set; }
 
        

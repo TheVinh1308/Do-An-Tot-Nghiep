@@ -79,11 +79,29 @@ namespace server_api.Controllers
             return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
         }
 
-
+        // Lấy theo ngày
         [HttpGet("GetTopSellInvoiceDetailByBrand")]
         public async Task<IActionResult> GetTopSellInvoiceDetailByBrand()
         {
             var invoiceDetail = await _invoiceDetailRepository.GetTopSellInvoiceDetaiByBrandlAsync();
+
+            return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
+        }
+
+        // Lấy theo tháng
+        [HttpGet("GetTopSellInvoiceDetailByBrandForMonth")]
+        public async Task<IActionResult> GetTopSellInvoiceDetailByBrandForMonth()
+        {
+            var invoiceDetail = await _invoiceDetailRepository.GetTopSellInvoiceDetaiByBrandlForMonthAsync();
+
+            return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
+        }
+
+        // Lấy theo năm
+        [HttpGet("GetTopSellInvoiceDetailByBrandForYear")]
+        public async Task<IActionResult> GetTopSellInvoiceDetailByBrandForYear()
+        {
+            var invoiceDetail = await _invoiceDetailRepository.GetTopSellInvoiceDetaiByBrandlForYearAsync();
 
             return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
         }

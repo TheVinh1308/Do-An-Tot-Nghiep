@@ -19,7 +19,14 @@ namespace server_api.Interface
         Task<List<TopSellingInvoiceDetail>> GetTopSellInvoiceDetailByMonthAsync();
         // Lấy theo năm
         Task<List<TopSellingInvoiceDetail>> GetTopSellInvoiceDetailByYearAsync();
+
+        // Lấy theo ngày
         Task<List<TopSellingInvoiceDetail>> GetTopSellInvoiceDetaiByBrandlAsync();
+        // Lấy theo tháng
+        Task<List<TopSellingInvoiceDetail>> GetTopSellInvoiceDetaiByBrandlForMonthAsync();
+
+        // Lấy theo năm
+        Task<List<TopSellingInvoiceDetail>> GetTopSellInvoiceDetaiByBrandlForYearAsync();
         Task<int> TotalPriceAsync();
     }
 }

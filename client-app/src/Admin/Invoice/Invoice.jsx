@@ -115,9 +115,10 @@ const Invoice = () => {
             case 1:
                 return "Tiền mặt";
             case 2:
-                return "MOMO";
-            default:
                 return "VNPay";
+            default:
+
+                return "MOMO";
         }
     };
 

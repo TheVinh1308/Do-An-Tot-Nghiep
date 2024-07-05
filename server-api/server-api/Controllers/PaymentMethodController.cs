@@ -51,34 +51,47 @@ namespace server_api.Controllers
                 return BadRequest();
             }
         }
-
         [HttpPost]
         [Route("MoMo")]
-        public async Task<IActionResult> CreatePaymentUrl([FromQuery] string fullName, [FromQuery] double amount)
+        public async Task<IActionResult> CreatePaymentUrl([FromForm] string fullName, [FromForm] double amount)
         {
             try
             {
+                // Log request data
+                Console.WriteLine($"Received payment request: fullName={fullName}, amount={amount}");
+
                 var response = await _momoService.CreatePaymentAsync(fullName, amount);
+
+                // Log response data
+                Console.WriteLine($"Payment response: PayUrl={response.PayUrl}");
+
                 var jsonResponse = new { url = response.PayUrl };
                 return Ok(jsonResponse);
             }
             catch (Exception ex)
             {
+                // Log the exception message and stack trace
+                Console.WriteLine($"Error in CreatePaymentUrl: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
+
                 return StatusCode(500, new { ErrorMessage = "An error occurred while processing the request." });
             }
         }
 
 
+
         [HttpGet]
         [Route("ConfirmPayment")]
-        public IActionResult PaymentCallBack([FromQuery] MomoExecuteResponseModel responseMoMo, string id)
+        public IActionResult PaymentCallBack([FromQuery] MomoExecuteResponseModel responseMoMo)
         {
             string errorCode = responseMoMo.errorCode;
             string orderId = responseMoMo.orderId;
             string amount = responseMoMo.amount;
             string date = responseMoMo.responseTime;
 
+            // Redirect back to your React frontend with query parameters
             return Redirect($"http://localhost:3000/paymentconfirm?errorcode={Uri.EscapeDataString(errorCode)}&orderid={Uri.EscapeDataString(orderId)}&amount={Uri.EscapeDataString(amount)}&date={Uri.EscapeDataString(date)}");
         }
+
     }
 }

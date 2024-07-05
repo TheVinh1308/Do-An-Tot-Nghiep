@@ -43,13 +43,15 @@ const InvoiceDetail = () => {
     const getStatusBadge = (status) => {
         switch (status) {
             case 1:
-                return <Badge bg="secondary" style={{ color: 'black' }}>Đang xác nhận</Badge>;
+                return <Badge bg="warning">Đang xác nhận</Badge>;
             case 2:
                 return <Badge bg="info">Đang giao</Badge>;
             case 3:
                 return <Badge bg="success">Hoàn thành</Badge>;
-            default:
+            case 4:
                 return <Badge bg="danger">Đã huỷ</Badge>;
+            default:
+                return <Badge bg="primary">Đã thanh toán</Badge>;
         }
     };
 
@@ -78,9 +80,10 @@ const InvoiceDetail = () => {
                             <div className="row">
                                 <div className="col-xl-8">
                                     <ul className="list-unstyled">
-                                        <li className="text-muted"><i className="bi bi-person-circle"></i>Tên người dùng: <span style={{ color: '#5d9fc5' }}>{userName}</span></li>
+                                        <li className="text-muted fw-bold"><i className="bi bi-person-circle"></i>Tên người dùng: <span style={{ color: '#5d9fc5' }}>{userName}</span></li>
                                         <li className="text-muted"><i className="bi bi-geo-alt-fill"></i>Địa chỉ: {invoice.shippingAddress}</li>
                                         <li className="text-muted"><i className="bi bi-telephone"></i>Số điện thoại: {invoice.shippingPhone}</li>
+                                        <li className="text-muted"><i class="bi bi-cash-coin"></i>Phương thức thanh toán: {invoice.paymentMethod?.name}</li>
                                     </ul>
                                 </div>
                                 <div className="col-xl-4">
