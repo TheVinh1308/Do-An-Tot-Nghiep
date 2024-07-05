@@ -36,7 +36,7 @@ namespace server_api.Data
 
         public DbSet<SlideShow> SlideShows { get; set; } = default!;
 
-        public DbSet<Vote> Votes { get; set; } = default!;
+        public DbSet<Review> Reviews { get; set; } = default!;
 
         public DbSet<Historys> Historys { get; set; } = default!;
 

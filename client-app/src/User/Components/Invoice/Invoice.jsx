@@ -10,6 +10,7 @@ import InvoiceDetail from "./InvoiceDetail";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { Link } from "react-router-dom";
+import Review from "../Review/Review";
 
 const Invoice = () => {
     const [loadData, setLoadData] = useState(false);
@@ -33,6 +34,7 @@ const Invoice = () => {
         setCancelReasons({}); // Reset cancel reasons when opening modal
     };
     const [cancelReasons, setCancelReasons] = useState({});
+  
 
     useEffect(() => {
         const token = localStorage.getItem('jwt');
@@ -174,33 +176,39 @@ const Invoice = () => {
                             <div className="content" key={index}>
                                 <Link to={`InvoiceDetail/${item.id}`}>
 
-                                    <Row className="head-content">
-                                        <Col>#{item.code}</Col>
-                                        <Col>{handleTT(item.status)}</Col>
-                                    </Row>
                                     {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                        indexDetail === 0 && (
                                         <>
+                                            <Row className="head-content">
+                                                <Col>#{item.code}</Col>
+                                                <Col>{handleTT(item.status)}</Col>
+                                                <p  style={{color: "red"}}>Gồm {(invoiceDetails[item.id]).length} sản phẩm</p>
+                                            </Row>
                                             <Row key={indexDetail} className="body-content">
                                                 <Col md={4}>
                                                     <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
+                                                   
                                                 </Col>
                                                 <Col md={8}>
-                                                    <h4>{itemDetail.phone.name}</h4>
-                                                    <p>{itemDetail.phone.modPhone.description}</p>
-                                                    <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
-                                                    <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
+                                               
+                                                    <h4 style={{color: "black"}}>{itemDetail.phone.name}</h4>
+                                                    <p  style={{color: "black"}}>{itemDetail.phone.modPhone.description}</p>
+                                                    <p  style={{color: "black"}}>Màu: {itemDetail.phone.color}, Dung lượng:  {itemDetail.phone.rom} GB</p>
+                                                    <p style={{color: "red"}}>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x{itemDetail.quantity}</p>
 
                                                 </Col>
+                                                
                                             </Row>
                                             <hr />
+                                            
                                         </>
+                                        )
 
                                     ))}
                                 </Link>
                                 <Row>
-                                    <Col>
-                                    </Col>
                                     <Col className="btn-content">
+                                        
                                         {
                                             item.status == 4 ?
                                                 <>
@@ -216,7 +224,9 @@ const Invoice = () => {
                                                         </>
                                                         : <>
                                                             <Button>Mua lại</Button>
-                                                            <Button>Viết đánh giá</Button>
+                                                            <Link to={`InvoiceDetail/${item.id}`}>
+                                                                <Button>Viết đánh giá</Button>
+                                                            </Link>
                                                         </>
                                         }
                                     </Col>
@@ -231,12 +241,15 @@ const Invoice = () => {
 
                         <div className="content" key={index}>
                             <Link to={`InvoiceDetail/${item.id}`}>
-                                <Row className="head-content">
-                                    <Col>#{item.code}</Col>
-                                    <Col>{handleTT(item.status)}</Col>
-                                </Row>
+                              
                                 {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                    indexDetail === 0 && (
                                     <>
+                                     <Row className="head-content">
+                                                <Col>#{item.code}</Col>
+                                                <Col>{handleTT(item.status)}</Col>
+                                                <p  style={{color: "red"}}>Gồm {(invoiceDetails[item.id]).length} sản phẩm</p>
+                                            </Row>
                                         <Row key={indexDetail} className="body-content">
 
                                             <Col md={4}>
@@ -252,6 +265,7 @@ const Invoice = () => {
                                         </Row>
                                         <hr />
                                     </>
+                                    )
                                 ))}
                             </Link>
                             <Row>
@@ -287,12 +301,15 @@ const Invoice = () => {
 
                         <div className="content" key={index}>
                             <Link to={`InvoiceDetail/${item.id}`}>
-                                <Row className="head-content">
-                                    <Col>#{item.code}</Col>
-                                    <Col>{handleTT(item.status)}</Col>
-                                </Row>
+                               
                                 {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                    indexDetail === 0 && (
                                     <>
+                                         <Row className="head-content">
+                                                <Col>#{item.code}</Col>
+                                                <Col>{handleTT(item.status)}</Col>
+                                                <p  style={{color: "red"}}>Gồm {(invoiceDetails[item.id]).length} sản phẩm</p>
+                                            </Row>
                                         <Row key={indexDetail} className="body-content">
 
                                             <Col md={4}>
@@ -308,6 +325,7 @@ const Invoice = () => {
                                         </Row>
                                         <hr />
                                     </>
+                                    )
                                 ))}
                             </Link>
                             <Row>
@@ -344,12 +362,15 @@ const Invoice = () => {
 
                         <div className="content" key={index}>
                             <Link to={`InvoiceDetail/${item.id}`}>
-                                <Row className="head-content">
-                                    <Col>#{item.code}</Col>
-                                    <Col>{handleTT(item.status)}</Col>
-                                </Row>
+                               
                                 {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                    indexDetail === 0 && (
                                     <>
+                                     <Row className="head-content">
+                                                <Col>#{item.code}</Col>
+                                                <Col>{handleTT(item.status)}</Col>
+                                                <p  style={{color: "red"}}>Gồm {(invoiceDetails[item.id]).length} sản phẩm</p>
+                                            </Row>
                                         <Row key={indexDetail} className="body-content">
 
                                             <Col md={4}>
@@ -365,6 +386,7 @@ const Invoice = () => {
                                         </Row>
                                         <hr />
                                     </>
+                                    )
                                 ))}
                             </Link>
                             <Row>
@@ -401,12 +423,15 @@ const Invoice = () => {
 
                         <div className="content" key={index}>
                             <Link to={`InvoiceDetail/${item.id}`}>
-                                <Row className="head-content">
-                                    <Col>#{item.code}</Col>
-                                    <Col>{handleTT(item.status)}</Col>
-                                </Row>
+                              
                                 {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                    indexDetail === 0 && (
                                     <>
+                                     <Row className="head-content">
+                                                <Col>#{item.code}</Col>
+                                                <Col>{handleTT(item.status)}</Col>
+                                                <p  style={{color: "red"}}>Gồm {(invoiceDetails[item.id]).length} sản phẩm</p>
+                                            </Row>
                                         <Row key={indexDetail} className="body-content">
 
                                             <Col md={4}>
@@ -422,32 +447,35 @@ const Invoice = () => {
                                         </Row>
                                         <hr />
                                     </>
+                                    )
                                 ))}
                             </Link>
                             <Row>
-                                <Col>
-                                </Col>
                                 <Col className="btn-content">
                                     {
                                         item.status == 4 ?
                                             <>
                                                 <Button>Mua lại</Button>
                                             </> :
-                                            item.status == 1 ?
-                                                <>
-                                                    <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
-                                                </>
-                                                : item.status == 2 ?
+                                                item.status == 1 ?
+                                                    <>
+                                                        <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
+                                                    </>
+                                                    : item.status == 2 ?
                                                     <>
 
                                                     </>
-                                                    : <>
-                                                        <Button>Mua lại</Button>
+                                                    : 
+                                                    <>
+                                                    <Button>Mua lại</Button>
+                                                    <Link to={`InvoiceDetail/${item.id}`}>
                                                         <Button>Viết đánh giá</Button>
+                                                    </Link>
                                                     </>
-                                    }
-                                </Col>
-                            </Row>
+                                                }
+                                            </Col>
+                                        </Row>
+                           
                         </div>
 
                     ))}
@@ -487,6 +515,41 @@ const Invoice = () => {
                     <button type="submit" className="btn btn-success" onClick={handleCancelInvoice} disabled={!isAnyReasonSelected}>Xác nhận hủy</button>
                 </Modal.Footer>
             </Modal>
+
+             <Modal fullscreen show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title className="add-title">Chi tiết hoá đơn</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <InvoiceDetail invoiceId={invoiceId} />
+                </Modal.Body>
+            </Modal>
+
+            <Modal size="lg" show={showReason} onHide={handleCloseReason}>
+                <Modal.Header closeButton>
+                    <Modal.Title className="add-title">Lý do hủy đơn hàng</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div>
+                        <input type="checkbox" className="chk" onChange={() => handleCancelReasonChange('Cập nhật số lượng')} />
+                        <span className="text">Cập nhật số lượng</span> <br />
+                        <input type="checkbox" className="chk" onChange={() => handleCancelReasonChange('Thay đổi số điện thoại')} />
+                        <span className="text">Thay đổi số điện thoại</span> <br />
+                        <input type="checkbox" className="chk" onChange={() => handleCancelReasonChange('Thay đổi địa chỉ nhận hàng')} />
+                        <span className="text">Thay đổi địa chỉ nhận hàng</span> <br />
+                        <input type="checkbox" className="chk" onChange={() => handleCancelReasonChange('Chọn nhầm sản phẩm')} />
+                        <span className="text">Chọn nhầm sản phẩm</span>  <br />
+                        <input type="checkbox" className="chk" onChange={() => handleCancelReasonChange('Khác')} />
+                        <span className="text"  >Khác</span>
+                    </div>
+
+                </Modal.Body>
+                <Modal.Footer>
+                    <button type="submit" className="btn btn-success" onClick={handleCancelInvoice} disabled={!isAnyReasonSelected}>Xác nhận hủy</button>
+                </Modal.Footer>
+            </Modal>
+
+         
         </>
     );
 };

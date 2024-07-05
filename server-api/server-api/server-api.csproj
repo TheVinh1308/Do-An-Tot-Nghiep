@@ -31,6 +31,7 @@
     <Folder Include="wwwroot\images\brands\" />
     <Folder Include="wwwroot\images\modPhones\" />
     <Folder Include="wwwroot\images\image\" />
+    <Folder Include="wwwroot\images\reviews\" />
   </ItemGroup>
 
 </Project>

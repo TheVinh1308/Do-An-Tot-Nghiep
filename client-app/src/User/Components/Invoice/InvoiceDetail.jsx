@@ -2,9 +2,11 @@ import axios from "axios";
 import { format } from "date-fns";
 import { jwtDecode } from "jwt-decode";
 import { useEffect, useState, useRef } from "react";
-import { Badge } from "react-bootstrap";
+import { Badge, Modal } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useReactToPrint } from 'react-to-print';
+import Review from "../Review/Review";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const InvoiceDetail = () => {
     const { id } = useParams();
@@ -12,6 +14,15 @@ const InvoiceDetail = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userName, setUserName] = useState();
     const [phoneUser, setPhoneUser] = useState();
+
+    //review
+    const [selectedInvoiceRV, setSelectedInvoicRV] = useState(null);
+    const [showReview, setShowReview] = useState(false);
+    const handleCloseReview = () => setShowReview(false);
+    const handleShowReview = (modPhone) => {
+        setShowReview(true);
+        setSelectedInvoicRV(modPhone);
+    };
     useEffect(() => {
         const token = localStorage.getItem('jwt');
         if (token) {
@@ -54,6 +65,8 @@ const InvoiceDetail = () => {
                 return <Badge bg="primary">Đã thanh toán</Badge>;
         }
     };
+
+
 
 
 
@@ -108,6 +121,7 @@ const InvoiceDetail = () => {
                                             <th scope="col">Số lượng</th>
                                             <th scope="col">Unit Price</th>
                                             <th scope="col">Amount</th>
+                                            <th scope="col">Đánh giá</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -121,6 +135,11 @@ const InvoiceDetail = () => {
                                                 <td>{item.quantity}</td>
                                                 <td>{(item.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
                                                 <td>{(item.quantity * item.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+                                                <td>
+                                                    <button className="btn btn-warning" onClick={() => handleShowReview(item.phone.modPhone.id)}>
+                                                        <i class="fa fa-comment"></i>
+                                                    </button>
+                                                </td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -154,6 +173,15 @@ const InvoiceDetail = () => {
                     </div>
                 </div>
             </div>
+
+            <Modal size="lg" show={showReview} onHide={handleCloseReview}>
+                <Modal.Header closeButton>
+                    <Modal.Title className="add-title">Đánh giá sản phẩm</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                   <Review userId={userId} modPhoneId={selectedInvoiceRV}/>
+                </Modal.Body>
+            </Modal>
         </>
     );
 }
