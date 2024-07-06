@@ -133,9 +133,15 @@ const InvoiceDetail = () => {
                                                 <td>{(item.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
                                                 <td>{(item.quantity * item.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
                                                 <td>
-                                                    <button className="btn btn-warning" onClick={() => handleShowReview(item.phone.modPhone.id)}>
-                                                        <i class="fa fa-comment"></i>
-                                                    </button>
+                                                    {
+                                                        invoice.status == 3 && (
+                                                            <button className="btn btn-warning" onClick={() => handleShowReview(item.phone.modPhone.id)}>
+                                                                <i class="fa fa-comment"></i>
+                                                            </button>
+
+                                                        )
+
+                                                    }
                                                 </td>
                                             </tr>
                                         ))}

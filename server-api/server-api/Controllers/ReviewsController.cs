@@ -34,6 +34,13 @@ namespace server_api.Controllers
             var vote = await _reviewRepository.GetReviewAsync(id);
             return vote == null ? NotFound() : Ok(vote);
         }
+        [HttpGet]
+        [Route("GetReviewByModPhone/{modphoneId}")]
+        public async Task<IActionResult> GetReviewByModPhone(int modphoneId)
+        {
+            var vote = await _reviewRepository.GetReviewByModPhone(modphoneId);
+            return vote == null ? NotFound() : Ok(vote);
+        }
         [HttpPost]
         public async Task<IActionResult> AddNewVote([FromForm]Review review)
         {

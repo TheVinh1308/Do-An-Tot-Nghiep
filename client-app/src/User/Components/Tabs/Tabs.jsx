@@ -1,5 +1,6 @@
 import Commnent from "../Comment/Comment";
 import Config from "../Config/Config";
+import ReviewDisplay from "../ReviewDisplay/ReviewDisplay";
 import "./Tabs.css"
 const Tabs = ({selectedPhone,isAuthenticated,userId,userName}) => {
   return (
@@ -27,7 +28,7 @@ const Tabs = ({selectedPhone,isAuthenticated,userId,userName}) => {
           />
           <label htmlFor="tab2">
             <i className="icon-picture" />
-            da Vinci
+              Đánh giá
           </label>
           <input
             type="radio"
@@ -54,7 +55,7 @@ const Tabs = ({selectedPhone,isAuthenticated,userId,userName}) => {
                 <Commnent selectedPhone={selectedPhone} isAuthenticated={isAuthenticated} userId={userId} userName={userName}/>
             </li>
             <li className="tab-content tab-content-2 typography">
-             
+                <ReviewDisplay selectedPhone={selectedPhone} isAuthenticated={isAuthenticated} userId={userId} userName={userName}/>
             </li>
             <li className="tab-content tab-content-3 typography">
               <Config selectedPhone={selectedPhone} />
