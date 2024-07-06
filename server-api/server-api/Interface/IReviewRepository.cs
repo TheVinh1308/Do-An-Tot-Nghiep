@@ -10,5 +10,7 @@ namespace server_api.Interface
         Task<Review> GetReviewAsync(int id);
         Task<Review> InsertReviewAsync([FromForm]Review vote);
         Task UpdateReviewAsync(int voteId, Review vote);
+
+        Task<List<Review>> GetReviewByModPhone(int modphoneId);
     }
 }

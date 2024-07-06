@@ -18,6 +18,10 @@ delete from Invoices
 DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.Invoices', RESEED, 0);
 go
 
+delete from InvoiceDetails
+DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.InvoiceDetails', RESEED, 0);
+go
+
 delete from ModPhones
 DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.ModPhones', RESEED, 0);
 go

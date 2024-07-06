@@ -39,6 +39,15 @@ namespace server_api.Repository
             return vote;
         }
 
+        public async Task<List<Review>> GetReviewByModPhone(int modphoneId)
+        {
+            var votes = await _context.Reviews.Include(p => p.User)
+               .Where(i => i.ModPhoneId == modphoneId)
+               .ToListAsync();
+
+            return votes;
+        }
+
         public async Task<Review> InsertReviewAsync([FromForm]Review review)
         {
             if (review.ImageFile != null && review.ImageFile.Length > 0)

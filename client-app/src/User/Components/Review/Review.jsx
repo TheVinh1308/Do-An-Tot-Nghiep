@@ -1,18 +1,31 @@
 import { Col, Row } from "react-bootstrap";
 import "./Review.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 const Review = ({userId, modPhoneId}) => {
 
     const [imageSrc, setImageSrc] = useState();
     const [review, setReview] = useState({ status: true, ImageFile: null });
     const [selectedStarCount, setSelectedStarCount] = useState(0);
+    const [reviews, setReviews] = useState([]);
+    const [rate, setRate] = useState([]);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Reviews/GetReviewByModPhone/${modPhoneId}`)
+            .then(res => {
+                setReviews(res.data);
+            });
+    }, []); 
+    
+
+    
+
+    
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         file.preview = URL.createObjectURL(file);
         setImageSrc(file)
-        setReview(prev => ({ ...prev, LogoFile: e.target.files[0] }));
+        setReview(prev => ({ ...prev, ImageFile: e.target.files[0] }));
     }
 
     const handleChange = (e) => {
@@ -37,6 +50,10 @@ const Review = ({userId, modPhoneId}) => {
         .then(() => alert("đã thêm đánh giá"))
         .catch((err) => console.log("lỗi thêm đánh giá",err));
     }
+
+   
+    
+
     return ( 
         <>
            <form className="form-modphone g-3" onSubmit={handleSubmit}>
