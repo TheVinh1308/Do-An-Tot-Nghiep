@@ -21,7 +21,7 @@ namespace Server.Services
         {
             _options = options;
         }
-        public async Task<MomoCreatePaymentResponseModel> CreatePaymentAsync(string fullName, double amount)
+        public async Task<MomoCreatePaymentResponseModel> CreatePaymentAsync([FromForm] string fullName, [FromForm] double amount)
         {
             string OrderId = DateTime.UtcNow.Ticks.ToString();
             string OrderInfo = "Khách hàng: " + fullName + " thanh toán đơn hàng qua MoMo";
@@ -34,7 +34,6 @@ namespace Server.Services
             var request = new RestRequest() { Method = RestSharp.Method.Post };
             request.AddHeader("Content-Type", "application/json; charset=UTF-8");
 
-            // Create an object representing the request data
             var requestData = new
             {
                 accessKey = _options.Value.AccessKey,
@@ -54,8 +53,34 @@ namespace Server.Services
 
             var response = await client.ExecuteAsync(request);
 
-            return JsonConvert.DeserializeObject<MomoCreatePaymentResponseModel>(response.Content);
+            // Log the entire response for debugging purposes
+            Console.WriteLine("Momo API response content: " + response.Content);
+            Console.WriteLine("Momo API response status: " + response.StatusCode);
+
+            if (response.IsSuccessful)
+            {
+                try
+                {
+                    var paymentResponse = JsonConvert.DeserializeObject<MomoCreatePaymentResponseModel>(response.Content);
+                    if (paymentResponse == null || string.IsNullOrEmpty(paymentResponse.PayUrl))
+                    {
+                        throw new Exception("Payment URL is null or empty");
+                    }
+                    return paymentResponse;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error deserializing Momo response: " + ex.Message);
+                    throw;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Momo API request failed: " + response.ErrorMessage);
+                throw new Exception("Failed to create Momo payment");
+            }
         }
+
 
         public MomoExecuteResponseModel PaymentExecuteAsync(IQueryCollection collection)
         {

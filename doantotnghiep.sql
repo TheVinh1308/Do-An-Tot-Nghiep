@@ -38,6 +38,24 @@ delete from Images
 DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.Images', RESEED, 0);
 go
 
+delete from PaymentMethods
+DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.PaymentMethods', RESEED,0);
+go
+
+delete from Notifications
+DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.Notifications', RESEED,0);
+go
+
+
+delete from NotificationsAdmins
+DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.NotificationsAdmins', RESEED,0);
+go
+
+--======================= PaymentMethods ==================
+insert into PaymentMethods values ( 'COD',  1);
+insert into PaymentMethods values ( 'VNPay',  1);
+insert into PaymentMethods values ( 'MOMO', 1);
+
 -- ============================ BRAND ==============================
 -- BRAND APPLE
 insert into Brands values ( 'iPhone', 'iPhone.png', 1, GETDATE())
