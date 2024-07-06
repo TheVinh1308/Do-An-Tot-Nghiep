@@ -521,7 +521,7 @@ const Pay = () => {
                                             id="kh_diachi"
                                             required
                                             placeholder="Nhập địa chỉ"
-                                            value={formData.shippingAddress}
+                                            value={formData.shippingAddress || localStorage.getItem('shippingAddress')}
                                             onChange={handleChange}
                                         />
                                     </div>
@@ -534,14 +534,14 @@ const Pay = () => {
                                             id="kh_dienthoai"
                                             required
                                             placeholder="Nhập số điện thoại"
-                                            value={formData.shippingPhone}
+                                            value={formData.shippingPhone || localStorage.getItem('shippingPhone')}
                                             onChange={handleChange}
                                         />
                                     </div>
-                                    <div className="col-md-12 in-cus">
+                                    {/* <div className="col-md-12 in-cus">
                                         <label htmlFor="kh_email">Email</label>
                                         <input type="text" className="form-control" name="kh_email" id="kh_email" readOnly />
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <hr />
                                 <h4 className="mb-3">Hình thức thanh toán</h4>
