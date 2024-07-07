@@ -183,6 +183,12 @@ const CartItems = () => {
         }
     };
 
+    const [images, setImages] = useState([]);
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Images`).then((res) => setImages(res.data))
+        .catch((err) => console.log("Loi lay du lieu: ",err))
+    })
+
     return (
         <>
             <div className="cart-total">
@@ -215,7 +221,13 @@ const CartItems = () => {
                                     }
                                 </Col>
                                 <Col md={3} className="cart-item-img">
-                                    <img src={`https://localhost:7258/images/products/${item.phone.modPhone.image}`} alt="" />
+                                    {
+                                        images.map((itemImage, imageIndex) => (
+                                            item.phoneId === itemImage.phoneId && (
+                                                <img src={`https://localhost:7258/images/products/${JSON.parse(itemImage.path)[0]}`} alt="" />
+                                            )
+                                        ))
+                                    }
                                 </Col>
                                 <Col md={6}>
                                     <Row>
@@ -235,9 +247,9 @@ const CartItems = () => {
                                         </Col>
                                     </Row>
                                     <hr />
-                                    <Button className="btn-color">Màu sắc: {item.phone.color}</Button>
-                                    <Button className="btn-rom">Dung lượng: {item.phone.rom}GB</Button>
-                                    <Button className="btn-trash" onClick={() => handleDelete(item.id)}><i className="bi bi-trash2"></i></Button>
+                                    <span className="" style={{marginRight: 30}}>Màu sắc: {item.phone.color}</span>
+                                    <span className="">Dung lượng: {item.phone.rom}GB</span>
+                                    <Button className="btn-trash bg-danger" onClick={() => handleDelete(item.id)}><i className="bi bi-trash2"></i></Button>
                                 </Col>
                                 <Col md={2}>
                                     <h3>{(item.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h3>
