@@ -253,10 +253,13 @@ const Pay = () => {
 
     useEffect(() => {
         const queryString = window.location.search;
-        const invoice_Id = localStorage.getItem("invoiceId")
         setQuery(queryString);
         const urlParams = new URLSearchParams(queryString);
         const transactionStatus = urlParams.get('vnp_TransactionStatus');
+        const invoice_Id = localStorage.getItem("invoiceId")
+        let issuedDate = new Date();
+issuedDate.setHours(issuedDate.getHours() + 7);
+issuedDate = issuedDate.toISOString();
         if (transactionStatus === '00') {
             try {
 
@@ -266,7 +269,7 @@ const Pay = () => {
                     shippingPhone: localStorage.getItem("shippingPhone"),
                     code: urlParams.get('vnp_TxnRef'),
                     userId: localStorage.getItem("userId"),
-                    issuedDate: new Date().toISOString(),
+                    issuedDate: issuedDate,
                     paymentMethodId: 2,
                     total: urlParams.get('vnp_Amount'),
                     status: 1
@@ -279,7 +282,7 @@ const Pay = () => {
                         localStorage.removeItem("invoiceId")
                         localStorage.removeItem("userId")
 
-                        alert("Payment successful!");
+                       
                         setCart([]);
                         AfterPay(invoice_Id);
 
