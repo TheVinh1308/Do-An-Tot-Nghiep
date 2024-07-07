@@ -234,7 +234,6 @@ const CartItems = () => {
                                             </div>
                                         </Col>
                                     </Row>
-                                    <p>Thanh toán phí dịch vụ 1.67% trong 24 tháng sau khi thanh toán lần đầu 20% là 4.600.000đ.</p>
                                     <hr />
                                     <Button className="btn-color">Màu sắc: {item.phone.color}</Button>
                                     <Button className="btn-rom">Dung lượng: {item.phone.rom}GB</Button>
@@ -278,16 +277,7 @@ const CartItems = () => {
                                     <h2>{totalItemPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h2>
                                 </Col>
                             </Row>
-                            <Row>
-                                <Col>Phương thức thanh toán</Col>
-                                <Col className="col-right">
-                                    <Select className="select" defaultValue="Tiền mặt">
-                                        <option value="Tiền mặt">Tiền mặt</option>
-                                        <option value="MoMO">MoMO</option>
-                                        <option value="VNPay">VNPay</option>
-                                    </Select>
-                                </Col>
-                            </Row>
+
                             <Button className="btn-pay" onClick={handleToPay}>Thanh toán</Button>
                         </Col>
                     </Row>

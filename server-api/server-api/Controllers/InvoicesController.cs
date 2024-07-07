@@ -41,7 +41,27 @@ namespace server_api.Controllers
             var invoice = await _invoiceRepository.GetInvoiceByUserIdAsync(userId);
             return invoice == null ? NotFound() : Ok(invoice);
         }
-
+        // theo ngày
+        [HttpGet("CountInvoices")]
+        public async Task<IActionResult> CountInvoices()
+        {
+            var invoice = await _invoiceRepository.CountInvoicesAsync();
+            return invoice == null ? NotFound() : Ok(invoice);
+        }
+        // theo tháng
+        [HttpGet("CountInvoicesByMonth")]
+        public async Task<IActionResult> CountInvoicesByMonth()
+        {
+            var invoice = await _invoiceRepository.CountInvoicesMonthAsync();
+            return invoice == null ? NotFound() : Ok(invoice);
+        }
+        // theo tháng
+        [HttpGet("CountInvoicesByYear")]
+        public async Task<IActionResult> CountInvoicesByYear()
+        {
+            var invoice = await _invoiceRepository.CountInvoicesYearAsync();
+            return invoice == null ? NotFound() : Ok(invoice);
+        }
         [HttpPost]
         public async Task<IActionResult> AddNewInvoice([FromForm] Invoice invoice)
         {

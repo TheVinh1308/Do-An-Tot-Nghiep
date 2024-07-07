@@ -145,7 +145,7 @@ const History = () => {
                                                         <td>{item.id}</td>
                                                         <td>{item.user?.fullname}</td>
                                                         <td>{item.action}</td>
-                                                        <td>{format(new Date(item.time), 'H:mm:ss - d/MM/yyyy')}</td>
+                                                        <td>{format(new Date(item.time), 'H:mm:ss - dd/MM/yyyy')}</td>
                                                         <td>{item.action.includes("hình ảnh") ? item.phone.name : item.productName}</td>
                                                         <td>{item.operation}</td>
                                                         <td>{(item.amount) == 0 ? "-" : item.amount}</td>

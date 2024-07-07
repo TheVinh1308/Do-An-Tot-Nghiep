@@ -70,11 +70,28 @@ namespace server_api.Controllers
 
             return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
         }
-
+        // Lấy theo  ngày
         [HttpGet("GetTotalPrice")]
         public async Task<IActionResult> GetTotalPrice()
         {
             var invoiceDetail = await _invoiceDetailRepository.TotalPriceAsync();
+
+            return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
+        }
+
+        // Lấy theo thnag1
+        [HttpGet("GetTotalPriceMonth")]
+        public async Task<IActionResult> GetTotalPriceMonth()
+        {
+            var invoiceDetail = await _invoiceDetailRepository.TotalPriceMonthAsync();
+
+            return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
+        }
+        // Lấy theo năm
+        [HttpGet("GetTotalPriceYear")]
+        public async Task<IActionResult> GetTotalPriceYear()
+        {
+            var invoiceDetail = await _invoiceDetailRepository.TotalPriceYearAsync();
 
             return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
         }
@@ -102,6 +119,25 @@ namespace server_api.Controllers
         public async Task<IActionResult> GetTopSellInvoiceDetailByBrandForYear()
         {
             var invoiceDetail = await _invoiceDetailRepository.GetTopSellInvoiceDetaiByBrandlForYearAsync();
+
+            return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
+        }
+
+
+        // Lấy doanh thu các ngày trong tuần
+        [HttpGet("GetSellDayToDay")]
+        public async Task<IActionResult> GetSellDayToDay()
+        {
+            var invoiceDetail = await _invoiceDetailRepository.GetWeeklySalesAsync();
+
+            return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
+        }
+
+        // Lấy doanh thu các tháng trong năm
+        [HttpGet("GetSellMonthToMonth")]
+        public async Task<IActionResult> GetSellMonthToMonth()
+        {
+            var invoiceDetail = await _invoiceDetailRepository.GetMonthlySalesAsync();
 
             return invoiceDetail == null ? NotFound() : Ok(invoiceDetail);
         }

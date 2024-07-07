@@ -11,5 +11,11 @@ namespace server_api.Interface
         Task<Invoice> InsertInvoiceAsync([FromForm] Invoice invoice);
         Task UpdateInvoiceAsync([FromForm] int invoiceId,[FromForm] Invoice invoice);
         Task<List<Invoice>> GetInvoiceByUserIdAsync(string userId);
+        // theo ngày
+        Task<int> CountInvoicesAsync();
+        // Thei tháng
+        Task<int> CountInvoicesMonthAsync();
+        // Theo năm
+        Task<int> CountInvoicesYearAsync();
     }
 }

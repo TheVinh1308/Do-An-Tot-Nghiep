@@ -13,9 +13,76 @@ import axios from 'axios';
 
 
 const Dashboard = () => {
+    const [CountInvoice, setCountInvoice] = useState(0);
+    const [FillCount, setFillCount] = useState('today');
+    // Theo ngày
+    useEffect(() => {
+        if (FillCount === 'today') {
+            axios.get(`https://localhost:7258/api/Invoices/CountInvoices`)
+                .then((res) => {
+                    setCountInvoice(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [FillCount]);
+
+    // Theo tháng
+    useEffect(() => {
+        if (FillCount === 'thisMonth') {
+            axios.get(`https://localhost:7258/api/Invoices/CountInvoicesByMonth`)
+                .then((res) => {
+                    setCountInvoice(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [FillCount]);
+
+    // Theo năm
+    useEffect(() => {
+        if (FillCount === 'thisMonth') {
+            axios.get(`https://localhost:7258/api/Invoices/CountInvoicesByYear`)
+                .then((res) => {
+                    setCountInvoice(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [FillCount]);
+
     const canvasRef = useRef(null);
     const chartInstanceRef = useRef(null);
+    const [filterDoanhThu, setFilterDoanhThu] = useState('today');
+    const [sellDayMonthYear, setSellDayMonthYear] = useState([]);
+    // Lấy theo các ngày trong tuần
+    useEffect(() => {
+        if (filterDoanhThu === 'today') {
+            axios.get(`https://localhost:7258/api/InvoiceDetails/GetSellDayToDay`)
+                .then((res) => {
+                    setSellDayMonthYear(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [filterDoanhThu]);
 
+    // Lấy theo các tháng  trong năm
+    useEffect(() => {
+        if (filterDoanhThu === 'thisMonth') {
+            axios.get(`https://localhost:7258/api/InvoiceDetails/GetSellMonthToMonth`)
+                .then((res) => {
+                    setSellDayMonthYear(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [filterDoanhThu]);
     useEffect(() => {
         const ctx = canvasRef.current.getContext('2d');
 
@@ -27,10 +94,11 @@ const Dashboard = () => {
         chartInstanceRef.current = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: filterDoanhThu == "today" ? ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+                    : [' 1', ' 2', ' 3', ' 4', '5', '6', '7', '8', '9', '10', '11', '12'],
                 datasets: [{
-                    label: 'Bar Chart',
-                    data: [65, 59, 80, 81, 56, 55, 40],
+                    label: 'Doanh thu (VNĐ)',
+                    data: sellDayMonthYear,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(255, 159, 64, 0.2)',
@@ -60,7 +128,7 @@ const Dashboard = () => {
                 }
             }
         });
-    }, []);
+    }, [sellDayMonthYear, filterDoanhThu]);
     // Brand
     const [topBrand, setTopBrand] = useState([]);
     useEffect(() => {
@@ -242,6 +310,18 @@ const Dashboard = () => {
         setFilterNotifi(filter);
     };
 
+    const handleFilterSelectDayMonthYear = (filter) => {
+        setFilterDoanhThu(filter);
+    };
+
+
+    const handleFilterSelectCount = (filter) => {
+        setFillCount(filter);
+    };
+
+    const handleFilterSelectTotalPrice = (filter) => {
+        setFillTotalPrice(filter);
+    };
     // Render topsellings and imgTopsell accordingly in your JSX
 
 
@@ -298,14 +378,46 @@ const Dashboard = () => {
             })
     }, [customer]);
 
-    // TotalPrice
+    // TotalPrice theo ngày
     const [totalPrice, setTotalPrice] = useState(0);
+    const [fillTotalPrice, setFillTotalPrice] = useState('Today');
     useEffect(() => {
-        axios.get(`https://localhost:7258/api/InvoiceDetails/GetTotalPrice`)
-            .then((res) => {
-                setTotalPrice(res.data);
-            })
-    }, [totalPrice]);
+        if (fillTotalPrice === 'Today') {
+            axios.get(`https://localhost:7258/api/InvoiceDetails/GetTotalPrice`)
+                .then((res) => {
+                    setTotalPrice(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [fillTotalPrice]);
+    // TotalPrice theo tháng
+    useEffect(() => {
+        if (fillTotalPrice === 'This Month') {
+            axios.get(`https://localhost:7258/api/InvoiceDetails/GetTotalPriceMonth`)
+                .then((res) => {
+                    setTotalPrice(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [fillTotalPrice]);
+
+    // TotalPrice theo năm
+    useEffect(() => {
+        if (fillTotalPrice === 'This Year') {
+            axios.get(`https://localhost:7258/api/InvoiceDetails/GetTotalPriceYear`)
+                .then((res) => {
+                    setTotalPrice(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [fillTotalPrice]);
+
 
     // const handleFilterSelect = (filter) => {
     //     switch (filter) {
@@ -343,22 +455,21 @@ const Dashboard = () => {
                                                 <li class="dropdown-header text-start">
                                                     <h6>Filter</h6>
                                                 </li>
-
-                                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                                                <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelectCount('today')}>Today</a></li>
+                                                <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelectCount('thisMonth')}>This Month</a></li>
+                                                <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelectCount('thisYear')}>This Year</a></li>
                                             </ul>
                                         </div>
 
                                         <div class="card-body">
-                                            <h5 class="card-title">Sales <span>| Today</span></h5>
+                                            <h5 className="card-title">Order <span>| {filterText[FillCount]}</span></h5>
 
                                             <div class="d-flex align-items-center">
                                                 <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                                     <FontAwesomeIcon icon={faHandHoldingDollar} />
                                                 </div>
                                                 <div class="ps-3">
-                                                    <h6>145</h6>
+                                                    <h6>{CountInvoice}</h6>
                                                     <span class="text-success small pt-1 fw-bold">12%</span> <span
                                                         class="text-muted small pt-2 ps-1">increase</span>
 
@@ -379,14 +490,14 @@ const Dashboard = () => {
                                                     <h6>Filter</h6>
                                                 </li>
 
-                                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                                                <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelectTotalPrice('today')}>Today</a></li>
+                                                <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelectTotalPrice('thisMonth')}>This Month</a></li>
+                                                <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelectTotalPrice('thisYear')}>This Year</a></li>
                                             </ul>
                                         </div>
 
                                         <div class="card-body">
-                                            <h5 class="card-title">Revenue <span>| This Month</span></h5>
+                                            <h5 className="card-title">Tổng Doanh Thu <span>| {filterText[fillTotalPrice]}</span></h5>
 
                                             <div class="d-flex align-items-center">
                                                 <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -452,13 +563,13 @@ const Dashboard = () => {
                                                     <h6>Filter</h6>
                                                 </li>
 
-                                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                                                <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelectDayMonthYear('today')}>Today</a></li>
+                                                <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelectDayMonthYear('thisMonth')}>This Month</a></li>
+                                                <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelectDayMonthYear('thisYear')}>This Year</a></li>
                                             </ul>
                                         </div>
                                         <div className="card-body">
-                                            <h5 className="card-title">Doanh Thu Theo Tuần</h5>
+                                            <h5 className="card-title">Recent Activity <span>| {filterText[filterDoanhThu]}</span></h5>
                                             <canvas id="barChart" ref={canvasRef} style={{ maxHeight: 400 }}></canvas>
                                         </div>
                                     </div>

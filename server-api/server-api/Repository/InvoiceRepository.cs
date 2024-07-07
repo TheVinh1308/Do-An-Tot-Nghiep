@@ -54,7 +54,46 @@ namespace server_api.Repository
             return invoice;
         }
 
+        // Lấy theo ngày 
+        public async Task<int> CountInvoicesAsync()
+        {
+            DateTime fromDate = DateTime.UtcNow.Date; // Ngày bắt đầu là ngày hôm nay, bỏ qua phần giờ, phút, giây
+            DateTime toDate = fromDate.AddDays(1).AddTicks(-1);
 
+            var count = await _context.Invoices
+                .Where(i => i.Status == 3 && i.IssuedDate >= fromDate && i.IssuedDate <=toDate)
+                .CountAsync();
+
+            return count;
+        }
+
+        // Lấy theo tháng 
+        public async Task<int> CountInvoicesMonthAsync()
+        {
+            DateTime fromDate = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1); // Ngày bắt đầu là ngày đầu tiên của tháng hiện tại
+            DateTime toDate = fromDate.AddMonths(1).AddTicks(-1);
+
+            var count = await _context.Invoices
+                .Where(i => i.Status == 3 && i.IssuedDate >= fromDate && i.IssuedDate <= toDate)
+                .CountAsync();
+
+            return count;
+        }
+
+        // Lấy theo nam
+        public async Task<int> CountInvoicesYearAsync()
+        {
+            int currentYear = DateTime.UtcNow.Year; // Lấy năm hiện tại
+
+            var fromDate = new DateTime(currentYear, 1, 1); // Ngày bắt đầu là ngày đầu tiên của năm hiện tại
+            var toDate = fromDate.AddYears(1).AddTicks(-1); // Ngày kết thúc là cuối cùng của năm hiện tại
+
+            var count = await _context.Invoices
+                .Where(i => i.Status == 3 && i.IssuedDate >= fromDate && i.IssuedDate <= toDate)
+                .CountAsync();
+
+            return count;
+        }
         public async Task<Invoice> InsertInvoiceAsync([FromForm]Invoice invoice)
         {
             _context.Invoices.Add(invoice);

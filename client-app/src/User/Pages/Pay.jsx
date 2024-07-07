@@ -48,7 +48,7 @@ const Pay = () => {
         };
         fetchPhone();
     }, [phone]);
-
+    console.log(`phoneSelect`, phoneSelect);
     useEffect(() => {
         const token = localStorage.getItem('jwt');
         if (token) {
@@ -146,7 +146,7 @@ const Pay = () => {
                 formBuyNow.append("invoiceId", invoiceId);
                 formBuyNow.append("phoneId", phoneSelect.id);
                 formBuyNow.append("quantity", 1);
-                formBuyNow.append("price", phoneSelect.price);
+                formBuyNow.append("price", phoneSelect.price - (phoneSelect.price * phoneSelect.modPhone.promotion.discountPercent / 100));
                 await axios.post(`https://localhost:7258/api/InvoiceDetails`, formBuyNow);
             }
 

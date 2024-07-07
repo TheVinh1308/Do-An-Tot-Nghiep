@@ -27,6 +27,17 @@ namespace server_api.Interface
 
         // Lấy theo năm
         Task<List<TopSellingInvoiceDetail>> GetTopSellInvoiceDetaiByBrandlForYearAsync();
+        // Lấy theo ngày
         Task<int> TotalPriceAsync();
+        // Lấy theo tháng
+        Task<int> TotalPriceMonthAsync();
+        // Lấy theo năm
+        Task<int> TotalPriceYearAsync();
+
+        // doanh thu các ngày tron tuần
+        Task<decimal[]> GetWeeklySalesAsync();
+
+        // Doanh thu các tháng trong năm
+        Task<decimal[]> GetMonthlySalesAsync();
     }
 }
