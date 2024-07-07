@@ -37,6 +37,30 @@ namespace server_api.Controllers
             return cart == null ? NotFound() : Ok(cart);
         }
 
+        // lấy theo ngày
+        [HttpGet("GetNotificationAdminToDay")]
+        public async Task<IActionResult> GetNotificationAdminToDay()
+        {
+            var cart = await _notificationAdminRepository.GetToDayNotificationAdminAsync();
+            return cart == null ? NotFound() : Ok(cart);
+        }
+
+        // lấy theo tháng
+        [HttpGet("GetNotificationAdminThisMonth")]
+        public async Task<IActionResult> GetNotificationAdminThisMonth()
+        {
+            var cart = await _notificationAdminRepository.GetThisMonthNotificationAdminAsync();
+            return cart == null ? NotFound() : Ok(cart);
+        }
+
+        // lấy theo năm
+        [HttpGet("GetNotificationAdminThisYear")]
+        public async Task<IActionResult> GetNotificationAdminThisYear()
+        {
+            var cart = await _notificationAdminRepository.GetThisYearNotificationAdminAsync();
+            return cart == null ? NotFound() : Ok(cart);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddNewNotificationsAdmin([FromForm] NotificationAdmin notificationAdmin)
         {

@@ -61,14 +61,8 @@ const Dashboard = () => {
             }
         });
     }, []);
+    // Brand
     const [topBrand, setTopBrand] = useState([]);
-    useEffect(() => {
-        axios.get(`https://localhost:7258/api/InvoiceDetails/GetTopSellInvoiceDetailByBrand`)
-            .then((res) => {
-                setTopBrand(res.data);
-            })
-    }, []);
-    console.log(`topBrand`, topBrand);
     useEffect(() => {
         const chart = echarts.init(document.querySelector("#trafficChart"));
         const formattedData = topBrand.map(brand => ({
@@ -127,12 +121,50 @@ const Dashboard = () => {
     };
     // thông báo
     const [notificationAdmin, setNotificationAdmin] = useState([]);
+    const [filterNotifi, setFilterNotifi] = useState('today');
+    // Fetch data for Today
     useEffect(() => {
-        axios.get(`https://localhost:7258/api/NotificationAdmin`)
-            .then((res) => (
-                setNotificationAdmin(res.data)
-            ))
-    }, []);
+        if (filterNotifi === 'today') {
+            axios.get(`https://localhost:7258/api/NotificationAdmin/GetNotificationAdminToDay`)
+                .then((res) => {
+                    setNotificationAdmin(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [filterNotifi]);
+    // Fetch data for Month
+    useEffect(() => {
+        if (filterNotifi === 'thisMonth') {
+            axios.get(`https://localhost:7258/api/NotificationAdmin/GetNotificationAdminThisMonth`)
+                .then((res) => {
+                    setNotificationAdmin(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [filterNotifi]);
+    // Fetch data for Year
+    useEffect(() => {
+        if (filterNotifi === 'thisYear') {
+            axios.get(`https://localhost:7258/api/NotificationAdmin/GetNotificationAdminThisYear`)
+                .then((res) => {
+                    setNotificationAdmin(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [filterNotifi]);
+
+
+
+
+
+
+
     const [topsellings, setTopsellings] = useState([]);
     const [imgTopsell, setImgTopsell] = useState([]);
     const [filter, setFilter] = useState('today'); // State để lưu trữ bộ lọc hiện tại
@@ -206,13 +238,57 @@ const Dashboard = () => {
         setFilter(filter);
     };
 
+    const handleFilterSelectNotifi = (filter) => {
+        setFilterNotifi(filter);
+    };
+
+    // Render topsellings and imgTopsell accordingly in your JSX
+
+
+    // Fetch data for Today
+    useEffect(() => {
+        if (filter === 'today') {
+            axios.get(`https://localhost:7258/api/InvoiceDetails/GetTopSellInvoiceDetailByBrand`)
+                .then((res) => {
+                    setTopBrand(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [filter]);
+
+    // Fetch data for This Month
+    useEffect(() => {
+        if (filter === 'thisMonth') {
+            axios.get(`https://localhost:7258/api/InvoiceDetails/GetTopSellInvoiceDetailByBrandForMonth`)
+                .then((res) => {
+                    setTopBrand(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [filter]);
+
+    // Fetch data for This Year
+    useEffect(() => {
+        if (filter === 'thisYear') {
+            axios.get(`https://localhost:7258/api/InvoiceDetails/GetTopSellInvoiceDetailByBrandForYear`)
+                .then((res) => {
+                    setTopBrand(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching top selling invoice details:', error);
+                });
+        }
+    }, [filter]);
+
     const filterText = {
         today: 'Today',
         thisMonth: 'This Month',
         thisYear: 'This Year'
     };
-    // Render topsellings and imgTopsell accordingly in your JSX
-
     // Customer
     const [customer, setCustomer] = useState(0);
     useEffect(() => {
@@ -446,13 +522,13 @@ const Dashboard = () => {
                                         <li className="dropdown-header text-start">
                                             <h6>Filter</h6>
                                         </li>
-                                        <li><a className="dropdown-item" href="#">Today</a></li>
-                                        <li><a className="dropdown-item" href="#">This Month</a></li>
-                                        <li><a className="dropdown-item" href="#">This Year</a></li>
+                                        <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelectNotifi('today')}>Today</a></li>
+                                        <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelectNotifi('thisMonth')}>This Month</a></li>
+                                        <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelectNotifi('thisYear')}>This Year</a></li>
                                     </ul>
                                 </div>
                                 <div className="card-body">
-                                    <h5 className="card-title">Recent Activity <span>| Today</span></h5>
+                                    <h5 className="card-title">Recent Activity <span>| {filterText[filterNotifi]}</span></h5>
                                     <div className="activity">
                                         {
                                             notificationAdmin.map((item, index) => (
@@ -467,48 +543,7 @@ const Dashboard = () => {
                                                 </div>
                                             ))
                                         }
-                                        <div className="activity-item d-flex">
-                                            <div className="activite-label">32 min</div>
-                                            <i className="bi bi-circle-fill activity-badge text-success align-self-start" />
-                                            <div className="activity-content">
-                                                Quia quae rerum <a href="#" className="fw-bold text-dark">explicabo officiis</a> beatae
-                                            </div>
-                                        </div>{/* End activity item*/}
-                                        <div className="activity-item d-flex">
-                                            <div className="activite-label">56 min</div>
-                                            <i className="bi bi-circle-fill activity-badge text-danger align-self-start" />
-                                            <div className="activity-content">
-                                                Voluptatem blanditiis blanditiis eveniet
-                                            </div>
-                                        </div>{/* End activity item*/}
-                                        <div className="activity-item d-flex">
-                                            <div className="activite-label">2 hrs</div>
-                                            <i className="bi bi-circle-fill activity-badge text-primary align-self-start" />
-                                            <div className="activity-content">
-                                                Voluptates corrupti molestias voluptatem
-                                            </div>
-                                        </div>{/* End activity item*/}
-                                        <div className="activity-item d-flex">
-                                            <div className="activite-label">1 day</div>
-                                            <i className="bi bi-circle-fill activity-badge text-info align-self-start" />
-                                            <div className="activity-content">
-                                                Tempore autem saepe <a href="#" className="fw-bold text-dark">occaecati voluptatem</a> tempore
-                                            </div>
-                                        </div>{/* End activity item*/}
-                                        <div className="activity-item d-flex">
-                                            <div className="activite-label">2 days</div>
-                                            <i className="bi bi-circle-fill activity-badge text-warning align-self-start" />
-                                            <div className="activity-content">
-                                                Est sit eum reiciendis exercitationem
-                                            </div>
-                                        </div>{/* End activity item*/}
-                                        <div className="activity-item d-flex">
-                                            <div className="activite-label">4 weeks</div>
-                                            <i className="bi bi-circle-fill activity-badge text-muted align-self-start" />
-                                            <div className="activity-content">
-                                                Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                                            </div>
-                                        </div>{/* End activity item*/}
+
                                     </div>
                                 </div>
                             </div>
@@ -521,14 +556,14 @@ const Dashboard = () => {
                                             <h6>Filter</h6>
                                         </li>
 
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                        <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelect('today')}>Today</a></li>
+                                        <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelect('thisMonth')}>This Month</a></li>
+                                        <li><a className="dropdown-item" href="#" onClick={() => handleFilterSelect('thisYear')}>This Year</a></li>
                                     </ul>
                                 </div>
 
                                 <div class="card-body pb-0">
-                                    <h5 class="card-title">Hiệu suất Bán Hàng<span>| Today</span></h5>
+                                    <h5 class="card-title">Hiệu suất Bán Hàng<span>| {filterText[filter]}</span></h5>
 
                                     <div id="trafficChart" style={{ minHeight: 400 }} className="echart" />
 
