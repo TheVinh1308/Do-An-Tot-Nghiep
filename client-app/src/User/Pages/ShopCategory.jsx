@@ -25,6 +25,7 @@ const ShopCategory = (props) => {
         screensize: [],
         cpu: []
     });
+    const [filteredPhones, setFilteredPhones] = useState([]);
 
     const [currentPage, setCurrentPage] = useState(0);
     const itemsPerPage = 8;
@@ -66,6 +67,7 @@ const ShopCategory = (props) => {
                 cpu: []
             });
             setPhones(defaultPhones);
+            setFilteredPhones(defaultPhones);
         }
     };
 
@@ -82,6 +84,23 @@ const ShopCategory = (props) => {
             cpu: []
         });
         setPhones(defaultPhones);
+        setFilteredPhones(defaultPhones);
+    };
+
+    const [PhoneByBrand, setPhoneByBrand] = useState([]);
+    useEffect(() => {
+        const filteredByBrand = phones.filter((item) => item.modPhone.brand.name === props.brand);
+        setPhoneByBrand(filteredByBrand);
+        setFilteredPhones(filteredByBrand);
+    }, [props.brand, phones]);
+
+    // Logic for pagination
+    const offset = currentPage * itemsPerPage;
+    const currentPhones = filteredPhones.slice(offset, offset + itemsPerPage);
+  
+    const handlePageClick = (data) => {
+        const selectedPage = data.selected;
+        setCurrentPage(selectedPage);
     };
 
     const handleClickFill = (category, itemName) => {
@@ -98,7 +117,7 @@ const ShopCategory = (props) => {
     };
 
     const applyFilters = (criteria) => {
-        let filteredPhones = defaultPhones;
+        let filteredPhones = PhoneByBrand;
 
         if (criteria.ram.length > 0) {
             filteredPhones = filteredPhones.filter(item => criteria.ram.includes(item.modPhone.ram));
@@ -116,22 +135,9 @@ const ShopCategory = (props) => {
             filteredPhones = filteredPhones.filter(item => criteria.cpu.includes(item.modPhone.cpu));
         }
 
-        setPhones(filteredPhones);
+        setFilteredPhones(filteredPhones);
     };
 
-    const [PhoneByBrand, setPhoneByBrand] = useState([]);
-    useEffect(() => {
-        setPhoneByBrand(phones.filter((item) => item.modPhone.brand.name === props.brand))
-    }, [props.brand]);
-
-    // Logic for pagination
-    const offset = currentPage * itemsPerPage;
-    const currentPhones = PhoneByBrand.slice(offset, offset + itemsPerPage);
-
-    const handlePageClick = (data) => {
-        const selectedPage = data.selected;
-        setCurrentPage(selectedPage);
-    };
     console.log(`currentPhones`, currentPhones);
     return (
         <div className="shop-category">
@@ -144,7 +150,7 @@ const ShopCategory = (props) => {
                 </div>
             </div>
             <div className="shopcategory-filter">
-            <Dropdown>
+                <Dropdown>
                     <Dropdown.Toggle>
                         Chức năng
                     </Dropdown.Toggle>
@@ -186,7 +192,7 @@ const ShopCategory = (props) => {
                             />
                             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
                                 <button className="shopcategory-fill" style={{ margin: "5px 0" }} onClick={handleCancel}>Huỷ</button>
-                                <button className="shopcategory-fill" onClick={() => handleClickFill("price", price)} style={{ margin: "5px 0" }}>Tìm kiếm</button>
+                                {/* <button className="shopcategory-fill" onClick={() => handleClickFill("price", price)} style={{ margin: "5px 0" }}>Tìm kiếm</button> */}
                             </div>
                         </div>
                     </Dropdown.Menu>
@@ -262,7 +268,7 @@ const ShopCategory = (props) => {
                 previousLabel={"previous"}
                 nextLabel={"next"}
                 breakLabel={"..."}
-                pageCount={Math.ceil(PhoneByBrand.length / itemsPerPage)}
+                pageCount={Math.ceil(filteredPhones.length / itemsPerPage)}
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={5}
                 onPageChange={handlePageClick}

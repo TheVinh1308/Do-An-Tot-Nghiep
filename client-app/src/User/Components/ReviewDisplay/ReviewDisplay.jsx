@@ -211,7 +211,7 @@ const ReviewDisplay = ({
                     </div>
                     ))
                     
-                    : <p>Không có đánh giá nào</p>
+                    : <p style={{fontSize: "2em"}}>Không có đánh giá nào</p>
                 }
             </div>
           </div>

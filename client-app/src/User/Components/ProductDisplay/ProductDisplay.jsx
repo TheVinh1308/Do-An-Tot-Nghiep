@@ -187,7 +187,7 @@ const ProductDisplay = (props) => {
                         axios.post(`https://localhost:7258/api/History`, formDataHistory)
                             .then(ress => {
                                 notify();
-                                setIsAddToCart(true)
+                                setIsAddToCart((prev => !prev))
                             })
                             .catch(error => {
                                 console.error("Error adding to history:", error);
@@ -221,7 +221,7 @@ const ProductDisplay = (props) => {
                         axios.post(`https://localhost:7258/api/History`, formDataHistory)
                             .then(ress => {
                                 notify();
-                                setIsAddToCart(true)
+                                setIsAddToCart((prev => !prev))
                             })
                             .catch(error => {
                                 console.error("Error adding to history:", error);

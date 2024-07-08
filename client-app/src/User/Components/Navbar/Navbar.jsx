@@ -233,19 +233,19 @@ const Navbar = () => {
                                         </a>{/* End Profile Iamge Icon */}
                                         <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                                             <li style={{ marginBottom: "0px" }}>
-                                            <a className="dropdown-item d-flex align-items-center" href="/favorite">
+                                            <Link className="dropdown-item d-flex align-items-center" to="/favorite">
                                                     <i className="bi bi-heart" />
                                                     <span>Sản phẩm đã thích</span>
-                                                </a>
+                                                </Link>
                                             </li>
                                             <li style={{ marginBottom: "0px" }}>
                                                 <hr className="dropdown-divider" />
                                             </li>
                                             <li style={{ marginBottom: "0px" }}>
-                                                <a className="dropdown-item d-flex align-items-center" href="/invoice">
+                                                <Link className="dropdown-item d-flex align-items-center" to="/invoice">
                                                     <i class="bi bi-clock-history"></i>
                                                     <span>Lịch sử mua hàng</span>
-                                                </a>
+                                                </Link>
                                             </li>
                                             <li style={{ marginBottom: "0px" }}>
                                                 <hr className="dropdown-divider" />
