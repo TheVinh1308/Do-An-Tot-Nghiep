@@ -42,7 +42,7 @@ namespace server_api.Repository
         public async Task<List<Review>> GetReviewByModPhone(int modphoneId)
         {
             var votes = await _context.Reviews.Include(p => p.User)
-               .Where(i => i.ModPhoneId == modphoneId)
+               .Where(i => i.ModPhoneId == modphoneId).OrderByDescending(p => p.Id)
                .ToListAsync();
 
             return votes;

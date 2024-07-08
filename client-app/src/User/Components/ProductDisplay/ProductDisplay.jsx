@@ -251,7 +251,7 @@ const ProductDisplay = (props) => {
                         formDataHistory.append("action", "Xóa sản phẩm yêu thích");
                         formDataHistory.append("userId", userId);
                         formDataHistory.append("time", new Date().toISOString());
-                        formDataHistory.append("productId", selectedPhone.id); // Sử dụng selectedPhone.id
+                        formDataHistory.append("productId", selectedPhone.id);
                         formDataHistory.append("productName", name);
                         formDataHistory.append("operation", "Xóa");
                         formDataHistory.append("amount", 1);

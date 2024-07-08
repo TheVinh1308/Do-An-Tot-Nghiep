@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using server_api.Interface;
 using server_api.Repository;
+using server_api.Services;
 
 namespace server_api.Controllers
 {
@@ -11,9 +12,11 @@ namespace server_api.Controllers
     public class InvoiceDetailsController : Controller
     {
         private readonly IInvoiceDetailRepository _invoiceDetailRepository;
-        public InvoiceDetailsController(IInvoiceDetailRepository repository)
+        public readonly IEmailSender _emailSender;
+        public InvoiceDetailsController(IInvoiceDetailRepository repository, IEmailSender emailSender)
         {
             _invoiceDetailRepository = repository;
+            _emailSender = emailSender;
         }
 
         [HttpGet]

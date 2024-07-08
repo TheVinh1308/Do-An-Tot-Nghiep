@@ -233,9 +233,9 @@ const Navbar = () => {
                                         </a>{/* End Profile Iamge Icon */}
                                         <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                                             <li style={{ marginBottom: "0px" }}>
-                                                <a className="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                                    <i className="bi bi-person" />
-                                                    <span>My Profile</span>
+                                            <a className="dropdown-item d-flex align-items-center" href="/favorite">
+                                                    <i className="bi bi-heart" />
+                                                    <span>Sản phẩm đã thích</span>
                                                 </a>
                                             </li>
                                             <li style={{ marginBottom: "0px" }}>

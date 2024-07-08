@@ -55,9 +55,9 @@
 	background-color:#FFFFFF;
 }
 
-#reviews form {
+/* #reviews form {
 	margin-bottom:55px;
-}
+} */
 
 #reviews .btn {
 	margin-top:10px;
@@ -130,4 +130,17 @@
 }
 .selecte{
     color: yellow;
+}
+.list-review {
+    background: #f3f5f8;
+    margin-right: 18px;
+}
+.content-review {
+    font-size: 18px;
+}
+.rate-review{
+    display: block;
+}
+.rate-review> .star-ratings{
+    justify-content: start;
 }

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Avatar from 'react-avatar';
 import { Bounce, ToastContainer, toast } from "react-toastify";
+import { format } from "date-fns";
 const Commnent = ({ selectedPhone, isAuthenticated, userId, userName }) => {
     const navigate = useNavigate();
     const [comments, setCommnents] = useState([{ user: {} }]);
@@ -149,7 +150,7 @@ const Commnent = ({ selectedPhone, isAuthenticated, userId, userName }) => {
             formNotification.append("userId", userOfParent.userId);
             formNotification.append("time", new Date().toISOString());
             formNotification.append('phoneId', selectedPhone.modPhone.id);
-            formNotification.append("title", `${userName} đã trả lời bình luận của bạn`);
+            formNotification.append("title", `${userName} đã trả lời bình luận của bạn`); 
             formNotification.append("url", `http://localhost:3000/${phoneData.modPhone?.brand.name}/${phoneData.id}`);
 
             console.log(`formNotification`, userOfParent.userId);
@@ -170,7 +171,7 @@ const Commnent = ({ selectedPhone, isAuthenticated, userId, userName }) => {
                     <div className="row">
                         <div className="col-sm-8">
                             <form>
-                                <h3 class="pull-left">New Comment</h3>
+                                <h3 class="pull-left">Thêm bình luận của bạn</h3>
 
                                 <fieldset>
                                     <div class="row">
@@ -193,12 +194,12 @@ const Commnent = ({ selectedPhone, isAuthenticated, userId, userName }) => {
                                             <a className="pull-left" href=""><Avatar className="media-object" name={item.user.fullname} /></a>
                                             <div className="media-body">
                                                 <h4 className="media-heading">{item.user.fullname}</h4>
-                                                <p>{item.content}</p>
+                                                <p style={{fontSize: "18px"}}>{item.content}</p>
                                                 <ul className="list-unstyled media-detail pull-left">
-                                                    <li className="d-block"><i className="fa fa-calendar" />{item.postDate}</li>
+                                                    <li className="d-block"><i className="fa fa-calendar" />{format(new Date(item?.postDate || '2024-07-02T12:33:30.195'), 'H:mm:ss - d/MM/yyyy')}</li>
                                                 </ul>
                                                 <ul className="list-unstyled media-detail pull-right mb-3">
-                                                    <li className="d-block"><a href onClick={() => showReply(index)}>Reply</a></li>
+                                                    <li className="d-block"><a href onClick={() => showReply(index)}>Trả lời</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -214,8 +215,8 @@ const Commnent = ({ selectedPhone, isAuthenticated, userId, userName }) => {
                                                             <textarea class="form-control" id="message" placeholder="Your message" name="content" required="" onChange={handleContent}></textarea>
                                                         </div>
                                                     </div>
-                                                    <button className="btn btn-normal pull-right bg-danger" onClick={() => setShowTextareaIndex(null)}>Đóng</button>
                                                     <button type="submit" className="btn btn-normal pull-right reply-sub" onClick={() => handleReply(item.id)}>Trả lời</button>
+                                                    <button className="btn btn-normal pull-right bg-danger" onClick={() => setShowTextareaIndex(null)}>Đóng</button>
                                                 </fieldset>
                                             </>
                                         )}
@@ -227,15 +228,15 @@ const Commnent = ({ selectedPhone, isAuthenticated, userId, userName }) => {
                                                         <a className="pull-left" href=""><Avatar className="media-object" name={reply.user.fullname} /></a>
                                                         <div className="media-body">
                                                             <h4 className="media-heading">{reply.user.fullname}</h4>
-                                                            <p>{reply.content}</p>
+                                                            <p style={{fontSize: "18px"}}> {reply.content}</p>
                                                             <ul className="list-unstyled media-detail pull-left">
-                                                                <li className="d-block"><i className="fa fa-calendar" />{reply.postDate}</li>
+                                                                <li className="d-block"><i className="fa fa-calendar" />{format(new Date(reply?.postDate || '2024-07-02T12:33:30.195'), 'H:mm:ss - d/MM/yyyy')}</li>
                                                             </ul>
                                                             <ul className="list-unstyled media-detail pull-right mb-3">
                                                                 <li className="d-block"><a href onClick={() => setReplyTextareaState(prevState => ({
                                                                     ...prevState,
                                                                     [index]: replyIndex,
-                                                                }))}>Reply</a></li>
+                                                                }))}>Trả lời</a></li>
                                                             </ul>
                                                         </div>
                                                         {replyTextareaState[index] === replyIndex && (
@@ -248,8 +249,8 @@ const Commnent = ({ selectedPhone, isAuthenticated, userId, userName }) => {
                                                                         <textarea class="form-control" id="message" placeholder="Your message" name="content" required="" onChange={handleContent}></textarea>
                                                                     </div>
                                                                 </div>
-                                                                <button className="btn btn-normal pull-right bg-danger" onClick={() => setReplyTextareaState({})}>Đóng</button>
                                                                 <button type="submit" className="btn btn-normal pull-right reply-sub" onClick={() => handleReply(item.id)}>Trả lời</button>
+                                                                <button className="btn btn-normal pull-right bg-danger" onClick={() => setReplyTextareaState({})}>Đóng</button>
                                                             </fieldset>
                                                         )}
                                                     </div>

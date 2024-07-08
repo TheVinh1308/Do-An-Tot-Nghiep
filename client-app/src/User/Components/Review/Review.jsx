@@ -35,21 +35,30 @@ const Review = ({userId, modPhoneId}) => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        const formReview = new FormData();
-        Object.entries(review).forEach(([key, value]) => {
-            formReview.append(key, value);
-        });
-        formReview.append('userId', userId);
-        formReview.append('modPhoneId', modPhoneId);
-        formReview.append("status", 1);
-        formReview.append("rate",selectedStarCount)
-        formReview.append("dateReview", new Date().toLocaleString())
 
-        axios.post(`https://localhost:7258/api/Reviews`,formReview )
-        .then(() => alert("đã thêm đánh giá"))
-        .catch((err) => console.log("lỗi thêm đánh giá",err));
+        e.preventDefault()
+        if(selectedStarCount === 0) {
+            seterror("Vui lòng chọn số sao")
+        }
+        else{
+            const formReview = new FormData();
+            Object.entries(review).forEach(([key, value]) => {
+                formReview.append(key, value);
+            });
+            formReview.append('userId', userId);
+            formReview.append('modPhoneId', modPhoneId);
+            formReview.append("status", 1);
+            formReview.append("rate",selectedStarCount)
+            formReview.append("dateReview", new Date().toLocaleString())
+    
+            axios.post(`https://localhost:7258/api/Reviews`,formReview )
+            .then(() => alert("đã thêm đánh giá"))
+            .catch((err) => console.log("lỗi thêm đánh giá",err));
+
+        }
     }
+    const [error, seterror] = useState();
+   
 
    
     
@@ -86,6 +95,7 @@ const Review = ({userId, modPhoneId}) => {
                                         })
                                     }
                                 </span>
+                                <p className="text-danger">{error}</p>
                             </Col>
                         </Row>
                         <Row>
