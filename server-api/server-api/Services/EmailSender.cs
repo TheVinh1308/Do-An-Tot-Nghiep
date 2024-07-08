@@ -34,6 +34,30 @@ namespace server_api.Services
 
             await smtpClient.SendMailAsync(mailMessage);
         }
+
+        public async Task SendEmailPDFAsync(string email, string subject, string message, Stream pdfStream)
+        {
+            var smtpClient = new SmtpClient(_configuration["Smtp:Host"])
+            {
+                Port = int.Parse(_configuration["Smtp:Port"]),
+                Credentials = new NetworkCredential(_configuration["Smtp:Username"], _configuration["Smtp:Password"]),
+                EnableSsl = true,
+            };
+
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress(_configuration["Smtp:From"]),
+                Subject = subject,
+                Body = message,
+                IsBodyHtml = true,
+            };
+            mailMessage.To.Add(email);
+
+            var attachment = new Attachment(pdfStream, "invoice.pdf", "application/pdf");
+            mailMessage.Attachments.Add(attachment);
+
+            await smtpClient.SendMailAsync(mailMessage);
+        }
     }
 }
 

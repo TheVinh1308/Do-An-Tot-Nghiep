@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using server_api.Interface;
 using server_api.Repository;
+using server_api.Services;
 
 namespace server_api.Controllers
 {
@@ -100,6 +101,23 @@ namespace server_api.Controllers
                 return NotFound();
             }
         }
+        [HttpPost("SendMailWithPdf")]
+        public async Task<IActionResult> SendMailWithPdf(IFormFile pdf, [FromForm] string userId)
+        {
+            if (pdf == null || pdf.Length == 0)
+                return BadRequest("No file uploaded");
+
+            try
+            {
+                await _invoiceRepository.SendMailWithPdfAsync(pdf, userId);
+                return Ok();
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
 
 
     }
