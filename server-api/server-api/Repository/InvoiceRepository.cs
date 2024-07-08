@@ -1,8 +1,12 @@
 ﻿using API_Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1.Ocsp;
 using server_api.Data;
 using server_api.Interface;
+using server_api.Models;
+using server_api.Services;
+using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 namespace server_api.Repository
 {
@@ -10,12 +14,17 @@ namespace server_api.Repository
     {
         private readonly EPhoneShopIdentityContext _context;
         private readonly IWebHostEnvironment _environment;
-
-        public InvoiceRepository(EPhoneShopIdentityContext context, IWebHostEnvironment environment)
+        private readonly IEmailSender _emailSender;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public InvoiceRepository(EPhoneShopIdentityContext context, IWebHostEnvironment environment, IEmailSender emailSender, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
             _environment = environment;
+            _emailSender= emailSender;
+            _httpContextAccessor = httpContextAccessor;
         }
+
+
 
         public async Task DeleteInvoiceAsync(int invoiceId)
         {
@@ -39,6 +48,7 @@ namespace server_api.Repository
         public async Task<Invoice> GetInvoiceAsync(int id)
         {
             var invoice = await _context.Invoices
+                 .Include(i => i.User)
                  .Include(i => i.PaymentMethod)
                 .SingleOrDefaultAsync(x => x.Id == id);
             return invoice;
@@ -48,11 +58,30 @@ namespace server_api.Repository
         public async Task<List<Invoice>> GetInvoiceByUserIdAsync(string userId)
         {
             var invoice = await _context.Invoices
+                 .Include(i => i.User)
                  .Include(i => i.PaymentMethod)
                 .Where(i=>i.UserId == userId).ToListAsync();
 
             return invoice;
         }
+
+        //// send mail
+        //public async Task SenmailInvoiceAsync(string userId)
+        //{
+        //    var mail = await _context.Invoices
+        //                  .Where(i => i.UserId == userId)
+        //                  .Select(i => i.User.Email)
+        //                  .FirstOrDefaultAsync();
+        //    var request = _httpContextAccessor.HttpContext.Request;
+
+        //    var callbackUrl = $"{request.Scheme}://{request.Host}/api/invoicel";
+        //    await _emailSender.SendEmailAsync(
+        //   mail,
+        //    "Chào mừng bạn đến với 2VPHONE",
+        //    $"<p style=\"font-size: 16px;\">Cám ơn bạn đã sử dụng dịch vụ của chúng tôi</p>" +
+        //   $"<p style=\"font-size: 16px;\">Ấn vào nút <a href=\"{callbackUrl}\" style=\"font-size: 16px;\">này</a> để trở lại trang web! Cảm ơn</p>"
+        //   );
+        //}
 
         // Lấy theo ngày 
         public async Task<int> CountInvoicesAsync()
@@ -110,5 +139,33 @@ namespace server_api.Repository
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task SendMailWithPdfAsync(IFormFile pdf, [FromForm] string userId)
+        {
+          
+            using (var stream = new MemoryStream())
+            {
+                await pdf.CopyToAsync(stream);
+                stream.Position = 0;
+
+                // Send email with PDF attachment
+
+                var mail = await _context.Invoices
+                        .Where(i => i.UserId == userId)
+                        .Select(i => i.User.Email)
+                      .FirstOrDefaultAsync();
+          var request = _httpContextAccessor.HttpContext.Request;
+
+                  var callbackUrl = $"{request.Scheme}://{request.Host}/api/invoicel";
+                 await _emailSender.SendEmailPDFAsync(
+                 mail,
+                  "Chào mừng bạn đến với 2VPHONE",
+                  $"<p style=\"font-size: 16px;\">Cám ơn bạn đã sử dụng dịch vụ của chúng tôi</p>" +
+              $"<p style=\"font-size: 16px;\">Ấn vào nút <a href=\"{callbackUrl}\" style=\"font-size: 16px;\">này</a> để trở lại trang web! Cảm ơn</p>", stream
+                  );
+            }
+
+        }
+
     }
 }

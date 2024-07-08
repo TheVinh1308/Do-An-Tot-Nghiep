@@ -8,6 +8,10 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using server_api.Services;
+using server_api.Models;
+using Org.BouncyCastle.Asn1.Ocsp;
+using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 namespace server_api.Repository
 {
@@ -15,12 +19,12 @@ namespace server_api.Repository
     {
         private readonly EPhoneShopIdentityContext _context;
         private readonly IWebHostEnvironment _environment;
-
         public InvoiceDetailRepository(EPhoneShopIdentityContext context, IWebHostEnvironment environment)
         {
             _context = context;
             _environment = environment;
         }
+       
 
         public async Task DeleteInvoiceDetailAsync(int invoiceDetailId)
         {

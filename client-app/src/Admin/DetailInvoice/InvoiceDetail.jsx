@@ -1,10 +1,13 @@
 import axios from "axios";
 import { format } from "date-fns";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import { jwtDecode } from "jwt-decode";
 import { useEffect, useState, useRef } from "react";
 import { Badge } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useReactToPrint } from 'react-to-print';
+import { Bounce, toast, ToastContainer } from "react-toastify";
 
 const InvoiceDetail = () => {
     const { id } = useParams();
@@ -23,7 +26,6 @@ const InvoiceDetail = () => {
         }
     }, []);
 
-    console.log(`phoneUser`, phoneUser);
     const [invoiceDetail, setInvoiceDetail] = useState([]);
     useEffect(() => {
         axios.get(`https://localhost:7258/api/InvoiceDetails/GetInvoiceDetailByInvoiceId/${id}`)
@@ -39,7 +41,6 @@ const InvoiceDetail = () => {
                 setInvoice(res.data);
             })
     }, [invoice, id]);
-    console.log(`invoice`, invoice);
     const getStatusBadge = (status) => {
         switch (status) {
             case 1:
@@ -57,27 +58,83 @@ const InvoiceDetail = () => {
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
     });
-    const handleInvoice = () => {
+    const handleInvoice = async () => {
         const updatedInvoice = { ...invoice, status: 2 };
-        axios.put(`https://localhost:7258/api/Invoices/${id}`, updatedInvoice)
-            .then(() => {
 
-                const formNotificationAdmin = new FormData();
-                formNotificationAdmin.append("invoiceId", id);
-                formNotificationAdmin.append("content", `Đơn hàng của ${userName} đã được duyệt`);
-                formNotificationAdmin.append("time", new Date().toISOString());
-                formNotificationAdmin.append("url", `http://localhost:3000/admin/invoice/InvoiceDetail/${id}`);
-                formNotificationAdmin.append("status", true);
+        try {
+            await axios.put(`https://localhost:7258/api/Invoices/${id}`, updatedInvoice);
 
-                axios.post(`https://localhost:7258/api/NotificationAdmin`, formNotificationAdmin)
-                    .then((res) => {
-                        alert("Thâm thông báo");
-                    })
+            // Generate PDF
+            const component = document.querySelector('.invoiceDetail');
 
-                alert("Đã xác nhận đơn hàng")
-            })
-            .catch((error) => console.error('Error cancelling invoice:', error));
-    }
+            // Ensure all images are loaded
+            const images = component.querySelectorAll('img');
+            const promises = Array.from(images).map((img) => {
+                if (!img.complete) {
+                    return new Promise((resolve, reject) => {
+                        img.onload = resolve;
+                        img.onerror = reject;
+                    });
+                }
+                return Promise.resolve();
+            });
+
+            await Promise.all(promises);
+
+            const canvas = await html2canvas(component, {
+                scale: 2, // Increase scale for higher resolution
+                useCORS: true, // Ensure cross-origin images are handled
+            });
+
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('p', 'mm', 'a4');
+
+            const imgProps = pdf.getImageProperties(imgData);
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            const pdfBlob = pdf.output('blob');
+
+            // Send PDF to backend
+            const formData = new FormData();
+            formData.append("userId", invoice.user.id); // Assuming you have a user ID
+            formData.append("pdf", pdfBlob, "invoice.pdf");
+
+            try {
+                await axios.post(`https://localhost:7258/api/Invoices/SendMailWithPdf`, formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+            } catch (emailError) {
+                console.error('Error sending email with PDF:', emailError);
+                alert('Failed to send email with PDF');
+                return;
+            }
+
+            const formNotificationAdmin = new FormData();
+            formNotificationAdmin.append("invoiceId", id);
+            formNotificationAdmin.append("content", `Đơn hàng của ${invoice?.user?.fullname} đã được duyệt`);
+            formNotificationAdmin.append("time", new Date().toISOString());
+            formNotificationAdmin.append("url", `http://localhost:3000/admin/invoice/InvoiceDetail/${id}`);
+            formNotificationAdmin.append("status", true);
+
+            try {
+                await axios.post(`https://localhost:7258/api/NotificationAdmin`, formNotificationAdmin);
+            } catch (notificationError) {
+                console.error('Error sending notification to admin:', notificationError);
+                alert('Failed to send notification to admin');
+                return;
+            }
+
+            notifySuccess('Đã xác nhận đơn hàng và gửi hoá đơn');
+            alert("Đã xác nhận đơn hàng");
+        } catch (error) {
+            console.error('Error confirming invoice:', error);
+            alert('Failed to confirm invoice');
+        }
+    };
 
     const handleInvoiceCancel = () => {
         const updatedInvoice = { ...invoice, status: 4 };
@@ -100,7 +157,17 @@ const InvoiceDetail = () => {
             })
             .catch((error) => console.error('Error cancelling invoice:', error));
     }
-
+    const notifySuccess = (message) => toast.success(message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+    });
     const handleCompelete = () => {
         const updatedInvoice = { ...invoice, status: 3 };
         axios.put(`https://localhost:7258/api/Invoices/${id}`, updatedInvoice)
@@ -113,17 +180,13 @@ const InvoiceDetail = () => {
                 formNotificationAdmin.append("url", `http://localhost:3000/admin/invoice/InvoiceDetail/${id}`);
                 formNotificationAdmin.append("status", true);
 
-                axios.post(`https://localhost:7258/api/NotificationAdmin`, formNotificationAdmin)
-                    .then((res) => {
-                        alert("Thâm thông báo");
-                    })
-
-                alert("Đã xác nhận đơn hàng")
             })
             .catch((error) => console.error('Error cancelling invoice:', error));
     }
     return (
         <>
+            <ToastContainer />
+
             <div className="card invoiceDetail" ref={componentRef}>
                 <div className="card-body">
                     <div className="container mb-5 mt-3">
@@ -145,7 +208,7 @@ const InvoiceDetail = () => {
                             <div className="row">
                                 <div className="col-xl-8">
                                     <ul className="list-unstyled">
-                                        <li className="text-muted"><i className="bi bi-person-circle"></i>Tên người dùng: <span style={{ color: '#5d9fc5' }}>{userName}</span></li>
+                                        <li className="text-muted"><i className="bi bi-person-circle"></i>Tên người dùng: <span style={{ color: '#5d9fc5' }}>{invoice?.user?.fullname}</span></li>
                                         <li className="text-muted"><i className="bi bi-geo-alt-fill"></i>Địa chỉ: {invoice.shippingAddress}</li>
                                         <li className="text-muted"><i className="bi bi-telephone"></i>Số điện thoại: {invoice.shippingPhone}</li>
                                     </ul>

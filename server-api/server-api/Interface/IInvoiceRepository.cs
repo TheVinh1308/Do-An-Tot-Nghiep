@@ -17,5 +17,6 @@ namespace server_api.Interface
         Task<int> CountInvoicesMonthAsync();
         // Theo năm
         Task<int> CountInvoicesYearAsync();
+        Task SendMailWithPdfAsync(IFormFile pdf, [FromForm] string userId);
     }
 }
