@@ -187,7 +187,7 @@ const CartItems = () => {
     useEffect(() => {
         axios.get(`https://localhost:7258/api/Images`).then((res) => setImages(res.data))
         .catch((err) => console.log("Loi lay du lieu: ",err))
-    })
+    },[])
 
     return (
         <>

@@ -100,6 +100,8 @@ const Pay = () => {
         formInvoice.append("total", totalItemPrice);
         formInvoice.append("status", 1);
 
+        console.log(formInvoice);
+
         try {
             const res = await axios.post(`https://localhost:7258/api/Invoices`, formInvoice);
             const invoiceId = res.data.id;

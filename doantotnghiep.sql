@@ -51,6 +51,10 @@ delete from NotificationsAdmins
 DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.NotificationsAdmins', RESEED,0);
 go
 
+delete from Reviews
+DBCC CHECKIDENT ('DB_DoAnTotNghiep.dbo.Reviews', RESEED,0);
+go
+
 --======================= PaymentMethods ==================
 insert into PaymentMethods values ( 'COD',  1);
 insert into PaymentMethods values ( 'VNPay',  1);

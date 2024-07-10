@@ -44,11 +44,14 @@ const Favorite = () => {
 
     const [PhoneEx, setPhoneEx] = useState([{phone: {}}]);
     useEffect(() => {
-        axios.get(`https://localhost:7258/api/Carts/GetCartByUserId/${userId}`)
-            .then((res) => {
-                setPhoneEx(res.data)
-            });
-    }, []);
+        if(userId) {
+            axios.get(`https://localhost:7258/api/Carts/GetCartByUserId/${userId}`)
+                .then((res) => {
+                    setPhoneEx(res.data)
+                });
+            
+        }
+    }, [userId]);
 
     const [phones, setPhones] = useState([]);
     useEffect(() => {
@@ -101,7 +104,7 @@ const Favorite = () => {
                         axios.post(`https://localhost:7258/api/History`, formDataHistory)
                             .then(ress => {
                                 notify();
-                                setIsAddToCart(true)
+                                setIsAddToCart((prev => !prev))
                             })
                             .catch(error => {
                                 console.error("Error adding to history:", error);
@@ -124,7 +127,7 @@ const Favorite = () => {
                                 setPhoneEx(res.data)
                             });
                         const formDataHistory = new FormData();
-                        formDataHistory.append("action", "Thêm sản phẩm vào giỏ hàng");
+                        formDataHistory.append("action", "Thêm sản phẩm yêu thích vào giỏ hàng");
                         formDataHistory.append("userId", userId);
                         formDataHistory.append("time", new Date().toISOString());
                         formDataHistory.append("productId", selectedPhone.id); // Sử dụng selectedPhone.id
@@ -135,7 +138,7 @@ const Favorite = () => {
                         axios.post(`https://localhost:7258/api/History`, formDataHistory)
                             .then(ress => {
                                 notify();
-                                setIsAddToCart(true)
+                                setIsAddToCart((prev => !prev))
                             })
                             .catch(error => {
                                 console.error("Error adding to history:", error);
@@ -148,6 +151,43 @@ const Favorite = () => {
         }
         else {
             window.location.href = "/login"
+        }
+    };
+
+    const notifySuccess = (message) => toast.success(message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+    });
+
+    const handleDelete = async (id) => {
+        try {
+            const shouldDelete = window.confirm("Bạn có chắc chắn muốn sản phẩm này khỏi danh sách yêu thích?");
+            if(shouldDelete) {
+                await axios.delete(`https://localhost:7258/api/Favorites/${id}`);
+                setFavorites(prev => prev.filter(item => item.id !== id));
+                notifySuccess("Xóa yêu thích thành công!");
+    
+                const favItem = favorites.find(item => item.id === id);
+                const historyData = new FormData();
+                historyData.append("action", "Xoá sản phẩm yêu thích");
+                historyData.append("userId", userId);
+                historyData.append("time", new Date().toISOString());
+                historyData.append("productId", favItem.phoneId);
+                historyData.append("productName", favItem.phone.name);
+                historyData.append("operation", "Xoá");
+                historyData.append("amount", 1);
+    
+                await axios.post(`https://localhost:7258/api/History`, historyData);
+            }
+        } catch (error) {
+            console.error("Error deleting item:", error);
         }
     };
 
@@ -187,7 +227,7 @@ const Favorite = () => {
                                     <p  style={{color: "black"}}>Màu: {item.phone.color}, Dung lượng:  {item.phone.rom} GB</p>
                                     <p style={{color: "red"}}>{(item.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
                                     <Button className="btn-fav" onClick={() => handleAddCart(item.phone.id)}>Thêm vào giỏ hàng</Button>
-                                    <Button className="btn-fav mt-3">Xóa sản phẩm yêu thích</Button>
+                                    <Button className="btn-fav mt-3" onClick={() => handleDelete(item.id)}>Xóa sản phẩm yêu thích</Button>
 
                                 </Col>
                                 
@@ -200,7 +240,7 @@ const Favorite = () => {
                             </>
                             ) 
 
-                        ) : <p>Không có sản phẩm yêu thích</p>
+                        ) : <p style={{fontSize: "2.5em", textAlign: "center"}}>Không có sản phẩm yêu thích</p>
                 }
             </div>
 
