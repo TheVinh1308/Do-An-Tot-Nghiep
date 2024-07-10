@@ -12,6 +12,7 @@ import '@fontsource/marcellus';
 import { Pagination } from 'swiper/modules';
 import StarRatings from 'react-star-ratings';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Popular = () => {
 
@@ -60,7 +61,9 @@ const Popular = () => {
                 className="mySwiper"
             >
                 {phonePromotion.map((item, index) => (
+                   
                     <SwiperSlide key={index}>
+                         <Link to={`${item?.modPhone?.brand?.name}/${item.id}`}>
                         <div className='img-popular'>
                             <div>
                                 <img src={'https://localhost:7258/images/products/' + item.modPhone.image} alt={item.modPhone.name} />
@@ -81,6 +84,7 @@ const Popular = () => {
 
                             </div>
                         </div>
+                        </Link>
                     </SwiperSlide>
                 ))}
             </Swiper>

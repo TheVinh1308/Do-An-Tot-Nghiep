@@ -165,7 +165,7 @@ const EditModPhone = ({ modPhoneId }) => {
                         <Row>
                             <Col className="form-item" xs={12} md={6}>
                                 <i class="bi bi-battery-half"></i>
-                                <label htmlFor="inputNanme4" className="form-label">Dung lượng pin</label>
+                                <label htmlFor="inputNanme4" className="form-label">Thương hiệu</label>
                                 <Form.Select name="brandId" onChange={handleSelect} value={modPhone.brandId}>
                                     {modPhone.brand && <option>{modPhone.brand.name}</option>}
                                     {brands.map((item, index) => (
@@ -177,8 +177,8 @@ const EditModPhone = ({ modPhoneId }) => {
                             </Col>
                             <Col className="form-item" xs={12} md={6}>
                                 <i class="bi bi-cpu"></i>
-                                <label htmlFor="inputNanme4" className="form-label">CPU</label>
-                                <input type="text" className="form-control" name="description" onChange={handleChange} />
+                                <label htmlFor="inputNanme4" className="form-label">Mô tả</label>
+                                <input type="text" className="form-control" name="description" value={modPhone.cpu} onChange={handleChange} />
                             </Col>
                         </Row>
                     </Col>

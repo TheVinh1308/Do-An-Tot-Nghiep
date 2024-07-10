@@ -144,21 +144,18 @@
     background-color: white;
     padding-top: 60px;
     text-align: center;
-    font-family: 'Marcellus', serif;
 }
 
 .popular h1 {
     padding-top: 20px;
     color: #171717;
     font-size: 13px;
-    font-family: 'Marcellus', serif;
 }
 
 .popular h2 {
     padding-top: 5px;
     color: #171717;
     font-size: 43px;
-    font-family: 'Marcellus', serif;
 }
 
 .popular h1,
@@ -210,10 +207,6 @@
     margin-top: 50px;
 }
 
-p {
-    font-family: "emoji";
-
-}
 
 .mySwiper {
     padding: 20px;

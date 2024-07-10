@@ -264,14 +264,14 @@ const CartItems = () => {
                     <Row>
                         <Col md={3}></Col>
                         <Col md={9}>
-                            <Row>
+                            {/* <Row>
                                 <Col>
                                     <h3>Tổng phụ</h3>
                                 </Col>
                                 <Col className="col-right">
                                     <h3>{totalItemPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h3>
                                 </Col>
-                            </Row>
+                            </Row> */}
                             <Row>
                                 <Col>
                                     <h5>Vận chuyển</h5>
@@ -286,7 +286,7 @@ const CartItems = () => {
                                     <h2>Tổng đơn hàng</h2>
                                 </Col>
                                 <Col className="col-right">
-                                    <h2>{totalItemPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h2>
+                                    <h2>{(totalItemPrice).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h2>
                                 </Col>
                             </Row>
 

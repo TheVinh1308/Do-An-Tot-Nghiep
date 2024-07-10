@@ -102,6 +102,7 @@ namespace server_api.Repository
         public async Task<List<Phone>> GetPhonePromotionAsync()
         {
             var result = await _context.Phones
+     .Include(p => p.ModPhone.Brand)
      .Include(p => p.ModPhone)
      .ThenInclude(mp => mp.Promotion)
      .Where(p => p.ModPhone.PromotionId != 1)

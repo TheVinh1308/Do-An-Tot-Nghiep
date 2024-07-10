@@ -10696,7 +10696,9 @@
             "Chạm 2 lần sáng màn hình"
           ],
           "khangNuocBui": "IP68",
-          "ghiAm": ["Có"],
+          "ghiAm": [
+            "Có"
+          ],
           "xemPhim": [
             "WEBM",
             "MP4",
@@ -13640,9 +13642,11 @@
         },
         "tienIch": {
           "baoMatNangCao": [
+            "a",
             "a"
           ],
           "tinhNangDacBiet": [
+            "a",
             "a"
           ],
           "ghiAm": [
@@ -13658,9 +13662,9 @@
         "thongTinChung": {
           "kichThuocKhoiLuong": {},
           "chatLieu": {},
-          "thietKe": "",
-          "hang": "",
-          "thoiDiemRaMat": ""
+          "thietKe": "a",
+          "hang": "a",
+          "thoiDiemRaMat": "a"
         },
         "ramLuuTru": {}
       },

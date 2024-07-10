@@ -19,6 +19,11 @@ const Sidebar = () => {
                         </a>
                         <ul id="components-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
                             <li>
+                                <Link to="/admin/Brand" >
+                                    <i className="bi bi-circle" /><span>Hãng điện thoại</span>
+                                </Link>
+                            </li>
+                            <li>
                                 <Link to="/admin/ModProduct" >
                                     <i className="bi bi-circle" /><span>Dòng điện thoại</span>
                                 </Link>
@@ -31,11 +36,6 @@ const Sidebar = () => {
                             <li>
                                 <Link to="/admin/Image" >
                                     <i className="bi bi-circle" /><span>Hình ảnh</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/admin/Brand" >
-                                    <i className="bi bi-circle" /><span>Hãng điện thoại</span>
                                 </Link>
                             </li>
                             <li>

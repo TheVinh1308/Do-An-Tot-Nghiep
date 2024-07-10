@@ -150,7 +150,7 @@ const ShopCategory = (props) => {
                 </div>
             </div>
             <div className="shopcategory-filter">
-                <Dropdown>
+                {/* <Dropdown>
                     <Dropdown.Toggle>
                         Chức năng
                     </Dropdown.Toggle>
@@ -159,7 +159,7 @@ const ShopCategory = (props) => {
                         <Dropdown.Item onClick={() => handleClickFill("function", "Quay Phim")}>Quay phim</Dropdown.Item>
                         <Dropdown.Item onClick={() => handleClickFill("function", "Chức năng cơ bản")}>Chức năng cơ bản</Dropdown.Item>
                     </Dropdown.Menu>
-                </Dropdown>
+                </Dropdown> */}
                 <Dropdown>
                     <Dropdown.Toggle className="shopcategory-fill">
                         Dung lượng

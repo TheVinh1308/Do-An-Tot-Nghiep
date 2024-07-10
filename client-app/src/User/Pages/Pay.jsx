@@ -97,7 +97,9 @@ const Pay = () => {
         formInvoice.append('userId', userDetails.userId);
         formInvoice.append("issuedDate", new Date().toISOString());
         formInvoice.append("paymentMethodId", 1);
-        formInvoice.append("total", totalItemPrice);
+        formInvoice.append("shippingAddress", formData.shippingAddress);
+        formInvoice.append("shippingPhone", formData.shippingPhone);
+        formInvoice.append("total", (totalItemPrice/10));
         formInvoice.append("status", 1);
 
         console.log(formInvoice);
@@ -115,8 +117,9 @@ const Pay = () => {
 
             axios.post(`https://localhost:7258/api/NotificationAdmin`, formNotificationAdmin)
                 .then((res) => {
-                    alert("Thâm thông báo");
+                    console.log("Đã tạo hóa đơn");
                 })
+                .catch((err) => console.log("Lỗi tạo hóa đơn"))
 
             if (cart.length > 0) {
                 await Promise.all(cart.map(async (item) => {
@@ -125,6 +128,7 @@ const Pay = () => {
                     formInvoiceDetail.append("phoneId", item.phone.id);
                     formInvoiceDetail.append("quantity", item.quantity);
                     formInvoiceDetail.append("price", item.phone.price);
+                    
                     await axios.post(`https://localhost:7258/api/InvoiceDetails`, formInvoiceDetail);
 
 
@@ -154,7 +158,7 @@ const Pay = () => {
 
             await Promise.all(cartItems.map(element => axios.delete(`https://localhost:7258/api/Carts/${element}`)));
 
-            alert("Payment successful!");
+            alert("Đã đặt hàng thành công!");
             setCart([]);
             AfterPay(invoiceId);
         } catch (error) {
@@ -215,6 +219,7 @@ const Pay = () => {
                     formInvoiceDetail.append("phoneId", item.phone.id);
                     formInvoiceDetail.append("quantity", item.quantity);
                     formInvoiceDetail.append("price", item.phone.price);
+                    
                     await axios.post(`https://localhost:7258/api/InvoiceDetails`, formInvoiceDetail);
 
 
@@ -260,8 +265,8 @@ const Pay = () => {
         const transactionStatus = urlParams.get('vnp_TransactionStatus');
         const invoice_Id = localStorage.getItem("invoiceId")
         let issuedDate = new Date();
-issuedDate.setHours(issuedDate.getHours() + 7);
-issuedDate = issuedDate.toISOString();
+        issuedDate.setHours(issuedDate.getHours() + 7);
+        issuedDate = issuedDate.toISOString();
         if (transactionStatus === '00') {
             try {
 

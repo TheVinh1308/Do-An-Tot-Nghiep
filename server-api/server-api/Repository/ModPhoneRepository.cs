@@ -51,14 +51,14 @@ namespace server_api.Repository
             {
                 var fileName = modPhone.ImageFile.FileName;
                 // thư mục wwwroot/images/products
-                var imagePath = Path.Combine(_environment.WebRootPath, "images", "products");
+                var imagePath = Path.Combine(_environment.WebRootPath, "images", "modPhones");
                 var uploadPath = Path.Combine(imagePath, fileName);
                 using (var fileStream = new FileStream(uploadPath, FileMode.Create))
                 {
                     await modPhone.ImageFile.CopyToAsync(fileStream);
                 }
                 modPhone.Image = modPhone.ImageFile.FileName;
-
+                
             }
             _context.ModPhones.Add(modPhone);
             await _context.SaveChangesAsync();
@@ -73,7 +73,7 @@ namespace server_api.Repository
                 {
                     var fileName = modPhone.ImageFile.FileName;
                     // thư mục wwwroot/images/products
-                    var imagePath = Path.Combine(_environment.WebRootPath, "images", "products");
+                    var imagePath = Path.Combine(_environment.WebRootPath, "images", "modPhones");
                     var uploadPath = Path.Combine(imagePath, fileName);
                     using (var fileStream = new FileStream(uploadPath, FileMode.Create))
                     {

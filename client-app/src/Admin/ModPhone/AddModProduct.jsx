@@ -68,7 +68,7 @@ const AddModProduct = () => {
                 formDataHistory.append("amount", 1);
                 axios.post(`https://localhost:7258/api/History`, formDataHistory)
                     .then(ress => {
-
+                        alert("Đã thêm dòng điện thoại")
                     })
             })
             .catch(error => {

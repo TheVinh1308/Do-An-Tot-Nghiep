@@ -141,9 +141,7 @@ const InvoiceDetail = () => {
                                                             <button className="btn btn-warning" onClick={() => handleShowReview(item.phone.modPhone.id)}>
                                                                 <i class="fa fa-comment"></i>
                                                             </button>
-
                                                         )
-
                                                     }
                                                 </td>
                                             </tr>

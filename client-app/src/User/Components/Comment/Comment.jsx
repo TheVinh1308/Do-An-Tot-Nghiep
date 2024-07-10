@@ -179,11 +179,11 @@ const Commnent = ({ selectedPhone, isAuthenticated, userId, userName }) => {
                                             <Avatar className="img-responsive" name={userName} />
                                         </div>
                                         <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-                                            <textarea class="form-control" id="message" placeholder="Your message" name="content" required="" onChange={handleContent}></textarea>
+                                            <textarea class="form-control" id="message" placeholder="Nhập bình luận luận tại đây..." name="content" required onChange={handleContent}></textarea>
                                         </div>
                                     </div>
                                 </fieldset>
-                                <button type="submit" class="btn btn-normal pull-right btn-success" onClick={handleSubmit}>Submit</button>
+                                <button type="submit" class="btn btn-normal pull-right btn-success" onClick={handleSubmit}>Gửi</button>
                             </form>
                             {
                                 comments.length > 0 &&
