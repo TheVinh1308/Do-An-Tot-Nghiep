@@ -144,7 +144,7 @@ const ShopCategory = (props) => {
                 </div>
             </div>
             <div className="shopcategory-filter">
-            <Dropdown>
+                <Dropdown>
                     <Dropdown.Toggle>
                         Chức năng
                     </Dropdown.Toggle>
@@ -227,7 +227,7 @@ const ShopCategory = (props) => {
             </div>
             {filled && selectedItems.length > 0 ? (
                 <div className="shopcategory-filtered">
-                     <h4>Các mục đã lọc</h4>
+                    <h4>Các mục đã lọc</h4>
                     <hr />
                     {selectedItems.map((item, index) => (
                         <button key={index} className="shopcategory-fill-cancel">

@@ -128,7 +128,7 @@ const Item = (props) => {
                                 <>
                                     <Col md={3} sx={6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                                         {/* <Button className="del-compare" ><FontAwesomeIcon icon={faXmark} style={{ color: 'black' }} /></Button> */}
-                                        <Card.Img variant="top" src={`https://localhost:7258/images/products/${iitemCompare[1]?.modPhone.image}`} style={{ width: 150 }} />
+                                        <Card.Img variant="top" src={`https://localhost:7258/images/products/${iitemCompare[1]?.modPhone?.image}`} style={{ width: 150 }} />
                                         <h6 style={{ textAlign: 'center' }}>{iitemCompare[1]?.name}</h6>
                                         <Button className="btn-huy" onClick={() => handleCancel(iitemCompare[1])}>Huỷ chọn</Button>
                                     </Col>
@@ -140,13 +140,13 @@ const Item = (props) => {
                                 </> : <>
                                     <Col md={3} sx={6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-                                        <Card.Img variant="top" src={`https://localhost:7258/images/products/${iitemCompare[1]?.modPhone.image}`} style={{ width: 150 }} />
+                                        <Card.Img variant="top" src={`https://localhost:7258/images/products/${iitemCompare[1]?.modPhone?.image}`} style={{ width: 150 }} />
                                         <h6 style={{ textAlign: 'center' }}>{iitemCompare[1]?.name}</h6>
                                         <Button className="btn-huy" onClick={() => handleCancel(iitemCompare[1])}>Huỷ chọn</Button>
                                     </Col>
                                     <Col md={3} sx={6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-                                        <Card.Img variant="top" src={`https://localhost:7258/images/products/${iitemCompare[2]?.modPhone.image}`} style={{ width: 150 }} />
+                                        <Card.Img variant="top" src={`https://localhost:7258/images/products/${iitemCompare[2]?.modPhone?.image}`} style={{ width: 150 }} />
                                         <h6 style={{ textAlign: 'center' }}>{iitemCompare[2]?.name}</h6>
                                         <Button className="btn-huy" onClick={() => handleCancel(iitemCompare[2])}>Huỷ chọn</Button>
                                     </Col>
