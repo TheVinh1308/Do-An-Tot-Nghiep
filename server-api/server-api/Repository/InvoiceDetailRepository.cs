@@ -55,6 +55,8 @@ namespace server_api.Repository
             DateTime toDate = fromDate.AddDays(1).AddTicks(-1); // Ngày kết thúc là cuối ngày hôm nay
 
             var invoiceDetails = await _context.InvoiceDetails
+                .Include(i => i.Phone.ModPhone.Brand)
+                .Include(i => i.Phone.ModPhone)
                 .Include(i => i.Phone)
                 .Include(i => i.Invoice)
                 .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate)
@@ -87,6 +89,8 @@ namespace server_api.Repository
             DateTime toDate = fromDate.AddMonths(1).AddTicks(-1); // Ngày kết thúc là cuối cùng của tháng hiện tại
 
             var invoiceDetails = await _context.InvoiceDetails
+                .Include(i => i.Phone.ModPhone.Brand)
+                .Include(i => i.Phone.ModPhone)
                 .Include(i => i.Phone)
                 .Include(i => i.Invoice)
                 .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate)

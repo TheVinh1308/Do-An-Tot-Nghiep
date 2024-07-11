@@ -158,13 +158,13 @@ const InvoiceDetail = () => {
                                         <li className="text-muted ms-3">
                                             <span className="text-black me-4">Tổng tiền</span>
                                             {invoice?.total !== undefined
-                                                ? (invoice.total).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })
+                                                ? (invoice.total/10).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })
                                                 : 'N/A' // or any other placeholder text or value
                                             }
                                         </li>
                                         <li className="text-muted ms-3 mt-2"><span className="text-black me-4">Vận chuyển</span>{(0).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</li>
                                     </ul>
-                                    <p className="text-black float-start"><span className="text-black me-3">Thành tiền</span><span style={{ fontSize: 25 }}>{(invoice.total + 0).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</span></p>
+                                    <p className="text-black float-start"><span className="text-black me-3">Thành tiền</span><span style={{ fontSize: 25 }}>{(invoice.total / 10).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</span></p>
                                 </div>
                             </div>
                             <hr />
