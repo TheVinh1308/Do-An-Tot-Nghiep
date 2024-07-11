@@ -77,7 +77,7 @@ const Phone = () => {
                 setDataTableData(res.data); // Cập nhật dữ liệu DataTable
                 setLoadData(true);
             });
-    }, [phones])
+    }, [show, showEdit])
 
     // User
     const [userId, setUserId] = useState();

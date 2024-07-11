@@ -289,7 +289,7 @@ const Pay = () => {
                         localStorage.removeItem("invoiceId")
                         localStorage.removeItem("userId")
 
-                       
+                        Promise.all(cartItems.map(element => axios.delete(`https://localhost:7258/api/Carts/${element}`)));
                         setCart([]);
                         AfterPay(invoice_Id);
 
@@ -484,23 +484,23 @@ const Pay = () => {
                                             <li key={index} className="list-group-item d-flex justify-content-between lh-condensed">
                                                 <div>
                                                     <h6 className="my-0">{item.phone.name}</h6>
-                                                    <small className="text-muted">{item.phone.price} x {item.quantity}</small>
+                                                    <small className="text-muted">{(item.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {item.quantity}</small>
                                                 </div>
-                                                <span className="text-muted">{item.phone.price}</span>
+                                                <span className="text-muted">{(item.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</span>
                                             </li>
                                         ))
                                     ) : (
                                         <li className="list-group-item d-flex justify-content-between lh-condensed">
                                             <div>
                                                 <h6 className="my-0">{phoneSelect?.name}</h6>
-                                                <small className="text-muted">{phoneSelect?.price} x {1}</small>
+                                                <small className="text-muted">{(phoneSelect?.price)} x {1}</small>
                                             </div>
-                                            <span className="text-muted">{phoneSelect?.price}</span>
+                                            <span className="text-muted">{(phoneSelect?.price)}</span>
                                         </li>
                                     )}
                                     <li className="list-group-item d-flex justify-content-between">
                                         <span>Tổng thành tiền</span>
-                                        <strong>{totalItemPrice}</strong>
+                                        <strong>{(totalItemPrice)?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</strong>
                                     </li>
                                 </ul>
 
@@ -531,7 +531,7 @@ const Pay = () => {
                                             id="kh_diachi"
                                             required
                                             placeholder="Nhập địa chỉ"
-                                            value={formData.shippingAddress || localStorage.getItem('shippingAddress')}
+                                            value={formData.shippingAddress }
                                             onChange={handleChange}
                                         />
                                     </div>

@@ -45,6 +45,22 @@ const EditModPhone = ({ modPhoneId }) => {
             brand: selectedBrand
         }));
     }
+     // lấy modPhone theo id
+     useEffect(() => {
+        axios.get(`https://localhost:7258/api/ModPhones/${modPhoneId}`)
+            .then(res => {
+                setModPhone(res.data);
+            });
+    }, [modPhoneId,isInsert]);
+
+    // lấy danh sách brands
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Brands`)
+            .then(res => {
+                setBrands(res.data);
+            });
+    }, []);
+
     const [phoneByModPhone, setPhoneByModPhone] = useState();
     const fetchPhoneByModPhoneId = async (id) => {
         try {
@@ -82,37 +98,24 @@ const EditModPhone = ({ modPhoneId }) => {
                 formDataHistory.append("action", "Sửa dòng điện gf thoại");
                 formDataHistory.append("userId", userId);
                 formDataHistory.append("time", new Date().toISOString());
-                formDataHistory.append("productId", phoneByModPhone.id);
+                formDataHistory.append("productName", modPhone.name);
+                formDataHistory.append("productId", modPhone.id);
                 formDataHistory.append("operation", "Sửa");
                 formDataHistory.append("amount", 1);
                 axios.post(`https://localhost:7258/api/History`, formDataHistory)
                     .then(ress => {
-
+                        alert("Đã sửa")
                     })
             })
             .catch(error => {
                 console.error('Error adding brand:', error);
-                console.log(`modPhone`, modPhone);
             });
     }
-    // lấy modPhone theo id
-    useEffect(() => {
-        axios.get(`https://localhost:7258/api/ModPhones/${modPhoneId}`)
-            .then(res => {
-                setModPhone(res.data);
-            });
-    }, [modPhoneId]);
-
-    // lấy danh sách brands
-    useEffect(() => {
-        axios.get(`https://localhost:7258/api/Brands`)
-            .then(res => {
-                setBrands(res.data);
-            });
-    }, []);
+   
     return (
         <>
             <form className="form-modphone g-3" onSubmit={handleSubmit}>
+                <input type="hidden" name="id" onChange={handleChange} value={modPhone.id} />
                 <Row>
                     <Col className="col-4 form-item" md={4} xs={12}>
                         <i class="bi bi-image"></i>
@@ -121,7 +124,7 @@ const EditModPhone = ({ modPhoneId }) => {
                         {imageSrc ? (
                             <img src={imageSrc.preview} width="100%" />
                         ) : (
-                            <img src={process.env.PUBLIC_URL + '/assets/img/ModPhone/noimg.jpg'} width="100%" />
+                            <img src={`https://localhost:7258/images/modPhones/${modPhone.image }`} style={{width: 250}} alt=""/>
                         )}
 
                     </Col>
@@ -178,7 +181,7 @@ const EditModPhone = ({ modPhoneId }) => {
                             <Col className="form-item" xs={12} md={6}>
                                 <i class="bi bi-cpu"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Mô tả</label>
-                                <input type="text" className="form-control" name="description" value={modPhone.cpu} onChange={handleChange} />
+                                <input type="text" className="form-control" name="description" value={modPhone.description} onChange={handleChange} />
                             </Col>
                         </Row>
                     </Col>

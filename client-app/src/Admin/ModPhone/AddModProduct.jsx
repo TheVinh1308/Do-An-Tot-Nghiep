@@ -60,7 +60,7 @@ const AddModProduct = () => {
                 setBrand(res.data);
                 setIsInsert(true);
                 const formDataHistory = new FormData();
-                formDataHistory.append("action", "Thêm dòng điện gf thoại");
+                formDataHistory.append("action", "Thêm dòng điện thoại");
                 formDataHistory.append("userId", userId);
                 formDataHistory.append("time", new Date().toISOString());
                 formDataHistory.append("productId", newModPhone.id);
@@ -74,6 +74,7 @@ const AddModProduct = () => {
             .catch(error => {
                 console.error('Error adding brand:', error);
                 console.log(`modPhone`, modPhone);
+                alert("Thêm thất bại")
             });
     }
 
@@ -104,12 +105,12 @@ const AddModProduct = () => {
                             <Col className="form-item" xs={12} md={6}>
                                 <i class="bi bi-info-circle-fill"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Tên dòng</label>
-                                <input type="text" className="form-control" name="name" onChange={handleChange} />
+                                <input type="text" className="form-control" name="name" onChange={handleChange} required/>
                             </Col>
                             <Col className="form-item" xs={12} md={6}>
                                 <i class="bi bi-memory"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Ram</label>
-                                <input type="text" className="form-control" name="ram" onChange={handleChange} />
+                                <input type="text" className="form-control" name="ram" onChange={handleChange} required />
                             </Col>
                         </Row>
                         <Row>
@@ -121,39 +122,39 @@ const AddModProduct = () => {
                             <Col className="form-item" xs={12} md={6}>
                                 <i class="bi bi-phone"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Màng hình</label>
-                                <input type="text" className="form-control" name="screenSize" onChange={handleChange} />
+                                <input type="text" className="form-control" name="screenSize" onChange={handleChange} required/>
                             </Col>
                         </Row>
                         <Row>
                             <Col className="form-item" xs={12} md={6}>
                                 <i class="bi bi-battery-half"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Dung lượng pin</label>
-                                <input type="text" className="form-control" name="battery" onChange={handleChange} />
+                                <input type="text" className="form-control" name="battery" onChange={handleChange} required/>
                             </Col>
                             <Col className="form-item" xs={12} md={6}>
                                 <i class="bi bi-cpu"></i>
                                 <label htmlFor="inputNanme4" className="form-label">CPU</label>
-                                <input type="text" className="form-control" name="cpu" onChange={handleChange} />
+                                <input type="text" className="form-control" name="cpu" onChange={handleChange} required/>
                             </Col>
                         </Row>
                         <Row>
                             <Col className="form-item" xs={12} md={6}>
                                 <i class="bi bi-battery-half"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Dung lượng pin</label>
-                                <Form.Select name="brandId" onChange={handleSelect}>
+                                <Form.Select name="brandId" onChange={handleSelect} required>
 
                                     <option>Lựa chọn hãng</option>
                                     {
                                         Array.isArray(brand) ? brand.map((item, index) => (
                                             <option key={index} value={item.id}>{item.name}</option>
-                                        )) : <option>KHong co</option>
+                                        )) : <option>Khong co</option>
                                     }
                                 </Form.Select>
                             </Col>
                             <Col className="form-item" xs={12} md={6}>
                                 <i class="bi bi-card-text"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Mô tả</label>
-                                <input type="text" className="form-control" name="description" onChange={handleChange} />
+                                <input type="text" className="form-control" name="description" onChange={handleChange} required />
                             </Col>
                         </Row>
                     </Col>

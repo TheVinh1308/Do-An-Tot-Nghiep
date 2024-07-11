@@ -46,6 +46,10 @@ const AddPhone = () => {
         // Set the generated SKU directly in the input field
         document.getElementById("inputSku").value = generatedSKU;
     };
+    
+    useEffect(() => {
+        console.log(phone);
+    }, [phone]);
 
 
     const handleSelect = (e) => {
@@ -84,11 +88,12 @@ const AddPhone = () => {
                 formDataHistory.append("amount", newPhone.stock);
                 axios.post(`https://localhost:7258/api/History`, formDataHistory)
                     .then(ress => {
-
+                        alert("Đã thêm")
                     })
             })
             .catch(error => {
                 console.error('Error adding phone:', error);
+                alert("Thêm thất bại")
             });
     }
     function generateRandomString(length) {
@@ -102,7 +107,6 @@ const AddPhone = () => {
     }
 
     var randomString = generateRandomString(10);
-    console.log(phone);
 
 
     return (
@@ -115,14 +119,14 @@ const AddPhone = () => {
                             <Col className="form-item" xs={12} md={6}>
                                 <i className="bi bi-info-circle-fill"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Tên điện thoại</label>
-                                <input type="text" className="form-control" id="inputNanme4" name="name" onChange={handleChange} />
+                                <input type="text" className="form-control" id="inputNanme4" name="name" onChange={handleChange} required/>
                             </Col>
                             <Col className="form-item" xs={8} md={6}>
                                 <div xs={8} md={8} className="form-item">
                                     <i classNames="bi bi-upc-scan"></i>
                                     <label htmlFor="inputNanme4" className="form-label">SKU</label>
                                     <div className="d-flex form-sku">
-                                        <input type="text" className="form-control" id="inputSku" name="sku" />
+                                        <input type="text" className="form-control" id="inputSku" name="sku" required/>
 
                                         <div className="btn btn-success" onClick={handleSKU}>Tạo SKU</div>
                                     </div>
@@ -137,12 +141,12 @@ const AddPhone = () => {
                             <Col className="form-item" xs={12} md={4}>
                                 <i className="bi bi-tags"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Giá tiền</label>
-                                <input type="text" className="form-control" id="inputNanme4" name="price" onChange={handleChange} />
+                                <input type="text" className="form-control" id="inputNanme4" name="price" onChange={handleChange} required/>
                             </Col>
                             <Col className="form-item" xs={12} md={4}>
                                 <i className="bi bi-layout-wtf"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Dòng điện thoại</label>
-                                <Form.Select name="modPhoneId" onChange={handleSelect}>
+                                <Form.Select name="modPhoneId" onChange={handleSelect} required>
 
                                     <option>Lựa chọn dòng điện thoại</option>
                                     {
@@ -155,19 +159,19 @@ const AddPhone = () => {
                             <Col className="form-item" xs={12} md={4}>
                                 <i className="bi bi-phone"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Dung lượng</label>
-                                <input type="text" className="form-control" id="inputNanme4" name="rom" onChange={handleChange} />
+                                <input type="text" className="form-control" id="inputNanme4" name="rom" onChange={handleChange} required/>
                             </Col>
                         </Row>
                         <Row>
                             <Col className="form-item" xs={12} md={6}>
                                 <i className="bi bi-palette"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Màu sách</label>
-                                <input type="text" className="form-control" id="inputNanme4" name="color" onChange={handleChange} />
+                                <input type="text" className="form-control" id="inputNanme4" name="color" onChange={handleChange} required/>
                             </Col>
                             <Col className="form-item" xs={12} md={6}>
                                 <i className="bi bi-bar-chart-line"></i>
                                 <label htmlFor="inputNanme4" className="form-label">Số lượng tồn kho</label>
-                                <input type="text" className="form-control" id="inputNanme4" name="stock" onChange={handleChange} />
+                                <input type="text" className="form-control" id="inputNanme4" name="stock" onChange={handleChange} required/>
                             </Col>
                         </Row>
                     </Col>

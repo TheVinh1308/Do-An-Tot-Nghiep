@@ -45,6 +45,7 @@ const EditPhone = ({ PhoneId }) => {
         axios.put(`https://localhost:7258/api/Phones/${PhoneId}`, formData) // Pass formData here
             .then(res => {
                 setPhone(res.data);
+                alert("Đã sửa thông tin")
                 const formDataHistory = new FormData();
                 formDataHistory.append("action", "Chỉnh sửa thông tin");
                 formDataHistory.append("userId", userId);

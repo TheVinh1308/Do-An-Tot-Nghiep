@@ -100,7 +100,7 @@ const AddImage = () => {
                     <Col className="col-8 form-item" md={8} xs={12}>
                         <i class="bi bi-image"></i>
                         <label htmlFor="inputName4" className="form-label">Hình ảnh</label>
-                        <input type="file" className="form-control" id="inputName4" name="Files" onChange={handleImageChange} multiple />
+                        <input type="file" className="form-control" id="inputName4" name="Files" onChange={handleImageChange} multiple required/>
 
 
                         <Row>
@@ -138,7 +138,7 @@ const AddImage = () => {
                     <Col className="col-4 form-item" md={4} xs={12}>
                         <i class="bi bi-layout-wtf"></i>
                         <label htmlFor="inputNanme4" className="form-label">Điện thoại</label>
-                        <Form.Select name="phoneId" onChange={handleSelect}>
+                        <Form.Select name="phoneId" onChange={handleSelect} required>
                             {phones.map((item, index) => (
                                 <option key={index} value={item.id}>{item.name}</option>
                             ))}

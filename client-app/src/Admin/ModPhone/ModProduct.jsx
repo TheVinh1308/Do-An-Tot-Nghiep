@@ -122,6 +122,8 @@ const ModProduct = () => {
         }
     }
 
+    console.log(modPhoneSelect);
+
     return (
         <>
             <Header />
@@ -198,7 +200,7 @@ const ModProduct = () => {
                     <Modal.Title className="add-title">Cập nhật dòng điện thoại</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {showEdit && <EditModPhone modPhoneId={modPhoneSelect} />}
+                    {showEdit && modPhoneSelect && <EditModPhone modPhoneId={modPhoneSelect} />}
                 </Modal.Body>
             </Modal>
         </>

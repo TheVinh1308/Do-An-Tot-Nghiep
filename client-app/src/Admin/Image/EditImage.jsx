@@ -75,12 +75,14 @@ const EditImage = ({ imageId, setIsSave }) => {
                 .then((res) => {
                     setImage(res.data);
                     setIsInsert(true);
+                    alert("Đã sửa")
                     const editImagePhone = images.find(i => i.id == imageId);
                     const formDataHistory = new FormData();
                     formDataHistory.append("action", "Sửa hình ảnh");
                     formDataHistory.append("userId", userId);
                     formDataHistory.append("time", new Date().toISOString());
-                    formDataHistory.append("productId", editImagePhone.id);
+                    formDataHistory.append("productId", image.phone.id);
+                    formDataHistory.append("productName", image.phone.name);
                     formDataHistory.append("operation", "Sửa");
                     formDataHistory.append("amount", 1);
                     axios.post(`https://localhost:7258/api/History`, formDataHistory)

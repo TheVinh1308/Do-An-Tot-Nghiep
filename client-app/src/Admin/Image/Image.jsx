@@ -49,7 +49,7 @@ const Images = () => {
                 setImages(res.data);
                 setLoadData(true);
             });
-    }, [show, handleCloseEdit, handleClose]);
+    }, [show, showEdit]);
 
 
 
