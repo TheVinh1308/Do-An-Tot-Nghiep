@@ -57,7 +57,7 @@ namespace server_api.Repository
             var invoiceDetails = await _context.InvoiceDetails
                 .Include(i => i.Phone)
                 .Include(i => i.Invoice)
-                .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate)
+                .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate && i.Invoice.Status == 3)
                 .Select(i => new
                 {
                     i.PhoneId,
@@ -89,7 +89,7 @@ namespace server_api.Repository
             var invoiceDetails = await _context.InvoiceDetails
                 .Include(i => i.Phone)
                 .Include(i => i.Invoice)
-                .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate)
+                .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate && i.Invoice.Status == 3)
                 .Select(i => new
                 {
                     i.PhoneId,
@@ -123,7 +123,7 @@ namespace server_api.Repository
             var invoiceDetails = await _context.InvoiceDetails
                 .Include(i => i.Phone)
                 .Include(i => i.Invoice)
-                .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate)
+                .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate && i.Invoice.Status == 3 )
                 .Select(i => new
                 {
                     i.PhoneId,
@@ -156,7 +156,7 @@ namespace server_api.Repository
                 .Include(i => i.Phone)
                 .ThenInclude(i => i.ModPhone)
                 .ThenInclude(i => i.Brand)
-                .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate)
+                .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate && i.Invoice.Status == 3)
                 .Select(i => new
                 {
                     i.PhoneId,
@@ -190,7 +190,7 @@ namespace server_api.Repository
                 .Include(i => i.Phone)
                 .ThenInclude(i => i.ModPhone)
                 .ThenInclude(i => i.Brand)
-                .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate)
+                .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate && i.Invoice.Status == 3)
                 .Select(i => new
                 {
                     i.PhoneId,
@@ -226,7 +226,7 @@ namespace server_api.Repository
                 .Include(i => i.Phone)
                 .ThenInclude(i => i.ModPhone)
                 .ThenInclude(i => i.Brand)
-                .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate)
+                .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate && i.Invoice.Status == 3)
                 .Select(i => new
                 {
                     i.PhoneId,
@@ -353,7 +353,7 @@ namespace server_api.Repository
             var invoiceDetails = await _context.InvoiceDetails
                 .Include(i => i.Phone)
                 .Include(i => i.Invoice)
-                .Where(i => i.Invoice.IssuedDate >= startOfWeek && i.Invoice.IssuedDate <= endOfWeek)
+                .Where(i => i.Invoice.IssuedDate >= startOfWeek && i.Invoice.IssuedDate <= endOfWeek && i.Invoice.Status == 3)
                 .ToListAsync();
 
             var salesByDay = new decimal[7];
@@ -364,7 +364,7 @@ namespace server_api.Repository
                 int dayOfWeek = (int)issuedDate.DayOfWeek;
                 dayOfWeek = dayOfWeek == 0 ? 6 : dayOfWeek - 1; // Chuyển đổi Sunday (0) thành 6 và các ngày khác giảm 1
 
-                salesByDay[dayOfWeek] += invoiceDetail.Quantity * invoiceDetail.Phone.Price; // Assuming Phone has Price property
+                salesByDay[dayOfWeek] += invoiceDetail.Quantity * invoiceDetail.UnitPrice; // Assuming Phone has Price property
             }
 
             return salesByDay;
@@ -383,12 +383,12 @@ namespace server_api.Repository
                 var invoiceDetails = await _context.InvoiceDetails
                     .Include(i => i.Phone)
                     .Include(i => i.Invoice)
-                    .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate)
+                    .Where(i => i.Invoice.IssuedDate >= fromDate && i.Invoice.IssuedDate <= toDate && i.Invoice.Status == 3)
                     .ToListAsync();
 
                 foreach (var invoiceDetail in invoiceDetails)
                 {
-                    salesByMonth[month - 1] += invoiceDetail.Quantity * invoiceDetail.Phone.Price; // Assuming Phone has Price property
+                    salesByMonth[month - 1] += invoiceDetail.Quantity * invoiceDetail.UnitPrice; // Assuming Phone has Price property
                 }
             }
 

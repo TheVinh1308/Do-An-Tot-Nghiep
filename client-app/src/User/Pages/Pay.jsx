@@ -36,7 +36,7 @@ const Pay = () => {
         };
         fetchCarts();
     }, [cartItems]);
-
+    console.log(`cartItems`, cart);
     useEffect(() => {
         const fetchPhone = async () => {
             try {
@@ -99,7 +99,7 @@ const Pay = () => {
         formInvoice.append("paymentMethodId", 1);
         formInvoice.append("shippingAddress", formData.shippingAddress);
         formInvoice.append("shippingPhone", formData.shippingPhone);
-        formInvoice.append("total", (totalItemPrice/10));
+        formInvoice.append("total", (totalItemPrice));
         formInvoice.append("status", 1);
 
         console.log(formInvoice);
@@ -127,8 +127,8 @@ const Pay = () => {
                     formInvoiceDetail.append("invoiceId", invoiceId);
                     formInvoiceDetail.append("phoneId", item.phone.id);
                     formInvoiceDetail.append("quantity", item.quantity);
-                    formInvoiceDetail.append("price", item.phone.price);
-                    
+                    formInvoiceDetail.append("unitPrice", item.phone.price - (item.phone.price * item.phone.modPhone.promotion.discountPercent / 100));
+
                     await axios.post(`https://localhost:7258/api/InvoiceDetails`, formInvoiceDetail);
 
 
@@ -219,7 +219,7 @@ const Pay = () => {
                     formInvoiceDetail.append("phoneId", item.phone.id);
                     formInvoiceDetail.append("quantity", item.quantity);
                     formInvoiceDetail.append("price", item.phone.price);
-                    
+
                     await axios.post(`https://localhost:7258/api/InvoiceDetails`, formInvoiceDetail);
 
 
@@ -241,7 +241,7 @@ const Pay = () => {
                 formBuyNow.append("invoiceId", invoiceId);
                 formBuyNow.append("phoneId", phoneSelect.id);
                 formBuyNow.append("quantity", 1);
-                formBuyNow.append("price", phoneSelect.price);
+                formBuyNow.append("price", phoneSelect.price - (phoneSelect.price * phoneSelect.modPhone.promotion.discountPercent / 100));
                 await axios.post(`https://localhost:7258/api/InvoiceDetails`, formBuyNow);
             }
 
@@ -310,7 +310,7 @@ const Pay = () => {
         e.preventDefault();
         const dataMomo = new FormData();
         dataMomo.append("fullName", userDetails.userName);
-        dataMomo.append("amount", Math.floor(totalItemPrice / 10000));
+        dataMomo.append("amount", Math.floor(totalItemPrice / 100));
 
         const formInvoice = new FormData();
         Object.entries(invoice).forEach(([key, value]) => {
@@ -377,7 +377,7 @@ const Pay = () => {
                 formBuyNow.append("invoiceId", invoiceId);
                 formBuyNow.append("phoneId", phoneSelect.id);
                 formBuyNow.append("quantity", 1);
-                formBuyNow.append("price", phoneSelect.price);
+                formBuyNow.append("price", phoneSelect.price - (phoneSelect.price * phoneSelect.modPhone.promotion.discountPercent / 100));
                 await axios.post(`https://localhost:7258/api/InvoiceDetails`, formBuyNow);
             }
 
@@ -531,7 +531,7 @@ const Pay = () => {
                                             id="kh_diachi"
                                             required
                                             placeholder="Nhập địa chỉ"
-                                            value={formData.shippingAddress }
+                                            value={formData.shippingAddress}
                                             onChange={handleChange}
                                         />
                                     </div>

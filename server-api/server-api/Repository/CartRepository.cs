@@ -41,6 +41,8 @@ namespace server_api.Repository
         {
             var cart = await _context.Carts
                 .Include(c=>c.Phone)
+                .ThenInclude(c=>c.ModPhone)
+                .ThenInclude(c=>c.Promotion)
                 .SingleOrDefaultAsync(x => x.Id == id);
             return cart;
         }
@@ -51,6 +53,7 @@ namespace server_api.Repository
                 .Include(c => c.User)
                 .Include(c => c.Phone)
                 .ThenInclude(c => c.ModPhone)
+                .ThenInclude(c=>c.Promotion)
                 .Where(c => c.UserId == userId)
                 .ToListAsync();
 

@@ -19,15 +19,12 @@ const Shop = () => {
                 </div>
                 <div className="content-2">
                     <Offers />
-
                 </div>
                 <div className="content-3">
                     <NewCollections />
                     <NewsLetter />
                     <Footer />
-
                 </div>
-
             </div>
         </>
     );
