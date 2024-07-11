@@ -64,13 +64,13 @@ const CartItems = () => {
     }, [userId]);
 
     useEffect(() => {
-        const newTotal = carts.reduce((acc, item) => acc + (item.quantity * item.phone.price), 0);
+        const newTotal = carts.reduce((acc, item) => acc + (item.quantity * (item.phone.price - (item.phone.price * item.phone.modPhone.promotion.discountPercent / 100))), 0);
         setTotalAllItem(newTotal);
     }, [carts]);
 
     useEffect(() => {
         const selectedPhones = carts.filter(item => cartItems.includes(item.id));
-        const newTotal = selectedPhones.reduce((acc, item) => acc + (item.quantity * item.phone.price), 0);
+        const newTotal = selectedPhones.reduce((acc, item) => acc + (item.quantity * (item.phone.price - (item.phone.price * item.phone.modPhone.promotion.discountPercent / 100))), 0);
         setTotalItemPrice(newTotal);
     }, [carts, cartItems, setTotalItemPrice]);
 
@@ -186,94 +186,94 @@ const CartItems = () => {
     const [images, setImages] = useState([]);
     useEffect(() => {
         axios.get(`https://localhost:7258/api/Images`).then((res) => setImages(res.data))
-        .catch((err) => console.log("Loi lay du lieu: ",err))
-    },[])
+            .catch((err) => console.log("Loi lay du lieu: ", err))
+    }, [])
 
     return (
         <>
-        {
-carts.length == 0 ? "": <> <div className="cart-total">
-<h1>Tổng giá trị giỏ hàng của bạn là {totalAllItem.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h1>
-<p>Vận chuyển miễn phí đối với mọi đơn hàng.</p>
-<Button onClick={handleCheckAll}>
-    {checkAll ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
-</Button>
-</div>
-<hr /></>
-        }
-          
+            {
+                carts.length == 0 ? "" : <> <div className="cart-total">
+                    <h1>Tổng giá trị giỏ hàng của bạn là {totalAllItem.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h1>
+                    <p>Vận chuyển miễn phí đối với mọi đơn hàng.</p>
+                    <Button onClick={handleCheckAll}>
+                        {checkAll ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
+                    </Button>
+                </div>
+                    <hr /></>
+            }
+
             <ToastContainer />
             <div className="content">
                 {
-                    carts.length == 0? <div className="cart-empty">Giỏ hàng trống</div>:
-                    <>
+                    carts.length == 0 ? <div className="cart-empty">Giỏ hàng trống</div> :
+                        <>
 
-                    <div className="cart-items">
-    
-                        { 
-                        carts.map((item, index) => (
-                            <div className="cart-item" key={index}>
-                                <Row>
-                                    <Col md={1} className="cart-item-check">
-                                        {
-                                            item.phone.stock == 0 || item.quantity > item.phone.stock ? (
-                                                <>
-                                                    <p>Sản phẩm hết hàng</p>
-                                                </>
-                                            ) : (
-                                                <input
-                                                    type="checkbox"
-                                                    onChange={() => handleCheckboxChange(item.id)}
-                                                    checked={cartItems.includes(item.id)}
-                                                />
-                                            )
-                                        }
-                                    </Col>
-                                    <Col md={3} className="cart-item-img">
-                                        {
-                                            images.map((itemImage, imageIndex) => (
-                                                item.phoneId === itemImage.phoneId && (
-                                                    <img src={`https://localhost:7258/images/products/${JSON.parse(itemImage.path)[0]}`} alt="" />
-                                                )
-                                            ))
-                                        }
-                                    </Col>
-                                    <Col md={6}>
-                                        <Row>
-                                            <Col md={8}>
-                                                <h3>{item.phone.name}</h3>
-                                            </Col>
-                                            <Col md={4}>
-                                                <div className="change-quantity">
-                                                    <button className="btn-minus" onClick={() => handleQuantityChange(item.id, -1)}>
-                                                        <i className="bi bi-dash"></i>
-                                                    </button>
-                                                    <input className="btn-value" min="1" name="quantity" value={item.quantity} type="text" readOnly />
-                                                    <button className="btn-plus" onClick={() => handleQuantityChange(item.id, 1)}>
-                                                        <i className="bi bi-plus"></i>
-                                                    </button>
-                                                </div>
-                                            </Col>
-                                        </Row>
-                                        <hr />
-                                        <span className="" style={{marginRight: 30}}>Màu sắc: {item.phone.color}</span>
-                                        <span className="">Dung lượng: {item.phone.rom}GB</span>
-                                        <Button className="btn-trash bg-danger" onClick={() => handleDelete(item.id)}><i className="bi bi-trash2"></i></Button>
-                                    </Col>
-                                    <Col md={2}>
-                                        <h3>{(item.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h3>
-                                    </Col>
-                                </Row>
-                                <hr />
+                            <div className="cart-items">
+
+                                {
+                                    carts.map((item, index) => (
+                                        <div className="cart-item" key={index}>
+                                            <Row>
+                                                <Col md={1} className="cart-item-check">
+                                                    {
+                                                        item.phone.stock == 0 || item.quantity > item.phone.stock ? (
+                                                            <>
+                                                                <p>Sản phẩm hết hàng</p>
+                                                            </>
+                                                        ) : (
+                                                            <input
+                                                                type="checkbox"
+                                                                onChange={() => handleCheckboxChange(item.id)}
+                                                                checked={cartItems.includes(item.id)}
+                                                            />
+                                                        )
+                                                    }
+                                                </Col>
+                                                <Col md={3} className="cart-item-img">
+                                                    {
+                                                        images.map((itemImage, imageIndex) => (
+                                                            item.phoneId === itemImage.phoneId && (
+                                                                <img src={`https://localhost:7258/images/products/${JSON.parse(itemImage.path)[0]}`} alt="" />
+                                                            )
+                                                        ))
+                                                    }
+                                                </Col>
+                                                <Col md={6}>
+                                                    <Row>
+                                                        <Col md={8}>
+                                                            <h3>{item.phone.name}</h3>
+                                                        </Col>
+                                                        <Col md={4}>
+                                                            <div className="change-quantity">
+                                                                <button className="btn-minus" onClick={() => handleQuantityChange(item.id, -1)}>
+                                                                    <i className="bi bi-dash"></i>
+                                                                </button>
+                                                                <input className="btn-value" min="1" name="quantity" value={item.quantity} type="text" readOnly />
+                                                                <button className="btn-plus" onClick={() => handleQuantityChange(item.id, 1)}>
+                                                                    <i className="bi bi-plus"></i>
+                                                                </button>
+                                                            </div>
+                                                        </Col>
+                                                    </Row>
+                                                    <hr />
+                                                    <span className="" style={{ marginRight: 30 }}>Màu sắc: {item.phone.color}</span>
+                                                    <span className="">Dung lượng: {item.phone.rom}GB</span>
+                                                    <Button className="btn-trash bg-danger" onClick={() => handleDelete(item.id)}><i className="bi bi-trash2"></i></Button>
+                                                </Col>
+                                                <Col md={2}>
+                                                    <h3>{(item.phone.price - (item.phone.price * item.phone.modPhone.promotion.discountPercent / 100)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h3>
+                                                </Col>
+                                            </Row>
+                                            <hr />
+                                        </div>
+                                    ))}
                             </div>
-                        ))}
-                    </div>
-                    <div id="pay" className="cart-pay">
-                    <hr />
-                    <Row>
-                        <Col md={3}></Col>
-                        <Col md={9}>
-                            {/* <Row>
+                            <div id="pay" className="cart-pay">
+                                <hr />
+                                <Row>
+                                    <Col md={3}></Col>
+                                    <Col md={9}>
+                                        {/* <Row>
                                 <Col>
                                     <h3>Tổng phụ</h3>
                                 </Col>
@@ -281,32 +281,32 @@ carts.length == 0 ? "": <> <div className="cart-total">
                                     <h3>{totalItemPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h3>
                                 </Col>
                             </Row> */}
-                            <Row>
-                                <Col>
-                                    <h5>Vận chuyển</h5>
-                                </Col>
-                                <Col className="col-right">
-                                    <h5>miễn phí</h5>
-                                </Col>
-                            </Row>
-                            <hr />
-                            <Row>
-                                <Col>
-                                    <h2>Tổng đơn hàng</h2>
-                                </Col>
-                                <Col className="col-right">
-                                    <h2>{(totalItemPrice).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h2>
-                                </Col>
-                            </Row>
+                                        <Row>
+                                            <Col>
+                                                <h5>Vận chuyển</h5>
+                                            </Col>
+                                            <Col className="col-right">
+                                                <h5>miễn phí</h5>
+                                            </Col>
+                                        </Row>
+                                        <hr />
+                                        <Row>
+                                            <Col>
+                                                <h2>Tổng đơn hàng</h2>
+                                            </Col>
+                                            <Col className="col-right">
+                                                <h2>{(totalItemPrice).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h2>
+                                            </Col>
+                                        </Row>
 
-                            <Button className="btn-pay" onClick={handleToPay}>Thanh toán</Button>
-                        </Col>
-                    </Row>
-                </div>
-                    </>
+                                        <Button className="btn-pay" onClick={handleToPay}>Thanh toán</Button>
+                                    </Col>
+                                </Row>
+                            </div>
+                        </>
                 }
-           
-              
+
+
             </div>
         </>
     );

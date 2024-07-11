@@ -380,12 +380,12 @@ const Dashboard = () => {
 
     // TotalPrice theo ngày
     const [totalPrice, setTotalPrice] = useState(0);
-    const [fillTotalPrice, setFillTotalPrice] = useState('Today');
+    const [fillTotalPrice, setFillTotalPrice] = useState('today');
     useEffect(() => {
-        if (fillTotalPrice === 'Today') {
+        if (fillTotalPrice === 'today') {
             axios.get(`https://localhost:7258/api/InvoiceDetails/GetTotalPrice`)
                 .then((res) => {
-                    setTotalPrice(res.data);
+                    setTotalPrice(res.data)
                 })
                 .catch((error) => {
                     console.error('Error fetching top selling invoice details:', error);
@@ -394,7 +394,7 @@ const Dashboard = () => {
     }, [fillTotalPrice]);
     // TotalPrice theo tháng
     useEffect(() => {
-        if (fillTotalPrice === 'This Month') {
+        if (fillTotalPrice === 'thisMonth') {
             axios.get(`https://localhost:7258/api/InvoiceDetails/GetTotalPriceMonth`)
                 .then((res) => {
                     setTotalPrice(res.data);
@@ -407,7 +407,7 @@ const Dashboard = () => {
 
     // TotalPrice theo năm
     useEffect(() => {
-        if (fillTotalPrice === 'This Year') {
+        if (fillTotalPrice === 'thisYear') {
             axios.get(`https://localhost:7258/api/InvoiceDetails/GetTotalPriceYear`)
                 .then((res) => {
                     setTotalPrice(res.data);
@@ -462,7 +462,7 @@ const Dashboard = () => {
                                         </div>
 
                                         <div class="card-body">
-                                            <h5 className="card-title">Order <span>| {filterText[FillCount]}</span></h5>
+                                            <h5 className="card-title">Đơn hàng <span>| {filterText[FillCount]}</span></h5>
 
                                             <div class="d-flex align-items-center">
                                                 <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -470,8 +470,8 @@ const Dashboard = () => {
                                                 </div>
                                                 <div class="ps-3">
                                                     <h6>{CountInvoice}</h6>
-                                                    <span class="text-success small pt-1 fw-bold">12%</span> <span
-                                                        class="text-muted small pt-2 ps-1">increase</span>
+                                                    {/* <span class="text-success small pt-1 fw-bold">12%</span> <span
+                                                        class="text-muted small pt-2 ps-1">increase</span> */}
 
                                                 </div>
                                             </div>
@@ -497,7 +497,7 @@ const Dashboard = () => {
                                         </div>
 
                                         <div class="card-body">
-                                            <h5 className="card-title">Tổng Doanh Thu <span>| {filterText[fillTotalPrice]}</span></h5>
+                                            <h5 className="card-title">Doanh Thu <span>| {filterText[fillTotalPrice]}</span></h5>
 
                                             <div class="d-flex align-items-center">
                                                 <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -519,31 +519,17 @@ const Dashboard = () => {
 
                                     <div class="card info-card customers-card">
 
-                                        <div class="filter">
-                                            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                                <li class="dropdown-header text-start">
-                                                    <h6>Filter</h6>
-                                                </li>
 
-                                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                                <li><a class="dropdown-item" href="#">This Year</a></li>
-                                            </ul>
-                                        </div>
 
                                         <div class="card-body">
-                                            <h5 class="card-title">Customers <span>| This Year</span></h5>
+                                            <h5 class="card-title">Khách hàng</h5>
 
                                             <div class="d-flex align-items-center">
                                                 <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                                     <FontAwesomeIcon icon={faChartSimple} />
                                                 </div>
                                                 <div class="ps-3">
-                                                    <h6>{customer}</h6>
-                                                    <span class="text-danger small pt-1 fw-bold">12%</span> <span
-                                                        class="text-muted small pt-2 ps-1">decrease</span>
-
+                                                    <h6>{customer}</h6> Tài khoản
                                                 </div>
                                             </div>
 
@@ -569,7 +555,7 @@ const Dashboard = () => {
                                             </ul>
                                         </div>
                                         <div className="card-body">
-                                            <h5 className="card-title">Recent Activity <span>| {filterText[filterDoanhThu]}</span></h5>
+                                            <h5 className="card-title">Biểu đồ doanh thu<span>| {filterText[filterDoanhThu]}</span></h5>
                                             <canvas id="barChart" ref={canvasRef} style={{ maxHeight: 400 }}></canvas>
                                         </div>
                                     </div>
@@ -589,7 +575,7 @@ const Dashboard = () => {
                                             </ul>
                                         </div>
                                         <div className="card-body pb-0">
-                                            <h5 className="card-title">Top Selling <span>| {filterText[filter]}</span></h5>
+                                            <h5 className="card-title">Sản phẩm bán chạy <span>| {filterText[filter]}</span></h5>
                                             <table className="table table-borderless">
                                                 <thead>
                                                     <tr>
