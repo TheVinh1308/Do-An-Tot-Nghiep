@@ -152,7 +152,7 @@ const Pay = () => {
                 formBuyNow.append("invoiceId", invoiceId);
                 formBuyNow.append("phoneId", phoneSelect.id);
                 formBuyNow.append("quantity", 1);
-                formBuyNow.append("price", phoneSelect.price - (phoneSelect.price * phoneSelect.modPhone.promotion.discountPercent / 100));
+                formBuyNow.append("unitPrice", phoneSelect.price - (phoneSelect.price * phoneSelect.modPhone.promotion.discountPercent / 100));
                 await axios.post(`https://localhost:7258/api/InvoiceDetails`, formBuyNow);
             }
 
@@ -218,7 +218,7 @@ const Pay = () => {
                     formInvoiceDetail.append("invoiceId", invoiceId);
                     formInvoiceDetail.append("phoneId", item.phone.id);
                     formInvoiceDetail.append("quantity", item.quantity);
-                    formInvoiceDetail.append("price", item.phone.price);
+                    formInvoiceDetail.append("unitPrice", phoneSelect.price - (phoneSelect.price * phoneSelect.modPhone.promotion.discountPercent / 100));
 
                     await axios.post(`https://localhost:7258/api/InvoiceDetails`, formInvoiceDetail);
 
@@ -241,7 +241,7 @@ const Pay = () => {
                 formBuyNow.append("invoiceId", invoiceId);
                 formBuyNow.append("phoneId", phoneSelect.id);
                 formBuyNow.append("quantity", 1);
-                formBuyNow.append("price", phoneSelect.price - (phoneSelect.price * phoneSelect.modPhone.promotion.discountPercent / 100));
+                formBuyNow.append("unitPrice", phoneSelect.price - (phoneSelect.price * phoneSelect.modPhone.promotion.discountPercent / 100));
                 await axios.post(`https://localhost:7258/api/InvoiceDetails`, formBuyNow);
             }
 
@@ -360,7 +360,7 @@ const Pay = () => {
                     formInvoiceDetail.append("invoiceId", invoiceId);
                     formInvoiceDetail.append("phoneId", item.phone.id);
                     formInvoiceDetail.append("quantity", item.quantity);
-                    formInvoiceDetail.append("price", item.phone.price);
+                    formInvoiceDetail.append("unitPrice", phoneSelect.price - (phoneSelect.price * phoneSelect.modPhone.promotion.discountPercent / 100));
                     await axios.post(`https://localhost:7258/api/InvoiceDetails`, formInvoiceDetail);
 
                     const productResponse = await axios.get(`https://localhost:7258/api/Phones/${item.phone.id}`);
@@ -370,14 +370,18 @@ const Pay = () => {
                         ...product,
                         stock: updatedStock,
                     };
-                    await axios.put(`https://localhost:7258/api/Phones/${item.phone.id}`, formUp);
+                    await axios.put(`https://localhost:7258/api/Phones/${item.phone.id}`, formUp, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data',
+                        }
+                    });
                 }));
             } else if (phoneSelect) {
                 const formBuyNow = new FormData();
                 formBuyNow.append("invoiceId", invoiceId);
                 formBuyNow.append("phoneId", phoneSelect.id);
                 formBuyNow.append("quantity", 1);
-                formBuyNow.append("price", phoneSelect.price - (phoneSelect.price * phoneSelect.modPhone.promotion.discountPercent / 100));
+                formBuyNow.append("unitPrice", phoneSelect.price - (phoneSelect.price * phoneSelect.modPhone.promotion.discountPercent / 100));
                 await axios.post(`https://localhost:7258/api/InvoiceDetails`, formBuyNow);
             }
 

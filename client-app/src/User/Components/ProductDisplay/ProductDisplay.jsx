@@ -39,7 +39,7 @@ const ProductDisplay = (props) => {
                 setColor(res.data);
             });
     }, []);
-
+    console.log(`color`, color);
 
     // lấy danh sách màu và rom của dòng điện thoại
     useEffect(() => {

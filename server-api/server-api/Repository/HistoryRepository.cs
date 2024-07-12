@@ -25,6 +25,7 @@ namespace server_api.Repository
           var historys = _context.Historys
                 .Include(h=>h.User)
                 .Include(h=>h.Phone)
+                    .OrderByDescending(h => h.Id)
                 .ToListAsync();
             return historys;
         }

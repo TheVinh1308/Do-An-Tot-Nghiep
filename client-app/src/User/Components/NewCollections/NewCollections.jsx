@@ -43,7 +43,7 @@ const NewCollections = () => {
                                 <Row>
                                     <Col >
                                         <div className=" img-col">
-                                            <img src={'https://localhost:7258/images/products/' + item.modPhone.image} alt={item.modPhone.name} />
+                                            <img src={'https://localhost:7258/images/modPhones/' + item.modPhone.image} alt={item.modPhone.name} />
 
                                         </div>
                                     </Col>

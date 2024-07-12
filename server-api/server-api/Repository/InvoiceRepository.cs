@@ -41,6 +41,7 @@ namespace server_api.Repository
             var invoices = await _context.Invoices
                 .Include(i=>i.User)
                 .Include(i=>i.PaymentMethod)
+                    .OrderByDescending(i => i.Id)
                 .ToListAsync();
             return invoices;
         }

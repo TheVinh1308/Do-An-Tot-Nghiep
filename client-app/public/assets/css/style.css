@@ -662,6 +662,7 @@ h6 {
 
 .header-nav .notifications {
   inset: 8px -15px auto auto !important;
+  transform: translate(-24px, 35px) !important;
 }
 
 .header-nav .notifications .notification-item {
@@ -694,6 +695,7 @@ h6 {
 
 .header-nav .messages {
   inset: 8px -15px auto auto !important;
+  transform: translate(-27px, 35px) !important;
 }
 
 .header-nav .messages .message-item {

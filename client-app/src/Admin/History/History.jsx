@@ -8,7 +8,7 @@ import Footer from "../Footer/Footer";
 import InforHistory from "./InforHistory";
 import "./History.css"
 import axios from "axios";
-import { format } from 'date-fns';
+import { format, addHours } from 'date-fns';
 
 const History = () => {
     const [loadData, setLoadData] = useState(false);
@@ -82,46 +82,7 @@ const History = () => {
                                 <div className="card-body">
                                     <div className="head-body">
                                         <h5 className="card-title">Lịch sử thao tác</h5>
-                                        <div>
-                                            <Dropdown>
-                                                <Dropdown.Toggle>
-                                                    Lọc theo <i class="bi bi-caret-right-fill" ></i> {title}
-                                                </Dropdown.Toggle>
 
-                                                <Dropdown.Menu>
-                                                    <Dropdown.Item onClick={() => handleFill("Hành động")}>
-                                                        Hành động <i class="bi bi-caret-right-fill" style={{ float: 'right', marginTop: '2px', fontSize: '15px' }}></i>
-                                                        <div className="submenu">
-                                                            <div className="submenu-item">Mua hàng</div>
-                                                            <div className="submenu-item">Quản lí </div>
-                                                        </div>
-                                                    </Dropdown.Item>
-
-                                                    <Dropdown.Item onClick={() => handleFill("Thao tác")}>
-                                                        Thao tác <i class="bi bi-caret-right-fill" style={{ float: 'right', marginTop: '2px', fontSize: '15px' }}></i>
-                                                        <div className="submenu">
-                                                            <div className="submenu-item">Thêm</div>
-                                                            <div className="submenu-item">Xoá</div>
-                                                            <div className="submenu-item">Sửa</div>
-                                                        </div>
-                                                    </Dropdown.Item>
-
-                                                    <Dropdown.Item onClick={() => handleFill("Thời gian")}>
-                                                        Thời gian
-
-                                                    </Dropdown.Item>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
-                                        </div>
-                                        {title === "Thời gian" ? (
-                                            <div className="time-fill">
-                                                <label htmlFor="">Từ ngày: </label>
-                                                <input type="date" name="" id="" />
-                                                <label htmlFor="">Đến ngày: </label>
-                                                <input type="date" name="" id="" />
-                                                <button><i class="bi bi-funnel"></i></button>
-                                            </div>
-                                        ) : ""}
 
                                     </div>
 
@@ -145,7 +106,7 @@ const History = () => {
                                                         <td>{item.id}</td>
                                                         <td>{item.user?.fullname}</td>
                                                         <td>{item.action}</td>
-                                                        <td>{format(new Date(item.time), 'H:mm:ss - dd/MM/yyyy')}</td>
+                                                        <td>{format(addHours(new Date(item.time), 7), 'H:mm:ss - dd/MM/yyyy')}</td>
                                                         <td>{item.action.includes("hình ảnh") ? item.phone.name : item.productName}</td>
                                                         <td>{item.operation}</td>
                                                         <td>{(item.amount) == 0 ? "-" : item.amount}</td>
