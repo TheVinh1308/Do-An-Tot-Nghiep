@@ -112,31 +112,57 @@ const Invoice = () => {
     const isAnyReasonSelected = Object.values(cancelReasons).some(value => value);
 
     console.log("sl", selectedInvoice);
-    const handleCancelInvoice = () => {
+
+    const [invoiceDetail, setInvoiceDetail] = useState([]);
+
+
+    const handleCancelInvoice = async () => {
         if (selectedInvoice) {
             const updatedInvoice = { ...selectedInvoice, status: 4 };
-
-            axios.put(`https://localhost:7258/api/Invoices/${selectedInvoice.id}`, updatedInvoice)
-                .then(() => {
-                    handleCloseReason()
-
-                    const formNotificationAdmin = new FormData();
-                    formNotificationAdmin.append("invoiceId", selectedInvoice.id);
-                    formNotificationAdmin.append("content", `${userName} đã huỷ một đơn hàng`);
-                    formNotificationAdmin.append("time", new Date().toISOString());
-                    formNotificationAdmin.append("url", `http://localhost:3000/admin/invoice/InvoiceDetail/${selectedInvoice.id}`);
-                    formNotificationAdmin.append("status", true);
-
-                    axios.post(`https://localhost:7258/api/NotificationAdmin`, formNotificationAdmin)
-                        .then((res) => {
-                            alert("Thâm thông báo");
-                        })
-
-                    alert("Đã hủy đơn hàng")
-                })
-                .catch((error) => console.error('Error cancelling invoice:', error));
+    
+            try {
+                await axios.put(`https://localhost:7258/api/Invoices/${selectedInvoice.id}`, updatedInvoice);
+                handleCloseReason();
+    
+                const formNotificationAdmin = new FormData();
+                formNotificationAdmin.append("invoiceId", selectedInvoice.id);
+                formNotificationAdmin.append("content", `${userName} đã huỷ một đơn hàng`);
+                formNotificationAdmin.append("time", new Date().toISOString());
+                formNotificationAdmin.append("url", `http://localhost:3000/admin/invoice/InvoiceDetail/${selectedInvoice.id}`);
+                formNotificationAdmin.append("status", true);
+    
+                const res = await axios.get(`https://localhost:7258/api/InvoiceDetails/GetInvoiceDetailByInvoiceId/${selectedInvoice.id}`);
+                setInvoiceDetail(res.data);
+                console.log("invoiceStock", res.data);
+    
+                if (res.data.length > 0) {
+                    await Promise.all(res.data.map(async (item) => {
+                        const productResponse = await axios.get(`https://localhost:7258/api/Phones/${item.phone.id}`);
+                        const product = productResponse.data;
+    
+                        const updatedStock = product.stock + item.quantity;
+                        const formUp = {
+                            ...product,
+                            stock: updatedStock,
+                        };
+    
+                        await axios.put(`https://localhost:7258/api/Phones/${item.phone.id}`, formUp, {
+                            headers: {
+                                'Content-Type': 'multipart/form-data',
+                            }
+                        });
+                    }));
+    
+                    alert("Đã hủy đơn hàng");
+                }
+    
+                await axios.post(`https://localhost:7258/api/NotificationAdmin`, formNotificationAdmin);
+            } catch (error) {
+                console.error('Error cancelling invoice:', error);
+            }
         }
     };
+    
 
     console.log(`invoices`, invoiceDetails);
 

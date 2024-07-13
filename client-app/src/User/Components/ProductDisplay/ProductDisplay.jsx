@@ -367,6 +367,7 @@ const ProductDisplay = (props) => {
                         <img src={star_dull_icon} alt="" />
                         <p>(122)</p>
                     </div>
+                    <p className="productdisplay-right-price-new">Số lượng tồn kho: {selectedPhone && selectedPhone.stock}</p>
                     <div className="productdisplay-right-prices">
 
                         {/* <div className="productdisplay-right-price-new">${selectedPhone && (selectedPhone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div> */}
@@ -421,9 +422,8 @@ const ProductDisplay = (props) => {
                                     item.phone.rom === selectedRom && (
                                         <button
                                             key={index}
-                                            className={`${selectedColorButton === item.phone.color ? 'selected' : ''} ${item.phone.stock < 1 && selectedRom === item.phone.rom ? 'disabled' : ''}`}
+                                            className={`${selectedColorButton === item.phone.color ? 'selected' : ''}`}
                                             style={{ background: "#fff", width: 60, height: 60, margin: 0, padding: 0 }}
-                                            disabled={selectedRom === item.phone.rom && item.phone.stock < 1}
                                             onClick={() => {
                                                 handleChangeColor(item.phoneId);
                                                 setSelectedColor(item.phone.color);
@@ -441,18 +441,31 @@ const ProductDisplay = (props) => {
 
                     {/* <p className="productdisplay-right-category"><span>Category: </span>Women, T-Shirt, Crop Top</p>
                     <p className="productdisplay-right-category"><span>Tag: </span>Modern, Latest</p> */}
-                    <div>
-                        <Row>
-                            <Link to="/pay"> <Button className="btn-muangay">
-                                Mua ngay
-                            </Button></Link>
-
-                        </Row>
-                        <Row>
-                            <Col md={6} className="col-cart"><Button className="btn-cart" onClick={() => handleAddCart(selectedPhone.name)}><i class="bi bi-cart"></i></Button></Col>
-                            <Col md={6} className="col-heart"><Button className="btn-heart" onClick={() => handleAddFavorite(selectedPhone.name)}><i class="bi bi-heart-fill"></i></Button></Col>
-                        </Row>
+                  <div className="d-flex justify-content-between align-items-center w-100">
+                    {
+                        selectedPhone && selectedPhone.stock > 1 ? (
+                            <>
+                                <Link to="/pay" className="flex-fill mx-2">
+                                    <Button className="btn btn-muangay w-100">
+                                        Mua ngay
+                                    </Button>
+                                </Link>
+                                <div className="flex-fill mx-2">
+                                    <Button className="btn btn-cart w-100" onClick={() => handleAddCart(selectedPhone.name)}>
+                                        <i class="bi bi-cart"></i>
+                                    </Button>
+                                </div>
+                                <div className="flex-fill mx-2">
+                                    <Button className="btn btn-heart w-100" onClick={() => handleAddFavorite(selectedPhone.name)}>
+                                        <i class="bi bi-heart-fill"></i>
+                                    </Button>
+                                </div>
+                            </>
+                        ) : <p className="flex-fill" style={{fontSize: "2em", color: "red"}}>Sản phẩm đã hết hàng</p>
+                    }
                     </div>
+
+
                 </div>
             </div >
             {selectedPhone && (

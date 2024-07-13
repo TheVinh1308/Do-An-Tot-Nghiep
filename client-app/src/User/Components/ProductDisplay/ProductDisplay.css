@@ -1,3 +1,15 @@
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button-container .btn-muangay,
+.button-container .btn-cart,
+.button-container .btn-heart {
+    margin: 0 5px;
+}
+
 .selected {
     border: 2px solid red !important;
 }

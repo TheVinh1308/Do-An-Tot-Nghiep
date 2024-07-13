@@ -61,7 +61,7 @@ const Popular = () => {
     const [oppo, setOppo] = useState([{modPhone: {}}]);
     useEffect(() => {
         axios.get(`https://localhost:7258/api/Phones/getPhoneByBrandId/4`)
-        .then((res) => setVivo(res.data))
+        .then((res) => setOppo(res.data))
         .catch((err) => console.log("Loi lay du lieu: ", err))
 
     },[])
@@ -133,7 +133,7 @@ const Popular = () => {
                 ))}
             </Swiper>
             <hr />
-            <h2>IPHONE</h2>
+            {/* <h2>IPHONE</h2> */}
             <Swiper
                 slidesPerView={5}
                 spaceBetween={1}
@@ -166,7 +166,7 @@ const Popular = () => {
                 className="mySwiper"
             >
                 {iphone.length > 0 && iphone.map((item, index) => (
-                   index < 9 && (
+                   index < 6 && (
                     <>
          
                     <SwiperSlide key={index}>
@@ -196,7 +196,7 @@ const Popular = () => {
                 </Link>
             </Swiper>
             <hr />
-            <h2>SAMSUNG</h2>
+            {/* <h2>SAMSUNG</h2> */}
             <Swiper
                 slidesPerView={5}
                 spaceBetween={1}
@@ -229,7 +229,7 @@ const Popular = () => {
                 className="mySwiper"
             >
                 {samsung.length > 0 && samsung.map((item, index) => (
-                    index < 9 &&   (
+                    index < 6 &&   (
                     <SwiperSlide key={index}>
                         
                         <Link to={`${item?.modPhone?.brand?.name}/${item.id}`}>
@@ -258,6 +258,138 @@ const Popular = () => {
                    )
                 ))}
                    <Link to="/Samsung">
+                        <Button>Xem thêm</Button>
+                </Link>
+            </Swiper>
+            <hr />
+            {/* <h2>OPPO</h2> */}
+            <Swiper
+                slidesPerView={5}
+                spaceBetween={1}
+                pagination={{
+                    clickable: true,
+                }}
+                breakpoints={{
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    480: {
+                        slidesPerView: 2,
+                        spaceBetween: 10,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 15,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                    },
+                    1440: {
+                        slidesPerView: 5,
+                        spaceBetween: 20,
+                    },
+                }}
+                modules={[Pagination]}
+                className="mySwiper"
+            >
+                {oppo.length > 0 && oppo.map((item, index) => (
+                    index < 6 &&   (
+                    <SwiperSlide key={index}>
+                        
+                        <Link to={`${item?.modPhone?.brand?.name}/${item.id}`}>
+                        <div className='img-popular'>
+                            <div>
+                                <img src={'https://localhost:7258/images/products/' + item?.modPhone.image} alt="Hinh anh"/>
+                            </div>
+                            <div className='info-popular'>
+                                {/* <StarRatings
+                                    rating={0}
+                                    starRatedColor="#FFC107"
+                                    numberOfStars={5}
+                                    starDimension="15px"
+                                    starSpacing="1px"
+                                /> */}
+                                <p className='popular-name'>{item?.modPhone.name}</p>
+                                <div className='pop-price'>
+                                    <p style={{color:"red"}}>{(item?.price)?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
+                                    {/* <p>{(item.price - (item.price * item.modPhone.promotion.discountPercent / 100)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p> */}
+                                </div>
+
+                            </div>
+                        </div>
+                        </Link>
+                    </SwiperSlide>
+                   )
+                ))}
+                   <Link to="/Oppo">
+                        <Button>Xem thêm</Button>
+                </Link>
+            </Swiper>
+            <hr />
+            {/* <h2>Vivo</h2> */}
+            <Swiper
+                slidesPerView={5}
+                spaceBetween={1}
+                pagination={{
+                    clickable: true,
+                }}
+                breakpoints={{
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    480: {
+                        slidesPerView: 2,
+                        spaceBetween: 10,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 15,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                    },
+                    1440: {
+                        slidesPerView: 5,
+                        spaceBetween: 20,
+                    },
+                }}
+                modules={[Pagination]}
+                className="mySwiper"
+            >
+                {vivo.length > 0 && vivo.map((item, index) => (
+                    index < 6 &&   (
+                    <SwiperSlide key={index}>
+                        
+                        <Link to={`${item?.modPhone?.brand?.name}/${item.id}`}>
+                        <div className='img-popular'>
+                            <div>
+                                <img src={'https://localhost:7258/images/products/' + item?.modPhone.image} alt="Hinh anh"/>
+                            </div>
+                            <div className='info-popular'>
+                                {/* <StarRatings
+                                    rating={0}
+                                    starRatedColor="#FFC107"
+                                    numberOfStars={5}
+                                    starDimension="15px"
+                                    starSpacing="1px"
+                                /> */}
+                                <p className='popular-name'>{item?.modPhone.name}</p>
+                                <div className='pop-price'>
+                                    <p style={{color:"red"}}>{(item?.price)?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
+                                    {/* <p>{(item.price - (item.price * item.modPhone.promotion.discountPercent / 100)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p> */}
+                                </div>
+
+                            </div>
+                        </div>
+                        </Link>
+                    </SwiperSlide>
+                   )
+                ))}
+                   <Link to="/Vivo">
                         <Button>Xem thêm</Button>
                 </Link>
             </Swiper>
