@@ -85,7 +85,9 @@ builder.Services.AddScoped<IFavoriteRepository, FavoriteRepository>();
 builder.Services.AddScoped<INotificationAdminRepository, NotificationAdminRepository>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
-
+builder.Services.AddTransient<IProvinceRepository, ProvinceRepository>();
+builder.Services.AddTransient<IDistrictRepository, DistrictRepository>();
+builder.Services.AddTransient<IWardRepository, WardRepository>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

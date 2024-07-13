@@ -43,6 +43,9 @@ namespace server_api.Data
         public DbSet<Notification> Notifications { get; set; } = default!;
 
         public DbSet<NotificationAdmin> NotificationsAdmins { get; set; } = default!;
+        public DbSet<Districts> Districts { get; set; } = default!;
+        public DbSet<Provinces> Provinces { get; set; } = default!;
+        public DbSet<Wards> Wards { get; set; } = default!;
 
         public static implicit operator EPhoneShopIdentityContext(NotificationRepository v)
         {

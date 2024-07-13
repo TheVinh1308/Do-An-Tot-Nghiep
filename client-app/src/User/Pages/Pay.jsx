@@ -7,8 +7,8 @@ import "../Pages/CSS/Pay.css";
 import { ShopContext } from "../Context/ShopContext";
 import { jwtDecode } from "jwt-decode";
 import { set } from "date-fns";
+import { get } from "jquery";
 
-const libraries = ["places"];
 
 const Pay = () => {
     const navigate = useNavigate();
@@ -17,10 +17,9 @@ const Pay = () => {
     const [error, setError] = useState(null);
     const [userDetails, setUserDetails] = useState({ userId: null, userName: "", isAuthenticated: false });
     const [invoice, setInvoice] = useState({});
-    const [selectedPosition, setSelectedPosition] = useState(null);
-    const searchBoxRef = useRef(null);
     const [phoneSelect, setPhoneSelect] = useState(null);
     const [loadCart, setloadCart] = useState(false);
+    // lấy thông tin các cart được chọn đễ thanh toán
     useEffect(() => {
         const fetchCarts = async () => {
             try {
@@ -36,7 +35,7 @@ const Pay = () => {
         };
         fetchCarts();
     }, [cartItems]);
-    console.log(`cartItems`, cart);
+    // lấy thông tin của điện thoại được cho để thanh toán
     useEffect(() => {
         const fetchPhone = async () => {
             try {
@@ -48,7 +47,7 @@ const Pay = () => {
         };
         fetchPhone();
     }, [phone]);
-    console.log(`phoneSelect`, phoneSelect);
+    // lấy thông tin tài khoản đang đăng nhập
     useEffect(() => {
         const token = localStorage.getItem('jwt');
         if (token) {
@@ -60,7 +59,7 @@ const Pay = () => {
             });
         }
     }, []);
-
+    // Hàm tạo mã hoá đơn ngẫu nhiêu
     const generateRandomString = (length) => {
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         let randomString = '';
@@ -69,9 +68,95 @@ const Pay = () => {
         }
         return randomString;
     };
+    // lấy dữ liệu tỉnh huyện xã
+    const [province, setProvince] = useState([]);
+    const [district, setDistrict] = useState([]);
+    const [ward, setWard] = useState([]);
+    const [selectedProvinceId, setSelectedProvinceId] = useState('');
+    const [selectedDistrictId, setSelectedDistrictId] = useState('');
+    const [selectedWardId, setSelectedWardId] = useState('');
+    // lấy danh sách các tỉnh thành
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Province`).then((res) => {
+            setProvince(res.data)
+        })
+    }, [province]);
+    // lấy danh sách các quận huyện theo tỉnh thành đã chọn
+    useEffect(() => {
+        if (selectedProvinceId) {
+            axios.get(`https://localhost:7258/api/District/GetAllDistrictByProvince/${selectedProvinceId}`)
+                .then((res) => {
+                    setDistrict(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching districts:', error);
+                });
+        }
+    }, [selectedProvinceId]);
+    // lấy danh sách phường xã theo quận huyện đã chọn
+    useEffect(() => {
+        if (selectedDistrictId) {
+            axios.get(`https://localhost:7258/api/Ward/GetAllWardsByDistrictId/${selectedDistrictId}`)
+                .then((res) => {
+                    setWard(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching wards:', error);
+                });
+        }
+    }, [selectedDistrictId]);
+
+    // lấy giá trị sau khi người dùng chọn tỉnh
+    const handleProvinceChange = (e) => {
+        setSelectedProvinceId(e.target.value);
+    };
+    // lấy giá trị sau khi người dủng chọn quạn huyện
+    const handleDistrictChange = (e) => {
+        setSelectedDistrictId(e.target.value);
+    };
+
+    // lấy giá trị sau khi nguòi dùng chọn phường xã
+    const handleWardChange = (e) => {
+        setSelectedWardId(e.target.value);
+    };
+
+    const [Province, getProvince] = useState('');
+    const [District, getDistrict] = useState('');
+    const [Ward, getWard] = useState('');
+    // lấy thông tin tỉnh đã chọn
+    useEffect(() => {
+        if (selectedProvinceId) {
+            axios.get(`https://localhost:7258/api/Province/${selectedProvinceId}`).then((res) => {
+                getProvince(res.data.name)
+            })
+        }
+    }, [selectedProvinceId]);
+    // lấy thông tin quận huyện đã chọn
+    useEffect(() => {
+        if (selectedDistrictId) {
+            axios.get(`https://localhost:7258/api/District/${selectedDistrictId}`)
+                .then((res) => {
+                    getDistrict(res.data.name);
+                })
+                .catch((error) => {
+                    console.error('Error fetching districts:', error);
+                });
+        }
+    }, [selectedDistrictId]);
+    // lấy thông tin phường xã đã chọn
+    useEffect(() => {
+        if (selectedWardId) {
+            axios.get(`https://localhost:7258/api/Ward/${selectedWardId}`)
+                .then((res) => {
+                    getWard(res.data.name);
+                })
+                .catch((error) => {
+                    console.error('Error fetching wards:', error);
+                });
+        }
+    }, [selectedWardId]);
 
     const [formData, setFormData] = useState({
-        shippingAddress: '',
         shippingPhone: ''
     });
 
@@ -82,13 +167,16 @@ const Pay = () => {
         setInvoice(prev => ({ ...prev, [name]: value }));
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
-
+    // sau khi thanh toán hoàn tất sẽ chuyển sang trang sau khi thanh toán
     const AfterPay = (cartID) => {
         navigate(`/afterPay/${cartID}`);
     };
-
+    // chuỗi địa chỉ người dùng đã chọn và nhập
+    const getAddressString = `${formData.shippingAddress} - ${Ward} - ${District} - ${Province}`
+    // hàm xử lý thanh toán COD
     const handlePay = async (e) => {
         e.preventDefault();
+        // form chứa thông tin hoá đơn
         const formInvoice = new FormData();
         Object.entries(invoice).forEach(([key, value]) => {
             formInvoice.append(key, value);
@@ -97,43 +185,39 @@ const Pay = () => {
         formInvoice.append('userId', userDetails.userId);
         formInvoice.append("issuedDate", new Date().toISOString());
         formInvoice.append("paymentMethodId", 1);
-        formInvoice.append("shippingAddress", formData.shippingAddress);
+        formInvoice.append("shippingAddress", getAddressString);
         formInvoice.append("shippingPhone", formData.shippingPhone);
         formInvoice.append("total", (totalItemPrice));
         formInvoice.append("status", 1);
-
-        console.log(formInvoice);
-
         try {
+            // thêm hoá đơn
             const res = await axios.post(`https://localhost:7258/api/Invoices`, formInvoice);
             const invoiceId = res.data.id;
-
+            // form chứa thông tin thông báo đến admin
             const formNotificationAdmin = new FormData();
             formNotificationAdmin.append("invoiceId", invoiceId);
             formNotificationAdmin.append("content", `${userDetails.userName} đã đặt một đơn hàng`);
             formNotificationAdmin.append("time", new Date().toISOString());
             formNotificationAdmin.append("url", `http://localhost:3000/admin/invoice/InvoiceDetail/${invoiceId}`);
             formNotificationAdmin.append("status", true);
-
+            // thêm thông báo admin
             axios.post(`https://localhost:7258/api/NotificationAdmin`, formNotificationAdmin)
                 .then((res) => {
                     console.log("Đã tạo hóa đơn");
                 })
                 .catch((err) => console.log("Lỗi tạo hóa đơn"))
-
+            // trong trường hợp mua tử giỏ hàng
             if (cart.length > 0) {
                 await Promise.all(cart.map(async (item) => {
+                    // form chứa thông tin của từng chi tiết hoá đơn
                     const formInvoiceDetail = new FormData();
                     formInvoiceDetail.append("invoiceId", invoiceId);
                     formInvoiceDetail.append("phoneId", item.phone.id);
                     formInvoiceDetail.append("quantity", item.quantity);
                     formInvoiceDetail.append("unitPrice", item.phone.price - (item.phone.price * item.phone.modPhone.promotion.discountPercent / 100));
-
+                    // thêm chi tiết hoá đơn
                     await axios.post(`https://localhost:7258/api/InvoiceDetails`, formInvoiceDetail);
-
-
-
-
+                    // lấy thông tin của điện thoại cũa chi tiết hoá đơn hiện tại
                     const productResponse = await axios.get(`https://localhost:7258/api/Phones/${item.phone.id}`);
                     const product = productResponse.data;
                     const updatedStock = product.stock - item.quantity;
@@ -184,11 +268,13 @@ const Pay = () => {
         formInvoice.append('userId', userDetails.userId);
         formInvoice.append("issuedDate", new Date().toISOString());
         formInvoice.append("paymentMethodId", 2);
+        formInvoice.append("shippingAddress", getAddressString);
+        formInvoice.append("shippingPhone", formData.shippingPhone);
         formInvoice.append("total", totalItemPrice);
         formInvoice.append("status", 5);
 
         try {
-            localStorage.setItem("shippingAddress", formData.shippingAddress,)
+            localStorage.setItem("shippingAddress", getAddressString)
             localStorage.setItem("shippingPhone", formData.shippingPhone,)
             // Gửi yêu cầu tạo thanh toán và nhận URL từ phản hồi
             const resVnPay = await axios.post(`https://localhost:7258/api/VnPay`, dataVnPay);
@@ -272,7 +358,7 @@ const Pay = () => {
 
                 const invoiceEdit = {
                     id: invoice_Id,
-                    shippingAddress: localStorage.getItem("shippingAddress"),
+                    shippingAddress: getAddressString,
                     shippingPhone: localStorage.getItem("shippingPhone"),
                     code: urlParams.get('vnp_TxnRef'),
                     userId: localStorage.getItem("userId"),
@@ -320,11 +406,13 @@ const Pay = () => {
         formInvoice.append('userId', userDetails.userId);
         formInvoice.append("issuedDate", new Date().toISOString());
         formInvoice.append("paymentMethodId", 3);
+        formInvoice.append("shippingAddress", getAddressString);
+        formInvoice.append("shippingPhone", formData.shippingPhone);
         formInvoice.append("total", totalItemPrice);
         formInvoice.append("status", 5);
 
         try {
-            localStorage.setItem("shippingAddress", formData.shippingAddress,)
+            localStorage.setItem("shippingAddress", getAddressString,)
             localStorage.setItem("shippingPhone", formData.shippingPhone,)
             const resMomo = await axios.post(`https://localhost:7258/api/PaymentMethod/MoMo`, dataMomo);
 
@@ -415,7 +503,7 @@ const Pay = () => {
             if (invoiceId) {
                 const invoiceEdit = {
                     id: invoiceId,
-                    shippingAddress: localStorage.getItem('shippingAddress'),
+                    shippingAddress: getAddressString,
                     shippingPhone: localStorage.getItem('shippingPhone'),
                     code: orderId,
                     userId: localStorage.getItem('userId'),
@@ -528,6 +616,26 @@ const Pay = () => {
                                     </div>
                                     <div className="col-md-12 in-cus">
                                         <label htmlFor="kh_diachi">Địa chỉ</label>
+                                        <div>
+                                            <select onChange={handleProvinceChange} required>
+                                                <option value="">Chọn Tỉnh/Thành phố</option>
+                                                {province.map((item) => (
+                                                    <option key={item.id} value={item.id} >{item.name}</option>
+                                                ))}
+                                            </select>
+                                            <select onChange={handleDistrictChange} required>
+                                                <option value="">Chọn Quận/Huyện</option>
+                                                {district.map((item) => (
+                                                    <option key={item.id} value={item.id}>{item.name}</option>
+                                                ))}
+                                            </select>
+                                            <select onChange={handleWardChange} required>
+                                                <option value="">Chọn Phường/Xã</option>
+                                                {ward.map((item) => (
+                                                    <option key={item.id} value={item.id} >{item.name}</option>
+                                                ))}
+                                            </select>
+                                        </div>
                                         <input
                                             type="text"
                                             className="form-control"
@@ -535,9 +643,12 @@ const Pay = () => {
                                             id="kh_diachi"
                                             required
                                             placeholder="Nhập địa chỉ"
-                                            value={formData.shippingAddress}
+                                            // value={`${formData.shippingAddress || ""} ${Ward}  ${District}  ${Province}`}
                                             onChange={handleChange}
                                         />
+                                    </div>
+                                    <div>
+                                        Địa chỉ giao hàng: {getAddressString}
                                     </div>
                                     <div className="col-md-12 in-cus">
                                         <label htmlFor="kh_dienthoai">Điện thoại</label>
@@ -548,7 +659,7 @@ const Pay = () => {
                                             id="kh_dienthoai"
                                             required
                                             placeholder="Nhập số điện thoại"
-                                            value={formData.shippingPhone || localStorage.getItem('shippingPhone')}
+                                            // value={formData.shippingPhone}
                                             onChange={handleChange}
                                         />
                                     </div>
