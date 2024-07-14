@@ -7,6 +7,7 @@ import DescriptionBox from "../Components/DescriptionBox/DescriptionBox";
 import RelatedProducts from "../Components/RelatedProducts/RelatedProducts";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
+import NotFound from "./NotFound";
 
 const Product = () => {
     const { phones } = useContext(ShopContext)
@@ -23,7 +24,7 @@ const Product = () => {
                     product !== undefined ? <Breadcrum brand={product.modPhone.brand.name} name={product.modPhone.name} /> : <></>
                 }
                 {
-                    product !== undefined ? <ProductDisplay product={product} /> : <></>
+                    product !== undefined ? <ProductDisplay product={product} /> : <NotFound />
                 }
                 <DescriptionBox />
                 <RelatedProducts />

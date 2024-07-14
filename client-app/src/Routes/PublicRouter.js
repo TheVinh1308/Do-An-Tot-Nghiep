@@ -12,6 +12,7 @@ import Compare from "../User/Pages/Compare";
 import ConfirmEmail from "../User/Components/CofirmEmail/ConfirmEmail";
 import InvoiceDetail from "../User/Components/Invoice/InvoiceDetail";
 import Favorite from "../User/Pages/Favorite";
+import NotFound from "../User/Pages/NotFound";
 
 const PublicRouter = () => {
     return (
@@ -43,6 +44,7 @@ const PublicRouter = () => {
                         <Route path='favorite' element={<Favorite />} />
                         <Route path='confirmemail' element={<ConfirmEmail />} />
                         <Route path='invoice/invoiceDetail/:id' element={<InvoiceDetail />} />
+                        <Route path='*' element={<NotFound />} />
                     </Route>
                 </Routes>
 

@@ -328,7 +328,8 @@ const ProductDisplay = (props) => {
     return (
         <>
             <ToastContainer />
-            <div className="productdisplay">
+
+            <div className="productdisplay" onLoad={window.scrollTo(0, 0)}>
                 <div className="productdisplay-left">
                     <div className="productdisplay-img-list">
                         {

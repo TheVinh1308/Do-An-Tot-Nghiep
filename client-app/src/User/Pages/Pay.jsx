@@ -25,7 +25,6 @@ const Pay = () => {
     const [invoice, setInvoice] = useState({});
     // thông tin điện thoại mua ngay
     const [phoneSelect, setPhoneSelect] = useState(null);
-    console.log(`phoneSelect`, phoneSelect);
     const [loadCart, setloadCart] = useState(false);
     // lấy thông tin các cart được chọn đễ thanh toán
     useEffect(() => {
@@ -54,7 +53,7 @@ const Pay = () => {
             }
         };
         fetchPhone();
-    }, [phone]);
+    }, []);
     // lấy thông tin tài khoản đang đăng nhập
     useEffect(() => {
         const token = localStorage.getItem('jwt');
@@ -88,7 +87,7 @@ const Pay = () => {
         axios.get(`https://localhost:7258/api/Province`).then((res) => {
             setProvince(res.data)
         })
-    }, [province]);
+    }, []);
     // lấy danh sách các quận huyện theo tỉnh thành đã chọn
     useEffect(() => {
         if (selectedProvinceId) {
@@ -164,7 +163,6 @@ const Pay = () => {
         }
     }, [selectedWardId]);
     const [formData, setFormData] = useState({
-        shippingAddress: '',
         shippingPhone: ''
     });
     const getAddressString = `${formData.shippingAddress} - ${Ward} - ${District} - ${Province}`;
@@ -391,7 +389,7 @@ const Pay = () => {
             try {
                 const invoiceEdit = {
                     id: invoice_Id,
-                    shippingAddress: localStorage.setItem("shippingAddress"),
+                    shippingAddress: localStorage.getItem("shippingAddress"),
                     shippingPhone: localStorage.getItem("shippingPhone"),
                     code: urlParams.get('vnp_TxnRef'),
                     userId: localStorage.getItem("userId"),
@@ -524,19 +522,18 @@ const Pay = () => {
         const orderId = urlParams.get('orderId');
         const amount = urlParams.get('amount');
         const date = urlParams.get('date');
+        const invoiceId = localStorage.getItem('invoiceId');
         if (errorCode === '0') { // Successful payment
-            const invoiceId = localStorage.getItem('invoiceId');
-
-            if (invoiceId) {
+            try{
                 const invoiceEdit = {
                     id: invoiceId,
-                    shippingAddress: localStorage.setItem("shippingAddress"),
+                    shippingAddress: localStorage.getItem("shippingAddress"),
                     shippingPhone: localStorage.getItem('shippingPhone'),
                     code: orderId,
                     userId: localStorage.getItem('userId'),
                     issuedDate: new Date().toISOString(),
                     paymentMethodId: 3, // Assuming Momo payment method ID
-                    total: amount * 10000,
+                    total: amount * 100,
                     status: 1 // Paid status
                 };
 
@@ -547,7 +544,7 @@ const Pay = () => {
                         localStorage.removeItem('invoiceId');
                         localStorage.removeItem('userId');
 
-                        alert('Payment successful!');
+                        alert('Thanh toán thành công!');
                         // Additional function call or state update after payment success
                         AfterPay(invoiceId);
 
@@ -555,10 +552,13 @@ const Pay = () => {
                     .catch((error) => {
                         console.error('Error editing invoice:', error);
                     });
-            } else {
-                console.error('Missing invoiceId from localStorage.');
             }
-        } else {
+            catch{
+                console.log("Lỗi lấy dữ liệu trả về", error);
+            }
+               
+        } 
+        else {
             console.error('Payment failed or canceled.');
             // Handle payment failure or cancellation
         }
@@ -646,13 +646,13 @@ const Pay = () => {
                                                     {province.map((item) => (
                                                         <option key={item.id} value={item.id} >{item.name}</option>
                                                     ))}
-                                                </select>
+                                                </select> <br />
                                                 <select value={selectedDistrictId} onChange={handleDistrictChange} required>
                                                     <option value="">Chọn Quận/Huyện</option>
                                                     {district.map((item) => (
                                                         <option key={item.id} value={item.id}>{item.name}</option>
                                                     ))}
-                                                </select>
+                                                </select> <br />
                                                 <select value={selectedWardId} onChange={handleWardChange} required>
                                                     <option value="">Chọn Phường/Xã</option>
                                                     {ward.map((item) => (
