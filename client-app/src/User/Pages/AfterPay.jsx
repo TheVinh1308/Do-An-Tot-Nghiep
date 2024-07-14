@@ -21,6 +21,8 @@ const AfterPay = () => {
         setShowChange(true);
         setInvoiceId(invoiceId);
     }
+
+
     return (
         <>
             <Navbar />

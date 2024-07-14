@@ -36,34 +36,125 @@ const ChangeAdress = ({ invoiceId }) => {
         }
     };
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setInvoice((prev) => ({ ...prev, [name]: value }));
+    const [formData, setFormData] = useState({
+        shippingAddress: '',
+        shippingPhone: ''
+    });
+
+    const [province, setProvince] = useState([]);
+    const [district, setDistrict] = useState([]);
+    const [ward, setWard] = useState([]);
+    const [selectedProvinceId, setSelectedProvinceId] = useState('');
+    const [selectedDistrictId, setSelectedDistrictId] = useState('');
+    const [selectedWardId, setSelectedWardId] = useState('');
+
+    const [provinceName, setProvinceName] = useState('');
+    const [districtName, setDistrictName] = useState('');
+    const [wardName, setWardName] = useState('');
+
+    useEffect(() => {
+        axios.get(`https://localhost:7258/api/Province`).then((res) => {
+            setProvince(res.data);
+        });
+    }, []);
+    // lấy giá trị sau khi người dùng chọn tỉnh
+    const handleProvinceChange = (e) => {
+        setSelectedProvinceId(e.target.value);
+    };
+    // lấy giá trị sau khi người dủng chọn quạn huyện
+    const handleDistrictChange = (e) => {
+        setSelectedDistrictId(e.target.value);
     };
 
-    const notifySuccess = (message) => toast.success(message, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        transition: Bounce,
-    });
+    // lấy giá trị sau khi nguòi dùng chọn phường xã
+    const handleWardChange = (e) => {
+        setSelectedWardId(e.target.value);
+    };
+
+    useEffect(() => {
+        if (selectedProvinceId) {
+            axios.get(`https://localhost:7258/api/District/GetAllDistrictByProvince/${selectedProvinceId}`)
+                .then((res) => {
+                    setDistrict(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching districts:', error);
+                });
+        }
+    }, [selectedProvinceId]);
+
+    useEffect(() => {
+        if (selectedDistrictId) {
+            axios.get(`https://localhost:7258/api/Ward/GetAllWardsByDistrictId/${selectedDistrictId}`)
+                .then((res) => {
+                    setWard(res.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching wards:', error);
+                });
+        }
+    }, [selectedDistrictId]);
+
+    useEffect(() => {
+        if (selectedProvinceId) {
+            axios.get(`https://localhost:7258/api/Province/${selectedProvinceId}`).then((res) => {
+                setProvinceName(res.data.name);
+            });
+        }
+    }, [selectedProvinceId]);
+
+    useEffect(() => {
+        if (selectedDistrictId) {
+            axios.get(`https://localhost:7258/api/District/${selectedDistrictId}`)
+                .then((res) => {
+                    setDistrictName(res.data.name);
+                })
+                .catch((error) => {
+                    console.error('Error fetching districts:', error);
+                });
+        }
+    }, [selectedDistrictId]);
+
+    useEffect(() => {
+        if (selectedWardId) {
+            axios.get(`https://localhost:7258/api/Ward/${selectedWardId}`)
+                .then((res) => {
+                    setWardName(res.data.name);
+                })
+                .catch((error) => {
+                    console.error('Error fetching wards:', error);
+                });
+        }
+    }, [selectedWardId]);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+        // setInvoice((prev) => ({ ...prev, [name]: value }));
+    };
 
     const updateAddress = (e) => {
         e.preventDefault();
-        console.log(invoice);
+        const newAddress = `${formData.shippingAddress} - ${wardName} - ${districtName} - ${provinceName}`;
+        setInvoice((prev) => ({ ...prev, shippingAddress: newAddress }));
 
-        axios.put(`https://localhost:7258/api/Invoices/${invoiceId}`, invoice, {
+        axios.put(`https://localhost:7258/api/Invoices/${invoiceId}`, { ...invoice, shippingAddress: newAddress }, {
             headers: {
                 'Content-Type': 'application/json',
             }
         })
             .then((res) => {
-                notifySuccess("Thay đổi địa chỉ giao hàng thành công");
+                toast.success("Thay đổi địa chỉ giao hàng thành công", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Bounce,
+                });
             })
             .catch((error) => {
                 console.error('Error updating address:', error);
@@ -100,12 +191,38 @@ const ChangeAdress = ({ invoiceId }) => {
                 <div className="change">
                     <Row>
                         <Col md={10}>
+                            <div className="col-md-12 in-cus address">
+                                <div className="location">
+                                    <label htmlFor="kh_diachi">Địa chỉ</label>
+                                    <div className="location-address">
+                                        <select value={selectedProvinceId} onChange={handleProvinceChange} required>
+                                            <option value="">Chọn Tỉnh/Thành phố</option>
+                                            {province.map((item) => (
+                                                <option key={item.id} value={item.id} >{item.name}</option>
+                                            ))}
+                                        </select>
+                                        <select value={selectedDistrictId} onChange={handleDistrictChange} required>
+                                            <option value="">Chọn Quận/Huyện</option>
+                                            {district.map((item) => (
+                                                <option key={item.id} value={item.id}>{item.name}</option>
+                                            ))}
+                                        </select>
+                                        <select value={selectedWardId} onChange={handleWardChange} required>
+                                            <option value="">Chọn Phường/Xã</option>
+                                            {ward.map((item) => (
+                                                <option key={item.id} value={item.id} >{item.name}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
                             <input
                                 type="text"
                                 name="shippingAddress"
                                 placeholder="Nhập địa chỉ mới"
+
                                 onChange={handleChange}
-                                value={invoice.shippingAddress || ""}
                             />
                         </Col>
                         <Col md={2}>
