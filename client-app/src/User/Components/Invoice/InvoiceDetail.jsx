@@ -61,6 +61,8 @@ const InvoiceDetail = () => {
                 return <Badge bg="success">Hoàn thành</Badge>;
             case 4:
                 return <Badge bg="danger">Đã huỷ</Badge>;
+            case 6: 
+                return <Badge bg="danger">Đã huỷ</Badge>;
             default:
                 return <Badge bg="primary">Đã thanh toán</Badge>;
         }
