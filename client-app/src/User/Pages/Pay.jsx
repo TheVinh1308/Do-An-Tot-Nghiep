@@ -294,7 +294,7 @@ const Pay = () => {
         formInvoice.append("shippingAddress", getAddressString);
         formInvoice.append("shippingPhone", formData.shippingPhone);
         formInvoice.append("total", totalItemPrice);
-        formInvoice.append("status", 5);
+        formInvoice.append("status", 6);
 
         try {
             localStorage.setItem("shippingAddress", getAddressString)
@@ -375,48 +375,102 @@ const Pay = () => {
     };
 
     // Sử dụng useEffect để xử lý khi callback về từ thanh toán thành công
+
+    const ListError = [
+        { code: "00", message: "Giao dịch thành công" },
+        { code: "07", message: "Trừ tiền thành công. Giao dịch bị nghi ngờ (liên quan tới lừa đảo, giao dịch bất thường)." },
+        { code: "09", message: "Giao dịch không thành công do: Thẻ/Tài khoản của khách hàng chưa đăng ký dịch vụ InternetBanking tại ngân hàng." },
+        { code: "10", message: "Giao dịch không thành công do: Khách hàng xác thực thông tin thẻ/tài khoản không đúng quá 3 lần" },
+        { code: "11", message: "Giao dịch không thành công do: Đã hết hạn chờ thanh toán. Xin quý khách vui lòng thực hiện lại giao dịch." },
+        { code: "12", message: "Giao dịch không thành công do: Thẻ/Tài khoản của khách hàng bị khóa." },
+        { code: "13", message: "Giao dịch không thành công do Quý khách nhập sai mật khẩu xác thực giao dịch (OTP). Xin quý khách vui lòng thực hiện lại giao dịch." },
+        { code: "24", message: "Giao dịch không thành công do: Khách hàng hủy giao dịch" },
+        { code: "51", message: "Giao dịch không thành công do: Tài khoản của quý khách không đủ số dư để thực hiện giao dịch." },
+        { code: "65", message: "Giao dịch không thành công do: Tài khoản của Quý khách đã vượt quá hạn mức giao dịch trong ngày." },
+        { code: "75", message: "Ngân hàng thanh toán đang bảo trì." },
+        { code: "79", message: "Giao dịch không thành công do: KH nhập sai mật khẩu thanh toán quá số lần quy định. Xin quý khách vui lòng thực hiện lại giao dịch" },
+        { code: "99", message: "Các lỗi khác (lỗi còn lại, không có trong danh sách mã lỗi đã liệt kê)" }
+    ]
     const [query, setQuery] = useState('');
     useEffect(() => {
-        const queryString = window.location.search;
-        setQuery(queryString);
-        const urlParams = new URLSearchParams(queryString);
-        const transactionStatus = urlParams.get('vnp_TransactionStatus');
-        const invoice_Id = localStorage.getItem("invoiceId")
-        let issuedDate = new Date();
-        issuedDate.setHours(issuedDate.getHours() + 7);
-        issuedDate = issuedDate.toISOString();
-        if (transactionStatus === '00') {
-            try {
-                const invoiceEdit = {
-                    id: invoice_Id,
-                    shippingAddress: localStorage.getItem("shippingAddress"),
-                    shippingPhone: localStorage.getItem("shippingPhone"),
-                    code: urlParams.get('vnp_TxnRef'),
-                    userId: localStorage.getItem("userId"),
-                    issuedDate: issuedDate,
-                    paymentMethodId: 2,
-                    total: urlParams.get('vnp_Amount'),
-                    status: 1
+        const fetchData = async () => {
+            const queryString = window.location.search;
+            setQuery(queryString);
+            const urlParams = new URLSearchParams(queryString);
+            const transactionStatus = urlParams.get('vnp_TransactionStatus') || undefined;
+            const invoice_Id = localStorage.getItem("invoiceId");
+            let issuedDate = new Date();
+            issuedDate.setHours(issuedDate.getHours() + 7);
+            issuedDate = issuedDate.toISOString();
+            const statusObj = ListError.find(item => item.code == transactionStatus);
+            if (statusObj) {
+                localStorage.setItem("statusCode", statusObj.message);
+            }
+            if (transactionStatus === '00') {
+                try {
+                    const invoiceEdit = {
+                        id: invoice_Id,
+                        shippingAddress: localStorage.getItem("shippingAddress"),
+                        shippingPhone: localStorage.getItem("shippingPhone"),
+                        code: urlParams.get('vnp_TxnRef'),
+                        userId: localStorage.getItem("userId"),
+                        issuedDate: issuedDate,
+                        paymentMethodId: 2,
+                        total: urlParams.get('vnp_Amount'),
+                        status: 5
+                    };
+                    
+                    await axios.put(`https://localhost:7258/api/Invoices/${invoice_Id}`, invoiceEdit);
+                    localStorage.removeItem("shippingAddress");
+                    localStorage.removeItem("shippingPhone");
+                    localStorage.removeItem("invoiceId");
+                    localStorage.removeItem("userId");
+                    await Promise.all(cartItems.map(element => axios.delete(`https://localhost:7258/api/Carts/${element}`)));
+                  
+                    AfterPay(invoice_Id);
+                } catch (err) {
+                    console.log("Error editing invoice: ", err);
                 }
-                axios.put(`https://localhost:7258/api/Invoices/${invoice_Id}`, invoiceEdit)
-                    .then(() => {
-                        localStorage.removeItem("shippingAddress")
-                        localStorage.removeItem("shippingPhone")
-                        localStorage.removeItem("invoiceId")
-                        localStorage.removeItem("userId")
-                        Promise.all(cartItems.map(element => axios.delete(`https://localhost:7258/api/Carts/${element}`)));
-                        setCart([]);
-                        AfterPay(invoice_Id);
-                    })
-                    .catch((err) => {
-                        console.log("Lỗi edit invoice: ", err);
-                    })
+            } else if(transactionStatus !== undefined){
+                try {
+                    const formNotificationAdmin = new FormData();
+                    formNotificationAdmin.append("invoiceId", invoice_Id);
+                    formNotificationAdmin.append("content", `${localStorage.getItem("userId")} đã huỷ một đơn hàng`);
+                    formNotificationAdmin.append("time", new Date().toISOString());
+                    formNotificationAdmin.append("url", `http://localhost:3000/admin/invoice/InvoiceDetail/${invoice_Id}`);
+                    formNotificationAdmin.append("status", true);
+        
+                    const res = await axios.get(`https://localhost:7258/api/InvoiceDetails/GetInvoiceDetailByInvoiceId/${invoice_Id}`);
+                    if (res.data.length > 0) {
+                        await Promise.all(res.data.map(async (item) => {
+                            const productResponse = await axios.get(`https://localhost:7258/api/Phones/${item.phone.id}`);
+                            const product = productResponse.data;
+        
+                            const updatedStock = product.stock + item.quantity;
+                            const formUp = {
+                                ...product,
+                                stock: updatedStock,
+                            };
+        
+                            await axios.put(`https://localhost:7258/api/Phones/${item.phone.id}`, formUp, {
+                                headers: {
+                                    'Content-Type': 'multipart/form-data',
+                                }
+                            })
+                           
+                        }));
+                    }
+                   window.location.href = "/cart"
+
+                } catch (err) {
+                    console.log("Error cancelling order: ", err);
+                }
             }
-            catch {
-                console.log("Lỗi");
-            }
-        }
+        };
+    
+        fetchData();
     }, [query]);
+    
     // MOMO Payment
     const handleMomo = async (e) => {
         e.preventDefault();
@@ -527,6 +581,8 @@ const Pay = () => {
         const invoiceId = localStorage.getItem('invoiceId');
         if (errorCode && errorCode === '0') { // Successful payment
             try {
+        if (errorCode === '0') {
+            try{
                 const invoiceEdit = {
                     id: invoiceId,
                     shippingAddress: localStorage.getItem("shippingAddress"),

@@ -174,7 +174,10 @@ const Invoice = () => {
                 return "Đơn hàng đang vận chuyển"
             case 3:
                 return "Đơn hàng đã được hoàn thành"
-
+            case 5: 
+                return "Đã thanh toán"
+            case 6: 
+                return "Thanh toán thất bại"
             default:
                 return "Đơn hàng đã huỷ"
         }
@@ -194,10 +197,11 @@ const Invoice = () => {
                     <Tab>Đang vận chuyển</Tab>
                     <Tab>Đã huỷ</Tab>
                     <Tab>Đã hoàn thành</Tab>
+                    <Tab>Đã thanh toán</Tab>
                 </TabList>
 
                 <TabPanel>
-                    {invoices && invoices.map((item, index) => (
+                    {invoices && invoices.filter(item => item.status !== 6).map((item, index) => (
                         <>
                             <div className="content" key={index}>
                                 <Link to={`InvoiceDetail/${item.id}`}>
@@ -234,7 +238,6 @@ const Invoice = () => {
                                 </Link>
                                 <Row>
                                     <Col className="btn-content">
-                                        
                                         {
                                             item.status == 4 ?
                                                 <>
@@ -358,7 +361,7 @@ const Invoice = () => {
                                 <Col>
                                 </Col>
                                 <Col className="btn-content">
-                                    {
+                                    {/* {
                                         item.status == 4 ?
                                             <>
                                                 <Button>Mua lại</Button>
@@ -375,7 +378,7 @@ const Invoice = () => {
                                                         <Button>Mua lại</Button>
                                                         <Button>Viết đánh giá</Button>
                                                     </>
-                                    }
+                                    } */}
                                 </Col>
                             </Row>
                         </div>
@@ -419,7 +422,7 @@ const Invoice = () => {
                                 <Col>
                                 </Col>
                                 <Col className="btn-content">
-                                    {
+                                    {/* {
                                         item.status == 4 ?
                                             <>
                                                 <Button>Mua lại</Button>
@@ -436,7 +439,7 @@ const Invoice = () => {
                                                         <Button>Mua lại</Button>
                                                         <Button>Viết đánh giá</Button>
                                                     </>
-                                    }
+                                    } */}
                                 </Col>
                             </Row>
                         </div>
@@ -506,6 +509,7 @@ const Invoice = () => {
 
                     ))}
                 </TabPanel>
+                
             </Tabs >
 
 
