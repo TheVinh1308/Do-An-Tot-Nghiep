@@ -419,19 +419,19 @@ const Pay = () => {
                         total: urlParams.get('vnp_Amount'),
                         status: 5
                     };
-                    
+
                     await axios.put(`https://localhost:7258/api/Invoices/${invoice_Id}`, invoiceEdit);
                     localStorage.removeItem("shippingAddress");
                     localStorage.removeItem("shippingPhone");
                     localStorage.removeItem("invoiceId");
                     localStorage.removeItem("userId");
                     await Promise.all(cartItems.map(element => axios.delete(`https://localhost:7258/api/Carts/${element}`)));
-                  
+
                     AfterPay(invoice_Id);
                 } catch (err) {
                     console.log("Error editing invoice: ", err);
                 }
-            } else if(transactionStatus !== undefined){
+            } else if (transactionStatus !== undefined) {
                 try {
                     const formNotificationAdmin = new FormData();
                     formNotificationAdmin.append("invoiceId", invoice_Id);
@@ -439,38 +439,38 @@ const Pay = () => {
                     formNotificationAdmin.append("time", new Date().toISOString());
                     formNotificationAdmin.append("url", `http://localhost:3000/admin/invoice/InvoiceDetail/${invoice_Id}`);
                     formNotificationAdmin.append("status", true);
-        
+
                     const res = await axios.get(`https://localhost:7258/api/InvoiceDetails/GetInvoiceDetailByInvoiceId/${invoice_Id}`);
                     if (res.data.length > 0) {
                         await Promise.all(res.data.map(async (item) => {
                             const productResponse = await axios.get(`https://localhost:7258/api/Phones/${item.phone.id}`);
                             const product = productResponse.data;
-        
+
                             const updatedStock = product.stock + item.quantity;
                             const formUp = {
                                 ...product,
                                 stock: updatedStock,
                             };
-        
+
                             await axios.put(`https://localhost:7258/api/Phones/${item.phone.id}`, formUp, {
                                 headers: {
                                     'Content-Type': 'multipart/form-data',
                                 }
                             })
-                           
+
                         }));
                     }
-                   window.location.href = "/cart"
+                    window.location.href = "/cart"
 
                 } catch (err) {
                     console.log("Error cancelling order: ", err);
                 }
             }
         };
-    
+
         fetchData();
     }, [query]);
-    
+
     // MOMO Payment
     const handleMomo = async (e) => {
         e.preventDefault();
@@ -581,8 +581,7 @@ const Pay = () => {
         const invoiceId = localStorage.getItem('invoiceId');
         if (errorCode && errorCode === '0') { // Successful payment
             try {
-        if (errorCode === '0') {
-            try{
+
                 const invoiceEdit = {
                     id: invoiceId,
                     shippingAddress: localStorage.getItem("shippingAddress"),
@@ -646,10 +645,12 @@ const Pay = () => {
                         console.error('Error editing invoice:', error);
                     });
             }
+
             catch {
                 console.log("Lỗi lấy dữ liệu trả về", error);
             }
         }
+
     }, [queryMomo]);
     // lựa chon phương thức thanh toán
     const [pttt, setPttt] = useState(1);

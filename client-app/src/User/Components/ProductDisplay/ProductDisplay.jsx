@@ -442,28 +442,28 @@ const ProductDisplay = (props) => {
 
                     {/* <p className="productdisplay-right-category"><span>Category: </span>Women, T-Shirt, Crop Top</p>
                     <p className="productdisplay-right-category"><span>Tag: </span>Modern, Latest</p> */}
-                  <div className="d-flex justify-content-between align-items-center w-100">
-                    {
-                        selectedPhone && selectedPhone.stock > 1 ? (
-                            <>
-                                <Link to="/pay" className="flex-fill mx-2">
-                                    <Button className="btn btn-muangay w-100">
-                                        Mua ngay
-                                    </Button>
-                                </Link>
-                                <div className="flex-fill mx-2">
-                                    <Button className="btn btn-cart w-100" onClick={() => handleAddCart(selectedPhone.name)}>
-                                        <i class="bi bi-cart"></i>
-                                    </Button>
-                                </div>
-                                <div className="flex-fill mx-2">
-                                    <Button className="btn btn-heart w-100" onClick={() => handleAddFavorite(selectedPhone.name)}>
-                                        <i class="bi bi-heart-fill"></i>
-                                    </Button>
-                                </div>
-                            </>
-                        ) : <p className="flex-fill" style={{fontSize: "2em", color: "red"}}>Sản phẩm đã hết hàng</p>
-                    }
+                    <div className="d-flex justify-content-between align-items-center w-100">
+                        {
+                            selectedPhone && selectedPhone.stock > 1 ? (
+                                <>
+                                    <Link to={`${isAuthenticated ? '/pay' : '/login'}`} className="flex-fill mx-2">
+                                        <Button className="btn btn-muangay w-100">
+                                            Mua ngay
+                                        </Button>
+                                    </Link>
+                                    <div className="flex-fill mx-2">
+                                        <Button className="btn btn-cart w-100" onClick={() => handleAddCart(selectedPhone.name)}>
+                                            <i class="bi bi-cart"></i>
+                                        </Button>
+                                    </div>
+                                    <div className="flex-fill mx-2">
+                                        <Button className="btn btn-heart w-100" onClick={() => handleAddFavorite(selectedPhone.name)}>
+                                            <i class="bi bi-heart-fill"></i>
+                                        </Button>
+                                    </div>
+                                </>
+                            ) : <p className="flex-fill" style={{ fontSize: "2em", color: "red" }}>Sản phẩm đã hết hàng</p>
+                        }
                     </div>
 
 
