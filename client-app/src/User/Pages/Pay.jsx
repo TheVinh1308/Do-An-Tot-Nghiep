@@ -14,7 +14,7 @@ const Pay = () => {
     // dùng để chuyển hướng
     const navigate = useNavigate();
     // lấy thông tin từ shopcontext
-    const { cartItems, totalItemPrice, phone } = useContext(ShopContext);
+    const { cartItems, totalItemPrice, phone, setErrorMessage } = useContext(ShopContext);
     // danh sách sản phẩm được chọn trong cart
     const [cart, setCart] = useState([]);
     // danh sách lỗi
@@ -522,9 +522,11 @@ const Pay = () => {
         const orderId = urlParams.get('orderId');
         const amount = urlParams.get('amount');
         const date = urlParams.get('date');
+        const message = urlParams.get('message');
+        setErrorMessage(message);
         const invoiceId = localStorage.getItem('invoiceId');
-        if (errorCode === '0') { // Successful payment
-            try{
+        if (errorCode && errorCode === '0') { // Successful payment
+            try {
                 const invoiceEdit = {
                     id: invoiceId,
                     shippingAddress: localStorage.getItem("shippingAddress"),
@@ -548,19 +550,49 @@ const Pay = () => {
                         // Additional function call or state update after payment success
                         AfterPay(invoiceId);
 
+
                     })
                     .catch((error) => {
                         console.error('Error editing invoice:', error);
                     });
             }
-            catch{
+            catch {
                 console.log("Lỗi lấy dữ liệu trả về", error);
             }
-               
-        } 
+
+        }
         else {
-            console.error('Payment failed or canceled.');
-            // Handle payment failure or cancellation
+            try {
+                const invoiceEdit = {
+                    id: invoiceId,
+                    shippingAddress: localStorage.getItem("shippingAddress"),
+                    shippingPhone: localStorage.getItem('shippingPhone'),
+                    code: orderId,
+                    userId: localStorage.getItem('userId'),
+                    issuedDate: new Date().toISOString(),
+                    paymentMethodId: 3, // Assuming Momo payment method ID
+                    total: amount * 100,
+                    status: 6 //  status
+                };
+
+                axios.put(`https://localhost:7258/api/Invoices/${invoiceId}`, invoiceEdit)
+                    .then(() => {
+                        localStorage.removeItem('shippingAddress');
+                        localStorage.removeItem('shippingPhone');
+                        localStorage.removeItem('invoiceId');
+                        localStorage.removeItem('userId');
+
+                        // Additional function call or state update after payment success
+                        window.location.href = '/'
+
+                    })
+                    .catch((error) => {
+                        console.error('Error editing invoice:', error);
+                    });
+            }
+            catch {
+                console.log("Lỗi lấy dữ liệu trả về", error);
+            }
         }
     }, [queryMomo]);
     // lựa chon phương thức thanh toán

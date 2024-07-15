@@ -281,15 +281,7 @@ const CartItems = () => {
                                     <h3>{totalItemPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h3>
                                 </Col>
                             </Row> */}
-                                        <Row>
-                                            <Col>
-                                                <h5>Vận chuyển</h5>
-                                            </Col>
-                                            <Col className="col-right">
-                                                <h5>miễn phí</h5>
-                                            </Col>
-                                        </Row>
-                                        <hr />
+
                                         <Row>
                                             <Col>
                                                 <h2>Tổng đơn hàng</h2>
@@ -302,10 +294,10 @@ const CartItems = () => {
                                             totalItemPrice > 200000000 ? (
                                                 <>
                                                     <Button className="btn-pay" onClick={handleToPay} disabled>Thanh toán</Button>
-                                                    <p style={{color: "red", fontSize: "2em"}}>Hạn mức mua tối đa là 200tr VND!</p>
+                                                    <p style={{ color: "red", fontSize: "2em" }}>Hạn mức mua tối đa là 200tr VND!</p>
                                                 </>
                                             ) :
-                                            <Button className="btn-pay" onClick={handleToPay}>Thanh toán</Button>
+                                                <Button className="btn-pay" onClick={handleToPay}>Thanh toán</Button>
                                         }
                                     </Col>
                                 </Row>

@@ -41,6 +41,7 @@ namespace Server.Services
                 requestType = _options.Value.RequestType,
                 notifyUrl = _options.Value.NotifyUrl,
                 returnUrl = _options.Value.ReturnUrl,
+                message = _options.Value.Message,
                 orderId = OrderId,
                 amount = amount.ToString(),
                 orderInfo = OrderInfo,

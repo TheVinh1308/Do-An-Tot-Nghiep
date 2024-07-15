@@ -9,9 +9,7 @@
     max-height: 100vh;
 }
 
-.cart-item {
-    padding: 60px 50px;
-}
+
 
 .cart-item .cart-item-img img {
     width: 200px;
@@ -106,7 +104,8 @@ option {
     margin: 2px;
     font-size: 1.2rem;
 }
-.cart-empty{
+
+.cart-empty {
     text-align: center;
     font-size: 5rem;
 }

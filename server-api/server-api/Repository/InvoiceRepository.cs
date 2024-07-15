@@ -61,7 +61,9 @@ namespace server_api.Repository
             var invoice = await _context.Invoices
                  .Include(i => i.User)
                  .Include(i => i.PaymentMethod)
-                .Where(i=>i.UserId == userId).ToListAsync();
+                .Where(i=>i.UserId == userId)
+                 .OrderByDescending(i => i.Id) 
+                .ToListAsync();
 
             return invoice;
         }

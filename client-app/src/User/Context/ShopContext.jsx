@@ -31,7 +31,12 @@ const ShopContextProvider = (props) => {
     // so sánh
     const [iitemCompare, setIitemCompare] = useState([]);
     const [show, setShow] = useState(false);
-    const contextValue = { phones, setPhones, defaultPhones, cartItems, setCartItems, totalItemPrice, setTotalItemPrice, setResultSearch, resultSearch, phone, setPhone, iitemCompare, setIitemCompare, show, setShow, isAddToCart, setIsAddToCart }
+
+    // thông báo sai giao dich
+    const [errorMessage, setErrorMessage] = useState("");
+    const contextValue = { phones, setPhones, defaultPhones, cartItems, setCartItems, totalItemPrice, setTotalItemPrice, setResultSearch, resultSearch, phone, setPhone, iitemCompare, setIitemCompare, show, setShow, isAddToCart, setIsAddToCart, errorMessage, setErrorMessage }
+
+
 
     return (
         <ShopContext.Provider value={contextValue}>

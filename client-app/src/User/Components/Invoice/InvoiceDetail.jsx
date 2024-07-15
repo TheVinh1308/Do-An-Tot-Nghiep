@@ -61,8 +61,10 @@ const InvoiceDetail = () => {
                 return <Badge bg="success">Hoàn thành</Badge>;
             case 4:
                 return <Badge bg="danger">Đã huỷ</Badge>;
-            default:
+            case 5:
                 return <Badge bg="primary">Đã thanh toán</Badge>;
+            default:
+                return <Badge bg="secondary" text="dark">Thanh toán thất bại</Badge>;
         }
     };
 
@@ -158,7 +160,7 @@ const InvoiceDetail = () => {
                                         <li className="text-muted ms-3">
                                             <span className="text-black me-4">Tổng tiền</span>
                                             {invoice?.total !== undefined
-                                                ? (invoice.total/10).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })
+                                                ? (invoice.total / 10).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })
                                                 : 'N/A' // or any other placeholder text or value
                                             }
                                         </li>
@@ -183,7 +185,7 @@ const InvoiceDetail = () => {
                     <Modal.Title className="add-title">Đánh giá sản phẩm</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                   <Review userId={userId} modPhoneId={selectedInvoiceRV}/>
+                    <Review userId={userId} modPhoneId={selectedInvoiceRV} />
                 </Modal.Body>
             </Modal>
         </>
