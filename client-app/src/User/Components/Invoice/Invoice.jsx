@@ -192,15 +192,15 @@ const Invoice = () => {
 
             <Tabs>
                 <TabList>
-                    <Tab>Tất cả</Tab>
+                    {/* <Tab>Tất cả</Tab> */}
                     <Tab>Đang xác nhận</Tab>
                     <Tab>Đang vận chuyển</Tab>
-                    <Tab>Đã huỷ</Tab>
-                    <Tab>Đã hoàn thành</Tab>
                     <Tab>Đã thanh toán</Tab>
+                    <Tab>Đã hoàn thành</Tab>
+                    <Tab>Đã huỷ</Tab>
                 </TabList>
 
-                <TabPanel>
+                {/* <TabPanel>
                     {invoices && invoices.filter(item => item.status !== 6).map((item, index) => (
                         <>
                             <div className="content" key={index}>
@@ -247,7 +247,7 @@ const Invoice = () => {
                                                     <>
                                                         <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
                                                     </>
-                                                    : item.status == 2 ?
+                                                    : item.status == 2 && item.status !== 6?
                                                         <>
 
                                                         </>
@@ -264,7 +264,7 @@ const Invoice = () => {
                             </div >
                         </>
                     ))}
-                </TabPanel>
+                </TabPanel> */}
                 <TabPanel>
                     {invoices && invoices.filter(item => item.status === 1).map((item, index) => (
 
@@ -326,6 +326,7 @@ const Invoice = () => {
                     ))}
                 </TabPanel>
                 <TabPanel>
+
                     {invoices && invoices.filter(item => item.status === 2).map((item, index) => (
 
                         <div className="content" key={index}>
@@ -387,6 +388,96 @@ const Invoice = () => {
 
                 </TabPanel>
                 <TabPanel>
+                    {invoices && invoices.filter(item => item.status === 5).map((item, index) => (
+
+                        <div className="content" key={index}>
+                            <Link to={`InvoiceDetail/${item.id}`}>
+                              
+                                {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                    indexDetail === 0 && (
+                                    <>
+                                     <Row className="head-content">
+                                                <Col>#{item.code}</Col>
+                                                <Col>{handleTT(item.status)}</Col>
+                                                <p  style={{color: "red"}}>Gồm {(invoiceDetails[item.id]).length} sản phẩm</p>
+                                            </Row>
+                                        <Row key={indexDetail} className="body-content">
+
+                                            <Col md={4}>
+                                                <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
+                                            </Col>
+                                            <Col md={8}>
+                                                <h4>{itemDetail.phone.name}</h4>
+                                                <p>{itemDetail.phone.modPhone.description}</p>
+                                                <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
+                                                <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
+
+                                            </Col>
+                                        </Row>
+                                        <hr />
+                                    </>
+                                    )
+                                ))}
+                            </Link>
+                            <Row>
+                                <Col className="btn-content">
+                                    <Link to={`InvoiceDetail/${item.id}`}>
+                                        <Button>Xem chi tiết</Button>
+                                    </Link>
+                                </Col>
+                            </Row>
+                           
+                        </div>
+
+                    ))}
+                </TabPanel>
+                <TabPanel>
+                    {invoices && invoices.filter(item => item.status === 3).map((item, index) => (
+
+                        <div className="content" key={index}>
+                            <Link to={`InvoiceDetail/${item.id}`}>
+                               
+                                {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
+                                    indexDetail === 0 && (
+                                    <>
+                                     <Row className="head-content">
+                                                <Col>#{item.code}</Col>
+                                                <Col>{handleTT(item.status)}</Col>
+                                                <p  style={{color: "red"}}>Gồm {(invoiceDetails[item.id]).length} sản phẩm</p>
+                                            </Row>
+                                        <Row key={indexDetail} className="body-content">
+
+                                            <Col md={4}>
+                                                <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
+                                            </Col>
+                                            <Col md={8}>
+                                                <h4>{itemDetail.phone.name}</h4>
+                                                <p>{itemDetail.phone.modPhone.description}</p>
+                                                <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
+                                                <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
+
+                                            </Col>
+                                        </Row>
+                                        <hr />
+                                    </>
+                                    )
+                                ))}
+                            </Link>
+                            <Row>
+                                <Col>
+                                </Col>
+                                <Col className="btn-content">
+                                    <Link to={`InvoiceDetail/${item.id}`}>
+                                        <Button>Xem chi tiết</Button>
+                                    </Link>
+                                </Col>
+                            </Row>
+                        </div>
+
+                    ))}
+
+                </TabPanel>
+                <TabPanel>
                     {invoices && invoices.filter(item => item.status === 4).map((item, index) => (
 
                         <div className="content" key={index}>
@@ -422,24 +513,6 @@ const Invoice = () => {
                                 <Col>
                                 </Col>
                                 <Col className="btn-content">
-                                    {/* {
-                                        item.status == 4 ?
-                                            <>
-                                                <Button>Mua lại</Button>
-                                            </> :
-                                            item.status == 1 ?
-                                                <>
-                                                    <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
-                                                </>
-                                                : item.status == 2 ?
-                                                    <>
-
-                                                    </>
-                                                    : <>
-                                                        <Button>Mua lại</Button>
-                                                        <Button>Viết đánh giá</Button>
-                                                    </>
-                                    } */}
                                 </Col>
                             </Row>
                         </div>
@@ -447,68 +520,8 @@ const Invoice = () => {
                     ))}
 
                 </TabPanel>
-                <TabPanel>
-                    {invoices && invoices.filter(item => item.status === 3).map((item, index) => (
-
-                        <div className="content" key={index}>
-                            <Link to={`InvoiceDetail/${item.id}`}>
-                              
-                                {invoiceDetails[item.id] && invoiceDetails[item.id].map((itemDetail, indexDetail) => (
-                                    indexDetail === 0 && (
-                                    <>
-                                     <Row className="head-content">
-                                                <Col>#{item.code}</Col>
-                                                <Col>{handleTT(item.status)}</Col>
-                                                <p  style={{color: "red"}}>Gồm {(invoiceDetails[item.id]).length} sản phẩm</p>
-                                            </Row>
-                                        <Row key={indexDetail} className="body-content">
-
-                                            <Col md={4}>
-                                                <img src={`https://localhost:7258/images/products/${itemDetail.phone.modPhone.image}`} alt="" width={150} />
-                                            </Col>
-                                            <Col md={8}>
-                                                <h4>{itemDetail.phone.name}</h4>
-                                                <p>{itemDetail.phone.modPhone.description}</p>
-                                                <p>{itemDetail.phone.color}, {itemDetail.phone.rom}GB</p>
-                                                <p>{(itemDetail.phone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })} x {itemDetail.quantity}</p>
-
-                                            </Col>
-                                        </Row>
-                                        <hr />
-                                    </>
-                                    )
-                                ))}
-                            </Link>
-                            <Row>
-                                <Col className="btn-content">
-                                    {
-                                        item.status == 4 ?
-                                            <>
-                                                <Button>Mua lại</Button>
-                                            </> :
-                                                item.status == 1 ?
-                                                    <>
-                                                        <Button onClick={() => handleShowReason(item)}>Huỷ đơn hàng</Button>
-                                                    </>
-                                                    : item.status == 2 ?
-                                                    <>
-
-                                                    </>
-                                                    : 
-                                                    <>
-                                                    <Button>Mua lại</Button>
-                                                    <Link to={`InvoiceDetail/${item.id}`}>
-                                                        <Button>Viết đánh giá</Button>
-                                                    </Link>
-                                                    </>
-                                                }
-                                            </Col>
-                                        </Row>
-                           
-                        </div>
-
-                    ))}
-                </TabPanel>
+              
+             
                 
             </Tabs >
 

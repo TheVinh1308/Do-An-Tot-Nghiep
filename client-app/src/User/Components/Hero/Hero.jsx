@@ -6,17 +6,17 @@ const Hero = () => {
         <>
             <div className="hero">
                 <div className="hero-left">
-                    <h2>Chào mừng đến với</h2>
+                    <h2 style={{fontSize: "3em"}}>Chào mừng đến với</h2>
                     <div>
                         <div className="hero-hand-icon">
                             <p>2VPHONE STORE</p>
                         </div>
-                        <p>Collections</p>
-                        <p>For everyone</p>
+                        <p></p>
+                        <p></p>
                     </div>
-                    <div className="hero-latest-btn">
+                    {/* <div className="hero-latest-btn">
                         <div>Latest Collection</div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

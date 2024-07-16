@@ -66,11 +66,11 @@ const Footer = () => {
                                 <hr className="w-100 clearfix d-md-none" />
                                 {/* Grid column */}
                                 <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                                    <h6 className="text-uppercase mb-4 font-weight-bold">Contact</h6>
-                                    <p><i class="bi bi-house-check"></i> New York, NY 10012, US</p>
-                                    <p><i class="bi bi-envelope-check"></i> info@gmail.com</p>
-                                    <p><i class="bi bi-telephone-forward"></i> + 01 234 567 88</p>
-                                    <p><i class="bi bi-phone"></i> + 01 234 567 89</p>
+                                    <h6 className="text-uppercase mb-4 font-weight-bold">Liên Hệ</h6>
+                                    <p><i class="bi bi-house-check"></i> Nha Be, TP HCM</p>
+                                    <p><i class="bi bi-envelope-check"></i> nguyenthevinh7649@gmail.com</p>
+                                    <p><i class="bi bi-telephone-forward"></i> +84 368308277</p>
+                                    <p><i class="bi bi-phone"></i> +84 368308277</p>
                                 </div>
                                 {/* Grid column */}
                             </div>

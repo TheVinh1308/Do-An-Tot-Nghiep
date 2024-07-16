@@ -49,6 +49,8 @@ const InvoiceDetail = () => {
                 return <Badge bg="info">Đang giao</Badge>;
             case 3:
                 return <Badge bg="success">Hoàn thành</Badge>;
+            case 5:
+                    return <Badge bg="success">Đã thanh toán</Badge>;
             default:
                 return <Badge bg="danger">Đã huỷ</Badge>;
         }
@@ -215,7 +217,7 @@ const InvoiceDetail = () => {
                                                 {getStatusBadge(invoice.status)}
                                             </span>
                                             {
-                                                invoice.status == 1 ? <span>
+                                                invoice.status == 1 || invoice.status == 5? <span>
                                                     <button className="btn-h" style={{ backgroundColor: 'red', fontSize: "14px", margin: "5px", padding: '1px 10px', borderRadius: '5px', border: 'none', color: 'white' }} onClick={handleInvoiceCancel}> Huỷ</button>
                                                     <button className="btn-xn" style={{ backgroundColor: 'green', fontSize: "14px", margin: "5px", padding: '1px 10px', borderRadius: '5px', border: 'none', color: 'white' }} onClick={handleInvoice}>Xác nhận</button>
                                                 </span> : invoice.status == 2 ?

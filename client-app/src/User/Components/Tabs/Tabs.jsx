@@ -46,10 +46,10 @@ const Tabs = ({selectedPhone,isAuthenticated,userId,userName}) => {
             id="tab5"
             className="tab-content-last"
           />
-          <label htmlFor="tab5">
+          {/* <label htmlFor="tab5">
             <i className="icon-globe" />
             Newton
-          </label>
+          </label> */}
           <ul>
             <li className="tab-content tab-content-first typography">
                 <Commnent selectedPhone={selectedPhone} isAuthenticated={isAuthenticated} userId={userId} userName={userName}/>
@@ -60,9 +60,9 @@ const Tabs = ({selectedPhone,isAuthenticated,userId,userName}) => {
             <li className="tab-content tab-content-3 typography">
               <Config selectedPhone={selectedPhone} />
             </li>
-            <li className="tab-content tab-content-last typography">
+            {/* <li className="tab-content tab-content-last typography">
                 
-            </li>
+            </li> */}
           </ul>
         </div>
         {/*/ tabs */}

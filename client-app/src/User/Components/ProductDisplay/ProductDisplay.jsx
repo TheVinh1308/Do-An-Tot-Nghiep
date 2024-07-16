@@ -375,13 +375,13 @@ const ProductDisplay = (props) => {
                         {
 
                             product.modPhone.promotionId != 1 ? (
-                                new Date(product.modPhone.promotion.startDay) > new Date() ? (<><div className="productdisplay-right-price-new">${selectedPhone && (selectedPhone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div><div><img className="img-km" src="https://localhost:7258/images/khac/khuyenMai.webp" alt="" /></div></>) :
-                                    ((new Date() > new Date(product.modPhone.promotion.endDay)) ? <div className="productdisplay-right-price-new">${selectedPhone && (selectedPhone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div> :
+                                new Date(product.modPhone.promotion.startDay) > new Date() ? (<><div className="productdisplay-right-price-new">{selectedPhone && (selectedPhone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div><div><img className="img-km" src="https://localhost:7258/images/khac/khuyenMai.webp" alt="" /></div></>) :
+                                    ((new Date() > new Date(product.modPhone.promotion.endDay)) ? <div className="productdisplay-right-price-new">{selectedPhone && (selectedPhone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div> :
                                         <>
                                             <div className="productdisplay-right-price-new">{selectedPhone && (selectedPhone.price - ((selectedPhone.price * selectedPhone.modPhone.promotion.discountPercent) / 100)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div>
                                             <div className="productdisplay-right-price-old">{selectedPhone && (selectedPhone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div>
                                         </>))
-                                : (<div className="productdisplay-right-price-new">${selectedPhone && (selectedPhone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div>)
+                                : (<div className="productdisplay-right-price-new">{selectedPhone && (selectedPhone.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div>)
                         }
 
                     </div>

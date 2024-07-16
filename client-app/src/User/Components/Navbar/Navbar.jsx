@@ -126,7 +126,7 @@ const Navbar = () => {
                         <div className="search-form-container">
                             <div className="search-form" >
                                 <input className="search-input" type="text" placeholder="Search..." onChange={(e) => setValue(e.target.value)} />
-                                <button className="search-button" type="submit">Search</button>
+                                {/* <button className="search-button" type="submit">Search</button> */}
                             </div>
                         </div>
                         <div className="product-suggestions">

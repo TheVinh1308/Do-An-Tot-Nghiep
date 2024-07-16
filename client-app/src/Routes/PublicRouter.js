@@ -13,6 +13,7 @@ import ConfirmEmail from "../User/Components/CofirmEmail/ConfirmEmail";
 import InvoiceDetail from "../User/Components/Invoice/InvoiceDetail";
 import Favorite from "../User/Pages/Favorite";
 import NotFound from "../User/Pages/NotFound";
+import CheckLogin from "./CheckLogin";
 
 const PublicRouter = () => {
     return (
@@ -35,8 +36,8 @@ const PublicRouter = () => {
                         <Route path='xiaomi/:id' element={<Product />}></Route>
                         <Route path='huawei/:id' element={<Product />}></Route>
                         <Route path='cart' element={<Cart />} />
-                        <Route path='login' element={<Login />} />
-                        <Route path='register' element={<Register />} />
+                        <Route path="login" element={<CheckLogin><Login /></CheckLogin>} />
+                        <Route path="register" element={<CheckLogin><Register /></CheckLogin>} />
                         <Route path='pay' element={<Pay />} />
                         <Route path='invoice' element={<Invoice />} />
                         <Route path='afterPay/:id' element={<AfterPay />} />

@@ -105,7 +105,6 @@ const Invoice = () => {
             case 3:
                 return <Badge bg="success">Hoàn thành</Badge>;
             default:
-
                 return <Badge bg="danger">Đã huỷ</Badge>;
         }
     };
